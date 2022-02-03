@@ -13,8 +13,19 @@
       <pubDate>Tue, 01 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog-neas.github.io/en/blog-neas/pls-seminar-one/</guid>
-      <description>This is the first post of a series intented to present an overview of the steps involved in undertaking text and data mining. Here, the first pre-processing steps of textual data mining are introduced.
-Questo post è un estratto del seminario online che si è tenuto nell’ambito della Scuola Estiva per il Piano di Lauree Scientifiche (PLS) (in inglese metti Plan for Science Degrees) promulgato dall’Università degli Studi di Napoli Federico II.</description>
+      <description>This is the first post of a series intented to present an overview of the steps involved in undertaking text and data mining, from the data preparation to the sentiment analysis. This is an excerpt of the online seminar that was held as part of the Summer School for the Plan for Science Degrees (Piano di Lauree Scientifiche, PLS) promoted by the University of Naples Federico II. Participants consisted of secondary school students and early university students.</description>
+    </item>
+    
+    <item>
+      <title>Help</title>
+      <link>https://blog-neas.github.io/en/blog-neas/help/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/blog-neas/help/</guid>
+      <description>This is not a help service for all your R and statistical questions, so please try to avoid to post general questions in the comments, or send them to me by email. Please, limit to comments related to the published content.
+If you have questions about data analysis, ask for help on crossvalidated.com.
+If you have questions about R, ask for help on stackoverflow.com.
+Please, be polite in your comment: you do not necessarily have to agree with my posts but you can always kindly manifest your opinion.</description>
     </item>
     
     <item>
@@ -71,16 +82,6 @@ The present work is part of the &amp;ldquo;Plan for Science Degrees&amp;rdquo; (
       
       <guid>https://blog-neas.github.io/en/seminars/eusn2021_2/</guid>
       <description>Dynamics of the football market transfer: an application to the Italian Serie A teams Conference: EUSN2021 5th European Conference on Social Network Authors: Roberto Rondinelli, Lucio Palazzo</description>
-    </item>
-    
-    <item>
-      <title>RMD example</title>
-      <link>https://blog-neas.github.io/en/blog-neas/rmdownexample/</link>
-      <pubDate>Wed, 08 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog-neas.github.io/en/blog-neas/rmdownexample/</guid>
-      <description>Advertisement :)  - pica - high quality and fast image resize in browser. - babelfish - developer friendly i18n with plurals support and easy syntax.  You will like those projects!    h1 Heading 8-) h2 Heading h3 Heading h4 Heading h5 Heading h6 Heading      Horizontal Rules  Typographic replacements Enable typographer option to see result.
-(tm) (TM) (p) (P) +-     test.</description>
     </item>
     
     <item>
@@ -382,18 +383,6 @@ In this article we analyze the performance of the Italian healthcare system duri
       <guid>https://blog-neas.github.io/en/publications/orsuc-book/</guid>
       <description>Note: The original chapter is written in Italian. Here you can find a translation of the abstract.
 In this paper we identify the relationships between the Italian university courses and students&#39; first job categories. University courses in Italy are divided in bachelor (corsi di studio, CdS) and master degrees (corsi di laurea,CdL), while the professional sectors are categorized by the ATECO codes, officially introduced by the Italian institute of statistics (ISTAT).</description>
-    </item>
-    
-    <item>
-      <title>Help</title>
-      <link>https://blog-neas.github.io/en/blog-neas/help/</link>
-      <pubDate>Tue, 29 Dec 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog-neas.github.io/en/blog-neas/help/</guid>
-      <description>This is not a help service for all your R and statistical questions, so please try to avoid to post general questions in the comments, or send them to me by email. Please, limit to comments related to the published content.
-If you have questions about data analysis, ask for help on crossvalidated.com.
-If you have questions about R, ask for help on stackoverflow.com.
-Please, be polite in your comment: you do not necessarily have to agree with my posts but you can always kindly manifest your opinion.</description>
     </item>
     
     <item>

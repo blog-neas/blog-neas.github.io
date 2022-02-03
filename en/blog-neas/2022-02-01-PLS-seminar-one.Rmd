@@ -6,35 +6,28 @@ mathjax: true
 categories:
   - PLS
   - Text Mining
+  - Data Cleaning
   - Word Cloud
-  - Bigram
 bibliography: ../../../static/biblio/bibliography.bib
 ---
+
 ```{r load_packages,echo=FALSE}
 library(fontawesome)
 library(kableExtra)
 library(ggplot2)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
 ```
 
-This is the first post of a series intented to present an overview of the steps involved in undertaking text and data mining.
-Here, the first pre-processing steps of textual data mining are introduced.
-
-Questo post è un estratto del seminario online che si è tenuto nell'ambito della Scuola Estiva per il *Piano di Lauree Scientifiche* (PLS) (in inglese metti Plan for Science Degrees) promulgato dall'Università degli Studi di Napoli Federico II.
-I partecipanti sono composti per la maggior parte da studenti delle scuole secondarie di secondo grado e agli studenti universitari all'inizio del loro percorso. Per le analisi statistiche è stato utilizzato il software R.
-In particolare, sono stati introdotti i concetti principali dell'analisi dei dati testuali e sono stati mostrati i risultati attraverso una indagine somministrata in tempo reale ai partecipanti.
-
+This is the first post of a series intented to present an overview of the steps involved in undertaking text and data mining, from the data preparation to the sentiment analysis.
+This is an excerpt of the online seminar that was held as part of the Summer School for the *Plan for Science Degrees* (*Piano di Lauree Scientifiche*, PLS) promoted by the University of Naples Federico II.
+Participants consisted of secondary school students and early university students. R software was used for the statistical analyses.
+In this article I'll introduce the first steps to take to preprocess textual data.
 
 > Text expresses a vast, rich range of information, but encodes this information in a form that is difficult to decipher automatically.
 >
 > @hearst1999untangling
 
-
-Obiettivo del *text mining* (analisi dei dati testuali) è quello di elaborare metodi ed algoritmi per estrarre in maniera automatica informazioni dal testo, informazioni che possono poi essere utilizzate, ad esempio, per classificare o raggruppare i documenti di testo.
-
-Text mining methods allow to highlight the most frequently used keywords in a paragraph of texts.
-
-Text mining procedures transform unstructured data into structured data, making it easier for organizations to analyze vast collections of text documents.
-
+Text mining is the automated process of selecting and analysing texttual data for the purpose to find patterns, extract information and perform semantic analysis.
 Some of the common text mining tasks are text classification, text clustering, creation of granular taxonomies, document summarisation, entity extraction, and sentiment analysis.
 
 The main advantage of text mining is that text can be found (nearly) everywhere, some examples are:
@@ -47,56 +40,49 @@ The main advantage of text mining is that text can be found (nearly) everywhere,
 - Emails
 - Websites
 
-However, data are unstructured, meaning that
-- No feature vector representation
+However, text data is 'dirty' and unstructured, meaning that there is no feature vector representation and we have to take into account for:
+
 - Linguistic structure
 - Language
 - Relationships between words
 - Importance of words
 - Negations, etc.
-- Text is dirty
 - Grammatical, spelling, abbreviations, synonyms, homographs
 
-More importantly, we have to consider that text is intended for communication between people: context and syntax matter! See for instance @van2016exploring. For this reason, there does not exist a 'standard' approach, each document requires a dedicated approach.
+More importantly, we have to consider that text is intended for communication between people: context and syntax matter! See for instance @van2016exploring. For this reason, there is no 'standard' method; each document requires a dedicated approach.
 
 <div class="alert alert-info">
-<strong>`r fa("lightbulb")` Example.</strong> There is a huge difference between the sentences *Even the sun sets in paradise* and *The sun sets even in paradise* or, again, between *she only told me she loved him* and *she told me she loved only him*, even if their structure is almost identical.
+<strong>`r fa("lightbulb")` Example.</strong> There is a huge difference between the sentences '*Even the sun sets in paradise*' and '*The sun sets even in paradise*' or, again, between '*she only told me she loved him*' and '*she told me she loved only him*', but for a computer those pairs of sentences are almost identical.
 </div>
 
+In general, text is stored in an unstructured way. Pre-processing the raw data to transform unstructured data into structured data is the first task to overcome, making it possible to analyse vast collections of text documents.
 
-<!-- > <strong>`r fa("lightbulb")` Example.</strong> There is a huge difference between the sentences *Even the sun sets in paradise* and *The sun sets even in paradise* or, again, between *she only told me she loved him* and *she told me she loved only him*. -->
-<!-- >  -->
+| **Structured data** | **Unstructured data** |
+|:-------------------:|:---------------------:|
+| Data is organised in a defined format, allowing it to be easily parsed and manipulated by a computer.  | Data has irregularities and ambiguities that make it difficult to process it using traditional softwares. |
 
-<!-- >`r fa("lightbulb")` Example</strong> asdasddd . -->
-<!-- > -->
-<!-- > -->
+<!-- **Structured data** -->
 
-Prior to be able to analyse textual data Quindi, per poter analizzare questo tipo di dati it is necessary to convert the unstructured data to a structured feature vector.
+<!-- : Data are organised in a defined format, allowing it to be easily parsed and manipulated by a computer.  -->
 
-**Dati strutturati**
+<!-- **Unstructured data** -->
 
-: Sono i dati conservati in database, organizzati secondo schemi e tabelle rigide. Questa è la tipologia di dati più indicata per i modelli di gestione relazionale delle informazioni
+<!-- : Data has irregularities and ambiguities that make it difficult to process it using traditional softwares. -->
 
-**Dati non strutturati**
-
-: Sono i dati conservati senza alcuno schema, come testi, immagini, video e altro. In questo caso, i sistemi di gestione di dati utilizzabili sono quelli basati sul modello dell'information retrieval
-
-As starting point we have a collection of documents, each of which is a (relatively) free-form sequence of words, and turn it into a feature-vector representation. In general, a collection of *documents* is called *corpus* where each document is composed of individual *tokens* or *terms* (e.g. words).
+Thus, the first step involves pre-processing the raw data to transform unstructured data into structured data, turning a collection of documents into a feature-vector representation. In general, a collection of **documents** is called **corpus** where each document is composed of individual **tokens** or **terms** (i.e. words).
 
 The structure of each document can be various. Each document can be a full book (e.g. [LOTR](https://textmining.nu/2018/10/29/text-mining-the-lord-of-the-rings/)), a chapter, some pages, few sentences (e.g. Twitter posts) or even a single sentence.
-
 The process involving the conversion of this kind of unstructred data to a structured feature vector is called featurization.
 
-In our case, each document is represented by a short answer: we asked participants of the seminar to answer (using a simple Google Form) to the question 'Cosa vorresti fare dopo il diploma?' ('what would you like to do after graduation?'), 
-setting an open answer and fixed a limit of 200 letters.
-<!-- Subsequently, we asked them to select the kind of future they expect to follow by using a multiple choice question (STEM, Humanities, Medical/Infirmary, Other). -->
-We gathered a total of 147 answers, il dataset finale tradotto in inglese è disponibile [here](asdadasd) ([here](asdadasd) you can find the original version).
+In our case, each document is represented by a short answer; we asked participants of the seminar to answer (using a Google Form) to the question 'what would you like to do after graduation?' ('Cosa vorresti fare dopo il diploma?'), 
+setting an open answer with fixed limit of 200 letters.
+
+During the PLS seminar we gathered a total of 147 answers, the original dataset has been translated in english and it is available [here](asdadasd) ([here](asdadasd) you can find the original version).
 
 
-# Text Mining with R
+## Text Mining with R
 
-Adesso passiamo al lato operativo utilizzando il Software R.
-We used `tm` package for the text mining functions and `wordcloud` to produce the word cloud. In addition, stemming requires the package `SnowballC`.
+The `tm` package is required for the text mining functions, while some stemming procedures need the use of `SnowballC` package.
 
 ```{r intro, echo=FALSE, message=FALSE}
 library(tm)
@@ -116,25 +102,32 @@ kable(head(rawdata,5), "html") %>%
   scroll_box(width = "100%")
 ```
 
+The function `SimpleCorpus` transforms raw texts, initially stored as a vector, into a corpus.
+
 ```{r inspect}
-corpus <- SimpleCorpus(VectorSource(rawdata[,2]),control = list(language="it"))
+corpus <- SimpleCorpus(VectorSource(rawdata[,2]),control = list(language="en"))
+```
+
+When data is large and more structured, other functions are suggested (i.e. `VCorpus`, `PCorpus`) to boost performance and minimize memory pressure.
+With `str(corpus)` we can inspect the newly defined data structure.
+```{r inspect2}
 str(corpus)
 ```
 
-## STEP 1: Pre-trattamento del testo
+### Pre-processing data
 
+Depending on the task, there may be several methods that we can take to standardise the text. Some pre-processing techniques are depicted as follows.
 
-- Normalisation: It is the first attempt to reduce the number of unique tokens present in the text, removing the variations in a text and also cleaning for the redundant information. The most common approaches comprendono the reduction of every characters to lower case, misspelling conversion and special characters removal.
+**Normalisation:** It is the first attempt to reduce the number of unique tokens present in the text, removing the variations in a text and also cleaning for the redundant information. The most common approaches comprendono the reduction of every characters to lower case, misspelling conversion and special characters removal.
 
-- Normalizzazione: standardizzazione dell testo mediante il
-riconoscimento di nomi o altre entità di interesse generale, i.e. nomi propri, parole accentate separate da trattini (hypenation), etc.
-Usually a typical normalization involves the lowercase and deletion of stop words.
+Usually, a typical normalization involves the lowercase and deletion of stop words.
 
 ```{r normalizzazione, message=FALSE}
 corpus_cl <- tm_map(corpus, tolower)
 ```
 
-Additionally, it would be necessary to convert accented characters, that are common in some languages (i.e. in Italian), and special symbols (i.e. emoticons) to their plain version. In this case, there are several techniques that can do the trick, one of the most common is given by changing the original encoding to ASCII with transliteration option by using the `iconv()` function.
+Additionally, it would be necessary to convert accented characters, that are common in some languages (i.e. in Italian), and special symbols (i.e. emoticons) to their plain version. In this case, there are several techniques that can do the trick, one of the most common is given by changing the original encoding to ASCII with transliteration option (`ASCII//TRANSLIT`) by using the `iconv()` function.
+
 ```{r conv_accent1}
 corpus_cl <- tm_map(corpus_cl,iconv,from="UTF-8",to="ASCII//TRANSLIT")
 ```
@@ -142,238 +135,87 @@ corpus_cl <- tm_map(corpus_cl,iconv,from="UTF-8",to="ASCII//TRANSLIT")
 Sometimes the conversion in ASCII returns the question mark "?" as result, meaning that the algorithm was not able to map the character from the initial encoding to ASCII.
 
 ```{r conv_accent2}
-inspect(corpus[116])
-inspect(corpus_cl[116])
+corpus[116]$content
+corpus_cl[116]$content
 ```
 
 This kind of error will be corrected in next step, when removing punctuation symbols.
 
-- Stop words: Text and document classification includes many words which do not contain important significance to be used in classification algorithms (e.g. 'and', 'about', 'however', 'afterwards', 'again', etc.). The most common technique to deal with these words is to remove them from the documents.
+**Stopwords:** Text and document classification includes many words which do not contain important significance to be used in classification algorithms (e.g. 'and', 'about', 'however', 'afterwards', 'again', etc.). The most common technique to deal with these words is to remove them from the documents.
 
-```{r stopwords, message=FALSE}
-corpus_cl <- tm_map(corpus_cl, removeWords, c(stopwords('it')))
+```{r stopwords}
+corpus_cl <- tm_map(corpus_cl, removeWords, c(stopwords('en')))
 
-# kable(inspect(corpus_cl)[1:5], "html") %>%
-#   kable_styling() %>%
-#   scroll_box(width = "100%")
-inspect(corpus_cl)[1:5]
-
+corpus_cl[1:5]$content
 ```
 
-- Filtraggio: rimuovere quelle parole che, per motivi dipendenti dalla lingua analizzata e dagli obiettivi dell'utente, non vengono considerate significative ai fini dell'analisi (ad esempio numeri, acronimi, spazi vuoti, meme). Tali parole sono conosciute come 'stop words'.
+The corpus can be additionally filtered by using the following functions.
 
 ```{r filtraggio}
 # remove numbers
 corpus_cl <- tm_map(corpus_cl, removeNumbers)
 # remove punctuation
 corpus_cl <- tm_map(corpus_cl, removePunctuation)
+# set the dictionary and remove additional words/acronyms
+drop <- c("cuz")
+corpus_cl <- tm_map(corpus_cl,removeWords,drop)
 # remove extra white spaces
 corpus_cl <- tm_map(corpus_cl, stripWhitespace)
-# set the dictionary of words/acronyms to be dropped
-drop <- c("br")
-#remove the dropwords
-corpus_cl <- tm_map(corpus_cl,removeWords,drop)
 
-# kable(head(corpus_cl,5), "html") %>%
-#   kable_styling() %>%
-#   scroll_box(width = "100%")
-inspect(corpus_cl)[1:5]
+corpus[117]$content
+corpus_cl[117]$content
 ```
 
-
-- Lemmatization/Stemming: replace the suffix of a word with a different one or removes the suffix of a word completely to get the basic word form (lemma). Sometimes, to avoid ambiguization, the replacement is slightly different from the original word, es.
-
-\begin{align*}
- \text{to write} \quad & &  \\
- \text{writing} \quad & \Longrightarrow  & \text{write} \\
- \text{written} \quad & &
-\end{align*}
-
-- Lemmatizzazione: riduzione di tutte le varie forme coniugate e declinate di una parola con il rispettivo lemma, così che possano essere analizzate come singoli item. For example:
-
-\begin{aligned}
- \text{Scritto} \quad &  &\\
- \text{Scriverai} \quad &\Longrightarrow & \quad \text{Scrivere} \\
- \text{scrivemmo} \quad & &  
-\end{aligned}
+Stopwords removal, as well as other procedures (see stemming below), is clearly language-dependent: each language has a specific list of symbols and special characters.
 
 
-- Lemmatizzazione/Stemming: ricondurre tutte le parole di un documento di testo alla loro radice (le parole flesse sono semanticamente simili alla loro radice)
+**Lemmatization/Stemming:** replace the suffix of a word with a different one or removes the suffix of a word completely to get the basic word form (*lemma*).
+
 \begin{align*}
  \text{write, writing} & \quad \Longrightarrow \quad & \text{writ}
-\end{align*}
-
-\begin{align*}
- \text{deciso, decisa, decisi, decise, decis*} & \quad \Longrightarrow \quad & \text{decis} \\
- \text{giurisprudenza} & \quad \Longrightarrow \quad & \text{giurisprudent}
 \end{align*}
 
 ```{r stemming}
 corpus_cl <- tm_map(corpus_cl, stemDocument,language = "it")
 ```
-<!-- 
-- Tokenization: The last preliminary step to ---- before structuring the data in matrix form is given by tokenization. It is a pre-processing method which breaks a stream of text into a vector of single words.
 
-\begin{aligned}
-& \text{"The quick brown fox jumps over the lazy dog"} \\
-& \qquad \qquad \qquad \qquad \qquad \Downarrow  \\
-& ('The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog')
-\end{aligned}
-<!-- The goal of this step is the investigation of the words in a sentence and  -->
-Tokenization procedure may change according to several factors, such as the language or the type of the analysis.
+In some cases, to avoid ambiguization, the replacement is slightly different from the original word. The final result is different from the initial corpus. 
 
-```{r tokenization}
-corpus_cl <- tm_map(corpus_cl, stemDocument,language = "it")
+```{r stemming2}
+corpus[1:5]$content
+corpus_cl[1:5]$content
 ```
- -->
 
-## STEP 2: Document-Term Matrix
+### Document-Term Matrix
 
-After pre-processing, the data have the form of a corpus, consisting of a collection of `r paste("n =",length(corpus_cl))` vectors, each of them containing a collection of $p_i$ words, with $i=1, \ldots, n$.
+After pre-processing, the data have the form of a 'clean' corpus, consisting of a collection of `r paste("n =",length(corpus_cl))` vectors, each of them containing a collection of $p_i$ words, with $i=1, \ldots, n$.
 It is possible to define a document-term matrix (DTM), a $n\times m$ matrix where rows correspond to documents in the collection and columns correspond to the number of unique tokens of the corpus. This representation describes then the frequency of terms that occur in a collection of documents. 
-
-
-|          | Term 1 | Term 2 | $\cdots$ | Term $m$ |
-|----------|--------|--------|----------|----------|
-| Doc 1    |        |        |          |          |
-| Doc 2    |        |        |          |          |
-| $\cdots$ |        |        |          |          |
-| Doc $n$  |        |        |          |          |
-
 Alternatively, It is also common to use the transposed version, also called term-document matrix (TDM). 
-In our case, the DTM is obtained as follows
+
+|          | Term 1  | Term 2  | $\cdots$ | Term $m$ |
+|----------|---------|---------|----------|----------|
+| Doc 1    |$d_{1,1}$|$d_{1,2}$|$\cdots$  |$d_{1,m}$ |
+| Doc 2    |$d_{2,1}$|$d_{2,2}$|$\cdots$  |$d_{2,m}$ |
+| $\cdots$ |$\cdots$ |$\cdots$ |$\cdots$  |$\cdots$  |
+| Doc $n$  |$d_{n,1}$|$d_{n,2}$|$\cdots$  |$d_{n,m}$ |
+
+In our case, the DTM is obtained through the use of the `DocumentTermMatrix` function.
 ```{r dtm}
 DTM <- DocumentTermMatrix(corpus_cl)
 ```
+The resulting DTM has dimension `r paste(dim(DTM)[1],"x",dim(DTM)[2])` and the values of the cells correspond to the raw counts of a given term. 
+Row marginals represent the number of terms in each document while column marginals count how many times each unique term appears in the corpus.
 
 ```{r dtm_viz, echo=FALSE, message=FALSE}
+inspect(DTM[1:5,1:5])
 # kable(DTM[1:5,1:5], "html") %>%
 #   kable_styling() %>%
 #   scroll_box(width = "100%")
-
 ```
 
-The resulting DTM has dimension `r dim(DTM)` asdadsdasad ads sdsd s sds sd eet etete.
-
-DESCRITTIVE E PULIZIE ULTERIORI
-
-<!-- colS <- colSums(as.matrix(new_docterm_corpus)) -->
-
-Let us have a look at the distribution of word counts. 
-
-```{r dtm2}
-DTmat <- as.matrix(DTM)
-
-colS <- sort(colSums(DTmat),decreasing = TRUE)
-doc_features <- data.frame("name" = attributes(colS)$names, "count" = colS)
-```
-
-```{r dtm2_viz, echo=FALSE, message=FALSE}
-kable(doc_features, "html") %>%
-  kable_styling() %>%
-  scroll_box(width = "100%")
-```
-
-There is an inverse proportionality between the rank and the frequency of words. This relationship is called Zipf’s law, originally introduced in terms of quantitative linguistics but with applications in other environments.
-
-Mostriamo in tabella delle frequenze dei termini
+Different schemes for weighting raw counts can be applied, depending on the type of statistical measures to be derived.
 
 
+Next time, we will start from the DTM to provide some descriptive statistics and generate the word cloud.
 
-----------------------------
-
-
-Ora visualizziamo i termini che si presentano con maggiore frequenza nel documento:
-
-
-The TMD is usually a sparse matrix, meaning that most of the values are zeroes. La presenza di una grande quantità di zeri può in genere creare problemi per i modelli statistici e richiedere un tempo molto elevato di calcolo. Therefore, we'll remove the sparse terms by using a threshold: values with low frequency across documents are dropped. We can remove only the most sparse tokens, for example fixing `sparse = 0.95` will result i a new matrix contains only tokens with a sparse factor of less than 95%.
-
-```{r dtm3}
-dtm2 <- removeSparseTerms(DTM,sparse = 0.95)
-```
-
-
-#### STEP 2: Rappresentazione del testo
-
-
-```{r dtm4}
-DTmat2 <- as.matrix(dtm2)
-
-colS2 <- sort(colSums(DTmat2),decreasing = TRUE)
-doc_features2 <- data.frame("name" = attributes(colS2)$names,
-                           "count" = colS2)
-
-ggplot(doc_features2,aes(x=reorder(name, count), y=count)) +
-  geom_bar(stat = "identity",fill='lightblue',color='black') +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  coord_flip() +
-  theme_light()
-```
-
-SPIEGONE 
-
-Circa il 53.49% delle parole considerate è stata utilizzata per almeno 8 volte.
-
-
-
-
-<!--
-Dopo una pulizia preliminare dei dati, le risposte sono state analizzate e catalogate in quattro classi distinte:
-
-(STEM, Humanities, Medical/Infirmary, Other)
-
-- Studi Scientifici: appartengono a questa classe i rispondenti che hanno specificato di voler iscriversi ad un corso di laurea di tipo scientifico.
-- Studi Umanistici: gruppo di rispondenti che hanno dichiarato di voler iscriversi ad un corso di laurea di tipo umanistico.
-- Scienze Mediche/Sanitarie: studenti che hanno espresso la volontà di voler prendere parte a corsi di laurea di natura medica (medicina/veterinaria) o di scienze infermieristiche.
- - Altro/Non Specificato: appartengono a questa classe tutte le risposte valutate troppo vaghe, contraddittorie ed ironiche.
-
-Per la stragrande maggioranza dei rispondenti si presenta la volontà di proseguire gli studi iscrivendosi all'Università, mentre solo due rispondenti del campione in esame hanno dichiarato di voler far parte delle forze dell'Ordine, in particolare diventare Carabiniere. In questo contesto, si nota da parte di alcuni studenti un interessamento al mestiere di "criminologo", con la ricerca di un corso di studi universitario che possa portare ad una carriera da criminologo ed all'attività investigativa.
-It is worth to note that this procedure can be done in a more automatic way by using un appropriato natural language processing method, see @aggarwal2012survey.
-
-Prime descrittive
-```{r desc1}
-# hist(corpus$Tipo)
-```
-
-Nella figura 5, si può notare la distribuzione delle risposte in base alle categorie individuate.
-Al netto della categoria "Altro" (44%), le discipline scientifiche sembrano attirare maggiormente gli studenti intervistati (55% delle risposte) rispetto alle discipline umanistiche, che si attestano ad un 9% del totale. Risulta interessante constatate una consistente percentuale di studenti attratti dalle discipline mediche ed infermieristiche, pari al 39%, segno dell'appeal che tali discipline destano negli studenti liceali.
-
-Analizzando nel dettaglio le risposte, si possono inoltre notare delle caratteristiche dei rispondenti che potrebbero aiutare a comprendere nel dettaglio la natura intrinseca del fenomeno. Come si poteva già notare dalla forte percentuale di risposte appartenenti alla categoria "Altro" (mostrata nel grafico 5), si evince una forte indecisione nei confronti del futuro da parte degli studenti, contraddistinta a volte dall'utilizzo di verbi al condizionale o, nello specifico, all'utilizzo di termini quali, tra i tanti, "non so" e "non ho ancora deciso". 
-
-Anche il senso di incertezza è una componente che si evince con una certa frequenza attraverso frasi quali "probabilmente", "se ci riesco" e "se ne ho la possibilità". Al contrario, sono pochi i ragazzi che dichiarano una preferenza in maniera chiara e determinata il proprio percorso futuro ma, quando lo fanno, forniscono una descrizione esaustiva e molto dettagliata.
-In questo contesto, alcuni rispondenti hanno evidenziato (sia in maniera diretta che indiretta) l'utilità che hanno avuto i webinar organizzati dalla Summer school PLS. Infatti, alcuni studenti hanno dichiarato apertamente di partecipare a tali corsi al fine di fugare potenziali dubbi riguardanti il tema di interesse trattato durante i vari seminari, mentre un paio hanno risposto di esser arrivati ad una scelta più decisa proprio dopo aver seguito i suddetti corsi.
-
-In alcune risposte si può inoltre osservare una propensione alla mobilità universitaria fuori regione: non mancano infatti preferenze relative allo studio fuori regione/città di appartenenza (con i termini "non a Napoli" oppure "fuori dalla Campania" ad esempio) e addirittura alla mobilità internazionale ("Fare esperienza all'estero per poi rimanere all'estero o tornare").
-
-Dopo aver effettuato il pre-trattamento del testo attraverso le fasi descritte in sezione 1, rimuovendo in particolare stop-words e segni di punteggiatura, siamo passati quindi all'analisi delle parole. Sono state estrapolate dal testo 344 parole distinte, delle quali l'84% sono state utilizzate al più due volte (72% una sola volta e 12% due volte), al quale corrispondono sia termini generici ("iscrizione", "attuale", "riguardante", "incline") che più specifici ("biotecnologie", "aerospaziale", "fisioterapia", "criminologia"). Pertanto, da qui in poi focalizziamo la nostra analisi allo studio delle parole che sono state utilizzate con la maggior frequenza. 
-
-Figura 6: diagramma a barre con la distribuzione delle frequenze delle parole usate almeno 3 volte
-Nel grafico 6, si evince la distribuzione di frequenza delle parole utilizzate almeno tre volte all'interno del campione, che sono pari a 55. Si tratta chiaramente di una distribuzione fortemente asimmetrica a cui corrisponde un valore modale pari a 3. Sono 36 le parole che sono state utilizzate dagli studenti con una frequenza compresa tra 3 ed 8 volte, mentre 19 sono le parole a cui corrisponde una frequenza più alta, come mostrato in tabella 1.
-
-Tra le parole più rilevanti spiccano di certo alcuni sostantivi e verbi all'infinito relativi all'Università (come "università", "medicina", "ingegneria", facoltà", "iscrivere", "intraprendere" e "studi") e anche alcuni verbi coniugati al condizionale ("piacerebbe","vorrei"), che esprimono quella percezione di incertezza del futuro già osservata in precedenza.
-
-Seguendo un'ottica di esperienza interattiva e votata al coinvolgimento attivo degli ascoltatori, si è mostrato ai ragazzi come attraverso l'utilizzo della term-document matrix è possibile costruire le WordCloud.
-Per WordCloud si intende una lista "pesata" di parole, con la peculiare caratteristica di attribuire un font di dimensioni più grandi alle parole più importanti, ovvero a cui corrisponde una frequenza maggiore.
-
-Con tali rappresentazioni grafiche si possono evidenziare alcuni aspetti fondamentali riguardanti i dati presi in considerazione.
-In un primo tentativo si è mostrato quali sono gli effetti potenzialmente negativi che si hanno nel costruire la WordCloud senza aver effettuato la rimozione delle stop-word. In base a ciò si è costruita la figura 7.
-
--->
-
-#### STEP 3: Word Cloud
-<!-- #### STEP 3: Metodi statistici di data mining applicati al testo -->
-
-
-```{r wordcloud1}
-wordcloud(doc_features$name,doc_features$count,min.freq=10)
-```
-
-```{r wordcloud2}
-wordcloud(doc_features2$name,doc_features2$count)
-```
-
-In conclusion, text analysis can be portata avanti combinando feature engineering techniques with modelli supervisionati o non supervisionati ([articolo](https://towardsdatascience.com/text-classification-supervised-unsupervised-learning-approaches-9fd5e01a036https://towardsdatascience.com/text-classification-supervised-unsupervised-learning-approaches-9fd5e01a036)).
-
-### Reference
-
-https://www.g2.com/articles/text-mining
+## References
