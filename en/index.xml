@@ -6,7 +6,17 @@
     <description>Recent content on Lucio Palazzo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Lucio Palazzo</copyright>
-    <lastBuildDate>Thu, 30 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Text Mining with R: cleaning and preparing data</title>
+      <link>https://blog-neas.github.io/en/blog-neas/pls-seminar-one/</link>
+      <pubDate>Tue, 01 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/blog-neas/pls-seminar-one/</guid>
+      <description>This is the first post of a series intented to present an overview of the steps involved in undertaking text and data mining. Here, the first pre-processing steps of textual data mining are introduced.
+Questo post è un estratto del seminario online che si è tenuto nell’ambito della Scuola Estiva per il Piano di Lauree Scientifiche (PLS) (in inglese metti Plan for Science Degrees) promulgato dall’Università degli Studi di Napoli Federico II.</description>
+    </item>
+    
     <item>
       <title>DESPOTA</title>
       <link>https://blog-neas.github.io/en/blog-neas/despota-page/</link>
@@ -161,7 +171,8 @@ The present work is part of the &amp;ldquo;Plan for Science Degrees&amp;rdquo; (
       <pubDate>Fri, 01 Jan 2021 09:00:00 +0000</pubDate>
       
       <guid>https://blog-neas.github.io/en/blog-neas/about/</guid>
-      <description>introduce students (and even and a wider audience) to some up-to-date data science topics, also making some of our research interests visible to the general public. The idea behind this is to share observations and disseminate ideas with an international community in a more informal way, without the pressure of the peer-review process. The Nea-Statistic (NeaS) blog is intended to be a virtual meeting place where people can read about statistics and share new findings in data science.</description>
+      <description>The Nea-Statistic (NeaS) blog is intended to be a virtual meeting place where people can read about statistics and share new findings in data science. We plan to introduce students (and also a broader audience) some current topics in Data Science, while also making some of our research interests visible to the general public.
+Our hope is to create a cozy corner where we can share observations and disseminate ideas with an international community informally, without the pressure of the peer review process.</description>
     </item>
     
     <item>

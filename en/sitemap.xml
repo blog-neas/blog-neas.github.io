@@ -3,8 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog-neas.github.io/en/categories/bigram/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog-neas.github.io/en/blog-neas/</loc>
-    <lastmod>2021-12-30T00:00:00+00:00</lastmod>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="it"
@@ -19,7 +24,7 @@
   
   <url>
     <loc>https://blog-neas.github.io/en/categories/</loc>
-    <lastmod>2021-12-30T00:00:00+00:00</lastmod>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="it"
@@ -30,6 +35,41 @@
                 hreflang="en"
                 href="https://blog-neas.github.io/en/categories/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/en/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/en/categories/pls/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/en/categories/text-mining/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/en/blog-neas/pls-seminar-one/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/en/categories/word-cloud/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -74,21 +114,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://blog-neas.github.io/en/blog-neas/despota-page/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/en/</loc>
-    <lastmod>2021-12-30T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/"
                 />
   </url>
   

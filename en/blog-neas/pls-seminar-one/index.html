@@ -1,0 +1,4218 @@
+<!doctype html>
+<html class="no-js" lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Text Mining with R: cleaning and preparing data | Lucio Palazzo</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="https://blog-neas.github.io/fonts/academicons.ttf?v=1.7.0" as="font">
+    <link rel="preload" href="https://blog-neas.github.io/fonts/fontawesome-webfont.woff2?v=4.6.34Cas" as="font">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Merriweather" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css">
+    <link rel="stylesheet" href="https://blog-neas.github.io/css/foundation.min.css">
+    <link rel="stylesheet" href="https://blog-neas.github.io/css/stackoverflow-light.min.css">
+    <link rel="stylesheet" href="https://blog-neas.github.io/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://blog-neas.github.io/css/academicons.min.css">
+    <link rel="stylesheet" href="https://blog-neas.github.io/css/finite.min.css">
+    <link rel="stylesheet" href="https://blog-neas.github.io/css/kube.min.css">
+    <link rel="stylesheet" href="https://blog-neas.github.io/css/robjhyndman.min.css">
+    
+<script>
+(function(m,a,i,l,e,r){ m['MailerLiteObject']=e;function f(){
+var c={ a:arguments,q:[]};var r=this.push(c);return "number"!=typeof r?r:f.bind(c.q);}
+f.q=f.q||[];m[e]=m[e]||f.bind(f.q);m[e].q=m[e].q||f.q;r=a.createElement(i);
+var _=a.getElementsByTagName(i)[0];r.async=1;r.src=l+'?v'+(~~(new Date().getTime()/1000000));
+_.parentNode.insertBefore(r,_);})(window, document, 'script', 'https://static.mailerlite.com/js/universal.js', 'ml');
+
+var ml_account = ml('accounts', '3217732', 'q9y4a1d8i3', 'load');
+</script>
+
+</head>
+  <body>
+    <header>
+      <nav class="nav-bar">
+	
+	  <div class="title-bar" data-responsive-toggle="site-menu" data-hide-for="medium">
+	    <button class="site-hamburger" type="button" data-toggle>
+	      <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+	    </button>
+	    <div class="title-bar-title site-title">
+	      <a href="https://blog-neas.github.io/"  style="color: #b3cde0">Lucio Palazzo</a>
+	    </div>
+	    <div class="title-bar-right pull-right">
+	      
+
+
+	    </div>
+	  </div>
+
+	  
+	    <div class="top-bar" id="site-menu" >
+	      <div class="top-bar-title show-for-medium site-title">
+		<a href="https://blog-neas.github.io/"  style="color: #b3cde0;">Lucio Palazzo</a>
+	      </div>
+	      <div class="top-bar-left">
+		<ul class="menu vertical medium-horizontal">
+		  
+		  
+		  <li><a href="https://blog-neas.github.io/en/publications/">Publications</a></li>
+		  
+		  <li><a href="https://blog-neas.github.io/en/seminars/">Seminars</a></li>
+		  
+		  <li><a href="https://blog-neas.github.io/en/teaching/">Teaching</a></li>
+		  
+		  <li><a href="https://blog-neas.github.io/en/research-team/">Research team</a></li>
+		  
+		  <li><a href="https://blog-neas.github.io/en/about/">About</a></li>
+		  
+		  <li><a href="https://blog-neas.github.io/en/blog-neas/">NeaS blog</a></li>
+		  
+		  <li><a href="https://blog-neas.github.io/it/"><img width='20' height='20' src='https://blog-neas.github.io/img/it.png' ></a></li>
+		  
+		</ul>
+	      </div>
+	      <div class="top-bar-right show-for-medium">
+		
+
+
+	      </div>
+	    </div>
+	  
+	</nav>
+    </header>
+    <main>
+      
+
+<div class="wrapper">
+<div class="units-row" style='margin-bottom: 0px;'>
+<div class="unit-20">&nbsp;</div>
+<div class="unit-70"><h1>Text Mining with R: cleaning and preparing data</h1></div>
+</div>
+<div class="units-row">
+  <div class="unit-20 dateblock" style='text-align: right;'><h4 style='padding: .8ex 0px .8ex 0px;'><a href="https://blog-neas.github.io/en/blog-neas">NeaS Blog</a></h4>
+    <div class="post-metadata">
+  <span class="post-date">
+    <time datetime="2022-02-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">1 February 2022</time>
+  </span>
+  
+  </span>
+  
+  
+  
+  <span class="post-tags">
+    <p><i class="fa fa-tags"></i>
+    
+    <a class="post-tag" href="https://blog-neas.github.io/en/categories/pls">PLS</a>,
+    
+    
+    
+    <a class="post-tag" href="https://blog-neas.github.io/en/categories/text-mining">Text Mining</a>,
+    
+    
+    <a class="post-tag" href="https://blog-neas.github.io/en/categories/word-cloud">Word Cloud</a>,
+    
+    
+    <a class="post-tag" href="https://blog-neas.github.io/en/categories/bigram">Bigram</a>
+    
+  </span>
+  
+  
+</div>
+
+  </div>
+<div class="unit-70">
+
+  
+<script src="https://blog-neas.github.io/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="https://blog-neas.github.io/rmarkdown-libs/kePrint/kePrint.js"></script>
+<link href="https://blog-neas.github.io/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
+
+
+<p>This is the first post of a series intented to present an overview of the steps involved in undertaking text and data mining.
+Here, the first pre-processing steps of textual data mining are introduced.</p>
+<p>Questo post è un estratto del seminario online che si è tenuto nell’ambito della Scuola Estiva per il <em>Piano di Lauree Scientifiche</em> (PLS) (in inglese metti Plan for Science Degrees) promulgato dall’Università degli Studi di Napoli Federico II.
+I partecipanti sono composti per la maggior parte da studenti delle scuole secondarie di secondo grado e agli studenti universitari all’inizio del loro percorso. Per le analisi statistiche è stato utilizzato il software R.
+In particolare, sono stati introdotti i concetti principali dell’analisi dei dati testuali e sono stati mostrati i risultati attraverso una indagine somministrata in tempo reale ai partecipanti.</p>
+<blockquote>
+<p>Text expresses a vast, rich range of information, but encodes this information in a form that is difficult to decipher automatically.</p>
+<p><span class="citation"><a href="#ref-hearst1999untangling" role="doc-biblioref">Hearst</a> (<a href="#ref-hearst1999untangling" role="doc-biblioref">1999</a>)</span></p>
+</blockquote>
+<p>Obiettivo del <em>text mining</em> (analisi dei dati testuali) è quello di elaborare metodi ed algoritmi per estrarre in maniera automatica informazioni dal testo, informazioni che possono poi essere utilizzate, ad esempio, per classificare o raggruppare i documenti di testo.</p>
+<p>Text mining methods allow to highlight the most frequently used keywords in a paragraph of texts.</p>
+<p>Text mining procedures transform unstructured data into structured data, making it easier for organizations to analyze vast collections of text documents.</p>
+<p>Some of the common text mining tasks are text classification, text clustering, creation of granular taxonomies, document summarisation, entity extraction, and sentiment analysis.</p>
+<p>The main advantage of text mining is that text can be found (nearly) everywhere, some examples are:</p>
+<ul>
+<li>Medical records</li>
+<li>Product reviews</li>
+<li>Social posts (Facebook, Twitter, etc.)</li>
+<li>Book recommendations</li>
+<li>Legislation, court decisions</li>
+<li>Emails</li>
+<li>Websites</li>
+</ul>
+<p>However, data are unstructured, meaning that
+- No feature vector representation
+- Linguistic structure
+- Language
+- Relationships between words
+- Importance of words
+- Negations, etc.
+- Text is dirty
+- Grammatical, spelling, abbreviations, synonyms, homographs</p>
+<p>More importantly, we have to consider that text is intended for communication between people: context and syntax matter! See for instance <span class="citation"><a href="#ref-van2016exploring" role="doc-biblioref">Van Hee, Lefever, and Hoste</a> (<a href="#ref-van2016exploring" role="doc-biblioref">2016</a>)</span>. For this reason, there does not exist a ‘standard’ approach, each document requires a dedicated approach.</p>
+<div class="alert alert-info">
+<p><strong><svg aria-hidden="true" role="img" viewBox="0 0 352 512" style="height:1em;width:0.69em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"/></svg> Example.</strong> There is a huge difference between the sentences <em>Even the sun sets in paradise</em> and <em>The sun sets even in paradise</em> or, again, between <em>she only told me she loved him</em> and <em>she told me she loved only him</em>, even if their structure is almost identical.</p>
+</div>
+<!-- > <strong>`<svg aria-hidden="true" role="img" viewBox="0 0 352 512" style="height:1em;width:0.69em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"/></svg>`{=html} Example.</strong> There is a huge difference between the sentences *Even the sun sets in paradise* and *The sun sets even in paradise* or, again, between *she only told me she loved him* and *she told me she loved only him*. -->
+<!-- >  -->
+<!-- >`<svg aria-hidden="true" role="img" viewBox="0 0 352 512" style="height:1em;width:0.69em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"/></svg>`{=html} Example</strong> asdasddd . -->
+<!-- > -->
+<!-- > -->
+<p>Prior to be able to analyse textual data Quindi, per poter analizzare questo tipo di dati it is necessary to convert the unstructured data to a structured feature vector.</p>
+<dl>
+<dt><strong>Dati strutturati</strong></dt>
+<dd><p>Sono i dati conservati in database, organizzati secondo schemi e tabelle rigide. Questa è la tipologia di dati più indicata per i modelli di gestione relazionale delle informazioni</p>
+</dd>
+<dt><strong>Dati non strutturati</strong></dt>
+<dd><p>Sono i dati conservati senza alcuno schema, come testi, immagini, video e altro. In questo caso, i sistemi di gestione di dati utilizzabili sono quelli basati sul modello dell’information retrieval</p>
+</dd>
+</dl>
+<p>As starting point we have a collection of documents, each of which is a (relatively) free-form sequence of words, and turn it into a feature-vector representation. In general, a collection of <em>documents</em> is called <em>corpus</em> where each document is composed of individual <em>tokens</em> or <em>terms</em> (e.g. words).</p>
+<p>The structure of each document can be various. Each document can be a full book (e.g. <a href="https://textmining.nu/2018/10/29/text-mining-the-lord-of-the-rings/">LOTR</a>), a chapter, some pages, few sentences (e.g. Twitter posts) or even a single sentence.</p>
+<p>The process involving the conversion of this kind of unstructred data to a structured feature vector is called featurization.</p>
+<p>In our case, each document is represented by a short answer: we asked participants of the seminar to answer (using a simple Google Form) to the question ‘Cosa vorresti fare dopo il diploma?’ (‘what would you like to do after graduation?’),
+setting an open answer and fixed a limit of 200 letters.
+<!-- Subsequently, we asked them to select the kind of future they expect to follow by using a multiple choice question (STEM, Humanities, Medical/Infirmary, Other). -->
+We gathered a total of 147 answers, il dataset finale tradotto in inglese è disponibile <a href="asdadasd">here</a> (<a href="asdadasd">here</a> you can find the original version).</p>
+<div id="text-mining-with-r" class="section level1">
+<h1>Text Mining with R</h1>
+<p>Adesso passiamo al lato operativo utilizzando il Software R.
+We used <code>tm</code> package for the text mining functions and <code>wordcloud</code> to produce the word cloud. In addition, stemming requires the package <code>SnowballC</code>.</p>
+<pre class="r"><code>rawdata &lt;- read.csv(&quot;pls2021_eng.csv&quot;,sep=&quot;;&quot;)
+head(rawdata)</code></pre>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+ID
+</th>
+<th style="text-align:left;">
+Cosa.vorresti.fare.dopo.il.diploma…max.200.caratteri.
+</th>
+<th style="text-align:left;">
+Tipo
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Università di medicina veterinaria
+</td>
+<td style="text-align:left;">
+Scienze Mediche/Sanitarie
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Università
+</td>
+<td style="text-align:left;">
+Altro/Non Specificato
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Università - Informatica
+</td>
+<td style="text-align:left;">
+Studi Scientifici
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Università
+</td>
+<td style="text-align:left;">
+Altro/Non Specificato
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Vorrei iscrivermi a un corso di laurea di fisica o ingegneria aerospaziale
+</td>
+<td style="text-align:left;">
+Studi Scientifici
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="r"><code>corpus &lt;- SimpleCorpus(VectorSource(rawdata[,2]),control = list(language=&quot;it&quot;))
+str(corpus)</code></pre>
+<pre><code>## Classes &#39;SimpleCorpus&#39;, &#39;Corpus&#39;  hidden list of 3
+##  $ content: chr [1:147] &quot;Università di medicina veterinaria&quot; &quot;Università &quot; &quot;Università - Informatica&quot; &quot;Università &quot; ...
+##  $ meta   :List of 1
+##   ..$ language: chr &quot;it&quot;
+##   ..- attr(*, &quot;class&quot;)= chr &quot;CorpusMeta&quot;
+##  $ dmeta  :&#39;data.frame&#39;: 147 obs. of  0 variables</code></pre>
+<div id="step-1-pre-trattamento-del-testo" class="section level2">
+<h2>STEP 1: Pre-trattamento del testo</h2>
+<ul>
+<li><p>Normalisation: It is the first attempt to reduce the number of unique tokens present in the text, removing the variations in a text and also cleaning for the redundant information. The most common approaches comprendono the reduction of every characters to lower case, misspelling conversion and special characters removal.</p></li>
+<li><p>Normalizzazione: standardizzazione dell testo mediante il
+riconoscimento di nomi o altre entità di interesse generale, i.e. nomi propri, parole accentate separate da trattini (hypenation), etc.
+Usually a typical normalization involves the lowercase and deletion of stop words.</p></li>
+</ul>
+<pre class="r"><code>corpus_cl &lt;- tm_map(corpus, tolower)</code></pre>
+<pre><code>## Warning in tm_map.SimpleCorpus(corpus, tolower): transformation drops documents</code></pre>
+<p>Additionally, it would be necessary to convert accented characters, that are common in some languages (i.e. in Italian), and special symbols (i.e. emoticons) to their plain version. In this case, there are several techniques that can do the trick, one of the most common is given by changing the original encoding to ASCII with transliteration option by using the <code>iconv()</code> function.</p>
+<pre class="r"><code>corpus_cl &lt;- tm_map(corpus_cl,iconv,from=&quot;UTF-8&quot;,to=&quot;ASCII//TRANSLIT&quot;)</code></pre>
+<pre><code>## Warning in tm_map.SimpleCorpus(corpus_cl, iconv, from = &quot;UTF-8&quot;, to = &quot;ASCII//
+## TRANSLIT&quot;): transformation drops documents</code></pre>
+<p>Sometimes the conversion in ASCII returns the question mark “?” as result, meaning that the algorithm was not able to map the character from the initial encoding to ASCII.</p>
+<pre class="r"><code>inspect(corpus[116])</code></pre>
+<pre><code>## &lt;&lt;SimpleCorpus&gt;&gt;
+## Metadata:  corpus specific: 1, document level (indexed): 0
+## Content:  documents: 1
+## 
+## [1] la milionaria 😂</code></pre>
+<pre class="r"><code>inspect(corpus_cl[116])</code></pre>
+<pre><code>## &lt;&lt;SimpleCorpus&gt;&gt;
+## Metadata:  corpus specific: 1, document level (indexed): 0
+## Content:  documents: 1
+## 
+## [1] la milionaria ?</code></pre>
+<p>This kind of error will be corrected in next step, when removing punctuation symbols.</p>
+<ul>
+<li>Stop words: Text and document classification includes many words which do not contain important significance to be used in classification algorithms (e.g. ‘and,’ ‘about,’ ‘however,’ ‘afterwards,’ ‘again,’ etc.). The most common technique to deal with these words is to remove them from the documents.</li>
+</ul>
+<pre class="r"><code>corpus_cl &lt;- tm_map(corpus_cl, removeWords, c(stopwords(&#39;it&#39;)))</code></pre>
+<pre><code>## Warning in tm_map.SimpleCorpus(corpus_cl, removeWords, c(stopwords(&quot;it&quot;))):
+## transformation drops documents</code></pre>
+<pre class="r"><code># kable(inspect(corpus_cl)[1:5], &quot;html&quot;) %&gt;%
+#   kable_styling() %&gt;%
+#   scroll_box(width = &quot;100%&quot;)
+inspect(corpus_cl)[1:5]</code></pre>
+<pre><code>## &lt;&lt;SimpleCorpus&gt;&gt;
+## Metadata:  corpus specific: 1, document level (indexed): 0
+## Content:  documents: 147
+## 
+##   [1] universita  medicina veterinaria                                                                                                                                             
+##   [2] universita                                                                                                                                                                   
+##   [3] universita - informatica                                                                                                                                                     
+##   [4] universita                                                                                                                                                                   
+##   [5] vorrei iscrivermi   corso  laurea  fisica  ingegneria aerospaziale                                                                                                           
+##   [6]  universita  corsi specialistici volti  web development                                                                                                                      
+##   [7] master                                                                                                                                                                       
+##   [8]  piacerebbe fare  master, preferibilmente &#39;estero.                                                                                                                           
+##   [9] lavoro                                                                                                                                                                       
+##  [10] iscrivermi  medicina                                                                                                                                                         
+##  [11] matematica                                                                                                                                                                   
+##  [12] vorrei iscrivermi &#39;universita , ingegneria biomedica.                                                                                                                        
+##  [13] studiare ingegneria &#39;universita . fare esperienza &#39;estero  poi rimanere &#39;estero  tornare                                                                                     
+##  [14] vorrei studiare medicina, significherebbe realizzare  sogno   vita                                                                                                           
+##  [15] universita  medicina                                                                                                                                                         
+##  [16] vorrei fare &#39;universita                                                                                                                                                      
+##  [17] corso  laurea  medicina                                                                                                                                                      
+##  [18] vorrei frequentare  corso  medicina  poi specializzarmi  pediatria                                                                                                           
+##  [19]    sicura,  quasi sicuramente laurea  neuropsichiatria! (  va bene)                                                                                                          
+##  [20] vorrei proseguire   percorso  studi, partecipando  corso  laura  fisica                                                                                                      
+##  [21] vorrei iscrivermi &#39;universita  studiare scienze  tecnologie informatiche.                                                                                                    
+##  [22] fare medicina                                                                                                                                                                
+##  [23] vorrei iscrivermi &#39;universita    ancora sicuro   percorso intraprendere.                                                                                                     
+##  [24] universita (medicina)                                                                                                                                                        
+##  [25] iscrivermi &#39;universita                                                                                                                                                       
+##  [26] medicina                                                                                                                                                                     
+##  [27] iscrizione  corso  laurea  biotecnologie/biomedica...                                                                                                                        
+##  [28] iscrivermi &#39;universita                                                                                                                                                       
+##  [29] laurearmi  investire soldi                                                                                                                                                   
+##  [30] vorrei continuare   percorso  studi &#39;universita                                                                                                                              
+##  [31] sicuramente andare &#39;universita    so precisamente  strada voglia intraprendere   attuale idea  fare biologia                                                                 
+##  [32]   ancora deciso, so solo  voglio  vita tranquilla...                                                                                                                         
+##  [33] vorrei andare &#39;universita  vorrei laurearmi  ingegneria                                                                                                                      
+##  [34] vorrei intraprendere  percorso  studi  carattere scientifico  poi entrare  ris, reparto investigativo scientifico                                                            
+##  [35] vorrei intraprendere  studi  medicina  specializzarmi  chirurgia                                                                                                             
+##  [36] dopo  diploma vorrei iscrivermi &#39; universita  frequentare  corso  laurea  ingegneria chimica                                                                                 
+##  [37] andare &#39;universita  laurearmi                                                                                                                                                
+##  [38] iscrivermi &#39;universita  poi iniziare  costruire   carriera                                                                                                                   
+##  [39] &#39;universita                                                                                                                                                                  
+##  [40] vorrei andare &#39;universita  entrare  forze &#39;ordine                                                                                                                            
+##  [41] laurearmi  ingegnieria aerospaziale                                                                                                                                          
+##  [42] dopo aver finito  liceo sicuramente vorrei andare &#39;universita  seguire  corso  matematica.                                                                                   
+##  [43] frequentare &#39;universita                                                                                                                                                      
+##  [44] credo  essere arrivato  conclusione  voler intraprendere  studi riguardanti materie scientifiche,  particolare ignegneria, areospaziale  robotica,  fisica.                  
+##  [45] vorrei frequentare &#39;universita  medicina                                                                                                                                     
+##  [46] frequentare &#39;universita                                                                                                                                                      
+##  [47] medicina                                                                                                                                                                     
+##  [48] medicina                                                                                                                                                                     
+##  [49]   sogno   diventare  pilota  linea,    potessi perseguire  sogno, probabilmente opterei  qualche facolta  riguardi  scienze.                                                 
+##  [50] iscrivermi &#39;universita                                                                                                                                                       
+##  [51] vorrei iscrivermi &#39;universita  intraprendere  studi medici                                                                                                                   
+##  [52] universita  medicina                                                                                                                                                         
+##  [53] universita  fisica, specializzazione  fisica particellare                                                                                                                    
+##  [54]  entrare  medicina, riuscire  superare  test    anni  studio   conseguiranno, laurearmi, divenire  medico  potermi specializzare                                             
+##  [55] intraprendere  corso  studi  laurearmi  ingegneria biologica                                                                                                                 
+##  [56] affrontare studi universitari   permetteranno  fare  lavori  possano piacermi, preferibilmente lavori  consentono molti viaggi  giro   mondo                                 
+##  [57] dopo  diploma vorrei sicuramente frequentare &#39;universita .  molto incline verso  corso  fisioterapia.                                                                        
+##  [58] vorrei entrare  medicina,  poi sperare  diventare odontoiatra oppure oncologo                                                                                                
+##  [59] dopo  diploma vorrei continuare   percorso  studi &#39;universita                                                                                                                
+##  [60] seguire  corso  matematica  fisica &#39;estero                                                                                                                                   
+##  [61] fare medicina  napoli, poi  specialistica &#39;estero  diventare cardiochirurgo                                                                                                  
+##  [62] dopo  diploma, vorrei iscrivermi &#39;universita . partecipo   corso proprio  farmi &#39;idea/ambientarmi  linguaggio/contesto universitario   aiutarmi   sorte  orientamento.       
+##  [63] vorrei iscrivermi   corso  laurea (   ancora indeciso)   seguito trovare lavoro,   &#39;foreign countries&#39;  mettere  prova   competenze d&#39;inglese                                
+##  [64] vorrei frequentare &#39;universita . molto probabilmente facolta  ingegneria                                                                                                     
+##  [65] studiare  tutta  vita                                                                                                                                                        
+##  [66] vorrei intraprendere  percorso universitario  facolta  matematica, arrivando magari  dottorato  ricerca. parallelamente vorrei intraprendere  carriera musicale    band.     
+##  [67] ingegneria informatica                                                                                                                                                       
+##  [68] andare &#39;universita                                                                                                                                                           
+##  [69]  indecisa  vari corsi  laurea  medicina, ingegneria gestionale  economia                                                                                                     
+##  [70] vorrei iscrivermi   corso  laurea scientifico, probabilmente fisica                                                                                                          
+##  [71] vorrei iscrivermi &#39;universita                                                                                                                                                
+##  [72] sicurezza informatica                                                                                                                                                        
+##  [73] criminologia,  scienze forensi                                                                                                                                               
+##  [74] vorrei  iscrivermi &#39;universita ,    so ancora bene   facolta , oppure diventare  criminale.                                                                                  
+##  [75]   so, completare  percorso  studio,  so , sento  pressione  tempo  passa,   scelte  dovra fare.  voglio crescere.                                                            
+##  [76]  volta diplomat*  piacerebbe frequentare &#39;universita ,  momento  indecis*  matematica  ingegneria                                                                            
+##  [77] andare iscriversi  biotecnologie  ingegneria meccatronica                                                                                                                    
+##  [78] vorrei seguire  corso  laurea  matematica  giurisprudenza... dilemma                                                                                                         
+##  [79] riuscire  entrare  facolta  fisioterapia,    resco...........  ammazzo                                                                                                       
+##  [80]   so   propenso  andare &#39;universita                                                                                                                                          
+##  [81] sicuramente vorrei iscrivermi &#39;universita     idee ancora poco chiare  corso  scegliere. &#39;obiettivo generalmente    seguire qualcosa   appassiona                            
+##  [82] dopo  diploma  piacerebbe frequentare &#39;universita  medicina  specializzarmi  chirurgia.                                                                                      
+##  [83] dopo  diploma  piacerebbe iniziare &#39;universita  campo d&#39;informatica applicata.  contemporanea vorrei approfondire   conoscenza  cybersecurity                                
+##  [84] ancora indecisa                                                                                                                                                              
+##  [85] riuscire  diventare indipendente economicamente  permettermi  continuare  studiare  lungo termine                                                                            
+##  [86] dopo  diploma vorrei iscrivermi &#39;universita                                                                                                                                  
+##  [87] fisica                                                                                                                                                                       
+##  [88] vorrei fare genetica, studiare  malattie geneticamente trasmissibili                                                                                                         
+##  [89]  laurea  matematica, magistrale  mathematical engineering  subito dopo andare  vivere sotto  confortevole ponte                                                              
+##  [90]   ancora ben chiaro cosa fare dopo  diploma, penso  sicuramente intraprendero  corso  studi  poi,  futuro, laurearmi.                                                        
+##  [91] iscrivermi  medicina, seguire   sogno  diventare indipendente                                                                                                                
+##  [92] vorrei intraprendere  studi presso  facolta  psicologia.                                                                                                                     
+##  [93]  momento   ancora certo   futuro percorso  studi, pero credo  avere  tendenza  &#39;ambito scientifico. principalmente biologia, chimica  informatica.                           
+##  [94] voglio provare  entrare  medicina (chissa perche sara   parole piu uscite)   caso  fallimento  riprovo, oppure vado  maldive  fare  massaggi                                 
+##  [95]  piacerebbe fare medicina                                                                                                                                                    
+##  [96] dopo  diploma vorrei intraprendere  nuovo perscorso , &#39;universita precisamente vorrei iscrivermi  medicina  concretizzare   sogno                                            
+##  [97] andare &#39; universita                                                                                                                                                          
+##  [98] dopo  diploma,  iscrivera &#39;universita ,  ancora indeciso  ingegneria robotica,  biologia marina.                                                                             
+##  [99] vorrei provare  percorso  medicina  chirurgia.   sempre affascinata &#39;idea  lavorare  ospedali   poter salvare  persone, purtroppo afflitte  malattie gravi , spesso, mortali.
+## [100] ricotta                                                                                                                                                                      
+## [101] frequentare  facolta  medicina possibilmente   napoli  caso riuscissi  conciliare   piccola occupazione  studio                                                              
+## [102] universita (probabilmente  corso  laurea  pls)                                                                                                                               
+## [103]  piacciono molto  materie scientifiche   piu propenso  scegliere  conservatorio,  magari     possibilita , fare entrambi.                                                    
+## [104] cambio idea ogni mese. sicuramente faro qualcosa  chimica pke    materia preferita oppure   concorsi   laureo  giurisprudenza.  pls   motivando  scegliere  materia scien    
+## [105] informatica &#39;universita  programmatore  vita                                                                                                                                 
+## [106] laurearmi  medicina  specializzarmi  ortopedia, segnatevi   nome luca umberto angrisano                                                                                      
+## [107] medicina                                                                                                                                                                     
+## [108] vorrei tentare medicina                                                                                                                                                      
+## [109] medicina                                                                                                                                                                     
+## [110] dopo  diploma vorrei frequentare &#39;universita ,   scelto &#39;indirizzo   valutando varie idee                                                                                    
+## [111] vorrei frequentare &#39;universita , probabilmente mediazione linguistica,    sicura. inoltre  piacerebbe molto viaggiare                                                        
+## [112] universita ,  piacerebbe fare ingegneria meccanica.                                                                                                                          
+## [113] universita  diventare ricca                                                                                                                                                  
+## [114]   ancora  idee chiare, tuttavia   sicura  voler iscrivermi &#39;universita   frequentare  corso  laurea scientifico.                                                             
+## [115] schifo                                                                                                                                                                       
+## [116]  milionaria ?                                                                                                                                                                
+## [117]   piu grande sogno  fare &#39;antropologa forense,   molta paura   riuscirci   fare  scelta sbagliata, perche  piacerebbe  fare criminologia oppure fare  detective              
+## [118] dopo  diploma  piacerebbe fare medicina                                                                                                                                      
+## [119] universita (probabilmente ingegneria)                                                                                                                                        
+## [120] ingegneria informatica                                                                                                                                                       
+## [121] diventare  anacoreta                                                                                                                                                         
+## [122] dopo  diploma  so ancora bene cosa voglio fare  sinceramente voglio continuare  studi  trovare  lavoro   piaccia    saro soddisfatta.                                        
+## [123] dopo  diploma  intenzione  proseguire    studi ,  iscrivero  facolta  medicina                                                                                               
+## [124] ingegneria                                                                                                                                                                   
+## [125]  sapessi cosa fare  seguirei  iniziativa                                                                                                                                     
+## [126] vorrei iscrivermi &#39;universita  trovare  lavoro                                                                                                                               
+## [127] carabiniere                                                                                                                                                                  
+## [128] andare &#39;universita                                                                                                                                                           
+## [129] laurea                                                                                                                                                                       
+## [130] dopo  diploma vorrei iscrivermi  corso  medicina.                                                                                                                            
+## [131] universita                                                                                                                                                                   
+## [132] universita  medicina veterinaria                                                                                                                                             
+## [133] medicina                                                                                                                                                                     
+## [134] studiare medicina                                                                                                                                                            
+## [135] vorrei lavorare  campo scientifico  riuscire  essere indipendente                                                                                                            
+## [136] carabiniere                                                                                                                                                                  
+## [137]  milionaria                                                                                                                                                                  
+## [138] laurea                                                                                                                                                                       
+## [139]  piacerebbe fare medicina                                                                                                                                                    
+## [140] dopo  diploma  so ancora bene cosa voglio fare  sinceramente voglio continuare  studi  trovare  lavoro   piaccia    sara soddisfatta.                                        
+## [141] medicina                                                                                                                                                                     
+## [142] vorrei frequentare &#39;universita . molto probabilmente facolta  ingegneria                                                                                                     
+## [143] universita                                                                                                                                                                   
+## [144] universita  medicina veterinaria                                                                                                                                             
+## [145] medicina                                                                                                                                                                     
+## [146] vorrei iscrivermi &#39;universita  intraprendere  studi medici                                                                                                                   
+## [147] vorrei frequentare &#39;universita . molto probabilmente facolta  ingegneria</code></pre>
+<pre><code>## &lt;&lt;SimpleCorpus&gt;&gt;
+## Metadata:  corpus specific: 1, document level (indexed): 0
+## Content:  documents: 5</code></pre>
+<ul>
+<li>Filtraggio: rimuovere quelle parole che, per motivi dipendenti dalla lingua analizzata e dagli obiettivi dell’utente, non vengono considerate significative ai fini dell’analisi (ad esempio numeri, acronimi, spazi vuoti, meme). Tali parole sono conosciute come ‘stop words.’</li>
+</ul>
+<pre class="r"><code># remove numbers
+corpus_cl &lt;- tm_map(corpus_cl, removeNumbers)</code></pre>
+<pre><code>## Warning in tm_map.SimpleCorpus(corpus_cl, removeNumbers): transformation drops
+## documents</code></pre>
+<pre class="r"><code># remove punctuation
+corpus_cl &lt;- tm_map(corpus_cl, removePunctuation)</code></pre>
+<pre><code>## Warning in tm_map.SimpleCorpus(corpus_cl, removePunctuation): transformation
+## drops documents</code></pre>
+<pre class="r"><code># remove extra white spaces
+corpus_cl &lt;- tm_map(corpus_cl, stripWhitespace)</code></pre>
+<pre><code>## Warning in tm_map.SimpleCorpus(corpus_cl, stripWhitespace): transformation drops
+## documents</code></pre>
+<pre class="r"><code># set the dictionary of words/acronyms to be dropped
+drop &lt;- c(&quot;br&quot;)
+#remove the dropwords
+corpus_cl &lt;- tm_map(corpus_cl,removeWords,drop)</code></pre>
+<pre><code>## Warning in tm_map.SimpleCorpus(corpus_cl, removeWords, drop): transformation
+## drops documents</code></pre>
+<pre class="r"><code># kable(head(corpus_cl,5), &quot;html&quot;) %&gt;%
+#   kable_styling() %&gt;%
+#   scroll_box(width = &quot;100%&quot;)
+inspect(corpus_cl)[1:5]</code></pre>
+<pre><code>## &lt;&lt;SimpleCorpus&gt;&gt;
+## Metadata:  corpus specific: 1, document level (indexed): 0
+## Content:  documents: 147
+## 
+##   [1] universita medicina veterinaria                                                                                                                              
+##   [2] universita                                                                                                                                                   
+##   [3] universita informatica                                                                                                                                       
+##   [4] universita                                                                                                                                                   
+##   [5] vorrei iscrivermi corso laurea fisica ingegneria aerospaziale                                                                                                
+##   [6]  universita corsi specialistici volti web development                                                                                                        
+##   [7] master                                                                                                                                                       
+##   [8]  piacerebbe fare master preferibilmente estero                                                                                                               
+##   [9] lavoro                                                                                                                                                       
+##  [10] iscrivermi medicina                                                                                                                                          
+##  [11] matematica                                                                                                                                                   
+##  [12] vorrei iscrivermi universita ingegneria biomedica                                                                                                            
+##  [13] studiare ingegneria universita fare esperienza estero poi rimanere estero tornare                                                                            
+##  [14] vorrei studiare medicina significherebbe realizzare sogno vita                                                                                               
+##  [15] universita medicina                                                                                                                                          
+##  [16] vorrei fare universita                                                                                                                                       
+##  [17] corso laurea medicina                                                                                                                                        
+##  [18] vorrei frequentare corso medicina poi specializzarmi pediatria                                                                                               
+##  [19]  sicura quasi sicuramente laurea neuropsichiatria va bene                                                                                                    
+##  [20] vorrei proseguire percorso studi partecipando corso laura fisica                                                                                             
+##  [21] vorrei iscrivermi universita studiare scienze tecnologie informatiche                                                                                        
+##  [22] fare medicina                                                                                                                                                
+##  [23] vorrei iscrivermi universita ancora sicuro percorso intraprendere                                                                                            
+##  [24] universita medicina                                                                                                                                          
+##  [25] iscrivermi universita                                                                                                                                        
+##  [26] medicina                                                                                                                                                     
+##  [27] iscrizione corso laurea biotecnologiebiomedica                                                                                                               
+##  [28] iscrivermi universita                                                                                                                                        
+##  [29] laurearmi investire soldi                                                                                                                                    
+##  [30] vorrei continuare percorso studi universita                                                                                                                  
+##  [31] sicuramente andare universita so precisamente strada voglia intraprendere attuale idea fare biologia                                                         
+##  [32]  ancora deciso so solo voglio vita tranquilla                                                                                                                
+##  [33] vorrei andare universita vorrei laurearmi ingegneria                                                                                                         
+##  [34] vorrei intraprendere percorso studi carattere scientifico poi entrare ris reparto investigativo scientifico                                                  
+##  [35] vorrei intraprendere studi medicina specializzarmi chirurgia                                                                                                 
+##  [36] dopo diploma vorrei iscrivermi universita frequentare corso laurea ingegneria chimica                                                                        
+##  [37] andare universita laurearmi                                                                                                                                  
+##  [38] iscrivermi universita poi iniziare costruire carriera                                                                                                        
+##  [39] universita                                                                                                                                                   
+##  [40] vorrei andare universita entrare forze ordine                                                                                                                
+##  [41] laurearmi ingegnieria aerospaziale                                                                                                                           
+##  [42] dopo aver finito liceo sicuramente vorrei andare universita seguire corso matematica                                                                         
+##  [43] frequentare universita                                                                                                                                       
+##  [44] credo essere arrivato conclusione voler intraprendere studi riguardanti materie scientifiche particolare ignegneria areospaziale robotica fisica             
+##  [45] vorrei frequentare universita medicina                                                                                                                       
+##  [46] frequentare universita                                                                                                                                       
+##  [47] medicina                                                                                                                                                     
+##  [48] medicina                                                                                                                                                     
+##  [49]  sogno diventare pilota linea potessi perseguire sogno probabilmente opterei qualche facolta riguardi scienze                                                
+##  [50] iscrivermi universita                                                                                                                                        
+##  [51] vorrei iscrivermi universita intraprendere studi medici                                                                                                      
+##  [52] universita medicina                                                                                                                                          
+##  [53] universita fisica specializzazione fisica particellare                                                                                                       
+##  [54]  entrare medicina riuscire superare test anni studio conseguiranno laurearmi divenire medico potermi specializzare                                           
+##  [55] intraprendere corso studi laurearmi ingegneria biologica                                                                                                     
+##  [56] affrontare studi universitari permetteranno fare lavori possano piacermi preferibilmente lavori consentono molti viaggi giro mondo                           
+##  [57] dopo diploma vorrei sicuramente frequentare universita molto incline verso corso fisioterapia                                                                
+##  [58] vorrei entrare medicina poi sperare diventare odontoiatra oppure oncologo                                                                                    
+##  [59] dopo diploma vorrei continuare percorso studi universita                                                                                                     
+##  [60] seguire corso matematica fisica estero                                                                                                                       
+##  [61] fare medicina napoli poi specialistica estero diventare cardiochirurgo                                                                                       
+##  [62] dopo diploma vorrei iscrivermi universita partecipo corso proprio farmi ideaambientarmi linguaggiocontesto universitario aiutarmi sorte orientamento         
+##  [63] vorrei iscrivermi corso laurea ancora indeciso seguito trovare lavoro foreign countries mettere prova competenze dinglese                                    
+##  [64] vorrei frequentare universita molto probabilmente facolta ingegneria                                                                                         
+##  [65] studiare tutta vita                                                                                                                                          
+##  [66] vorrei intraprendere percorso universitario facolta matematica arrivando magari dottorato ricerca parallelamente vorrei intraprendere carriera musicale band 
+##  [67] ingegneria informatica                                                                                                                                       
+##  [68] andare universita                                                                                                                                            
+##  [69]  indecisa vari corsi laurea medicina ingegneria gestionale economia                                                                                          
+##  [70] vorrei iscrivermi corso laurea scientifico probabilmente fisica                                                                                              
+##  [71] vorrei iscrivermi universita                                                                                                                                 
+##  [72] sicurezza informatica                                                                                                                                        
+##  [73] criminologia scienze forensi                                                                                                                                 
+##  [74] vorrei iscrivermi universita so ancora bene facolta oppure diventare criminale                                                                               
+##  [75]  so completare percorso studio so sento pressione tempo passa scelte dovra fare voglio crescere                                                              
+##  [76]  volta diplomat piacerebbe frequentare universita momento indecis matematica ingegneria                                                                      
+##  [77] andare iscriversi biotecnologie ingegneria meccatronica                                                                                                      
+##  [78] vorrei seguire corso laurea matematica giurisprudenza dilemma                                                                                                
+##  [79] riuscire entrare facolta fisioterapia resco ammazzo                                                                                                          
+##  [80]  so propenso andare universita                                                                                                                               
+##  [81] sicuramente vorrei iscrivermi universita idee ancora poco chiare corso scegliere obiettivo generalmente seguire qualcosa appassiona                          
+##  [82] dopo diploma piacerebbe frequentare universita medicina specializzarmi chirurgia                                                                             
+##  [83] dopo diploma piacerebbe iniziare universita campo dinformatica applicata contemporanea vorrei approfondire conoscenza cybersecurity                          
+##  [84] ancora indecisa                                                                                                                                              
+##  [85] riuscire diventare indipendente economicamente permettermi continuare studiare lungo termine                                                                 
+##  [86] dopo diploma vorrei iscrivermi universita                                                                                                                    
+##  [87] fisica                                                                                                                                                       
+##  [88] vorrei fare genetica studiare malattie geneticamente trasmissibili                                                                                           
+##  [89]  laurea matematica magistrale mathematical engineering subito dopo andare vivere sotto confortevole ponte                                                    
+##  [90]  ancora ben chiaro cosa fare dopo diploma penso sicuramente intraprendero corso studi poi futuro laurearmi                                                   
+##  [91] iscrivermi medicina seguire sogno diventare indipendente                                                                                                     
+##  [92] vorrei intraprendere studi presso facolta psicologia                                                                                                         
+##  [93]  momento ancora certo futuro percorso studi pero credo avere tendenza ambito scientifico principalmente biologia chimica informatica                         
+##  [94] voglio provare entrare medicina chissa perche sara parole piu uscite caso fallimento riprovo oppure vado maldive fare massaggi                               
+##  [95]  piacerebbe fare medicina                                                                                                                                    
+##  [96] dopo diploma vorrei intraprendere nuovo perscorso universita precisamente vorrei iscrivermi medicina concretizzare sogno                                     
+##  [97] andare universita                                                                                                                                            
+##  [98] dopo diploma iscrivera universita ancora indeciso ingegneria robotica biologia marina                                                                        
+##  [99] vorrei provare percorso medicina chirurgia sempre affascinata idea lavorare ospedali poter salvare persone purtroppo afflitte malattie gravi spesso mortali  
+## [100] ricotta                                                                                                                                                      
+## [101] frequentare facolta medicina possibilmente napoli caso riuscissi conciliare piccola occupazione studio                                                       
+## [102] universita probabilmente corso laurea pls                                                                                                                    
+## [103]  piacciono molto materie scientifiche piu propenso scegliere conservatorio magari possibilita fare entrambi                                                  
+## [104] cambio idea ogni mese sicuramente faro qualcosa chimica pke materia preferita oppure concorsi laureo giurisprudenza pls motivando scegliere materia scien    
+## [105] informatica universita programmatore vita                                                                                                                    
+## [106] laurearmi medicina specializzarmi ortopedia segnatevi nome luca umberto angrisano                                                                            
+## [107] medicina                                                                                                                                                     
+## [108] vorrei tentare medicina                                                                                                                                      
+## [109] medicina                                                                                                                                                     
+## [110] dopo diploma vorrei frequentare universita scelto indirizzo valutando varie idee                                                                             
+## [111] vorrei frequentare universita probabilmente mediazione linguistica sicura inoltre piacerebbe molto viaggiare                                                 
+## [112] universita piacerebbe fare ingegneria meccanica                                                                                                              
+## [113] universita diventare ricca                                                                                                                                   
+## [114]  ancora idee chiare tuttavia sicura voler iscrivermi universita frequentare corso laurea scientifico                                                         
+## [115] schifo                                                                                                                                                       
+## [116]  milionaria                                                                                                                                                  
+## [117]  piu grande sogno fare antropologa forense molta paura riuscirci fare scelta sbagliata perche piacerebbe fare criminologia oppure fare detective             
+## [118] dopo diploma piacerebbe fare medicina                                                                                                                        
+## [119] universita probabilmente ingegneria                                                                                                                          
+## [120] ingegneria informatica                                                                                                                                       
+## [121] diventare anacoreta                                                                                                                                          
+## [122] dopo diploma so ancora bene cosa voglio fare sinceramente voglio continuare studi trovare lavoro piaccia saro soddisfatta                                    
+## [123] dopo diploma intenzione proseguire studi iscrivero facolta medicina                                                                                          
+## [124] ingegneria                                                                                                                                                   
+## [125]  sapessi cosa fare seguirei iniziativa                                                                                                                       
+## [126] vorrei iscrivermi universita trovare lavoro                                                                                                                  
+## [127] carabiniere                                                                                                                                                  
+## [128] andare universita                                                                                                                                            
+## [129] laurea                                                                                                                                                       
+## [130] dopo diploma vorrei iscrivermi corso medicina                                                                                                                
+## [131] universita                                                                                                                                                   
+## [132] universita medicina veterinaria                                                                                                                              
+## [133] medicina                                                                                                                                                     
+## [134] studiare medicina                                                                                                                                            
+## [135] vorrei lavorare campo scientifico riuscire essere indipendente                                                                                               
+## [136] carabiniere                                                                                                                                                  
+## [137]  milionaria                                                                                                                                                  
+## [138] laurea                                                                                                                                                       
+## [139]  piacerebbe fare medicina                                                                                                                                    
+## [140] dopo diploma so ancora bene cosa voglio fare sinceramente voglio continuare studi trovare lavoro piaccia sara soddisfatta                                    
+## [141] medicina                                                                                                                                                     
+## [142] vorrei frequentare universita molto probabilmente facolta ingegneria                                                                                         
+## [143] universita                                                                                                                                                   
+## [144] universita medicina veterinaria                                                                                                                              
+## [145] medicina                                                                                                                                                     
+## [146] vorrei iscrivermi universita intraprendere studi medici                                                                                                      
+## [147] vorrei frequentare universita molto probabilmente facolta ingegneria</code></pre>
+<pre><code>## &lt;&lt;SimpleCorpus&gt;&gt;
+## Metadata:  corpus specific: 1, document level (indexed): 0
+## Content:  documents: 5</code></pre>
+<ul>
+<li>Lemmatization/Stemming: replace the suffix of a word with a different one or removes the suffix of a word completely to get the basic word form (lemma). Sometimes, to avoid ambiguization, the replacement is slightly different from the original word, es.</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+ \text{to write} \quad &amp; &amp;  \\
+ \text{writing} \quad &amp; \Longrightarrow  &amp; \text{write} \\
+ \text{written} \quad &amp; &amp;
+\end{align*}\]</span></p>
+<ul>
+<li>Lemmatizzazione: riduzione di tutte le varie forme coniugate e declinate di una parola con il rispettivo lemma, così che possano essere analizzate come singoli item. For example:</li>
+</ul>
+<span class="math display">\[\begin{aligned}
+ \text{Scritto} \quad &amp;  &amp;\\
+ \text{Scriverai} \quad &amp;\Longrightarrow &amp; \quad \text{Scrivere} \\
+ \text{scrivemmo} \quad &amp; &amp;  
+\end{aligned}\]</span>
+<ul>
+<li>Lemmatizzazione/Stemming: ricondurre tutte le parole di un documento di testo alla loro radice (le parole flesse sono semanticamente simili alla loro radice)
+<span class="math display">\[\begin{align*}
+ \text{write, writing} &amp; \quad \Longrightarrow \quad &amp; \text{writ}
+\end{align*}\]</span></li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+ \text{deciso, decisa, decisi, decise, decis*} &amp; \quad \Longrightarrow \quad &amp; \text{decis} \\
+ \text{giurisprudenza} &amp; \quad \Longrightarrow \quad &amp; \text{giurisprudent}
+\end{align*}\]</span></p>
+<pre class="r"><code>corpus_cl &lt;- tm_map(corpus_cl, stemDocument,language = &quot;it&quot;)</code></pre>
+<pre><code>## Warning in tm_map.SimpleCorpus(corpus_cl, stemDocument, language = &quot;it&quot;):
+## transformation drops documents</code></pre>
+<!-- 
+- Tokenization: The last preliminary step to ---- before structuring the data in matrix form is given by tokenization. It is a pre-processing method which breaks a stream of text into a vector of single words.
+
+\begin{aligned}
+& \text{"The quick brown fox jumps over the lazy dog"} \\
+& \qquad \qquad \qquad \qquad \qquad \Downarrow  \\
+& ('The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog')
+\end{aligned}
+<!-- The goal of this step is the investigation of the words in a sentence and  -->
+<p>Tokenization procedure may change according to several factors, such as the language or the type of the analysis.</p>
+<pre class="r"><code>corpus_cl &lt;- tm_map(corpus_cl, stemDocument,language = &quot;it&quot;)</code></pre>
+<pre><code>## Warning in tm_map.SimpleCorpus(corpus_cl, stemDocument, language = &quot;it&quot;):
+## transformation drops documents</code></pre>
+<p>–&gt;</p>
+</div>
+<div id="step-2-document-term-matrix" class="section level2">
+<h2>STEP 2: Document-Term Matrix</h2>
+<p>After pre-processing, the data have the form of a corpus, consisting of a collection of n = 147 vectors, each of them containing a collection of <span class="math inline">\(p_i\)</span> words, with <span class="math inline">\(i=1, \ldots, n\)</span>.
+It is possible to define a document-term matrix (DTM), a <span class="math inline">\(n\times m\)</span> matrix where rows correspond to documents in the collection and columns correspond to the number of unique tokens of the corpus. This representation describes then the frequency of terms that occur in a collection of documents.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Term 1</th>
+<th>Term 2</th>
+<th><span class="math inline">\(\cdots\)</span></th>
+<th>Term <span class="math inline">\(m\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Doc 1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Doc 2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\cdots\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Doc <span class="math inline">\(n\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Alternatively, It is also common to use the transposed version, also called term-document matrix (TDM).
+In our case, the DTM is obtained as follows</p>
+<pre class="r"><code>DTM &lt;- DocumentTermMatrix(corpus_cl)</code></pre>
+<p>The resulting DTM has dimension 147, 288 asdadsdasad ads sdsd s sds sd eet etete.</p>
+<p>DESCRITTIVE E PULIZIE ULTERIORI</p>
+<!-- colS <- colSums(as.matrix(new_docterm_corpus)) -->
+<p>Let us have a look at the distribution of word counts.</p>
+<pre class="r"><code>DTmat &lt;- as.matrix(DTM)
+
+colS &lt;- sort(colSums(DTmat),decreasing = TRUE)
+doc_features &lt;- data.frame(&quot;name&quot; = attributes(colS)$names, &quot;count&quot; = colS)</code></pre>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+name
+</th>
+<th style="text-align:right;">
+count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+univers
+</td>
+<td style="text-align:left;">
+univers
+</td>
+<td style="text-align:right;">
+63
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vorr
+</td>
+<td style="text-align:left;">
+vorr
+</td>
+<td style="text-align:right;">
+47
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+medicin
+</td>
+<td style="text-align:left;">
+medicin
+</td>
+<td style="text-align:right;">
+39
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+stud
+</td>
+<td style="text-align:left;">
+stud
+</td>
+<td style="text-align:right;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iscriv
+</td>
+<td style="text-align:left;">
+iscriv
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+laur
+</td>
+<td style="text-align:left;">
+laur
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+far
+</td>
+<td style="text-align:left;">
+far
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cors
+</td>
+<td style="text-align:left;">
+cors
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ingegner
+</td>
+<td style="text-align:left;">
+ingegner
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dop
+</td>
+<td style="text-align:left;">
+dop
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+diplom
+</td>
+<td style="text-align:left;">
+diplom
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+frequent
+</td>
+<td style="text-align:left;">
+frequent
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ancor
+</td>
+<td style="text-align:left;">
+ancor
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+intraprend
+</td>
+<td style="text-align:left;">
+intraprend
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+piac
+</td>
+<td style="text-align:left;">
+piac
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sicur
+</td>
+<td style="text-align:left;">
+sicur
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+andar
+</td>
+<td style="text-align:left;">
+andar
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+facolt
+</td>
+<td style="text-align:left;">
+facolt
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lavor
+</td>
+<td style="text-align:left;">
+lavor
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+percors
+</td>
+<td style="text-align:left;">
+percors
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fisic
+</td>
+<td style="text-align:left;">
+fisic
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vogl
+</td>
+<td style="text-align:left;">
+vogl
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+scientif
+</td>
+<td style="text-align:left;">
+scientif
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+divent
+</td>
+<td style="text-align:left;">
+divent
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+probabil
+</td>
+<td style="text-align:left;">
+probabil
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+molt
+</td>
+<td style="text-align:left;">
+molt
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+informat
+</td>
+<td style="text-align:left;">
+informat
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+matemat
+</td>
+<td style="text-align:left;">
+matemat
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poi
+</td>
+<td style="text-align:left;">
+poi
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+segu
+</td>
+<td style="text-align:left;">
+segu
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sogn
+</td>
+<td style="text-align:left;">
+sogn
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+specializz
+</td>
+<td style="text-align:left;">
+specializz
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ide
+</td>
+<td style="text-align:left;">
+ide
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+entrar
+</td>
+<td style="text-align:left;">
+entrar
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ester
+</td>
+<td style="text-align:left;">
+ester
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ben
+</td>
+<td style="text-align:left;">
+ben
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+continu
+</td>
+<td style="text-align:left;">
+continu
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+riusc
+</td>
+<td style="text-align:left;">
+riusc
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oppur
+</td>
+<td style="text-align:left;">
+oppur
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+indecis
+</td>
+<td style="text-align:left;">
+indecis
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vit
+</td>
+<td style="text-align:left;">
+vit
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+biolog
+</td>
+<td style="text-align:left;">
+biolog
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mater
+</td>
+<td style="text-align:left;">
+mater
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+trov
+</td>
+<td style="text-align:left;">
+trov
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cos
+</td>
+<td style="text-align:left;">
+cos
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+veterin
+</td>
+<td style="text-align:left;">
+veterin
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+scienz
+</td>
+<td style="text-align:left;">
+scienz
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chirurg
+</td>
+<td style="text-align:left;">
+chirurg
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chimic
+</td>
+<td style="text-align:left;">
+chimic
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iniz
+</td>
+<td style="text-align:left;">
+iniz
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+medic
+</td>
+<td style="text-align:left;">
+medic
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+universit
+</td>
+<td style="text-align:left;">
+universit
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+prov
+</td>
+<td style="text-align:left;">
+prov
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+scelt
+</td>
+<td style="text-align:left;">
+scelt
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chi
+</td>
+<td style="text-align:left;">
+chi
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+scegl
+</td>
+<td style="text-align:left;">
+scegl
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+indipendent
+</td>
+<td style="text-align:left;">
+indipendent
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+piu
+</td>
+<td style="text-align:left;">
+piu
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sar
+</td>
+<td style="text-align:left;">
+sar
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+piacc
+</td>
+<td style="text-align:left;">
+piacc
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aerospazial
+</td>
+<td style="text-align:left;">
+aerospazial
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+specialist
+</td>
+<td style="text-align:left;">
+specialist
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+volt
+</td>
+<td style="text-align:left;">
+volt
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+master
+</td>
+<td style="text-align:left;">
+master
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+preferibil
+</td>
+<td style="text-align:left;">
+preferibil
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+partecip
+</td>
+<td style="text-align:left;">
+partecip
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+prosegu
+</td>
+<td style="text-align:left;">
+prosegu
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+precis
+</td>
+<td style="text-align:left;">
+precis
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+carrier
+</td>
+<td style="text-align:left;">
+carrier
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aver
+</td>
+<td style="text-align:left;">
+aver
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+arriv
+</td>
+<td style="text-align:left;">
+arriv
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cred
+</td>
+<td style="text-align:left;">
+cred
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+esser
+</td>
+<td style="text-align:left;">
+esser
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+riguard
+</td>
+<td style="text-align:left;">
+riguard
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+robot
+</td>
+<td style="text-align:left;">
+robot
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+voler
+</td>
+<td style="text-align:left;">
+voler
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+permett
+</td>
+<td style="text-align:left;">
+permett
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+viagg
+</td>
+<td style="text-align:left;">
+viagg
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fisioterap
+</td>
+<td style="text-align:left;">
+fisioterap
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+napol
+</td>
+<td style="text-align:left;">
+napol
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mag
+</td>
+<td style="text-align:left;">
+mag
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+econom
+</td>
+<td style="text-align:left;">
+econom
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+var
+</td>
+<td style="text-align:left;">
+var
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+criminolog
+</td>
+<td style="text-align:left;">
+criminolog
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+forens
+</td>
+<td style="text-align:left;">
+forens
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+moment
+</td>
+<td style="text-align:left;">
+moment
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+giurisprudent
+</td>
+<td style="text-align:left;">
+giurisprudent
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+propens
+</td>
+<td style="text-align:left;">
+propens
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+qualcos
+</td>
+<td style="text-align:left;">
+qualcos
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+camp
+</td>
+<td style="text-align:left;">
+camp
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genet
+</td>
+<td style="text-align:left;">
+genet
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+malatt
+</td>
+<td style="text-align:left;">
+malatt
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+futur
+</td>
+<td style="text-align:left;">
+futur
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cas
+</td>
+<td style="text-align:left;">
+cas
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+perc
+</td>
+<td style="text-align:left;">
+perc
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iscriver
+</td>
+<td style="text-align:left;">
+iscriver
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+possibil
+</td>
+<td style="text-align:left;">
+possibil
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pls
+</td>
+<td style="text-align:left;">
+pls
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+milion
+</td>
+<td style="text-align:left;">
+milion
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sincer
+</td>
+<td style="text-align:left;">
+sincer
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+soddisfatt
+</td>
+<td style="text-align:left;">
+soddisfatt
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+carabin
+</td>
+<td style="text-align:left;">
+carabin
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+development
+</td>
+<td style="text-align:left;">
+development
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+web
+</td>
+<td style="text-align:left;">
+web
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+biomed
+</td>
+<td style="text-align:left;">
+biomed
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+esperient
+</td>
+<td style="text-align:left;">
+esperient
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+riman
+</td>
+<td style="text-align:left;">
+riman
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+torn
+</td>
+<td style="text-align:left;">
+torn
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+realizz
+</td>
+<td style="text-align:left;">
+realizz
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+signific
+</td>
+<td style="text-align:left;">
+signific
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pediatr
+</td>
+<td style="text-align:left;">
+pediatr
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+neuropsichiatr
+</td>
+<td style="text-align:left;">
+neuropsichiatr
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+quas
+</td>
+<td style="text-align:left;">
+quas
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tecnolog
+</td>
+<td style="text-align:left;">
+tecnolog
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+biotecnologiebiomed
+</td>
+<td style="text-align:left;">
+biotecnologiebiomed
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iscrizion
+</td>
+<td style="text-align:left;">
+iscrizion
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+invest
+</td>
+<td style="text-align:left;">
+invest
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sold
+</td>
+<td style="text-align:left;">
+sold
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+attual
+</td>
+<td style="text-align:left;">
+attual
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+strad
+</td>
+<td style="text-align:left;">
+strad
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+decis
+</td>
+<td style="text-align:left;">
+decis
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sol
+</td>
+<td style="text-align:left;">
+sol
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tranquill
+</td>
+<td style="text-align:left;">
+tranquill
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+caratt
+</td>
+<td style="text-align:left;">
+caratt
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+investig
+</td>
+<td style="text-align:left;">
+investig
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+repart
+</td>
+<td style="text-align:left;">
+repart
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ris
+</td>
+<td style="text-align:left;">
+ris
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+costru
+</td>
+<td style="text-align:left;">
+costru
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+forz
+</td>
+<td style="text-align:left;">
+forz
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ordin
+</td>
+<td style="text-align:left;">
+ordin
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ingegnier
+</td>
+<td style="text-align:left;">
+ingegnier
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fin
+</td>
+<td style="text-align:left;">
+fin
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lic
+</td>
+<td style="text-align:left;">
+lic
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+areospazial
+</td>
+<td style="text-align:left;">
+areospazial
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+conclusion
+</td>
+<td style="text-align:left;">
+conclusion
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ignegner
+</td>
+<td style="text-align:left;">
+ignegner
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+particol
+</td>
+<td style="text-align:left;">
+particol
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lin
+</td>
+<td style="text-align:left;">
+lin
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+opter
+</td>
+<td style="text-align:left;">
+opter
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+persegu
+</td>
+<td style="text-align:left;">
+persegu
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pilot
+</td>
+<td style="text-align:left;">
+pilot
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+potess
+</td>
+<td style="text-align:left;">
+potess
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+qualc
+</td>
+<td style="text-align:left;">
+qualc
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+particell
+</td>
+<td style="text-align:left;">
+particell
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+anni
+</td>
+<td style="text-align:left;">
+anni
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+consegu
+</td>
+<td style="text-align:left;">
+consegu
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+diven
+</td>
+<td style="text-align:left;">
+diven
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pot
+</td>
+<td style="text-align:left;">
+pot
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+super
+</td>
+<td style="text-align:left;">
+super
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+test
+</td>
+<td style="text-align:left;">
+test
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+affront
+</td>
+<td style="text-align:left;">
+affront
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+consent
+</td>
+<td style="text-align:left;">
+consent
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+gir
+</td>
+<td style="text-align:left;">
+gir
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mond
+</td>
+<td style="text-align:left;">
+mond
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poss
+</td>
+<td style="text-align:left;">
+poss
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+inclin
+</td>
+<td style="text-align:left;">
+inclin
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vers
+</td>
+<td style="text-align:left;">
+vers
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+odontoiatr
+</td>
+<td style="text-align:left;">
+odontoiatr
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oncolog
+</td>
+<td style="text-align:left;">
+oncolog
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sper
+</td>
+<td style="text-align:left;">
+sper
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cardiochirurg
+</td>
+<td style="text-align:left;">
+cardiochirurg
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aiut
+</td>
+<td style="text-align:left;">
+aiut
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+farm
+</td>
+<td style="text-align:left;">
+farm
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ideaambient
+</td>
+<td style="text-align:left;">
+ideaambient
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+linguaggiocontest
+</td>
+<td style="text-align:left;">
+linguaggiocontest
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+orient
+</td>
+<td style="text-align:left;">
+orient
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+propr
+</td>
+<td style="text-align:left;">
+propr
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sort
+</td>
+<td style="text-align:left;">
+sort
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+competent
+</td>
+<td style="text-align:left;">
+competent
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+countries
+</td>
+<td style="text-align:left;">
+countries
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dingles
+</td>
+<td style="text-align:left;">
+dingles
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+foreign
+</td>
+<td style="text-align:left;">
+foreign
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mett
+</td>
+<td style="text-align:left;">
+mett
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tutt
+</td>
+<td style="text-align:left;">
+tutt
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+band
+</td>
+<td style="text-align:left;">
+band
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dottor
+</td>
+<td style="text-align:left;">
+dottor
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+musical
+</td>
+<td style="text-align:left;">
+musical
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+parallel
+</td>
+<td style="text-align:left;">
+parallel
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ricerc
+</td>
+<td style="text-align:left;">
+ricerc
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+gestional
+</td>
+<td style="text-align:left;">
+gestional
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sicurezz
+</td>
+<td style="text-align:left;">
+sicurezz
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+criminal
+</td>
+<td style="text-align:left;">
+criminal
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+complet
+</td>
+<td style="text-align:left;">
+complet
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cresc
+</td>
+<td style="text-align:left;">
+cresc
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dovr
+</td>
+<td style="text-align:left;">
+dovr
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pass
+</td>
+<td style="text-align:left;">
+pass
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pression
+</td>
+<td style="text-align:left;">
+pression
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sent
+</td>
+<td style="text-align:left;">
+sent
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+temp
+</td>
+<td style="text-align:left;">
+temp
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+diplomat
+</td>
+<td style="text-align:left;">
+diplomat
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+biotecnolog
+</td>
+<td style="text-align:left;">
+biotecnolog
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+meccatron
+</td>
+<td style="text-align:left;">
+meccatron
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dilemm
+</td>
+<td style="text-align:left;">
+dilemm
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ammazz
+</td>
+<td style="text-align:left;">
+ammazz
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+resc
+</td>
+<td style="text-align:left;">
+resc
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+appassion
+</td>
+<td style="text-align:left;">
+appassion
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+general
+</td>
+<td style="text-align:left;">
+general
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+obiett
+</td>
+<td style="text-align:left;">
+obiett
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poc
+</td>
+<td style="text-align:left;">
+poc
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+applic
+</td>
+<td style="text-align:left;">
+applic
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+approfond
+</td>
+<td style="text-align:left;">
+approfond
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+conoscent
+</td>
+<td style="text-align:left;">
+conoscent
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+contemporan
+</td>
+<td style="text-align:left;">
+contemporan
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cybersecurity
+</td>
+<td style="text-align:left;">
+cybersecurity
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dinformat
+</td>
+<td style="text-align:left;">
+dinformat
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lung
+</td>
+<td style="text-align:left;">
+lung
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+termin
+</td>
+<td style="text-align:left;">
+termin
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+trasmiss
+</td>
+<td style="text-align:left;">
+trasmiss
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+confortevol
+</td>
+<td style="text-align:left;">
+confortevol
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+engineering
+</td>
+<td style="text-align:left;">
+engineering
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+magistral
+</td>
+<td style="text-align:left;">
+magistral
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mathematical
+</td>
+<td style="text-align:left;">
+mathematical
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pont
+</td>
+<td style="text-align:left;">
+pont
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sott
+</td>
+<td style="text-align:left;">
+sott
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sub
+</td>
+<td style="text-align:left;">
+sub
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+viv
+</td>
+<td style="text-align:left;">
+viv
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+intraprender
+</td>
+<td style="text-align:left;">
+intraprender
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pens
+</td>
+<td style="text-align:left;">
+pens
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+press
+</td>
+<td style="text-align:left;">
+press
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+psicolog
+</td>
+<td style="text-align:left;">
+psicolog
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ambit
+</td>
+<td style="text-align:left;">
+ambit
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cert
+</td>
+<td style="text-align:left;">
+cert
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+per
+</td>
+<td style="text-align:left;">
+per
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+principal
+</td>
+<td style="text-align:left;">
+principal
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tendenz
+</td>
+<td style="text-align:left;">
+tendenz
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chiss
+</td>
+<td style="text-align:left;">
+chiss
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fall
+</td>
+<td style="text-align:left;">
+fall
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+maldiv
+</td>
+<td style="text-align:left;">
+maldiv
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+massagg
+</td>
+<td style="text-align:left;">
+massagg
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+parol
+</td>
+<td style="text-align:left;">
+parol
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+riprov
+</td>
+<td style="text-align:left;">
+riprov
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+uscit
+</td>
+<td style="text-align:left;">
+uscit
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vad
+</td>
+<td style="text-align:left;">
+vad
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+concretizz
+</td>
+<td style="text-align:left;">
+concretizz
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nuov
+</td>
+<td style="text-align:left;">
+nuov
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+perscors
+</td>
+<td style="text-align:left;">
+perscors
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marin
+</td>
+<td style="text-align:left;">
+marin
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+affascin
+</td>
+<td style="text-align:left;">
+affascin
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+afflitt
+</td>
+<td style="text-align:left;">
+afflitt
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+grav
+</td>
+<td style="text-align:left;">
+grav
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mortal
+</td>
+<td style="text-align:left;">
+mortal
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ospedal
+</td>
+<td style="text-align:left;">
+ospedal
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+person
+</td>
+<td style="text-align:left;">
+person
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poter
+</td>
+<td style="text-align:left;">
+poter
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+purtropp
+</td>
+<td style="text-align:left;">
+purtropp
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+salv
+</td>
+<td style="text-align:left;">
+salv
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sempr
+</td>
+<td style="text-align:left;">
+sempr
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+spess
+</td>
+<td style="text-align:left;">
+spess
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ricott
+</td>
+<td style="text-align:left;">
+ricott
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+concil
+</td>
+<td style="text-align:left;">
+concil
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+occup
+</td>
+<td style="text-align:left;">
+occup
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+piccol
+</td>
+<td style="text-align:left;">
+piccol
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+riusciss
+</td>
+<td style="text-align:left;">
+riusciss
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+conservator
+</td>
+<td style="text-align:left;">
+conservator
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+entramb
+</td>
+<td style="text-align:left;">
+entramb
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+camb
+</td>
+<td style="text-align:left;">
+camb
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+concors
+</td>
+<td style="text-align:left;">
+concors
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mes
+</td>
+<td style="text-align:left;">
+mes
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+motiv
+</td>
+<td style="text-align:left;">
+motiv
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ogni
+</td>
+<td style="text-align:left;">
+ogni
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pke
+</td>
+<td style="text-align:left;">
+pke
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+prefer
+</td>
+<td style="text-align:left;">
+prefer
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+scien
+</td>
+<td style="text-align:left;">
+scien
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+programm
+</td>
+<td style="text-align:left;">
+programm
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+angris
+</td>
+<td style="text-align:left;">
+angris
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+luc
+</td>
+<td style="text-align:left;">
+luc
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nom
+</td>
+<td style="text-align:left;">
+nom
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ortoped
+</td>
+<td style="text-align:left;">
+ortoped
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+segnat
+</td>
+<td style="text-align:left;">
+segnat
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+umbert
+</td>
+<td style="text-align:left;">
+umbert
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tent
+</td>
+<td style="text-align:left;">
+tent
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+indirizz
+</td>
+<td style="text-align:left;">
+indirizz
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+valut
+</td>
+<td style="text-align:left;">
+valut
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+inoltr
+</td>
+<td style="text-align:left;">
+inoltr
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+linguist
+</td>
+<td style="text-align:left;">
+linguist
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mediazion
+</td>
+<td style="text-align:left;">
+mediazion
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+meccan
+</td>
+<td style="text-align:left;">
+meccan
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ricc
+</td>
+<td style="text-align:left;">
+ricc
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tuttav
+</td>
+<td style="text-align:left;">
+tuttav
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+schif
+</td>
+<td style="text-align:left;">
+schif
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+antropolog
+</td>
+<td style="text-align:left;">
+antropolog
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+detect
+</td>
+<td style="text-align:left;">
+detect
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+grand
+</td>
+<td style="text-align:left;">
+grand
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+paur
+</td>
+<td style="text-align:left;">
+paur
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sbagl
+</td>
+<td style="text-align:left;">
+sbagl
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+anacoret
+</td>
+<td style="text-align:left;">
+anacoret
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+intenzion
+</td>
+<td style="text-align:left;">
+intenzion
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sapess
+</td>
+<td style="text-align:left;">
+sapess
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>There is an inverse proportionality between the rank and the frequency of words. This relationship is called Zipf’s law, originally introduced in terms of quantitative linguistics but with applications in other environments.</p>
+<p>Mostriamo in tabella delle frequenze dei termini</p>
+<hr />
+<p>Ora visualizziamo i termini che si presentano con maggiore frequenza nel documento:</p>
+<p>The TMD is usually a sparse matrix, meaning that most of the values are zeroes. La presenza di una grande quantità di zeri può in genere creare problemi per i modelli statistici e richiedere un tempo molto elevato di calcolo. Therefore, we’ll remove the sparse terms by using a threshold: values with low frequency across documents are dropped. We can remove only the most sparse tokens, for example fixing <code>sparse = 0.95</code> will result i a new matrix contains only tokens with a sparse factor of less than 95%.</p>
+<pre class="r"><code>dtm2 &lt;- removeSparseTerms(DTM,sparse = 0.95)</code></pre>
+<div id="step-2-rappresentazione-del-testo" class="section level4">
+<h4>STEP 2: Rappresentazione del testo</h4>
+<pre class="r"><code>DTmat2 &lt;- as.matrix(dtm2)
+
+colS2 &lt;- sort(colSums(DTmat2),decreasing = TRUE)
+doc_features2 &lt;- data.frame(&quot;name&quot; = attributes(colS2)$names,
+                           &quot;count&quot; = colS2)
+
+ggplot(doc_features2,aes(x=reorder(name, count), y=count)) +
+  geom_bar(stat = &quot;identity&quot;,fill=&#39;lightblue&#39;,color=&#39;black&#39;) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  coord_flip() +
+  theme_light()</code></pre>
+<p><img src="https://blog-neas.github.io/english/blog-neas/2022-02-01-PLS-seminar-one_files/figure-html/dtm4-1.png" width="672" /></p>
+<p>SPIEGONE</p>
+<p>Circa il 53.49% delle parole considerate è stata utilizzata per almeno 8 volte.</p>
+<!--
+Dopo una pulizia preliminare dei dati, le risposte sono state analizzate e catalogate in quattro classi distinte:
+
+(STEM, Humanities, Medical/Infirmary, Other)
+
+- Studi Scientifici: appartengono a questa classe i rispondenti che hanno specificato di voler iscriversi ad un corso di laurea di tipo scientifico.
+- Studi Umanistici: gruppo di rispondenti che hanno dichiarato di voler iscriversi ad un corso di laurea di tipo umanistico.
+- Scienze Mediche/Sanitarie: studenti che hanno espresso la volontà di voler prendere parte a corsi di laurea di natura medica (medicina/veterinaria) o di scienze infermieristiche.
+ - Altro/Non Specificato: appartengono a questa classe tutte le risposte valutate troppo vaghe, contraddittorie ed ironiche.
+
+Per la stragrande maggioranza dei rispondenti si presenta la volontà di proseguire gli studi iscrivendosi all'Università, mentre solo due rispondenti del campione in esame hanno dichiarato di voler far parte delle forze dell'Ordine, in particolare diventare Carabiniere. In questo contesto, si nota da parte di alcuni studenti un interessamento al mestiere di "criminologo", con la ricerca di un corso di studi universitario che possa portare ad una carriera da criminologo ed all'attività investigativa.
+It is worth to note that this procedure can be done in a more automatic way by using un appropriato natural language processing method, see @aggarwal2012survey.
+
+Prime descrittive
+
+```r
+# hist(corpus$Tipo)
+```
+
+Nella figura 5, si può notare la distribuzione delle risposte in base alle categorie individuate.
+Al netto della categoria "Altro" (44%), le discipline scientifiche sembrano attirare maggiormente gli studenti intervistati (55% delle risposte) rispetto alle discipline umanistiche, che si attestano ad un 9% del totale. Risulta interessante constatate una consistente percentuale di studenti attratti dalle discipline mediche ed infermieristiche, pari al 39%, segno dell'appeal che tali discipline destano negli studenti liceali.
+
+Analizzando nel dettaglio le risposte, si possono inoltre notare delle caratteristiche dei rispondenti che potrebbero aiutare a comprendere nel dettaglio la natura intrinseca del fenomeno. Come si poteva già notare dalla forte percentuale di risposte appartenenti alla categoria "Altro" (mostrata nel grafico 5), si evince una forte indecisione nei confronti del futuro da parte degli studenti, contraddistinta a volte dall'utilizzo di verbi al condizionale o, nello specifico, all'utilizzo di termini quali, tra i tanti, "non so" e "non ho ancora deciso". 
+
+Anche il senso di incertezza è una componente che si evince con una certa frequenza attraverso frasi quali "probabilmente", "se ci riesco" e "se ne ho la possibilità". Al contrario, sono pochi i ragazzi che dichiarano una preferenza in maniera chiara e determinata il proprio percorso futuro ma, quando lo fanno, forniscono una descrizione esaustiva e molto dettagliata.
+In questo contesto, alcuni rispondenti hanno evidenziato (sia in maniera diretta che indiretta) l'utilità che hanno avuto i webinar organizzati dalla Summer school PLS. Infatti, alcuni studenti hanno dichiarato apertamente di partecipare a tali corsi al fine di fugare potenziali dubbi riguardanti il tema di interesse trattato durante i vari seminari, mentre un paio hanno risposto di esser arrivati ad una scelta più decisa proprio dopo aver seguito i suddetti corsi.
+
+In alcune risposte si può inoltre osservare una propensione alla mobilità universitaria fuori regione: non mancano infatti preferenze relative allo studio fuori regione/città di appartenenza (con i termini "non a Napoli" oppure "fuori dalla Campania" ad esempio) e addirittura alla mobilità internazionale ("Fare esperienza all'estero per poi rimanere all'estero o tornare").
+
+Dopo aver effettuato il pre-trattamento del testo attraverso le fasi descritte in sezione 1, rimuovendo in particolare stop-words e segni di punteggiatura, siamo passati quindi all'analisi delle parole. Sono state estrapolate dal testo 344 parole distinte, delle quali l'84% sono state utilizzate al più due volte (72% una sola volta e 12% due volte), al quale corrispondono sia termini generici ("iscrizione", "attuale", "riguardante", "incline") che più specifici ("biotecnologie", "aerospaziale", "fisioterapia", "criminologia"). Pertanto, da qui in poi focalizziamo la nostra analisi allo studio delle parole che sono state utilizzate con la maggior frequenza. 
+
+Figura 6: diagramma a barre con la distribuzione delle frequenze delle parole usate almeno 3 volte
+Nel grafico 6, si evince la distribuzione di frequenza delle parole utilizzate almeno tre volte all'interno del campione, che sono pari a 55. Si tratta chiaramente di una distribuzione fortemente asimmetrica a cui corrisponde un valore modale pari a 3. Sono 36 le parole che sono state utilizzate dagli studenti con una frequenza compresa tra 3 ed 8 volte, mentre 19 sono le parole a cui corrisponde una frequenza più alta, come mostrato in tabella 1.
+
+Tra le parole più rilevanti spiccano di certo alcuni sostantivi e verbi all'infinito relativi all'Università (come "università", "medicina", "ingegneria", facoltà", "iscrivere", "intraprendere" e "studi") e anche alcuni verbi coniugati al condizionale ("piacerebbe","vorrei"), che esprimono quella percezione di incertezza del futuro già osservata in precedenza.
+
+Seguendo un'ottica di esperienza interattiva e votata al coinvolgimento attivo degli ascoltatori, si è mostrato ai ragazzi come attraverso l'utilizzo della term-document matrix è possibile costruire le WordCloud.
+Per WordCloud si intende una lista "pesata" di parole, con la peculiare caratteristica di attribuire un font di dimensioni più grandi alle parole più importanti, ovvero a cui corrisponde una frequenza maggiore.
+
+Con tali rappresentazioni grafiche si possono evidenziare alcuni aspetti fondamentali riguardanti i dati presi in considerazione.
+In un primo tentativo si è mostrato quali sono gli effetti potenzialmente negativi che si hanno nel costruire la WordCloud senza aver effettuato la rimozione delle stop-word. In base a ciò si è costruita la figura 7.
+
+-->
+</div>
+<div id="step-3-word-cloud" class="section level4">
+<h4>STEP 3: Word Cloud</h4>
+<!-- #### STEP 3: Metodi statistici di data mining applicati al testo -->
+<pre class="r"><code>wordcloud(doc_features$name,doc_features$count,min.freq=10)</code></pre>
+<p><img src="https://blog-neas.github.io/english/blog-neas/2022-02-01-PLS-seminar-one_files/figure-html/wordcloud1-1.png" width="672" /></p>
+<pre class="r"><code>wordcloud(doc_features2$name,doc_features2$count)</code></pre>
+<p><img src="https://blog-neas.github.io/english/blog-neas/2022-02-01-PLS-seminar-one_files/figure-html/wordcloud2-1.png" width="672" /></p>
+<p>In conclusion, text analysis can be portata avanti combinando feature engineering techniques with modelli supervisionati o non supervisionati (<a href="https://towardsdatascience.com/text-classification-supervised-unsupervised-learning-approaches-9fd5e01a036https://towardsdatascience.com/text-classification-supervised-unsupervised-learning-approaches-9fd5e01a036">articolo</a>).</p>
+</div>
+<div id="reference" class="section level3">
+<h3>Reference</h3>
+<p><a href="https://www.g2.com/articles/text-mining" class="uri">https://www.g2.com/articles/text-mining</a></p>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-hearst1999untangling" class="csl-entry">
+Hearst, Marti A. 1999. <span>“Untangling Text Data Mining.”</span> In <em>Proceedings of the 37th Annual Meeting of the Association for Computational Linguistics</em>, 3–10.
+</div>
+<div id="ref-van2016exploring" class="csl-entry">
+Van Hee, Cynthia, Els Lefever, and Véronique Hoste. 2016. <span>“Exploring the Realization of Irony in Twitter Data.”</span> In <em>Proceedings of the Tenth International Conference on Language Resources and Evaluation (LREC’16)</em>, 1794–99.
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+      <meta itemprop="wordCount" content="5325">
+      <meta itemprop="datePublished" content="2022-02-01">
+      <meta itemprop="url" content="https://blog-neas.github.io/en/blog-neas/pls-seminar-one/">
+
+<div class='sans' style="background: #dddddd; padding: 2em; margin-top: 20px;">
+<div style="padding-bottom: 1em" >
+<p>
+  
+    <a href="https://blog-neas.github.io/en/blog-neas/pls-seminar-one/">"Text Mining with R: cleaning and preparing data"</a> by <a href="https://blog-neas.github.io/en/authors/">Lucio Palazzo</a>&nbsp;/&nbsp;<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  
+</p>
+<div class="share-box">
+  <ul class="share">
+    <li>
+      <a class="facebook" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog-neas.github.io%2fen%2fblog-neas%2fpls-seminar-one%2f" target="_blank">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="twitter" href="https://twitter.com/intent/tweet?text=Text%20Mining%20with%20R%3a%20cleaning%20and%20preparing%20data. https%3a%2f%2fblog-neas.github.io%2fen%2fblog-neas%2fpls-seminar-one%2f from @robjhyndman" target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fblog-neas.github.io%2fen%2fblog-neas%2fpls-seminar-one%2f&amp;title=Text%20Mining%20with%20R%3a%20cleaning%20and%20preparing%20data" target="_blank">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo" href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fblog-neas.github.io%2fen%2fblog-neas%2fpls-seminar-one%2f&amp;title=Text%20Mining%20with%20R%3a%20cleaning%20and%20preparing%20data" target="_blank">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email" href="mailto:?subject=Text%20Mining%20with%20R%3a%20cleaning%20and%20preparing%20data&amp;body=https%3a%2f%2fblog-neas.github.io%2fen%2fblog-neas%2fpls-seminar-one%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+</div>
+
+    <ul class="pagination" role="navigation" aria-label="Pagination">
+      
+      <li class="arrow" aria-disabled="true"><a href="https://blog-neas.github.io/en/blog-neas/despota-page/">&laquo; <em>Previous<span class="show-for-sr"> page</span></em>: DESPOTA</a></li>
+      
+      
+    </ul>
+        
+      <a href="https://blog-neas.github.io/en/blog-neas/">All NeaS posts by date</a>
+      
+      
+</div>
+
+<span style='font-family: Carlito'>
+ <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+              return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'palazzolucio';
+    
+    
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    
+    
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</span>
+
+  </div>
+  </div></div>
+
+    </main>
+    <footer class="whatisthis">
+  <hr class='separator'/>
+  <span style="font-family: Carlito, sans; font-size: 0.9em; line-height: 1.05em;">
+  <div class="row">
+    <div class="column small-12 medium-4">
+      <figure class='image-left'>
+      <a href="https://blog-neas.github.io/" style="border-bottom: none;">
+      	<img src="https://blog-neas.github.io/img/fotoscholar_mod.png" alt="Portrait of the author" class='avatar' style="max-width: 100%;">
+      </a>
+      </figure>
+      <p>Lucio&nbsp;Palazzo <span style="font-size: 10pt;">PhD</span> is Research Fellow of the <a href="http://www.scienzepolitiche.unina.it">LabStat, Department of Political Sciences</a> at <a href="http://www.unina.it/en_GB/home">University of Naples Federico II</a>, Napoli.</p>
+    </div>
+    <div class="column small-12 medium-4">
+      
+      <h4 id="contact">Contact</h4>
+      <ul class="fa-ul">
+	
+	<li><i class="fa-li fa fa-university" style="color:#03396c;font-size:80%;padding-top:6px;"></i><a href="https://www.labstat.it/">LabStat - Statistics Laboratory, Department of Political Sciences, Federico II University, L. Rodinò 22 road - 80138 Napoli (NA), Italy.</a></li>
+	
+	<li><i class="fa-li fa fa-envelope" style="color:#03396c;font-size:80%;padding-top:6px;"></i><a href="mailto:lucio.palazzo@unina.it">lucio.palazzo@unina.it</a></li>
+	
+	<li><i class="fa-li ai ai-google-scholar" style="color:#03396c;font-size:80%;padding-top:6px;"></i><a href="https://scholar.google.com/citations?user=jyhrTYkAAAAJ">Google Scholar</a></li>
+	
+	<li><i class="fa-li ai ai-researchgate" style="color:#03396c;font-size:80%;padding-top:6px;"></i><a href="https://www.researchgate.net/profile/Lucio-Palazzo">ResearchGate</a></li>
+	
+	<li><i class="fa-li fa fa-github-alt" style="color:#03396c;font-size:80%;padding-top:6px;"></i><a href="https://github.com/blog-neas">LP-NeaS</a> on GitHub</li>
+	
+	<li><i class="fa-li ai ai-orcid" style="color:#03396c;font-size:80%;padding-top:6px;"></i><a href="https://orcid.org/0000-0001-7529-4689">0000-0001-7529-4689</a> on OrcID</li>
+	
+      </ul>
+    </div>
+
+  <div class="column small-12 medium-4">
+  <h4>Search</h4>
+  <a id="searchsite">
+  	<form method="get" action="https://duckduckgo.com/">
+	  <label for="search-field" class="show-for-sr">Search the site</label>
+	  <input type="search" name="q" maxlength="255" placeholder="Search the site" id="search-field">
+	  <input type="hidden" name="sites" value="https://blog-neas.github.io/"/>
+	  <input type="hidden" name="k7" value="#faf8f8"/>
+	  <input type="hidden" name="kj" value="#b33"/>
+	  <input type="hidden" name="ky" value="#fafafa"/>
+	  <input type="hidden" name="kx" value="b"/>
+	  <input type="hidden" name="ko" value="-1"/>
+	  <input type="hidden" name="k1" value="-1"/>
+	</form>
+  </a>
+
+  
+  <hr style="border-top:5px solid #faf8f8;"/>
+  
+  
+  
+    
+  
+
+
+  
+  </div>
+  </div>
+  </span>
+</footer>
+
+    <div class="endofpage">
+    <footer id="footer">
+    <section class="wrapper small">Inspired by <a href="https://robjhyndman.com">Rob&nbsp;J&nbsp;Hyndman's</a> blog. &nbsp;&nbsp; &copy;<a href="mailto:lucio.palazzo@unina.it">Lucio Palazzo</a> 2021&ndash;2022.
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://blog-neas.github.io/en/index.xml"><img src="https://blog-neas.github.io/img/rss2.png" width=12 align="bottom" alt="RSS icon"  style="padding-top: 0.7ex"></a>
+    </section>
+    </footer>
+    </div>
+
+    <script src="https://blog-neas.github.io/js/jquery.js"></script>
+    <script src="https://blog-neas.github.io/js/what-input.js"></script>
+    <script src="https://blog-neas.github.io/js/foundation.min.js"></script>
+    <script src="https://blog-neas.github.io/js/finite.js"></script>
+
+    
+    <script src="//cdn.bootcss.com/highlight.js/11.3.1/highlight.min.js"></script>
+    <script src="//cdn.bootcss.com/highlight.js/11.3.1/languages/r.min.js"></script>
+
+    <script>
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+    </script>
+
+    
+    
+    
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-79C5JB0NHX', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+ </body>
+</html>
