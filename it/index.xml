@@ -425,16 +425,6 @@ Textbook: Forecasting: Principles and Practice, Hyndman &amp;amp; Athanasopoulos
     </item>
     
     <item>
-      <title>About me</title>
-      <link>https://blog-neas.github.io/it/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog-neas.github.io/it/about/</guid>
-      <description>The following bio and this photo may be used in media releases without further permission.
- Lucio Palazzo obtained a PhD in Statistical Methods from the doctoral school Economics and Policy Analysis of Markets and Firms of the University of Salerno in May 2019. Before that, he completed an MSc in Statistics (2018) at the KU Leuven, in Belgium. Moreover, he also earned an MSc in Statistical Science for Decision Making (2015) and a BSc in Mathematics (2012), both at the University of Naples Federico II.</description>
-    </item>
-    
-    <item>
       <title>Calendar</title>
       <link>https://blog-neas.github.io/it/calendar/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -443,6 +433,16 @@ Textbook: Forecasting: Principles and Practice, Hyndman &amp;amp; Athanasopoulos
       <description>In this calendar are pinned some of the most important meetings, conferences andd workshops regarding statistics and data science occurring worldwide, with an eye on European ones.
 This is a non exhaustive list, please contact me if you have events to advertise. If you want to help to keep up-to-date the list of events, you are welcome.
  </description>
+    </item>
+    
+    <item>
+      <title>Chi sono</title>
+      <link>https://blog-neas.github.io/it/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/about/</guid>
+      <description>La seguente biografia può essere utilizzata per fini informativi o divulgativi senza la richiesta di permessi aggiuntivi.
+ Lucio Palazzo PhD ha conseguito il dottorato in Metodi Statistici presso la Scuola di Dottorato intitolata Economia e Politiche dei Mercati e delle Imprese dell&#39;Università di Salerno, Maggio 2019. In precedenza ha ottenuto il Master in Statistics (2018) presso la KU Leuven, in Belgio. Inoltre, è un Dottore Magistrale in Metodi Statistici per le Decisioni (2015) e Triennale in Matematica (2012), presso l&amp;rsquo;Università di Napoli Federico II.</description>
     </item>
     
     <item>
