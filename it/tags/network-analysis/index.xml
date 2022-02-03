@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Network Analysis on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/it/tags/network-analysis/</link>
+    <description>Recent content in Network Analysis on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Mon, 13 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/tags/network-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Local clustering coefficient to measure intra-regional tourism in Italy</title>
+      <link>https://blog-neas.github.io/it/publications/ies22-idea/</link>
+      <pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/ies22-idea/</guid>
+      <description>L&amp;rsquo;analisi delle reti rappresenta un utile approccio per misurare i flussi turistici tra regioni. In questo quadro, misure di clustering a livello locale (local clustering coefficient, LCC) possono essere utilizzate per ottenere informazioni rilevanti. Il progetto di ricerca si concentra nello studio dei flussi turistici in Italia nel periodo 2018-2019 identificando diversi profili regionali, classificabili in due gruppi principali. Questo studio preliminare studio mostra le potenzialità delle LCCs derivate dalla Network Analysis nello studio e nella valutazione degli effetti delle politiche per il turismo in termini di attrattività e ricettività di una regione (o di gruppi di regioni).</description>
+    </item>
+    
+    <item>
+      <title>Sviluppo della cultura statistica a scuola e all&#39;università: buone pratiche dal territorio</title>
+      <link>https://blog-neas.github.io/it/publications/istat18/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/istat18/</guid>
+      <description>TBA</description>
+    </item>
+    
+    <item>
+      <title>Corsi universitari campani e competenze professionali: un&#39;analisi relazionale</title>
+      <link>https://blog-neas.github.io/it/publications/orsuc-book/</link>
+      <pubDate>Tue, 11 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/orsuc-book/</guid>
+      <description>In questo paper sono state individuate le relazioni che intercorrono tra il sistema di categorizzazione dei corsi universitari in corsi di studi (CdS) e classi di laurea (CdL) e quello delle figure professionali in uscita, rappresentato dal sistema dei codici di classificazione delle professioni ISTAT, nella maniera in cui queste ultime vengono proposte dai vari atenei in fase di presentazione di un determinato CdS, al fine di rilevare l’esistenza di criticità ed elementi di discordanza o di incoerenza.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>clustering on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/en/tags/clustering/</link>
+    <description>Recent content in clustering on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Sat, 05 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/en/tags/clustering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Le performance sanitarie regionali durante l&#39;emergenza Covid-19: una comparazione tra serie storiche</title>
+      <link>https://blog-neas.github.io/en/publications/covid-eyesreg/</link>
+      <pubDate>Sat, 05 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/covid-eyesreg/</guid>
+      <description>Note: The original paper is written in Italian. Here you can find a translation of the abstract.
+In this article we analyze the performance of the Italian healthcare system during the outbreak of the Covid-19 pandemic. The aim of this work is to investigate the presence of health imbalances (if any) at a territorial level, identifying common features in terms of virus incidence. This analysis is carried out through a comparison of the Dynamic Time Warping (DTW) distances of the historical series relating to admissions to intensive care units and hospitalzed patients for the 19 Italian regions and the two autonomous provinces of Trento and Bolzano.</description>
+    </item>
+    
+  </channel>
+</rss>

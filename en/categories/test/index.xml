@@ -1,0 +1,363 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>test on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/en/categories/test/</link>
+    <description>Recent content in test on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Wed, 08 Sep 2021 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://blog-neas.github.io/en/categories/test/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RMD example</title>
+      <link>https://blog-neas.github.io/en/blog-neas/rmdownexample/</link>
+      <pubDate>Wed, 08 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/blog-neas/rmdownexample/</guid>
+      <description>
+&lt;script src=&#34;https://blog-neas.github.io/lucio.palazzo/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;table style=&#34;width:6%;&#34;&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;5%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;strong&gt;Advertisement :)&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;- &lt;strong&gt;&lt;a href=&#34;https://nodeca.github.io/pica/demo/&#34;&gt;pica&lt;/a&gt;&lt;/strong&gt; - high quality and fast image
+resize in browser.
+- &lt;strong&gt;&lt;a href=&#34;https://github.com/nodeca/babelfish/&#34;&gt;babelfish&lt;/a&gt;&lt;/strong&gt; - developer friendly
+i18n with plurals support and easy syntax.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;You will like those projects!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div id=&#34;h1-heading-8-&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;h1 Heading 8-)&lt;/h1&gt;
+&lt;div id=&#34;h2-heading&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;h2 Heading&lt;/h2&gt;
+&lt;div id=&#34;h3-heading&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;h3 Heading&lt;/h3&gt;
+&lt;div id=&#34;h4-heading&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;h4 Heading&lt;/h4&gt;
+&lt;div id=&#34;h5-heading&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;h5 Heading&lt;/h5&gt;
+&lt;div id=&#34;h6-heading&#34; class=&#34;section level6&#34;&gt;
+&lt;h6&gt;h6 Heading&lt;/h6&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;horizontal-rules&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Horizontal Rules&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;hr /&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;div id=&#34;typographic-replacements&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Typographic replacements&lt;/h2&gt;
+&lt;p&gt;Enable typographer option to see result.&lt;/p&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;ol start=&#34;3&#34; style=&#34;list-style-type: upper-alpha&#34;&gt;
+&lt;li&gt;&lt;ol start=&#34;18&#34; style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;ol start=&#34;18&#34; style=&#34;list-style-type: upper-alpha&#34;&gt;
+&lt;li&gt;(tm) (TM) (p) (P) +-&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;test.. test… test….. test?….. test!….&lt;/p&gt;
+&lt;p&gt;!!!!!! ???? ,, – —&lt;/p&gt;
+&lt;p&gt;“Smartypants, double quotes” and ‘single quotes’&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;emphasis&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Emphasis&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;This is bold text&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This is bold text&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This is italic text&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This is italic text&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;Strikethrough&lt;/del&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;blockquotes&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Blockquotes&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Blockquotes can also be nested…
+&amp;gt; …by using additional greater-than signs right next to each other…
+&amp;gt; &amp;gt; …or with spaces between arrows.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lists&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Lists&lt;/h2&gt;
+&lt;p&gt;Unordered&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a list by starting a line with &lt;code&gt;+&lt;/code&gt;, &lt;code&gt;-&lt;/code&gt;, or &lt;code&gt;*&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Sub-lists are made by indenting 2 spaces:
+&lt;ul&gt;
+&lt;li&gt;Marker character change forces new list start:
+&lt;ul&gt;
+&lt;li&gt;Ac tristique libero volutpat at&lt;/li&gt;
+&lt;li&gt;Facilisis in pretium nisl aliquet&lt;/li&gt;
+&lt;li&gt;Nulla volutpat aliquam velit&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Very easy!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ordered&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Lorem ipsum dolor sit amet&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Consectetur adipiscing elit&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Integer molestie lorem at massa&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;You can use sequential numbers…&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;…or keep all the numbers as &lt;code&gt;1.&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Start numbering with offset:&lt;/p&gt;
+&lt;ol start=&#34;57&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;foo&lt;/li&gt;
+&lt;li&gt;bar&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;code&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Code&lt;/h2&gt;
+&lt;p&gt;Inline &lt;code&gt;code&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Indented code&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// Some comments
+line 1 of code
+line 2 of code
+line 3 of code&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Block code “fences”&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Sample text here...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Syntax highlighting&lt;/p&gt;
+&lt;pre class=&#34;js&#34;&gt;&lt;code&gt;var foo = function (bar) {
+  return bar++;
+};
+
+console.log(foo(5));&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tables&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Tables&lt;/h2&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;35%&#34; /&gt;
+&lt;col width=&#34;64%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;Option&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;data&lt;/td&gt;
+&lt;td&gt;path to data files to supply the data that will be passed into templates.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;engine&lt;/td&gt;
+&lt;td&gt;engine to be used for processing templates. Handlebars is the default.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;ext&lt;/td&gt;
+&lt;td&gt;extension to be used for dest files.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Right aligned columns&lt;/p&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;36%&#34; /&gt;
+&lt;col width=&#34;63%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;right&#34;&gt;Option&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;data&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;path to data files to supply the data that will be passed into templates.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;engine&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;engine to be used for processing templates. Handlebars is the default.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;ext&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;extension to be used for dest files.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;links&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Links&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://dev.nodeca.com&#34;&gt;link text&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://nodeca.github.io/pica/demo/&#34; title=&#34;title text!&#34;&gt;link with title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Autoconverted link &lt;a href=&#34;https://github.com/nodeca/pica&#34; class=&#34;uri&#34;&gt;https://github.com/nodeca/pica&lt;/a&gt; (enable linkify to see)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;images&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Images&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://octodex.github.com/images/minion.png&#34; alt=&#34;Minion&#34; /&gt;
+&lt;img src=&#34;https://octodex.github.com/images/stormtroopocat.jpg&#34; title=&#34;The Stormtroopocat&#34; alt=&#34;Stormtroopocat&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Like links, Images also have a footnote style syntax&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://octodex.github.com/images/dojocat.jpg&#34; title=&#34;The Dojocat&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Alt text&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;With a reference later in the document defining the URL location:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;plugins&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Plugins&lt;/h2&gt;
+&lt;p&gt;The killer feature of &lt;code&gt;markdown-it&lt;/code&gt; is very effective support of
+&lt;a href=&#34;https://www.npmjs.org/browse/keyword/markdown-it-plugin&#34;&gt;syntax plugins&lt;/a&gt;.&lt;/p&gt;
+&lt;div id=&#34;emojies&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;https://github.com/markdown-it/markdown-it-emoji&#34;&gt;Emojies&lt;/a&gt;&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:&lt;/p&gt;
+&lt;p&gt;Shortcuts (emoticons): :-) :-( 8-) ;)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;see &lt;a href=&#34;https://github.com/markdown-it/markdown-it-emoji#change-output&#34;&gt;how to change output&lt;/a&gt; with twemoji.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;subscript-superscript&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;https://github.com/markdown-it/markdown-it-sub&#34;&gt;Subscript&lt;/a&gt; / &lt;a href=&#34;https://github.com/markdown-it/markdown-it-sup&#34;&gt;Superscript&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;19&lt;sup&gt;th&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;H&lt;sub&gt;2&lt;/sub&gt;O&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ins&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;https://github.com/markdown-it/markdown-it-ins&#34;&gt;&amp;lt;ins&amp;gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;++Inserted text++&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;mark&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;https://github.com/markdown-it/markdown-it-mark&#34;&gt;&amp;lt;mark&amp;gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;==Marked text==&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;footnotes&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;https://github.com/markdown-it/markdown-it-footnote&#34;&gt;Footnotes&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Footnote 1 link&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Footnote 2 link&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Inline footnote&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; definition.&lt;/p&gt;
+&lt;p&gt;Duplicated footnote reference&lt;a href=&#34;#fn4&#34; class=&#34;footnote-ref&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;definition-lists&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;https://github.com/markdown-it/markdown-it-deflist&#34;&gt;Definition lists&lt;/a&gt;&lt;/h3&gt;
+&lt;dl&gt;
+&lt;dt&gt;Term 1&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;Definition 1
+with lazy continuation.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Term 2 with &lt;em&gt;inline markup&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;Definition 2&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{ some code, part of Definition 2 }&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Third paragraph of definition 2.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;&lt;em&gt;Compact style:&lt;/em&gt;&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Term 1&lt;/dt&gt;
+&lt;dd&gt;Definition 1
+&lt;/dd&gt;
+&lt;dt&gt;Term 2&lt;/dt&gt;
+&lt;dd&gt;Definition 2a
+&lt;/dd&gt;
+&lt;dd&gt;Definition 2b
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+&lt;div id=&#34;abbreviations&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;https://github.com/markdown-it/markdown-it-abbr&#34;&gt;Abbreviations&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This is HTML abbreviation example.&lt;/p&gt;
+&lt;p&gt;It converts “HTML,” but keep intact partial entries like “xxxHTMLyyy” and so on.&lt;/p&gt;
+&lt;p&gt;*[HTML]: Hyper Text Markup Language&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;custom-containers&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;https://github.com/markdown-it/markdown-it-container&#34;&gt;Custom containers&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&#34;warning&#34;&gt;
+&lt;p&gt;&lt;em&gt;here be dragons&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;Footnote &lt;strong&gt;can have markup&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;and multiple paragraphs.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;Footnote text.&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn3&#34;&gt;&lt;p&gt;Text of inline footnote&lt;a href=&#34;#fnref3&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn4&#34;&gt;&lt;p&gt;Footnote text.&lt;a href=&#34;#fnref4&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RMD python</title>
+      <link>https://blog-neas.github.io/en/blog-neas/rpyhtonexample/</link>
+      <pubDate>Wed, 08 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/blog-neas/rpyhtonexample/</guid>
+      <description>
+&lt;script src=&#34;https://blog-neas.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;table style=&#34;width:6%;&#34;&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;5%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;strong&gt;Advertisement :)&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;- &lt;strong&gt;&lt;a href=&#34;https://nodeca.github.io/pica/demo/&#34;&gt;pica&lt;/a&gt;&lt;/strong&gt; - high quality and fast image
+resize in browser.
+- &lt;strong&gt;&lt;a href=&#34;https://github.com/nodeca/babelfish/&#34;&gt;babelfish&lt;/a&gt;&lt;/strong&gt; - developer friendly
+i18n with plurals support and easy syntax.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;You will like those projects!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div id=&#34;h1-heading-8-&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;h1 Heading 8-)&lt;/h1&gt;
+&lt;div id=&#34;h2-heading&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;h2 Heading&lt;/h2&gt;
+&lt;div id=&#34;h3-heading&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;h3 Heading&lt;/h3&gt;
+&lt;div id=&#34;h4-heading&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;h4 Heading&lt;/h4&gt;
+&lt;div id=&#34;h5-heading&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;h5 Heading&lt;/h5&gt;
+&lt;div id=&#34;h6-heading&#34; class=&#34;section level6&#34;&gt;
+&lt;h6&gt;h6 Heading&lt;/h6&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(reticulate)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(rnorm(100),rnorm(100,2,4))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-neas.github.io/english/blog-neas/R_Python_files/figure-html/uno-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;import matplotlib.pyplot as plt
+plt.plot([1, 2, 3, 4])
+plt.ylabel(&amp;#39;some numbers&amp;#39;)
+plt.show()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-neas.github.io/english/blog-neas/R_Python_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;git clone &lt;a href=&#34;https://github.com/blog-neas/blog-neas.github.io.git&#34; class=&#34;uri&#34;&gt;https://github.com/blog-neas/blog-neas.github.io.git&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

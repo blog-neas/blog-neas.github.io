@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Startup on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/en/tags/startup/</link>
+    <description>Recent content in Startup on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Thu, 01 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/en/tags/startup/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Determinants of social startups in Italy</title>
+      <link>https://blog-neas.github.io/en/publications/asa21-bosp/</link>
+      <pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/asa21-bosp/</guid>
+      <description>The aim of this paper is to investigate the relevant factors influencing the presence of social startups in Italy at the provincial level. The outcome variable is the number of active social startups in Italian provinces while the set of explanatory variables is composed by economic and demographic indicators at the provincial level.</description>
+    </item>
+    
+  </channel>
+</rss>

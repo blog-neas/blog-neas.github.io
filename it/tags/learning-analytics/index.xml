@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>learning analytics on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/it/tags/learning-analytics/</link>
+    <description>Recent content in learning analytics on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Sat, 25 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/tags/learning-analytics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Il futuro degli studenti: dal questionario all&#39;analisi statistica dei dati testuali</title>
+      <link>https://blog-neas.github.io/it/publications/pls-psv3/</link>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/pls-psv3/</guid>
+      <description>Il presente lavoro si incardina nell&amp;rsquo;ambito della Summer School &amp;ldquo;Piano Lauree Scientifiche&amp;rdquo; (PLS), ponendosi come obiettivo la presentazione e la discussione delle potenzialità dell&amp;rsquo;analisi di alcune tipologie dati complessi. In particolare, il focus è stato sull&amp;rsquo;analisi dei dati testuali, settore che ha visto negli ultimi anni un esponenziale sviluppo, anche a partire dalla diffusione e dalla rilevanza assunta dai social media e dai social networks. Discuteremo in questo lavoro l&amp;rsquo;introduzione al text mining, così come presentato in sede di seminario, e i principali risultati di un esperimento svolto durante tale incontro, in cui la partecipazione della platea di studenti è stata parte integrante dello studio.</description>
+    </item>
+    
+    <item>
+      <title>Sviluppo della cultura statistica a scuola e all&#39;università: buone pratiche dal territorio</title>
+      <link>https://blog-neas.github.io/it/publications/istat18/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/istat18/</guid>
+      <description>TBA</description>
+    </item>
+    
+  </channel>
+</rss>

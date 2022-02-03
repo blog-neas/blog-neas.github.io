@@ -1,0 +1,185 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/en/publications/</link>
+    <description>Recent content in Publications on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Mon, 13 Dec 2021 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://blog-neas.github.io/en/publications/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Local clustering coefficient to measure intra-regional tourism in Italy</title>
+      <link>https://blog-neas.github.io/en/publications/ies22-idea/</link>
+      <pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/ies22-idea/</guid>
+      <description>&lt;p&gt;Network analysis represents a useful approach to measure intra-regional tourism flows. Relevant information about this phenomenon can be retrieved using Network Analysis local clustering coefficient (LCC). In this work we study Italian tourism flows in two-year period 2018-2019, identifying different patterns and two main groups of regions.
+This preliminary study shows the potential of LCCs to evaluate the effects of tourism policies in terms of attractiveness and receptivity of a region (or groups of regions).
+Future steps would involve the study of tourism flows in a multidimensional perspective, including in the analysis other relevant aspects such as geography, climate, culture and politics.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Searching for the determinants of new social enterprises: the case of Italian social start-ups</title>
+      <link>https://blog-neas.github.io/en/publications/determinants-siavs-ijas/</link>
+      <pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/determinants-siavs-ijas/</guid>
+      <description>&lt;p&gt;Social start-ups constitute a subclass of the innovative entrepreneurship market and they are a relatively new topic in the literature from both the scientific and normative perspectives. In Italy, a start-up can be registered as social-oriented innovative startup (SIAVS), after demonstrating its ability to make social impacts and satisfy a set of normative requirements. This paper describes and models (at the territorial level) the presence of these innovative companies focused on social, cultural, and/or environmental needs. We combine data on the number of SIAVS and other start-ups in Italy with other socio economic quantities at the territorial level (NUTS 3 regions). Variables such as population density, metropolitan cities, number of certified incubators and percentage of non-profit organisations are identified as determinants of new social enterprises through the application of generalised linear models, while also considering the presence of zero inflation.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Il futuro degli studenti: dal questionario all&#39;analisi statistica dei dati testuali</title>
+      <link>https://blog-neas.github.io/en/publications/pls-psv3/</link>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/pls-psv3/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The original seminar was held in Italian. Here you can find a translation of the abstract.&lt;/p&gt;
+&lt;p&gt;The present work is part of the &amp;ldquo;Plan for Science Degrees&amp;rdquo; (&lt;em&gt;Piano Lauree Scientifiche&lt;/em&gt;, PLS), aiming at presenting and discussing the potential of the analysis of complex data to high school seniors and university freshmen.
+In particular, the focus has been on the analysis of textual data, a field that has seen an exponential development in recent years, also from the spread and relevance assumed by social media and social networks.
+In this paper we introduce text mining methods, as presented during the seminar, and the main results of an experiment carried out during the meeting, in which audience was an integral part of the study.
+Initially, we showed how to perform a statistical survey with which it was possible to obtain the responses of individual students, then we processed the results. A concluding discussion was carried out on the validity of the instruments and the interpretation of the results, which is a non-trivial issue task the complex nature of the data.
+The aim of the seminar was to show the methodological implications and the potentiality of statistical analysis on textual data, a theme widely dealt with in the degree courses of the Federico II: Statistics for Business and Society (&amp;ldquo;Statistica per l&amp;rsquo;Impresa e la Società&amp;rdquo;, bachelor degree) and Statistics for Decision Making (&amp;ldquo;Scienze Statistiche per le Decisioni&amp;rdquo;, master degree) at the Department of Political Sciences.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Southern Italian Peripheries at the Ballot Box. Continuity and Innovation in Electoral Behaviours in Three Southern Italian Cities during Post-Crisis Decade (2008-2019)</title>
+      <link>https://blog-neas.github.io/en/publications/southern-italy-jmis/</link>
+      <pubDate>Wed, 08 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/southern-italy-jmis/</guid>
+      <description>&lt;p&gt;The article explores the social and political geography of three southern Italian cities - Bari, Napoli and Reggio Calabria - and investigates inside their centre-periphery cleavage, highlighting whether and how peripheral conditions affect electoral behaviours. It provides a multidimensional statistical analysis based on I.S.T.A.T. data on Italian cities and suburbs and on the results of the political and European elections during the post-economic crisis decade (2008-2019). The study highlights a growing predictive power, after the 2008 crisis, of the peripheral condition on the electoral behaviour, the weakening of the centre-left parties and the specular political success of 5-Star Movement (M5S) in deprived urban areas.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Determinants of social startups in Italy</title>
+      <link>https://blog-neas.github.io/en/publications/asa21-bosp/</link>
+      <pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/asa21-bosp/</guid>
+      <description>&lt;p&gt;The aim of this paper is to investigate the relevant factors influencing the presence of social startups in Italy at the provincial level. The outcome variable is the number of active social startups in Italian provinces while the set of explanatory variables is composed by economic and demographic indicators at the provincial level.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The role of passing network indicators in modeling football outcomes: an application using bayesian hierarchical models</title>
+      <link>https://blog-neas.github.io/en/publications/asta-footbayes/</link>
+      <pubDate>Tue, 22 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/asta-footbayes/</guid>
+      <description>&lt;p&gt;Passes are undoubtedly the more frequent events in football and other team sports. Passing networks and their structural features can be useful to evaluate the style of play in terms of passing behavior, analyzing and quantifying interactions among players. The present paper aims to show how information retrieved from passing networks can have a relevant impact on predicting the match outcome. In particular, we focus on modeling both the scored goals by two competing teams and the goal diference between them. With this purpose, we ft these outcomes using Bayesian hierarchical models, including both in-match and network-based covariates to cover many aspects of the ofensive actions on the pitch. Furthermore, we review and compare diferent approaches to include covariates in modeling football outcomes. The presented methodology is applied to a real dataset containing information on 125 matches of the 2016–2017 UEFA Champions League, involving 32 among the best European teams. From our results, shots on target, corners, and such passing network indicators are the main determinants of the considered football outcomes.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>On the use of passing network indicators to predict football outcomes</title>
+      <link>https://blog-neas.github.io/en/publications/passing-network-kbs/</link>
+      <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/passing-network-kbs/</guid>
+      <description>&lt;p&gt;Summary statistics for football matches, such as ball possession and percentage of completed passes, are not always satisfyingly informative about team strategies seen on the pitch. Passing networks and their structural features can be used to evaluate the style of play in terms of passing behavior, analyzing and quantifying interactions among players. The aim of the present paper is to show how information retrieved from passing networks can have a significant impact on the match outcome. At a descriptive level, we provide useful graphic visualizations to compare teams and their individual level of connection. Therefore, we directly compute and discuss network properties, such as centralization, clustering and cliques, from a football perspective. Then, we model the probability of winning the game through four competitive machine learning models including network-based indicators as explanatory variables with a set of in-field variables. The real dataset for application includes 96 matches in the Group Stage of the 2016-2017 UEFA Champions League, involving the 32 best European teams. This approach shows that some network-based variables, such as diameter and betweenness centralization, can be related to the level of offensive actions and finalizations for a team. Furthermore, we show that such variables help improve all considered models in terms of explanatory power, compared to those presenting only in-field regressors. Among the presented models, binomial logistic regression shows the best results according to a set of performance indicators.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bootstrap test in Poisson-INAR models</title>
+      <link>https://blog-neas.github.io/en/publications/sis20-bosp/</link>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/sis20-bosp/</guid>
+      <description>&lt;p&gt;In this paper we exploit bootstrap–based specification test on the autoregressive coefficient in INteger–AutoRegressive models (INAR) considering the case of homoskedastic Poisson innovations. Performance of four unrestricted bootstrap methods are analyzed through a small–scale Monte carlo exesercise.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bootstrap-based score test for INAR effect</title>
+      <link>https://blog-neas.github.io/en/publications/sis20-bosp/</link>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/sis20-bosp/</guid>
+      <description>&lt;p&gt;This work exploits the potential of bootstrap methods in testing for serial dependence in the class of observed driven Integer-AutoRegressive (INAR) models with Poisson innovations. The main contribution is to develop a novel restricted bootstrap algorithm to improve the performance of score-based test statistic, especially in case of moderately small series.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Le performance sanitarie regionali durante l&#39;emergenza Covid-19: una comparazione tra serie storiche</title>
+      <link>https://blog-neas.github.io/en/publications/covid-eyesreg/</link>
+      <pubDate>Sat, 05 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/covid-eyesreg/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The original paper is written in Italian. Here you can find a translation of the abstract.&lt;/p&gt;
+&lt;p&gt;In this article we analyze the performance of the Italian healthcare system during the outbreak of the Covid-19 pandemic. The aim of this work is to investigate the presence of health imbalances (if any) at a territorial level, identifying common features in terms of virus incidence. This analysis is carried out through a comparison of the Dynamic Time Warping (DTW) distances of the historical series relating to admissions to intensive care units and hospitalzed patients for the 19 Italian regions and the two autonomous provinces of Trento and Bolzano. The series considered are not only a proxy of the spread of the virus diffusion, at regional level, but also provide a measure of the impact of the pandemic itself on the health care system. The analyses highlight affinities and divergences among Italian regions in relation to the incidence of the first wave of the Covid-19 pandemic. Based on the results, it can be observed that Italy is characterized by several regional clusters, which are not all identifiable solely by geographical proximity, where the pandemic has produced different effects.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Neural Networks and Betting Strategies for Tennis</title>
+      <link>https://blog-neas.github.io/en/publications/betting-tennis-risks/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/betting-tennis-risks/</guid>
+      <description>&lt;p&gt;Recently, the interest of the academic literature on sports statistics has increased enormously. In such a framework, two of the most significant challenges are developing a model able to beat the existing approaches and, within a betting market framework, guarantee superior returns than the set of competing specifications considered. This contribution attempts to achieve both these results, in the context of male tennis. In tennis, several approaches to predict the winner are available, among which the regression-based, point-based and paired comparison of the competitors&#39; abilities play a significant role. Contrary to the existing approaches, this contribution employs artificial neural networks (ANNs) to forecast the probability of winning in tennis matches, starting from all the variables used in a large selection of the previous methods. From an out-of-sample perspective, the implemented ANN model outperforms four out of five competing models, independently of the considered period. For what concerns the betting perspective, we propose four different strategies. The resulting returns on investment obtained from the ANN appear to be more broad and robust than those obtained from the best competing model, irrespective of the betting strategy adopted.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A Mahalanobis-like distance for cylindrical data</title>
+      <link>https://blog-neas.github.io/en/publications/mahalanobis-cladag/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/mahalanobis-cladag/</guid>
+      <description>&lt;p&gt;A definition of a density–based distance function for data on the surface of cylinders is introduced. It is able to deal with the correlation structure of cylindrical data.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bootstrap inference in Instrumental Variables with gretl</title>
+      <link>https://blog-neas.github.io/en/publications/boot-iv-gretl/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/boot-iv-gretl/</guid>
+      <description>&lt;p&gt;In this paper we implement bootstrap in conventional instrumental variables estimations using gretl and compare the performance of several methods through simulation study and an empirical dataset coming from the seminal paper of Acemoglu et al. (2001).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Integer Autoregressive modeling: a new gretl routine</title>
+      <link>https://blog-neas.github.io/en/publications/inar-gretl/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/inar-gretl/</guid>
+      <description>&lt;p&gt;This paper focuses on a family of observation-driven models for autoregressive discrete-valued data, called INAR models. The main purpose of the project is to write and document a set of Gretl Econometric Software functions that perform time series estimation of one-lagged univariate INAR models with Poisson and Negative Binomial marginals.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sviluppo della cultura statistica a scuola e all&#39;università: buone pratiche dal territorio</title>
+      <link>https://blog-neas.github.io/en/publications/istat18/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/istat18/</guid>
+      <description>&lt;p&gt;TBA&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Corsi universitari campani e competenze professionali: un&#39;analisi relazionale</title>
+      <link>https://blog-neas.github.io/en/publications/orsuc-book/</link>
+      <pubDate>Tue, 11 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/orsuc-book/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The original chapter is written in Italian. Here you can find a translation of the abstract.&lt;/p&gt;
+&lt;p&gt;In this paper we identify the relationships between the Italian university courses and students&#39; first job categories.
+University courses in Italy are divided in bachelor (&lt;em&gt;corsi di studio&lt;/em&gt;, CdS) and master degrees (&lt;em&gt;corsi di laurea&lt;/em&gt;,CdL), while the professional sectors are categorized by the ATECO codes, officially introduced by the Italian institute of statistics (ISTAT). The aim of the present work is twofold: fistly, we want to study the relationships between the degree program students choose and the class of employment they obtain at their first job, then we aim to detect the existence of critical points and elements of inconsistency. With the use of the network analysis it is possible to analyse the network constituted by the relationships between ATECO codes and university courses of the Campania universities. In this context, it is possible to identify well-defined clusters formed by degree classes and ISTAT codes that appear homogeneous both from a university and professional point of view.
+This work is part of the results obtained from the research entitled &amp;ldquo;monitoring of employment and outgoing skills&amp;rdquo;, linked to the Regional Observatory Project of the Campania University System (&lt;em&gt;Osservatorio Regionale del Sistema Universitario Campano&lt;/em&gt;, ORSUC).&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

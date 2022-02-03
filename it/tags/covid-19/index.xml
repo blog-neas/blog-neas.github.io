@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Covid-19 on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/it/tags/covid-19/</link>
+    <description>Recent content in Covid-19 on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Sat, 05 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/tags/covid-19/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Le performance sanitarie regionali durante l&#39;emergenza Covid-19: una comparazione tra serie storiche</title>
+      <link>https://blog-neas.github.io/it/publications/covid-eyesreg/</link>
+      <pubDate>Sat, 05 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/covid-eyesreg/</guid>
+      <description>Lo scopo del presente lavoro è quello di indagare come e in che modo si siano manifestati gli squilibri sanitari a livello territoriale, andando ad identificare caratteristiche comuni in termini di incidenza del virus. Tale analisi viene effettuata attraverso un confronto tra le distanze DTW (Dynamic Time Warping) delle serie storiche relative ai ricoveri in terapia intensiva e negli altri reparti ospedalieri per le 19 regioni italiane e le due province autonome di Trento e Bolzano.</description>
+    </item>
+    
+  </channel>
+</rss>

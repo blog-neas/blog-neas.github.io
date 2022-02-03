@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Skellam distribution on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/it/tags/skellam-distribution/</link>
+    <description>Recent content in Skellam distribution on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Tue, 22 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/tags/skellam-distribution/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The role of passing network indicators in modeling football outcomes: an application using bayesian hierarchical models</title>
+      <link>https://blog-neas.github.io/it/publications/asta-footbayes/</link>
+      <pubDate>Tue, 22 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/asta-footbayes/</guid>
+      <description>Passes are undoubtedly the more frequent events in football and other team sports. Passing networks and their structural features can be useful to evaluate the style of play in terms of passing behavior, analyzing and quantifying interactions among players. The present paper aims to show how information retrieved from passing networks can have a relevant impact on predicting the match outcome. In particular, we focus on modeling both the scored goals by two competing teams and the goal diference between them.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>betting on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/it/tags/betting/</link>
+    <description>Recent content in betting on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Mon, 29 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/tags/betting/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Neural Networks and Betting Strategies for Tennis</title>
+      <link>https://blog-neas.github.io/it/publications/betting-tennis-risks/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/betting-tennis-risks/</guid>
+      <description>Recently, the interest of the academic literature on sports statistics has increased enormously. In such a framework, two of the most significant challenges are developing a model able to beat the existing approaches and, within a betting market framework, guarantee superior returns than the set of competing specifications considered. This contribution attempts to achieve both these results, in the context of male tennis. In tennis, several approaches to predict the winner are available, among which the regression-based, point-based and paired comparison of the competitors&#39; abilities play a significant role.</description>
+    </item>
+    
+  </channel>
+</rss>

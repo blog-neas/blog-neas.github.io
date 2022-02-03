@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>INAR models on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/it/tags/inar-models/</link>
+    <description>Recent content in INAR models on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Sun, 01 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/tags/inar-models/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bootstrap test in Poisson-INAR models</title>
+      <link>https://blog-neas.github.io/it/publications/sis20-bosp/</link>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/sis20-bosp/</guid>
+      <description>Nota: L&amp;rsquo;articolo originale è in lingua inglese. Di seguito viene presentata una traduzione dell&amp;rsquo;abstract.
+In questo lavoro si sono indagate le potenzialità di tecniche bootstrap per la verifica di ipotesi sul coefficiente autoregressivo dei modelli INAR, nel caso innovazioni omoschedastiche distribuite come delle v.c. Poisson. Le performance di quattro metodi sono state valutate attraverso uno studio di simulazione.</description>
+    </item>
+    
+    <item>
+      <title>Bootstrap-based score test for INAR effect</title>
+      <link>https://blog-neas.github.io/it/publications/sis20-bosp/</link>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/sis20-bosp/</guid>
+      <description>In questo lavoro si indagano le potenzialità del bootstrap per verificare la presenza di correlazione seriale in serie storiche a valori discreti con innovazioni Poisson. Il contributo innovativo riguarda l&amp;rsquo;implementazione di un metodo bootstrap allo scopo di migliorare le performance delle statistiche test basate sulla funzione score, specialmente in serie che presentano una numerosità limitata.</description>
+    </item>
+    
+    <item>
+      <title>Integer Autoregressive modeling: a new gretl routine</title>
+      <link>https://blog-neas.github.io/it/publications/inar-gretl/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/inar-gretl/</guid>
+      <description>This paper focuses on a family of observation-driven models for autoregressive discrete-valued data, called INAR models. The main purpose of the project is to write and document a set of Gretl Econometric Software functions that perform time series estimation of one-lagged univariate INAR models with Poisson and Negative Binomial marginals.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Football outcomes on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/en/tags/football-outcomes/</link>
+    <description>Recent content in Football outcomes on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Mon, 29 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/en/tags/football-outcomes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>On the use of passing network indicators to predict football outcomes</title>
+      <link>https://blog-neas.github.io/en/publications/passing-network-kbs/</link>
+      <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/passing-network-kbs/</guid>
+      <description>Summary statistics for football matches, such as ball possession and percentage of completed passes, are not always satisfyingly informative about team strategies seen on the pitch. Passing networks and their structural features can be used to evaluate the style of play in terms of passing behavior, analyzing and quantifying interactions among players. The aim of the present paper is to show how information retrieved from passing networks can have a significant impact on the match outcome.</description>
+    </item>
+    
+  </channel>
+</rss>

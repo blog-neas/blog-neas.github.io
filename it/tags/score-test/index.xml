@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>score test on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/it/tags/score-test/</link>
+    <description>Recent content in score test on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Sun, 01 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/tags/score-test/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bootstrap-based score test for INAR effect</title>
+      <link>https://blog-neas.github.io/it/publications/sis20-bosp/</link>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/sis20-bosp/</guid>
+      <description>In questo lavoro si indagano le potenzialità del bootstrap per verificare la presenza di correlazione seriale in serie storiche a valori discreti con innovazioni Poisson. Il contributo innovativo riguarda l&amp;rsquo;implementazione di un metodo bootstrap allo scopo di migliorare le performance delle statistiche test basate sulla funzione score, specialmente in serie che presentano una numerosità limitata.</description>
+    </item>
+    
+  </channel>
+</rss>

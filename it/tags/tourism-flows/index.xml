@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tourism flows on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/it/tags/tourism-flows/</link>
+    <description>Recent content in tourism flows on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Mon, 13 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/tags/tourism-flows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Local clustering coefficient to measure intra-regional tourism in Italy</title>
+      <link>https://blog-neas.github.io/it/publications/ies22-idea/</link>
+      <pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/ies22-idea/</guid>
+      <description>L&amp;rsquo;analisi delle reti rappresenta un utile approccio per misurare i flussi turistici tra regioni. In questo quadro, misure di clustering a livello locale (local clustering coefficient, LCC) possono essere utilizzate per ottenere informazioni rilevanti. Il progetto di ricerca si concentra nello studio dei flussi turistici in Italia nel periodo 2018-2019 identificando diversi profili regionali, classificabili in due gruppi principali. Questo studio preliminare studio mostra le potenzialità delle LCCs derivate dalla Network Analysis nello studio e nella valutazione degli effetti delle politiche per il turismo in termini di attrattività e ricettività di una regione (o di gruppi di regioni).</description>
+    </item>
+    
+  </channel>
+</rss>

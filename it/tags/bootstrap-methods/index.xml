@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bootstrap methods on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/it/tags/bootstrap-methods/</link>
+    <description>Recent content in Bootstrap methods on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Sun, 01 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/tags/bootstrap-methods/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bootstrap test in Poisson-INAR models</title>
+      <link>https://blog-neas.github.io/it/publications/sis20-bosp/</link>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/sis20-bosp/</guid>
+      <description>Nota: L&amp;rsquo;articolo originale è in lingua inglese. Di seguito viene presentata una traduzione dell&amp;rsquo;abstract.
+In questo lavoro si sono indagate le potenzialità di tecniche bootstrap per la verifica di ipotesi sul coefficiente autoregressivo dei modelli INAR, nel caso innovazioni omoschedastiche distribuite come delle v.c. Poisson. Le performance di quattro metodi sono state valutate attraverso uno studio di simulazione.</description>
+    </item>
+    
+    <item>
+      <title>Bootstrap inference in Instrumental Variables with gretl</title>
+      <link>https://blog-neas.github.io/it/publications/boot-iv-gretl/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/boot-iv-gretl/</guid>
+      <description>In this paper we implement bootstrap in conventional instrumental variables estimations using gretl and compare the performance of several methods through simulation study and an empirical dataset coming from the seminal paper of Acemoglu et al. (2001).</description>
+    </item>
+    
+  </channel>
+</rss>

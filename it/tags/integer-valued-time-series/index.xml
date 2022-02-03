@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Integer-valued time series on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/it/tags/integer-valued-time-series/</link>
+    <description>Recent content in Integer-valued time series on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Sun, 01 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/tags/integer-valued-time-series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bootstrap test in Poisson-INAR models</title>
+      <link>https://blog-neas.github.io/it/publications/sis20-bosp/</link>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/sis20-bosp/</guid>
+      <description>Nota: L&amp;rsquo;articolo originale è in lingua inglese. Di seguito viene presentata una traduzione dell&amp;rsquo;abstract.
+In questo lavoro si sono indagate le potenzialità di tecniche bootstrap per la verifica di ipotesi sul coefficiente autoregressivo dei modelli INAR, nel caso innovazioni omoschedastiche distribuite come delle v.c. Poisson. Le performance di quattro metodi sono state valutate attraverso uno studio di simulazione.</description>
+    </item>
+    
+  </channel>
+</rss>

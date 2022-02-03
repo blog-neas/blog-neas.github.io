@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/en/</link>
+    <description>Recent content on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Thu, 30 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DESPOTA</title>
+      <link>https://blog-neas.github.io/en/blog-neas/despota-page/</link>
+      <pubDate>Thu, 30 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/blog-neas/despota-page/</guid>
+      <description>DESPOTA (DEndogram Slicing through a PermutatiOn Test Approach) is a novel approach exploiting permutation tests in order to automatically detect a partition among those embedded in a dendrogram. Unlike the traditional approach, DESPOTA includes in the search space also partitions not corresponding to horizontal cuts of the dendrogram.
+The output of hierarchical clustering methods is typically displayed as a dendrogram describing a family of nested partitions. However, the exploitable partitions are usually restricted to those relying on horizontal cuts of the tree, missing the possibility to explore the whole set of partitions housed in the dendrogram.</description>
+    </item>
+    
+    <item>
+      <title>Local clustering coefficient to measure intra-regional tourism in Italy</title>
+      <link>https://blog-neas.github.io/en/publications/ies22-idea/</link>
+      <pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/ies22-idea/</guid>
+      <description>Network analysis represents a useful approach to measure intra-regional tourism flows. Relevant information about this phenomenon can be retrieved using Network Analysis local clustering coefficient (LCC). In this work we study Italian tourism flows in two-year period 2018-2019, identifying different patterns and two main groups of regions. This preliminary study shows the potential of LCCs to evaluate the effects of tourism policies in terms of attractiveness and receptivity of a region (or groups of regions).</description>
+    </item>
+    
+    <item>
+      <title>Searching for the determinants of new social enterprises: the case of Italian social start-ups</title>
+      <link>https://blog-neas.github.io/en/publications/determinants-siavs-ijas/</link>
+      <pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/determinants-siavs-ijas/</guid>
+      <description>Social start-ups constitute a subclass of the innovative entrepreneurship market and they are a relatively new topic in the literature from both the scientific and normative perspectives. In Italy, a start-up can be registered as social-oriented innovative startup (SIAVS), after demonstrating its ability to make social impacts and satisfy a set of normative requirements. This paper describes and models (at the territorial level) the presence of these innovative companies focused on social, cultural, and/or environmental needs.</description>
+    </item>
+    
+    <item>
+      <title>Il futuro degli studenti: dal questionario all&#39;analisi statistica dei dati testuali</title>
+      <link>https://blog-neas.github.io/en/publications/pls-psv3/</link>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/pls-psv3/</guid>
+      <description>Note: The original seminar was held in Italian. Here you can find a translation of the abstract.
+The present work is part of the &amp;ldquo;Plan for Science Degrees&amp;rdquo; (Piano Lauree Scientifiche, PLS), aiming at presenting and discussing the potential of the analysis of complex data to high school seniors and university freshmen. In particular, the focus has been on the analysis of textual data, a field that has seen an exponential development in recent years, also from the spread and relevance assumed by social media and social networks.</description>
+    </item>
+    
+    <item>
+      <title>Start-ups and incubators: a two-mode network of Italian emerging firms</title>
+      <link>https://blog-neas.github.io/en/seminars/eusn2021_3/</link>
+      <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/eusn2021_3/</guid>
+      <description>Start-ups and incubators: a two-mode network of Italian emerging firms Conference: EUSN2021 5th European Conference on Social Network Authors: Domenico Boris Salvati, Francesco Santelli, Riccardo Ievoli, Lucio Palazzo</description>
+    </item>
+    
+    <item>
+      <title>Dynamics of the football market transfer: an application to the Italian Serie A teams</title>
+      <link>https://blog-neas.github.io/en/seminars/eusn2021_2/</link>
+      <pubDate>Wed, 08 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/eusn2021_2/</guid>
+      <description>Dynamics of the football market transfer: an application to the Italian Serie A teams Conference: EUSN2021 5th European Conference on Social Network Authors: Roberto Rondinelli, Lucio Palazzo</description>
+    </item>
+    
+    <item>
+      <title>RMD example</title>
+      <link>https://blog-neas.github.io/en/blog-neas/rmdownexample/</link>
+      <pubDate>Wed, 08 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/blog-neas/rmdownexample/</guid>
+      <description>Advertisement :)  - pica - high quality and fast image resize in browser. - babelfish - developer friendly i18n with plurals support and easy syntax.  You will like those projects!    h1 Heading 8-) h2 Heading h3 Heading h4 Heading h5 Heading h6 Heading      Horizontal Rules  Typographic replacements Enable typographer option to see result.
+(tm) (TM) (p) (P) +-     test.</description>
+    </item>
+    
+    <item>
+      <title>RMD python</title>
+      <link>https://blog-neas.github.io/en/blog-neas/rpyhtonexample/</link>
+      <pubDate>Wed, 08 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/blog-neas/rpyhtonexample/</guid>
+      <description>     Advertisement :)  - pica - high quality and fast image resize in browser. - babelfish - developer friendly i18n with plurals support and easy syntax.  You will like those projects!    h1 Heading 8-) h2 Heading h3 Heading h4 Heading h5 Heading h6 Heading library(reticulate) plot(rnorm(100),rnorm(100,2,4)) import matplotlib.pyplot as plt plt.plot([1, 2, 3, 4]) plt.ylabel(&amp;#39;some numbers&amp;#39;) plt.show() git clone https://github.com/blog-neas/blog-neas.github.io.git
+      </description>
+    </item>
+    
+    <item>
+      <title>Southern Italian Peripheries at the Ballot Box. Continuity and Innovation in Electoral Behaviours in Three Southern Italian Cities during Post-Crisis Decade (2008-2019)</title>
+      <link>https://blog-neas.github.io/en/publications/southern-italy-jmis/</link>
+      <pubDate>Wed, 08 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/southern-italy-jmis/</guid>
+      <description>The article explores the social and political geography of three southern Italian cities - Bari, Napoli and Reggio Calabria - and investigates inside their centre-periphery cleavage, highlighting whether and how peripheral conditions affect electoral behaviours. It provides a multidimensional statistical analysis based on I.S.T.A.T. data on Italian cities and suburbs and on the results of the political and European elections during the post-economic crisis decade (2008-2019). The study highlights a growing predictive power, after the 2008 crisis, of the peripheral condition on the electoral behaviour, the weakening of the centre-left parties and the specular political success of 5-Star Movement (M5S) in deprived urban areas.</description>
+    </item>
+    
+    <item>
+      <title>The use of passing network indicators to predict football outcomes</title>
+      <link>https://blog-neas.github.io/en/seminars/eusn2021_1/</link>
+      <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/eusn2021_1/</guid>
+      <description>The use of passing network indicators to predict football outcomes Conference: EUSN2021 5th European Conference on Social Network Authors: Lucio Palazzo, Riccardo Ievoli, Giancarlo Ragozini</description>
+    </item>
+    
+    <item>
+      <title>Determinants of social startups in Italy</title>
+      <link>https://blog-neas.github.io/en/publications/asa21-bosp/</link>
+      <pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/asa21-bosp/</guid>
+      <description>The aim of this paper is to investigate the relevant factors influencing the presence of social startups in Italy at the provincial level. The outcome variable is the number of active social startups in Italian provinces while the set of explanatory variables is composed by economic and demographic indicators at the provincial level.</description>
+    </item>
+    
+    <item>
+      <title>Bootstrap-based score test for INAR effect</title>
+      <link>https://blog-neas.github.io/en/seminars/sis2021/</link>
+      <pubDate>Thu, 24 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/sis2021/</guid>
+      <description>Bootstrap-based score test for INAR effect Conference: SIS 2021 50th virtual scientific meeting of the Italian Statistical Society Authors: Lucio Palazzo, Riccardo Ievoli</description>
+    </item>
+    
+    <item>
+      <title>The role of passing network indicators in modeling football outcomes: an application using bayesian hierarchical models</title>
+      <link>https://blog-neas.github.io/en/publications/asta-footbayes/</link>
+      <pubDate>Tue, 22 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/asta-footbayes/</guid>
+      <description>Passes are undoubtedly the more frequent events in football and other team sports. Passing networks and their structural features can be useful to evaluate the style of play in terms of passing behavior, analyzing and quantifying interactions among players. The present paper aims to show how information retrieved from passing networks can have a relevant impact on predicting the match outcome. In particular, we focus on modeling both the scored goals by two competing teams and the goal diference between them.</description>
+    </item>
+    
+    <item>
+      <title>La concentrazione territoriale delle imprese innovative ibride, tra profit e no-profit: le Start-up innovative a vocazione sociale</title>
+      <link>https://blog-neas.github.io/en/seminars/sisec2021/</link>
+      <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/sisec2021/</guid>
+      <description>La concentrazione territoriale delle imprese innovative ibride, tra profit e no-profit: le Start-up innovative a vocazione sociale Conference: SISEC V convegno annuale della Società italiana di Sociologia Economica. L&amp;rsquo;Italia alla prova dell&amp;rsquo;emergenza: istituzioni, mercati, società Authors: Lucio Palazzo, Pietro Sabatino, Riccardo Ievoli</description>
+    </item>
+    
+    <item>
+      <title>On the use of passing network indicators to predict football outcomes</title>
+      <link>https://blog-neas.github.io/en/publications/passing-network-kbs/</link>
+      <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/passing-network-kbs/</guid>
+      <description>Summary statistics for football matches, such as ball possession and percentage of completed passes, are not always satisfyingly informative about team strategies seen on the pitch. Passing networks and their structural features can be used to evaluate the style of play in terms of passing behavior, analyzing and quantifying interactions among players. The aim of the present paper is to show how information retrieved from passing networks can have a significant impact on the match outcome.</description>
+    </item>
+    
+    <item>
+      <title>The determinants of social startups in Italy</title>
+      <link>https://blog-neas.github.io/en/seminars/asa2021/</link>
+      <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/asa2021/</guid>
+      <description>The determinants of social startups in Italy Conference: ASA 2021 Scientific Pre-Conference on Statistics and Information Systems for Policy Evaluation Authors: Lucio Palazzo, Pietro Sabatino, Riccardo Ievoli</description>
+    </item>
+    
+    <item>
+      <title>About NeaS</title>
+      <link>https://blog-neas.github.io/en/blog-neas/about/</link>
+      <pubDate>Fri, 01 Jan 2021 09:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/blog-neas/about/</guid>
+      <description>introduce students (and even and a wider audience) to some up-to-date data science topics, also making some of our research interests visible to the general public. The idea behind this is to share observations and disseminate ideas with an international community in a more informal way, without the pressure of the peer-review process. The Nea-Statistic (NeaS) blog is intended to be a virtual meeting place where people can read about statistics and share new findings in data science.</description>
+    </item>
+    
+    <item>
+      <title>Introducing some Tests on Triad Census Distribution with Application to Football</title>
+      <link>https://blog-neas.github.io/en/seminars/dssr2020/</link>
+      <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/dssr2020/</guid>
+      <description>Introducing some Tests on Triad Census Distribution with Application to Football Conference: DSSR2020 Third international conference on Data Science &amp;amp; Social Research Virtual Conference Authors: Lucio Palazzo, Riccardo Ievoli, Giancarlo Ragozini</description>
+    </item>
+    
+    <item>
+      <title>Bootstrap test in Poisson-INAR models</title>
+      <link>https://blog-neas.github.io/en/publications/sis20-bosp/</link>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/sis20-bosp/</guid>
+      <description>In this paper we exploit bootstrap–based specification test on the autoregressive coefficient in INteger–AutoRegressive models (INAR) considering the case of homoskedastic Poisson innovations. Performance of four unrestricted bootstrap methods are analyzed through a small–scale Monte carlo exesercise.</description>
+    </item>
+    
+    <item>
+      <title>Bootstrap-based score test for INAR effect</title>
+      <link>https://blog-neas.github.io/en/publications/sis20-bosp/</link>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/sis20-bosp/</guid>
+      <description>This work exploits the potential of bootstrap methods in testing for serial dependence in the class of observed driven Integer-AutoRegressive (INAR) models with Poisson innovations. The main contribution is to develop a novel restricted bootstrap algorithm to improve the performance of score-based test statistic, especially in case of moderately small series.</description>
+    </item>
+    
+    <item>
+      <title>Le performance sanitarie regionali durante l&#39;emergenza Covid-19: una comparazione tra serie storiche</title>
+      <link>https://blog-neas.github.io/en/publications/covid-eyesreg/</link>
+      <pubDate>Sat, 05 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/covid-eyesreg/</guid>
+      <description>Note: The original paper is written in Italian. Here you can find a translation of the abstract.
+In this article we analyze the performance of the Italian healthcare system during the outbreak of the Covid-19 pandemic. The aim of this work is to investigate the presence of health imbalances (if any) at a territorial level, identifying common features in terms of virus incidence. This analysis is carried out through a comparison of the Dynamic Time Warping (DTW) distances of the historical series relating to admissions to intensive care units and hospitalzed patients for the 19 Italian regions and the two autonomous provinces of Trento and Bolzano.</description>
+    </item>
+    
+    <item>
+      <title>Two-mode Network Modeling of Start-ups Development and Economic Sectors: the Case of Italian Provinces</title>
+      <link>https://blog-neas.github.io/en/seminars/yisa2020/</link>
+      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/yisa2020/</guid>
+      <description>Two-mode Network Modeling of Start-ups Development and Economic Sectors: the Case of Italian Provinces Conference: Young-ISA Virtual Conference 2020 the Young Statisticians&#39; Section of the Irish Statistical Association Authors: Lucio Palazzo, Francesco Santelli, Riccardo Ievoli</description>
+    </item>
+    
+    <item>
+      <title>Local network structures of passing networks in football: detecting styles of play through triadic analysis</title>
+      <link>https://blog-neas.github.io/en/seminars/sunbelt2020_2/</link>
+      <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/sunbelt2020_2/</guid>
+      <description>Local network structures of passing networks in football: detecting styles of play through triadic analysis Conference: 2020 Sunbelt Social Networks Conference of the International Network for Social Network Analysis Authors: Lucio Palazzo, Riccardo Ievoli, Giancarlo Ragozini</description>
+    </item>
+    
+    <item>
+      <title>Describing Italian Football Teams&#39; Transfer Dynamics in a Network Perspective</title>
+      <link>https://blog-neas.github.io/en/seminars/sunbelt2020_1/</link>
+      <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/sunbelt2020_1/</guid>
+      <description>Describing Italian Football Teams&#39; Transfer Dynamics in a Network Perspective Conference: 2020 Sunbelt Social Networks Conference of the International Network for Social Network Analysis Authors: Lucio Palazzo, Roberto Rondinelli, Giancarlo Ragozini</description>
+    </item>
+    
+    <item>
+      <title>Is Football Still INAR?</title>
+      <link>https://blog-neas.github.io/en/seminars/smtda2020_2/</link>
+      <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/smtda2020_2/</guid>
+      <description>Is Football Still INAR? Conference: SMTDA 2020 the Stochastic Modeling Techniques and Data Analysis International Conference Authors: Lucio Palazzo, Riccardo Ievoli, Giancarlo Ragozini</description>
+    </item>
+    
+    <item>
+      <title>Italian Football Market Transfer Dynamics: Does Network Structure Matter?</title>
+      <link>https://blog-neas.github.io/en/seminars/smtda2020_1/</link>
+      <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/smtda2020_1/</guid>
+      <description>Italian Football Market Transfer Dynamics: Does Network Structure Matter? Conference: SMTDA 2020 the Stochastic Modeling Techniques and Data Analysis International Conference Authors: Lucio Palazzo, Roberto Rondinelli, Giancarlo Ragozini</description>
+    </item>
+    
+    <item>
+      <title>Neural Networks and Betting Strategies for Tennis</title>
+      <link>https://blog-neas.github.io/en/publications/betting-tennis-risks/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/betting-tennis-risks/</guid>
+      <description>Recently, the interest of the academic literature on sports statistics has increased enormously. In such a framework, two of the most significant challenges are developing a model able to beat the existing approaches and, within a betting market framework, guarantee superior returns than the set of competing specifications considered. This contribution attempts to achieve both these results, in the context of male tennis. In tennis, several approaches to predict the winner are available, among which the regression-based, point-based and paired comparison of the competitors&#39; abilities play a significant role.</description>
+    </item>
+    
+    <item>
+      <title>A Mahalanobis-like distance for cylindrical data</title>
+      <link>https://blog-neas.github.io/en/publications/mahalanobis-cladag/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/mahalanobis-cladag/</guid>
+      <description>A definition of a density–based distance function for data on the surface of cylinders is introduced. It is able to deal with the correlation structure of cylindrical data.</description>
+    </item>
+    
+    <item>
+      <title>Bootstrap inference in Instrumental Variables with gretl</title>
+      <link>https://blog-neas.github.io/en/publications/boot-iv-gretl/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/boot-iv-gretl/</guid>
+      <description>In this paper we implement bootstrap in conventional instrumental variables estimations using gretl and compare the performance of several methods through simulation study and an empirical dataset coming from the seminal paper of Acemoglu et al. (2001).</description>
+    </item>
+    
+    <item>
+      <title>Integer Autoregressive modeling: a new gretl routine</title>
+      <link>https://blog-neas.github.io/en/publications/inar-gretl/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/inar-gretl/</guid>
+      <description>This paper focuses on a family of observation-driven models for autoregressive discrete-valued data, called INAR models. The main purpose of the project is to write and document a set of Gretl Econometric Software functions that perform time series estimation of one-lagged univariate INAR models with Poisson and Negative Binomial marginals.</description>
+    </item>
+    
+    <item>
+      <title>A Mahalanobis-like distance for cylindrical data</title>
+      <link>https://blog-neas.github.io/en/seminars/cladag19/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/cladag19/</guid>
+      <description>A Mahalanobis-like distance for cylindrical data Conference: Cladag 2019, 12th scientific meeting classification and data analysis Authors: Lucio Palazzo, Giovanni Camillo Porzio, Giuseppe Pandolfo</description>
+    </item>
+    
+    <item>
+      <title>Bootstrap Inference in Instrumental Variables with Gretl</title>
+      <link>https://blog-neas.github.io/en/seminars/gretl19_1/</link>
+      <pubDate>Fri, 14 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/gretl19_1/</guid>
+      <description>Bootstrap Inference in Instrumental Variables with Gretl Conference: Gretl 2019, 6th International Biannual Conference Authors: Lucio Palazzo, Riccardo Ievoli</description>
+    </item>
+    
+    <item>
+      <title>Integer Autoregressive Modeling: A New Gretl Routine</title>
+      <link>https://blog-neas.github.io/en/seminars/gretl19_2/</link>
+      <pubDate>Thu, 13 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/gretl19_2/</guid>
+      <description>Integer Autoregressive Modeling: A New Gretl Routine Conference: Gretl 2019, 6th International Biannual Conference Authors: Lucio Palazzo</description>
+    </item>
+    
+    <item>
+      <title>Passing dynamics in football teams, a Network Analysis perspective. Evidences from European Champions League</title>
+      <link>https://blog-neas.github.io/en/seminars/dssr19/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/dssr19/</guid>
+      <description>Passing dynamics in football teams, a Network Analysis perspective. Evidences from European Champions League Conference: DSSR 2019, 2nd International Conference on Data Science and Social Research Authors: Lucio Palazzo, Riccardo Ievoli, Giancarlo Ragozini</description>
+    </item>
+    
+    <item>
+      <title>Forecasting tennis winning probabilities by artificial neural networks</title>
+      <link>https://blog-neas.github.io/en/seminars/cfe18/</link>
+      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/cfe18/</guid>
+      <description>Forecasting tennis winning probabilities by artificial neural networks Conference: CFE 2018, 12th International Conference on Computational and Financial Econometrics Authors: Vincenzo Candila, Lucio Palazzo</description>
+    </item>
+    
+    <item>
+      <title>Sviluppo della cultura statistica a scuola e all&#39;università: buone pratiche dal territorio</title>
+      <link>https://blog-neas.github.io/en/publications/istat18/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/istat18/</guid>
+      <description>TBA</description>
+    </item>
+    
+    <item>
+      <title>Passing networks and game style in football teams: evidences from European Champions League</title>
+      <link>https://blog-neas.github.io/en/seminars/compstat18/</link>
+      <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/compstat18/</guid>
+      <description>Passing networks and game style in football teams: evidences from European Champions League Conference: COMPSTAT 2018, 23rd International Conference on Computational Statistics Authors: Lucio Palazzo, Riccardo Ievoli, Giancarlo Ragozini</description>
+    </item>
+    
+    <item>
+      <title>Using twitter data networks to investigate italian constitutional referendum campaign</title>
+      <link>https://blog-neas.github.io/en/seminars/eusn17/</link>
+      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/eusn17/</guid>
+      <description>Using twitter data networks to investigate italian constitutional referendum campaign Conference: EUSN2017 2nd European Conference on Social Networks Authors: Francesco Santelli, Lucio Palazzo</description>
+    </item>
+    
+    <item>
+      <title>Hashtags analysis for the italian referendum campaign</title>
+      <link>https://blog-neas.github.io/en/seminars/youngars17/</link>
+      <pubDate>Tue, 16 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/youngars17/</guid>
+      <description>Hashtags analysis for the italian referendum campaign Conference: ARS&#39;17 International Workshop on Social Network Analysis Authors: Lucio Palazzo, Francesco Santelli</description>
+    </item>
+    
+    <item>
+      <title>Corsi universitari campani e competenze professionali: un&#39;analisi relazionale</title>
+      <link>https://blog-neas.github.io/en/publications/orsuc-book/</link>
+      <pubDate>Tue, 11 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/orsuc-book/</guid>
+      <description>Note: The original chapter is written in Italian. Here you can find a translation of the abstract.
+In this paper we identify the relationships between the Italian university courses and students&#39; first job categories. University courses in Italy are divided in bachelor (corsi di studio, CdS) and master degrees (corsi di laurea,CdL), while the professional sectors are categorized by the ATECO codes, officially introduced by the Italian institute of statistics (ISTAT).</description>
+    </item>
+    
+    <item>
+      <title>Help</title>
+      <link>https://blog-neas.github.io/en/blog-neas/help/</link>
+      <pubDate>Tue, 29 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/blog-neas/help/</guid>
+      <description>This is not a help service for all your R and statistical questions, so please try to avoid to post general questions in the comments, or send them to me by email. Please, limit to comments related to the published content.
+If you have questions about data analysis, ask for help on crossvalidated.com.
+If you have questions about R, ask for help on stackoverflow.com.
+Please, be polite in your comment: you do not necessarily have to agree with my posts but you can always kindly manifest your opinion.</description>
+    </item>
+    
+    <item>
+      <title>Comparing operative units in a large company through archetypes in a benchmarking perspective</title>
+      <link>https://blog-neas.github.io/en/seminars/assirm15/</link>
+      <pubDate>Thu, 09 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/assirm15/</guid>
+      <description>Comparing operative units in a large company through archetypes in a benchmarking perspective Conference: ASSIRM 2015 preferenze, scelte e qualità dei risultati Authors: Domenico Boris Salvati, Lucio Palazzo</description>
+    </item>
+    
+    <item>
+      <title>Strumenti per il Web Scraping per il monitoraggio delle competenze in uscita e degli sbocchi occupazionali</title>
+      <link>https://blog-neas.github.io/en/seminars/orsuc15/</link>
+      <pubDate>Mon, 22 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/orsuc15/</guid>
+      <description>Strumenti per il Web Scraping per il monitoraggio delle competenze in uscita e degli sbocchi occupazionali </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://blog-neas.github.io/en/software/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/software/</guid>
+      <description>CRAN task views  Time Series Anomaly Detection   Selected R packages I’ve coauthored Tidy time series analysis and forecasting      Tidy Temporal Data Frames and Tools: as described in Wang, Cook &amp; Hyndman (2020).   Github   CRAN   Monthly downloads:
+18055       Diverse Datasets for ‘tsibble’.   Github   CRAN   Monthly downloads:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://blog-neas.github.io/en/teaching/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/teaching/</guid>
+      <description>ETC3550: Applied Forecasting for Business and Economics Reliable forecasts of business and economic variables must often be obtained against a backdrop of structural change in markets and the economy. This unit introduces methods suitable for forecasting in these circumstances including the decomposition of time series, exponential smoothing methods, ARIMA modelling, and regression with auto-correlated disturbances. Students can expect to enhance their computer skills with exercises using R.
+Handbook entry
+Textbook: Forecasting: Principles and Practice, Hyndman &amp;amp; Athanasopoulos (3rd ed.</description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>https://blog-neas.github.io/en/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/about/</guid>
+      <description>The following bio and this photo may be used in media releases without further permission.
+ Lucio Palazzo obtained a PhD in Statistical Methods from the doctoral school Economics and Policy Analysis of Markets and Firms of the University of Salerno in May 2019. Before that, he completed an MSc in Statistics (2018) at the KU Leuven, in Belgium. Moreover, he also earned an MSc in Statistical Science for Decision Making (2015) and a BSc in Mathematics (2012), both at the University of Naples Federico II.</description>
+    </item>
+    
+    <item>
+      <title>Calendar</title>
+      <link>https://blog-neas.github.io/en/calendar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/calendar/</guid>
+      <description>In this calendar are pinned some of the most important meetings, conferences andd workshops regarding statistics and data science occurring worldwide, with an eye on European ones.
+This is a non exhaustive list, please contact me if you have events to advertise. If you want to help to keep up-to-date the list of events, you are welcome.
+ </description>
+    </item>
+    
+    <item>
+      <title>In the news</title>
+      <link>https://blog-neas.github.io/en/in-the-news/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/in-the-news/</guid>
+      <description> &amp;ldquo;TITOLO ARTICOLO&amp;rdquo;, TITOLO RIVISTA, 12 August 2020.  </description>
+    </item>
+    
+    <item>
+      <title>PhD, Master and Bachelor Students</title>
+      <link>https://blog-neas.github.io/en/students/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/students/</guid>
+      <description>Former PhD students  Passaretti Davide. Large – scale statistical methods: the case of quantile regression (PhD, graduated 2020). Now a Data Scientist, Coca-Cola Hellenic Bottling Company. Costanzo Antonella. Robust methods for style analysis (PhD, graduated 2014). Now a Statistical Officer - ASSCO, Ufficio Settore Strategico e Programmazione at Sapienza Università di Roma.  Former Bachelor and Master students  Tarantino Igor, Cognitive biases, probabilistic reasoning and the gambler&amp;rsquo;s ruin, Bachelor thesis in Psychology, University of Naples Federico II, a.</description>
+    </item>
+    
+    <item>
+      <title>Research team</title>
+      <link>https://blog-neas.github.io/en/research-team/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/research-team/</guid>
+      <description>Potential PhD students: please read Advice to PhD Applicants Potential research fellows: All available positions are filled.  Current research fellows  Puwasala Gamakumara  Zhuo Li  Current PhD students  Lakshan Bernard. Analytical tools for future power networks (PhD, begun 2020). Fan Cheng. Manifold learning on empirical probability distributions (PhD, begun 2019).  Sayani Gupta. Visualization of probability distributions of deconstructed temporal data (PhD, begun 2018).  Nuwani Palihawadana.</description>
+    </item>
+    
+  </channel>
+</rss>

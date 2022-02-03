@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tourism circle on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/en/tags/tourism-circle/</link>
+    <description>Recent content in tourism circle on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Mon, 13 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/en/tags/tourism-circle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Local clustering coefficient to measure intra-regional tourism in Italy</title>
+      <link>https://blog-neas.github.io/en/publications/ies22-idea/</link>
+      <pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/ies22-idea/</guid>
+      <description>Network analysis represents a useful approach to measure intra-regional tourism flows. Relevant information about this phenomenon can be retrieved using Network Analysis local clustering coefficient (LCC). In this work we study Italian tourism flows in two-year period 2018-2019, identifying different patterns and two main groups of regions. This preliminary study shows the potential of LCCs to evaluate the effects of tourism policies in terms of attractiveness and receptivity of a region (or groups of regions).</description>
+    </item>
+    
+  </channel>
+</rss>

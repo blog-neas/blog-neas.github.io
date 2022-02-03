@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>text mining on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/en/tags/text-mining/</link>
+    <description>Recent content in text mining on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Sat, 25 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/en/tags/text-mining/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Il futuro degli studenti: dal questionario all&#39;analisi statistica dei dati testuali</title>
+      <link>https://blog-neas.github.io/en/publications/pls-psv3/</link>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/pls-psv3/</guid>
+      <description>Note: The original seminar was held in Italian. Here you can find a translation of the abstract.
+The present work is part of the &amp;ldquo;Plan for Science Degrees&amp;rdquo; (Piano Lauree Scientifiche, PLS), aiming at presenting and discussing the potential of the analysis of complex data to high school seniors and university freshmen. In particular, the focus has been on the analysis of textual data, a field that has seen an exponential development in recent years, also from the spread and relevance assumed by social media and social networks.</description>
+    </item>
+    
+  </channel>
+</rss>

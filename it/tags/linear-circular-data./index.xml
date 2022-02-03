@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linear-circular data. on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/it/tags/linear-circular-data./</link>
+    <description>Recent content in linear-circular data. on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright><atom:link href="https://blog-neas.github.io/it/tags/linear-circular-data./index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Mahalanobis-like distance for cylindrical data</title>
+      <link>https://blog-neas.github.io/it/publications/mahalanobis-cladag/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/mahalanobis-cladag/</guid>
+      <description>A definition of a density–based distance function for data on the surface of cylinders is introduced. It is able to deal with the correlation structure of cylindrical data.</description>
+    </item>
+    
+  </channel>
+</rss>

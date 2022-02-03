@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ISTAT on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/en/tags/istat/</link>
+    <description>Recent content in ISTAT on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Mon, 01 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/en/tags/istat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sviluppo della cultura statistica a scuola e all&#39;università: buone pratiche dal territorio</title>
+      <link>https://blog-neas.github.io/en/publications/istat18/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/istat18/</guid>
+      <description>TBA</description>
+    </item>
+    
+    <item>
+      <title>Corsi universitari campani e competenze professionali: un&#39;analisi relazionale</title>
+      <link>https://blog-neas.github.io/en/publications/orsuc-book/</link>
+      <pubDate>Tue, 11 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/orsuc-book/</guid>
+      <description>Note: The original chapter is written in Italian. Here you can find a translation of the abstract.
+In this paper we identify the relationships between the Italian university courses and students&#39; first job categories. University courses in Italy are divided in bachelor (corsi di studio, CdS) and master degrees (corsi di laurea,CdL), while the professional sectors are categorized by the ATECO codes, officially introduced by the Italian institute of statistics (ISTAT).</description>
+    </item>
+    
+  </channel>
+</rss>

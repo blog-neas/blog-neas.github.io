@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Startup on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/it/tags/startup/</link>
+    <description>Recent content in Startup on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Thu, 01 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/tags/startup/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Determinants of social startups in Italy</title>
+      <link>https://blog-neas.github.io/it/publications/asa21-bosp/</link>
+      <pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/asa21-bosp/</guid>
+      <description>Nota: L&amp;rsquo;articolo originale è in lingua inglese. Di seguito viene presentata una traduzione dell&amp;rsquo;abstract.
+Lo scopo di questo articolo è quello di indagare i fattori rilevanti che influenzano la presenza di startup sociali in Italia a livello provinciale. La variabile di risultato è il numero di startup sociali attive nelle province italiane mentre il set di variabili esplicative è composto da indicatori economici e demografici a livello provinciale.</description>
+    </item>
+    
+  </channel>
+</rss>
