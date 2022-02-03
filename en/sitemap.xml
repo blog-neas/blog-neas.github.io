@@ -1559,24 +1559,34 @@
   
   <url>
     <loc>https://blog-neas.github.io/en/authors/palazzolucio/</loc>
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/en/authors/pallopinco/</loc>
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/en/authors/ursulalegruin/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="it"
-                href="https://blog-neas.github.io/it/authors/ursulalegruin/"
+                href="https://blog-neas.github.io/it/authors/palazzolucio/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog-neas.github.io/en/authors/ursulalegruin/"
+                href="https://blog-neas.github.io/en/authors/palazzolucio/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/en/authors/pallopinco/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/authors/pallopinco/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/authors/pallopinco/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/en/authors/ursulalegruin/</loc>
   </url>
   
   <url>
