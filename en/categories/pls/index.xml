@@ -83,7 +83,7 @@ Some of the common text mining tasks are text classification, text clustering, c
 The process involving the conversion of this kind of unstructred data to a structured feature vector is called featurization.&lt;/p&gt;
 &lt;p&gt;In our case, each document is represented by a short answer; we asked participants of the seminar to answer (using a Google Form) to the question ‘what would you like to do after graduation?’ (‘Cosa vorresti fare dopo il diploma?’),
 setting an open answer with fixed limit of 200 letters.&lt;/p&gt;
-&lt;p&gt;During the PLS seminar we gathered a total of 147 answers, the original dataset has been translated in english and it is available &lt;a href=&#34;asdadasd&#34;&gt;here&lt;/a&gt; (&lt;a href=&#34;asdadasd&#34;&gt;here&lt;/a&gt; you can find the original version).&lt;/p&gt;
+&lt;p&gt;During the PLS seminar we gathered a total of 147 answers, the original dataset has been translated in english and it is available &lt;a href=&#34;https://blog-neas.github.io/data/pls2021_eng.csv&#34;&gt;here&lt;/a&gt; (&lt;a href=&#34;https://blog-neas.github.io/data/pls2021.csv&#34;&gt;here&lt;/a&gt; you can find the original version).&lt;/p&gt;
 &lt;div id=&#34;text-mining-with-r&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Text Mining with R&lt;/h2&gt;
 &lt;p&gt;The &lt;code&gt;tm&lt;/code&gt; package is required for the text mining functions, while some stemming procedures need the use of &lt;code&gt;SnowballC&lt;/code&gt; package.&lt;/p&gt;

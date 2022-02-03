@@ -77,7 +77,7 @@ The process involving the conversion of this kind of unstructred data to a struc
 In our case, each document is represented by a short answer; we asked participants of the seminar to answer (using a Google Form) to the question 'what would you like to do after graduation?' ('Cosa vorresti fare dopo il diploma?'), 
 setting an open answer with fixed limit of 200 letters.
 
-During the PLS seminar we gathered a total of 147 answers, the original dataset has been translated in english and it is available [here](asdadasd) ([here](asdadasd) you can find the original version).
+During the PLS seminar we gathered a total of 147 answers, the original dataset has been translated in english and it is available [here](/data/pls2021_eng.csv) ([here](/data/pls2021.csv) you can find the original version).
 
 
 ## Text Mining with R
