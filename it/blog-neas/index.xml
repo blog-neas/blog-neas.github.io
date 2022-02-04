@@ -287,6 +287,21 @@ Van Hee, Cynthia, Els Lefever, and Véronique Hoste. 2016. &lt;span&gt;“Explor
     </item>
     
     <item>
+      <title>Help</title>
+      <link>https://blog-neas.github.io/it/blog-neas/help/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/blog-neas/help/</guid>
+      <description>&lt;p&gt;Il sito ed il blog non sono un servizio di aiuto per le tue domande su R e la statistica. Esistono sul web delle piattaforme dedicate principalmente a tale scopo, ad esempio:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Se hai domande sull&amp;rsquo;analisi dei dati, chiedi aiuto su &lt;a href=&#34;http://crossvalidated.com&#34;&gt;crossvalidated.com&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Se hai domande su R o Python, chiedi aiuto su &lt;a href=&#34;http://stackoverflow.com&#34;&gt;stackoverflow.com&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ti chiedo perciò di cercare di evitare domande generali nei commenti o via mail, e di limitarti a commenti relativi ai contenuti pubblicati. Inoltre, sii gentile e corretto nei commenti:  non devi necessariamente di essere d&amp;rsquo;accordo con quello che scrivo ma abbi cura di scriverlo con gentilezza. Per quanto mi sarà possibile, cercherò di rispondere a tutti i commenti.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>DESPOTA</title>
       <link>https://blog-neas.github.io/it/blog-neas/despota-page/</link>
       <pubDate>Thu, 30 Dec 2021 00:00:00 +0000</pubDate>
@@ -778,21 +793,6 @@ L&amp;rsquo;obiettivo è quello di presentare agli studenti (e ad un pubblico pi
 &lt;p&gt;Si darà spazio anche ad eventi locali (come meetup o conferenze), notizie relative all&amp;rsquo;insegnamento e suggerimenti, ad esempio la scrittura e la preparazione di una tesi, la scrittura di un articolo e la sua presentazione ad una rivista scientifica.
 Faremo uso dei software moderni che si suppone debbano far parte del cosiddetto &lt;em&gt;toolbox statistico&lt;/em&gt;, inclusi LaTeX, R e Python tra gli altri.&lt;/p&gt;
 &lt;p&gt;I post saranno pubblicati (speranzosamente!) con cadenza bisettimanale o settimanale e, tranne in alcuni casi particolari (post tematici), l&amp;rsquo;ordinamento cronologico non ha particolare importanza. I post sono scritti principalmente da me e da alcuni colleghi del &lt;a href=&#34;https://blog-neas.github.io/it/research-team&#34;&gt;team di ricerca&lt;/a&gt; di cui faccio parte, una lista degli autori è disponibile &lt;a href=&#34;https://blog-neas.github.io/it/authors&#34;&gt;qui&lt;/a&gt;. Qualsiasi aiuto da parte di persone al di fuori della mia cerchia di conoscenti è molto apprezzato, per favore &lt;a href=&#34;mailto:lucio.palazzo@unina.it?subject=aiuto con il blog&#34;&gt;scrivimi&lt;/a&gt; se sei interessato a contribuire.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Help</title>
-      <link>https://blog-neas.github.io/it/blog-neas/help/</link>
-      <pubDate>Tue, 29 Dec 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog-neas.github.io/it/blog-neas/help/</guid>
-      <description>&lt;p&gt;Il sito ed il blog non sono un servizio di aiuto per le tue domande su R e la statistica. Esistono sul web delle piattaforme dedicate principalmente a tale scopo, ad esempio:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Se hai domande sull&amp;rsquo;analisi dei dati, chiedi aiuto su &lt;a href=&#34;http://crossvalidated.com&#34;&gt;crossvalidated.com&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Se hai domande su R o Python, chiedi aiuto su &lt;a href=&#34;http://stackoverflow.com&#34;&gt;stackoverflow.com&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Ti chiedo perciò di cercare di evitare domande generali nei commenti o via mail, e di limitarti a commenti relativi ai contenuti pubblicati. Inoltre, sii gentile e corretto nei commenti:  non devi necessariamente di essere d&amp;rsquo;accordo con quello che scrivo ma abbi cura di scriverlo con gentilezza. Per quanto mi sarà possibile, cercherò di rispondere a tutti i commenti.&lt;/p&gt;
 </description>
     </item>
     

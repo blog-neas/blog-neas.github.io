@@ -18,6 +18,16 @@ I temi trattati prendono spunto dal seminario online che si è tenuto nell’amb
     </item>
     
     <item>
+      <title>Help</title>
+      <link>https://blog-neas.github.io/it/blog-neas/help/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/blog-neas/help/</guid>
+      <description>Il sito ed il blog non sono un servizio di aiuto per le tue domande su R e la statistica. Esistono sul web delle piattaforme dedicate principalmente a tale scopo, ad esempio:
+ Se hai domande sull&amp;rsquo;analisi dei dati, chiedi aiuto su crossvalidated.com. Se hai domande su R o Python, chiedi aiuto su stackoverflow.com.  Ti chiedo perciò di cercare di evitare domande generali nei commenti o via mail, e di limitarti a commenti relativi ai contenuti pubblicati.</description>
+    </item>
+    
+    <item>
       <title>DESPOTA</title>
       <link>https://blog-neas.github.io/it/blog-neas/despota-page/</link>
       <pubDate>Thu, 30 Dec 2021 00:00:00 +0000</pubDate>
@@ -381,16 +391,6 @@ In questo lavoro si sono indagate le potenzialità di tecniche bootstrap per la 
       
       <guid>https://blog-neas.github.io/it/publications/orsuc-book/</guid>
       <description>In questo paper sono state individuate le relazioni che intercorrono tra il sistema di categorizzazione dei corsi universitari in corsi di studi (CdS) e classi di laurea (CdL) e quello delle figure professionali in uscita, rappresentato dal sistema dei codici di classificazione delle professioni ISTAT, nella maniera in cui queste ultime vengono proposte dai vari atenei in fase di presentazione di un determinato CdS, al fine di rilevare l’esistenza di criticità ed elementi di discordanza o di incoerenza.</description>
-    </item>
-    
-    <item>
-      <title>Help</title>
-      <link>https://blog-neas.github.io/it/blog-neas/help/</link>
-      <pubDate>Tue, 29 Dec 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog-neas.github.io/it/blog-neas/help/</guid>
-      <description>Il sito ed il blog non sono un servizio di aiuto per le tue domande su R e la statistica. Esistono sul web delle piattaforme dedicate principalmente a tale scopo, ad esempio:
- Se hai domande sull&amp;rsquo;analisi dei dati, chiedi aiuto su crossvalidated.com. Se hai domande su R o Python, chiedi aiuto su stackoverflow.com.  Ti chiedo perciò di cercare di evitare domande generali nei commenti o via mail, e di limitarti a commenti relativi ai contenuti pubblicati.</description>
     </item>
     
     <item>
