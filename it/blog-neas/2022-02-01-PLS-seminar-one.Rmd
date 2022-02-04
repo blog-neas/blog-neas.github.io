@@ -54,7 +54,7 @@ ALlo stesso tempo, i dati testuali sono 'sporchi' e non strutturati: un testo (o
 Bisogna inoltre considerare che il testo serve per comunicare: il contesto e la sintassi sono importanti! In @van2016exploring sono mostrati alcuni esempi. Per questa ragione non esiste una vera e propria procedura 'standard' per manipolare i dati e al variare del contesto va scelto l'approccio giusto.
 
 <div class="alert alert-info">
-<strong>`r fa("lightbulb")` Esempio.</strong> There is a huge difference between the sentences '*Even the sun sets in paradise*' and '*The sun sets even in paradise*' or, again, between '*she only told me she loved him*' and '*she told me she loved only him*', but for a computer those pairs of sentences are almost identical.
+<strong>`r fa("lightbulb")` Esempio.</strong> Risulta evidente che le frasi '*nonna andiamo a mangiare*' e '*andiamo a mangiare nonna*' possono avere due significati completamente diversi, ma per un computer si tratta di due frasi praticamente identiche.
 </div>
 
 
