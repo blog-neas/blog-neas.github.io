@@ -302,8 +302,10 @@ Van Hee, Cynthia, Els Lefever, and Véronique Hoste. 2016. &lt;span&gt;“Explor
       
       <guid>https://blog-neas.github.io/en/blog-neas/help/</guid>
       <description>&lt;p&gt;This is not a help service for all your R and statistical questions, so please try to avoid to post general questions in the comments, or send them to me by email. Please, limit to comments related to the published content.&lt;/p&gt;
-&lt;p&gt;If you have questions about data analysis, ask for help on &lt;a href=&#34;http://crossvalidated.com&#34;&gt;crossvalidated.com&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;If you have questions about R, ask for help on &lt;a href=&#34;http://stackoverflow.com&#34;&gt;stackoverflow.com&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you have questions about data analysis, ask for help on &lt;a href=&#34;http://crossvalidated.com&#34;&gt;crossvalidated.com&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;If you have questions about R or Python, ask for help on &lt;a href=&#34;http://stackoverflow.com&#34;&gt;stackoverflow.com&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Please, be polite in your comment: you do not necessarily have to agree with my posts but you can always kindly manifest your opinion. As far as I can, I will try to respond to all comments.&lt;/p&gt;
 </description>
     </item>

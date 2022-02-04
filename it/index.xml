@@ -389,10 +389,8 @@ In questo lavoro si sono indagate le potenzialità di tecniche bootstrap per la 
       <pubDate>Tue, 29 Dec 2015 00:00:00 +0000</pubDate>
       
       <guid>https://blog-neas.github.io/it/blog-neas/help/</guid>
-      <description>This is not a help service for all your R and statistical questions, so please try to avoid to post general questions in the comments, or send them to me by email. Please, limit to comments related to the published content.
-If you have questions about data analysis, ask for help on crossvalidated.com.
-If you have questions about R, ask for help on stackoverflow.com.
-Please, be polite in your comment: you do not necessarily have to agree with my posts but you can always kindly manifest your opinion.</description>
+      <description>Il sito ed il blog non sono un servizio di aiuto per le tue domande su R e la statistica. Esistono sul web delle piattaforme dedicate principalmente a tale scopo, ad esempio:
+ Se hai domande sull&amp;rsquo;analisi dei dati, chiedi aiuto su crossvalidated.com. Se hai domande su R o Python, chiedi aiuto su stackoverflow.com.  Ti chiedo perciò di cercare di evitare domande generali nei commenti o via mail, e di limitarti a commenti relativi ai contenuti pubblicati.</description>
     </item>
     
     <item>
