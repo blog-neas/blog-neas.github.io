@@ -186,7 +186,7 @@ Some of the common text mining tasks are text classification, text clustering, c
 <!-- : Data has irregularities and ambiguities that make it difficult to process it using traditional softwares. -->
 <p>Thus, the first step involves pre-processing the raw data to transform unstructured data into structured data, turning a collection of documents into a feature-vector representation. In general, a collection of <strong>documents</strong> is called <strong>corpus</strong> where each document is composed of individual <strong>tokens</strong> or <strong>terms</strong> (i.e. words).</p>
 <p>The structure of each document can be various. Each document can be a full book (e.g. <a href="https://textmining.nu/2018/10/29/text-mining-the-lord-of-the-rings/">LOTR</a>), a chapter, some pages, few sentences (e.g. Twitter posts) or even a single sentence.
-The process involving the conversion of this kind of unstructred data to a structured feature vector is called featurization.</p>
+The process involving the conversion of this kind of unstructred data to a structured feature vector is called <strong>featurization</strong>.</p>
 <p>In our case, each document is represented by a short answer; we asked participants of the seminar to answer (using a Google Form) to the question ‘what would you like to do after graduation?’ (‘Cosa vorresti fare dopo il diploma?’),
 setting an open answer with fixed limit of 200 letters.</p>
 <p>During the PLS seminar we gathered a total of 147 answers, the original dataset has been translated in english and it is available <a href="https://blog-neas.github.io/data/pls2021_eng.csv">here</a> (<a href="https://blog-neas.github.io/data/pls2021.csv">here</a> you can find the original version).</p>
@@ -265,10 +265,10 @@ With <code>str(corpus)</code> we can inspect the newly defined data structure.</
 <div id="pre-processing-data" class="section level3">
 <h3>Pre-processing data</h3>
 <p>Depending on the task, there may be several methods that we can take to standardise the text. Some pre-processing techniques are depicted as follows.</p>
-<p><strong>Normalisation:</strong> It is the first attempt to reduce the number of unique tokens present in the text, removing the variations in a text and also cleaning for the redundant information. The most common approaches comprendono the reduction of every characters to lower case, misspelling conversion and special characters removal.</p>
+<p><strong>Normalisation:</strong> It is the first attempt to reduce the number of unique tokens present in the text, removing the variations in a text and also cleaning for the redundant information. Among the most common approaches it is worth to consider the reduction of every characters to lower case, misspelling conversion and special characters removal.</p>
 <p>Usually, a typical normalization involves the lowercase and deletion of stop words.</p>
 <pre class="r"><code>corpus_cl &lt;- tm_map(corpus, tolower)</code></pre>
-<p>Additionally, it would be necessary to convert accented characters, that are common in some languages (i.e. in Italian), and special symbols (i.e. emoticons) to their plain version. In this case, there are several techniques that can do the trick, one of the most common is given by changing the original encoding to ASCII with transliteration option (<code>ASCII//TRANSLIT</code>) by using the <code>iconv()</code> function.</p>
+<p>Additionally, it would be necessary to convert special symbols (i.e. emoticons) and accented characters, that are common in some languages (i.e. in Italian), to their plain version. In this case, there are several techniques that can do the trick, one of the most common is given by changing the original encoding to ASCII with transliteration option (<code>ASCII//TRANSLIT</code>) by using the <code>iconv()</code> function.</p>
 <pre class="r"><code>corpus_cl &lt;- tm_map(corpus_cl,iconv,from=&quot;UTF-8&quot;,to=&quot;ASCII//TRANSLIT&quot;)</code></pre>
 <p>Sometimes the conversion in ASCII returns the question mark “?” as result, meaning that the algorithm was not able to map the character from the initial encoding to ASCII.</p>
 <pre class="r"><code>corpus[116]$content</code></pre>
@@ -323,8 +323,8 @@ corpus[117]$content</code></pre>
 <div id="document-term-matrix" class="section level3">
 <h3>Document-Term Matrix</h3>
 <p>After pre-processing, the data have the form of a ‘clean’ corpus, consisting of a collection of n = 147 vectors, each of them containing a collection of <span class="math inline">\(p_i\)</span> words, with <span class="math inline">\(i=1, \ldots, n\)</span>.
-It is possible to define a document-term matrix (DTM), a <span class="math inline">\(n\times m\)</span> matrix where rows correspond to documents in the collection and columns correspond to the number of unique tokens of the corpus. This representation describes then the frequency of terms that occur in a collection of documents.
-Alternatively, It is also common to use the transposed version, also called term-document matrix (TDM).</p>
+It is possible to define a <strong>document-term matrix</strong> (DTM), a <span class="math inline">\(n\times m\)</span> matrix where rows correspond to documents in the collection and columns correspond to the number of unique tokens of the corpus. This representation describes then the frequency of terms that occur in a collection of documents.
+Alternatively, It is also common to use the transposed version, also called <strong>term-document matrix</strong> (TDM).</p>
 <table>
 <thead>
 <tr class="header">
@@ -400,7 +400,7 @@ Van Hee, Cynthia, Els Lefever, and Véronique Hoste. 2016. <span>“Exploring th
 </div>
 
 
-      <meta itemprop="wordCount" content="1644">
+      <meta itemprop="wordCount" content="1649">
       <meta itemprop="datePublished" content="2022-02-01">
       <meta itemprop="url" content="https://blog-neas.github.io/en/blog-neas/pls-seminar-one/">
 

@@ -80,7 +80,7 @@ Some of the common text mining tasks are text classification, text clustering, c
 &lt;!-- : Data has irregularities and ambiguities that make it difficult to process it using traditional softwares. --&gt;
 &lt;p&gt;Thus, the first step involves pre-processing the raw data to transform unstructured data into structured data, turning a collection of documents into a feature-vector representation. In general, a collection of &lt;strong&gt;documents&lt;/strong&gt; is called &lt;strong&gt;corpus&lt;/strong&gt; where each document is composed of individual &lt;strong&gt;tokens&lt;/strong&gt; or &lt;strong&gt;terms&lt;/strong&gt; (i.e. words).&lt;/p&gt;
 &lt;p&gt;The structure of each document can be various. Each document can be a full book (e.g. &lt;a href=&#34;https://textmining.nu/2018/10/29/text-mining-the-lord-of-the-rings/&#34;&gt;LOTR&lt;/a&gt;), a chapter, some pages, few sentences (e.g. Twitter posts) or even a single sentence.
-The process involving the conversion of this kind of unstructred data to a structured feature vector is called featurization.&lt;/p&gt;
+The process involving the conversion of this kind of unstructred data to a structured feature vector is called &lt;strong&gt;featurization&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;In our case, each document is represented by a short answer; we asked participants of the seminar to answer (using a Google Form) to the question ‘what would you like to do after graduation?’ (‘Cosa vorresti fare dopo il diploma?’),
 setting an open answer with fixed limit of 200 letters.&lt;/p&gt;
 &lt;p&gt;During the PLS seminar we gathered a total of 147 answers, the original dataset has been translated in english and it is available &lt;a href=&#34;https://blog-neas.github.io/data/pls2021_eng.csv&#34;&gt;here&lt;/a&gt; (&lt;a href=&#34;https://blog-neas.github.io/data/pls2021.csv&#34;&gt;here&lt;/a&gt; you can find the original version).&lt;/p&gt;
@@ -159,10 +159,10 @@ With &lt;code&gt;str(corpus)&lt;/code&gt; we can inspect the newly defined data 
 &lt;div id=&#34;pre-processing-data&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Pre-processing data&lt;/h3&gt;
 &lt;p&gt;Depending on the task, there may be several methods that we can take to standardise the text. Some pre-processing techniques are depicted as follows.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Normalisation:&lt;/strong&gt; It is the first attempt to reduce the number of unique tokens present in the text, removing the variations in a text and also cleaning for the redundant information. The most common approaches comprendono the reduction of every characters to lower case, misspelling conversion and special characters removal.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Normalisation:&lt;/strong&gt; It is the first attempt to reduce the number of unique tokens present in the text, removing the variations in a text and also cleaning for the redundant information. Among the most common approaches it is worth to consider the reduction of every characters to lower case, misspelling conversion and special characters removal.&lt;/p&gt;
 &lt;p&gt;Usually, a typical normalization involves the lowercase and deletion of stop words.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus_cl &amp;lt;- tm_map(corpus, tolower)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Additionally, it would be necessary to convert accented characters, that are common in some languages (i.e. in Italian), and special symbols (i.e. emoticons) to their plain version. In this case, there are several techniques that can do the trick, one of the most common is given by changing the original encoding to ASCII with transliteration option (&lt;code&gt;ASCII//TRANSLIT&lt;/code&gt;) by using the &lt;code&gt;iconv()&lt;/code&gt; function.&lt;/p&gt;
+&lt;p&gt;Additionally, it would be necessary to convert special symbols (i.e. emoticons) and accented characters, that are common in some languages (i.e. in Italian), to their plain version. In this case, there are several techniques that can do the trick, one of the most common is given by changing the original encoding to ASCII with transliteration option (&lt;code&gt;ASCII//TRANSLIT&lt;/code&gt;) by using the &lt;code&gt;iconv()&lt;/code&gt; function.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus_cl &amp;lt;- tm_map(corpus_cl,iconv,from=&amp;quot;UTF-8&amp;quot;,to=&amp;quot;ASCII//TRANSLIT&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Sometimes the conversion in ASCII returns the question mark “?” as result, meaning that the algorithm was not able to map the character from the initial encoding to ASCII.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus[116]$content&lt;/code&gt;&lt;/pre&gt;
@@ -217,8 +217,8 @@ corpus[117]$content&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;document-term-matrix&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Document-Term Matrix&lt;/h3&gt;
 &lt;p&gt;After pre-processing, the data have the form of a ‘clean’ corpus, consisting of a collection of n = 147 vectors, each of them containing a collection of &lt;span class=&#34;math inline&#34;&gt;\(p_i\)&lt;/span&gt; words, with &lt;span class=&#34;math inline&#34;&gt;\(i=1, \ldots, n\)&lt;/span&gt;.
-It is possible to define a document-term matrix (DTM), a &lt;span class=&#34;math inline&#34;&gt;\(n\times m\)&lt;/span&gt; matrix where rows correspond to documents in the collection and columns correspond to the number of unique tokens of the corpus. This representation describes then the frequency of terms that occur in a collection of documents.
-Alternatively, It is also common to use the transposed version, also called term-document matrix (TDM).&lt;/p&gt;
+It is possible to define a &lt;strong&gt;document-term matrix&lt;/strong&gt; (DTM), a &lt;span class=&#34;math inline&#34;&gt;\(n\times m\)&lt;/span&gt; matrix where rows correspond to documents in the collection and columns correspond to the number of unique tokens of the corpus. This representation describes then the frequency of terms that occur in a collection of documents.
+Alternatively, It is also common to use the transposed version, also called &lt;strong&gt;term-document matrix&lt;/strong&gt; (TDM).&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr class=&#34;header&#34;&gt;

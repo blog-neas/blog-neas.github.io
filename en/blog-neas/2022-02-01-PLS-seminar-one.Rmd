@@ -72,7 +72,7 @@ In general, text is stored in an unstructured way. Pre-processing the raw data t
 Thus, the first step involves pre-processing the raw data to transform unstructured data into structured data, turning a collection of documents into a feature-vector representation. In general, a collection of **documents** is called **corpus** where each document is composed of individual **tokens** or **terms** (i.e. words).
 
 The structure of each document can be various. Each document can be a full book (e.g. [LOTR](https://textmining.nu/2018/10/29/text-mining-the-lord-of-the-rings/)), a chapter, some pages, few sentences (e.g. Twitter posts) or even a single sentence.
-The process involving the conversion of this kind of unstructred data to a structured feature vector is called featurization.
+The process involving the conversion of this kind of unstructred data to a structured feature vector is called **featurization**.
 
 In our case, each document is represented by a short answer; we asked participants of the seminar to answer (using a Google Form) to the question 'what would you like to do after graduation?' ('Cosa vorresti fare dopo il diploma?'), 
 setting an open answer with fixed limit of 200 letters.
@@ -118,7 +118,7 @@ str(corpus)
 
 Depending on the task, there may be several methods that we can take to standardise the text. Some pre-processing techniques are depicted as follows.
 
-**Normalisation:** It is the first attempt to reduce the number of unique tokens present in the text, removing the variations in a text and also cleaning for the redundant information. The most common approaches comprendono the reduction of every characters to lower case, misspelling conversion and special characters removal.
+**Normalisation:** It is the first attempt to reduce the number of unique tokens present in the text, removing the variations in a text and also cleaning for the redundant information. Among the most common approaches it is worth to consider the reduction of every characters to lower case, misspelling conversion and special characters removal.
 
 Usually, a typical normalization involves the lowercase and deletion of stop words.
 
@@ -126,7 +126,7 @@ Usually, a typical normalization involves the lowercase and deletion of stop wor
 corpus_cl <- tm_map(corpus, tolower)
 ```
 
-Additionally, it would be necessary to convert accented characters, that are common in some languages (i.e. in Italian), and special symbols (i.e. emoticons) to their plain version. In this case, there are several techniques that can do the trick, one of the most common is given by changing the original encoding to ASCII with transliteration option (`ASCII//TRANSLIT`) by using the `iconv()` function.
+Additionally, it would be necessary to convert special symbols (i.e. emoticons) and accented characters, that are common in some languages (i.e. in Italian), to their plain version. In this case, there are several techniques that can do the trick, one of the most common is given by changing the original encoding to ASCII with transliteration option (`ASCII//TRANSLIT`) by using the `iconv()` function.
 
 ```{r conv_accent1}
 corpus_cl <- tm_map(corpus_cl,iconv,from="UTF-8",to="ASCII//TRANSLIT")
@@ -189,8 +189,8 @@ corpus_cl[1:5]$content
 ### Document-Term Matrix
 
 After pre-processing, the data have the form of a 'clean' corpus, consisting of a collection of `r paste("n =",length(corpus_cl))` vectors, each of them containing a collection of $p_i$ words, with $i=1, \ldots, n$.
-It is possible to define a document-term matrix (DTM), a $n\times m$ matrix where rows correspond to documents in the collection and columns correspond to the number of unique tokens of the corpus. This representation describes then the frequency of terms that occur in a collection of documents. 
-Alternatively, It is also common to use the transposed version, also called term-document matrix (TDM). 
+It is possible to define a **document-term matrix** (DTM), a $n\times m$ matrix where rows correspond to documents in the collection and columns correspond to the number of unique tokens of the corpus. This representation describes then the frequency of terms that occur in a collection of documents. 
+Alternatively, It is also common to use the transposed version, also called **term-document matrix** (TDM). 
 
 |          | Term 1  | Term 2  | $\cdots$ | Term $m$ |
 |----------|---------|---------|----------|----------|

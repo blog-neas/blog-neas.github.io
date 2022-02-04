@@ -1,0 +1,211 @@
+---
+date: 2022-02-01
+slug: PLS-seminar-one
+title: "Text Mining con R: preparazione dei dati"
+mathjax: true
+categories:
+  - PLS
+  - Text Mining
+  - Pulizia dei Dati
+  - Word Cloud
+bibliography: ../../../static/biblio/bibliography.bib
+---
+
+```{r load_packages,echo=FALSE}
+library(fontawesome)
+library(kableExtra)
+library(ggplot2)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+```
+
+Questo post è il primo di una serie che ha l'obiettivo di trattare il tema del text mining a partire dalla preparazione dei dati fino alla sentiment analysis.
+
+I temi trattati prendono spunto dal seminario online che si è tenuto nell'ambito della Scuola Estiva per il *Piano di Lauree Scientifiche* (PLS) promulgato dall'Università degli Studi di Napoli Federico II.
+L'audience era composto per la maggior parte da studenti delle scuole secondarie di secondo grado e studenti universitari all'inizio del loro percorso. Per le analisi statistiche è stato utilizzato il software R.
+
+In questo articolo saranno introdotte le fasi principali relative alla pulizia preliminare dei dati testuali.
+
+> Text expresses a vast, rich range of information, but encodes this information in a form that is difficult to decipher automatically.
+>
+> @hearst1999untangling
+
+Il text mining è un insieme di algoritmi che permettono di selezionare ed analizzare dati testuali allo scopo di identificare degli schemi, di estrarre informazioni ed eseguire analisi semantiche.
+Alcuni dei modelli statistici tipici del text mining sono la classificazione ed il clustering del testo, la creazione di tassonomie, il riassunto di documenti, l'estrazione di informazioni e la sentiment analysis.
+
+Il vantaggio principale del text mining è che i dati testuali sono presenti (praticamente) dovunque, alcuni esempi sono:
+
+- Registri medici
+- Recensioni di prodotti
+- Social (Facebook, Twitter, ecc.)
+- Libri suggeriti 
+- Ambito legale e amministrativo
+- Email
+- Web
+
+ALlo stesso tempo, i dati testuali sono 'sporchi' e non strutturati: un testo (o un ineieme di testi) non è facilmente rappresentabile in forma vettoriale. Inoltre, per lavorare con testi scritti dobbiamo tenere conto di diverse caratteristiche:
+
+- Struttura linguistica
+- Linguaggio
+- Relazioni tra le parole (vicinanza, significato)
+- Importanza delle parole utilizzate
+- Negazioni, etc.
+- Grammatica, spelling, abbreviazioni, sinonimi, omografie
+
+Bisogna inoltre considerare che il testo serve per comunicare: il contesto e la sintassi sono importanti! In @van2016exploring sono mostrati alcuni esempi. Per questa ragione non esiste una vera e propria procedura 'standard' per manipolare i dati e al variare del contesto va scelto l'approccio giusto.
+
+<div class="alert alert-info">
+<strong>`r fa("lightbulb")` Esempio.</strong> There is a huge difference between the sentences '*Even the sun sets in paradise*' and '*The sun sets even in paradise*' or, again, between '*she only told me she loved him*' and '*she told me she loved only him*', but for a computer those pairs of sentences are almost identical.
+</div>
+
+
+
+Come anticipato, il testo si presenta in forma non strutturata. Per poter analizzare questo tipo di dati è quindi necessario passare ad una forma strutturata mediante una manipolazione preliminare dei dati.
+
+| **Structured data** | **Unstructured data** |
+|:-------------------:|:---------------------:|
+| Sono i dati conservati in database, organizzati secondo schemi e tabelle rigide. Questa è la tipologia di dati più indicata per i modelli di gestione relazionale delle informazioni.  | Sono i dati conservati senza alcuno schema, come testi, immagini, video e altro. La mancanza di una struttura specifica rende questi dati di difficile lettura per i software informatici. |
+
+Per poter analizzare i dati testuali con dei modelli statistici c'è bisogno prima di trasformare tali dati da non strutturati a strutturati. In genere una collezione di **documenti** è detta **corpus** e ciascun documento è composto da **tokens** o **termini** (le parole).
+
+Ciascun documento può essere dotato di caratteristiche differenti: può essere un libro (es. [il Signore degli Anelli](https://textmining.nu/2018/10/29/text-mining-the-lord-of-the-rings/)), un capitolo, alcune pagine, poche parole (e.g. Twitter posts) o addirittura una sola parola.
+La fase di conversione dei testi da una forma non strutturata ad una rappresentabile in forma vettoriale è anche detta **featurization**.
+
+Per quanto riguarda i dati del PLS, ciascun documento è rappresentato da una breve risposta. Abbiamo chiesto ai partecipanti del seminario di rispondere (tramite Google Form) alla domanda 'Cosa vorresti fare dopo il diploma?', lasciando a disposizione una risposta aperta limitata a 200 lettere. Sono state raccolte 147 risposte, il dataset originale è disponibile [qui](/data/pls2021.csv).
+
+
+## Text Mining con R
+
+Il package `tm` package è richiesto per utilizzare le principali funzioni del text mining, mentre il pacchetto `SnowballC` è necessario per poter effettuare lo stemming.
+
+```{r intro, echo=FALSE, message=FALSE}
+library(tm)
+library(wordcloud)
+library(SnowballC)
+rawdata <- read.csv("../../../static/data/pls2021_eng.csv",sep=";")
+```
+
+```{r load_df_viz, eval=FALSE}
+rawdata <- read.csv("pls2021.csv",sep=";")
+head(rawdata)
+```
+
+```{r load_df, echo=FALSE}
+kable(head(rawdata,5), "html") %>%
+  kable_styling() %>%
+  scroll_box(width = "100%")
+```
+
+La funzione `SimpleCorpus` trasforma il testo grezzo in un corpus di documenti.
+
+```{r inspect}
+corpus <- SimpleCorpus(VectorSource(rawdata[,2]),control = list(language="it"))
+```
+
+Quando i dati a disposizione sono di grandi dimensioni il consiglio è quello di utilizzare funzioni adatte a migliorare le prestazioni di calcolo e minimizzare il carico sulla memoria, come `VCorpus` e `PCorpus`. Con `str(corpus)` possiamo esplorare le caratteristiche dell'oggetto appena definito.
+
+```{r inspect2}
+str(corpus)
+```
+
+### Pre-processing dei dati
+
+Gli strumenti a disposizione per effettuare la featurization possono variare a seconda dell'obiettivo della ricerca. Presenteremo qui alcune tecniche di pre-processing più utilizzate.
+
+**Normalizzazione:** Il primo tentativo di riduzione del numero di parole presenti nel corpus consiste nel rimuovere tutte le varianti e nell'eliminare tutte le informazioni ridondanti. Tra questi, fanno parte la riduzione in lettere minuscole, la pulizia degli errori grammaticali e la rimozione dei caratteri speciali.
+
+Una classica procedura di normalizzazione consiste nella riduzione in lettere minuscole.
+
+```{r normalizzazione, message=FALSE}
+corpus_cl <- tm_map(corpus, tolower)
+```
+
+In aggiunta può essere necessario trasformare le lettere accentate, comuni in molti linguagggi (come l'taliano), e i simboli speciali (es. le emoticons). Esistono molti modi per raggiungere l'obiettivo, uno di questi consiste nel decodificare il testo in ASCII con translitterazione (`ASCII//TRANSLIT`) con la funzione `iconv()`.
+
+```{r conv_accent1}
+corpus_cl <- tm_map(corpus_cl,iconv,from="UTF-8",to="ASCII//TRANSLIT")
+```
+
+A volte la conversione genera un punto interrogativo "?", in questo caso l'algoritmo non è riuscito a trovare una corrispondenza tra il carattere iniziale e la codifica ASCII.
+
+```{r conv_accent2}
+corpus[116]$content
+corpus_cl[116]$content
+```
+
+Questo errore sarà corretto nei passaggi successivi con l'eliminazione dei simboli di punteggiatura.
+
+**Stopwords:** La classificazione di testi e documenti trae giovamento dall'esclusione degli elementi non informativi ai fini delle analisi (come ad esempio 'e', 'circa', 'comunque', 'successivamente', 'ancora', ecc.). La scelta più comune consiste nel rimuovere tali parole 'secondarie' dai documenti.
+
+```{r stopwords}
+corpus_cl <- tm_map(corpus_cl, removeWords, c(stopwords('in')))
+corpus_cl[1:5]$content
+```
+
+Il corpus può essere filtrato ulteriormente utilizzando le seguenti funzioni.
+
+```{r filtraggio}
+# rimozione dei numeri
+corpus_cl <- tm_map(corpus_cl, removeNumbers)
+# rimozione della punteggiatura
+corpus_cl <- tm_map(corpus_cl, removePunctuation)
+# definizione di un dizionario e rimozione di parole/acronimi non rilevanti
+drop <- c("xke","pke")
+corpus_cl <- tm_map(corpus_cl,removeWords,drop)
+# rimozione di spazi bianchi in eccesso
+corpus_cl <- tm_map(corpus_cl, stripWhitespace)
+
+corpus[117]$content
+corpus_cl[117]$content
+```
+
+La rimozione delle stopwords, così come altre procedure (come ad esempio lo stemming), è un algoritmo dipendente dalla lingua considerata: per ciascun linguaggio esiste una lista specifica di simboli e caratteri speciali.
+
+**Lemmatizzazione/Stemming:** sostituzione del suffiso di una parola con uno più generico oppure riduzione delle parole alla loro radice, detta *lemma*.
+
+\begin{align*}
+ \text{deciso, decisa, decisi, decise, decis*} & \quad \Longrightarrow \quad & \text{decis} \\
+ \text{giurisprudenza} & \quad \Longrightarrow \quad & \text{giurisprudent}
+\end{align*}
+
+```{r stemming}
+corpus_cl <- tm_map(corpus_cl, stemDocument,language = "it")
+```
+
+In alcuni casi, per evitare possibili ambiguità, la parola sostituita è leggermente diversa da quella originale. Il risultato finale può quindi essere diverso dal corpus iniziale. 
+
+```{r stemming2}
+corpus[1:5]$content
+corpus_cl[1:5]$content
+```
+
+### La matrice Document-Term
+
+Una volta completata la fase di preprocessing, i dati hanno la forma di un corpus 'pulito', quindi una collezione di `r paste("n =",length(corpus_cl))` vettori, ciascuno di essi contenente un insieme di $p_i$ parole, with $i=1, \ldots, n$.
+A partire dal corpus si può costruire una **matrice document-term** (DTM), di dimensioni $n\times m$, che ha in riga i documenti e in colonna i token utilizzati in tutto il corpus, presi una sola volta. Con questa rappresentazione è possibile descrivere in forma strutturata la frequenza dei termini che si presentano in una collezione di documenti. In alternativa è spesso utilizzata anche la trasposta della matrice document-term, detta **matrice term-document** (TDM). 
+
+|          | Term 1  | Term 2  | $\cdots$ | Term $m$ |
+|----------|---------|---------|----------|----------|
+| Doc 1    |$d_{1,1}$|$d_{1,2}$|$\cdots$  |$d_{1,m}$ |
+| Doc 2    |$d_{2,1}$|$d_{2,2}$|$\cdots$  |$d_{2,m}$ |
+| $\cdots$ |$\cdots$ |$\cdots$ |$\cdots$  |$\cdots$  |
+| Doc $n$  |$d_{n,1}$|$d_{n,2}$|$\cdots$  |$d_{n,m}$ |
+
+Nel nostro caso la matrice DTM è ottenuta utilizzando la funzione `DocumentTermMatrix`.
+```{r dtm}
+DTM <- DocumentTermMatrix(corpus_cl)
+```
+
+La DTM ottenuta dalle risposte degli studenti ha dimensione `r paste(dim(DTM)[1],"x",dim(DTM)[2])` ed i suoi elementi corrispondono al numero di volte che un singolo termine è stato utilizzato in ciascun documento. I marginali di riga rappresentano quindi il numero di termini utilizzati in un documento mentre i marginali di colonna sono il conteggio delle volte in cui un termine appare nel corpus.
+
+```{r dtm_viz, echo=FALSE, message=FALSE}
+inspect(DTM[1:5,1:5])
+# kable(DTM[1:5,1:5], "html") %>%
+#   kable_styling() %>%
+#   scroll_box(width = "100%")
+```
+
+A seconda del tipo di misure statistiche da ricavare è possibile applicare diversi schemi per ottenere dei pesi a partire dalla DTM.
+
+Nei prossimi articoli partiremo dalla DTM per calcolare alcune utili statistiche descrittive e produrre la word cloud.
+
+## Riferimenti
