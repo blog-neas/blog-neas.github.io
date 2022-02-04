@@ -5,10 +5,286 @@
     <description>Recent content in Blog-neas on Lucio Palazzo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Lucio Palazzo</copyright>
-    <lastBuildDate>Thu, 30 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Feb 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://blog-neas.github.io/it/blog-neas/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Text Mining con R: preparazione dei dati</title>
+      <link>https://blog-neas.github.io/it/blog-neas/pls-seminar-one/</link>
+      <pubDate>Tue, 01 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/blog-neas/pls-seminar-one/</guid>
+      <description>
+&lt;script src=&#34;https://blog-neas.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://blog-neas.github.io/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://blog-neas.github.io/rmarkdown-libs/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+
+&lt;p&gt;Questo post è il primo di una serie che ha l’obiettivo di trattare il tema del text mining a partire dalla preparazione dei dati fino alla sentiment analysis.&lt;/p&gt;
+&lt;p&gt;I temi trattati prendono spunto dal seminario online che si è tenuto nell’ambito della Scuola Estiva per il &lt;em&gt;Piano di Lauree Scientifiche&lt;/em&gt; (PLS) promulgato dall’Università degli Studi di Napoli Federico II.
+L’audience era composto per la maggior parte da studenti delle scuole secondarie di secondo grado e studenti universitari all’inizio del loro percorso. Per le analisi statistiche è stato utilizzato il software R.&lt;/p&gt;
+&lt;p&gt;In questo articolo saranno introdotte le fasi principali relative alla pulizia preliminare dei dati testuali.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Text expresses a vast, rich range of information, but encodes this information in a form that is difficult to decipher automatically.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;citation&#34;&gt;&lt;a href=&#34;#ref-hearst1999untangling&#34; role=&#34;doc-biblioref&#34;&gt;Hearst&lt;/a&gt; (&lt;a href=&#34;#ref-hearst1999untangling&#34; role=&#34;doc-biblioref&#34;&gt;1999&lt;/a&gt;)&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Il text mining è un insieme di algoritmi che permettono di selezionare ed analizzare dati testuali allo scopo di identificare degli schemi, di estrarre informazioni ed eseguire analisi semantiche.
+Alcuni dei modelli statistici tipici del text mining sono la classificazione ed il clustering del testo, la creazione di tassonomie, il riassunto di documenti, l’estrazione di informazioni e la sentiment analysis.&lt;/p&gt;
+&lt;p&gt;Il vantaggio principale del text mining è che i dati testuali sono presenti (praticamente) dovunque, alcuni esempi sono:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Registri medici&lt;/li&gt;
+&lt;li&gt;Recensioni di prodotti&lt;/li&gt;
+&lt;li&gt;Social (Facebook, Twitter, ecc.)&lt;/li&gt;
+&lt;li&gt;Libri suggeriti&lt;/li&gt;
+&lt;li&gt;Ambito legale e amministrativo&lt;/li&gt;
+&lt;li&gt;Email&lt;/li&gt;
+&lt;li&gt;Web&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ALlo stesso tempo, i dati testuali sono ‘sporchi’ e non strutturati: un testo (o un ineieme di testi) non è facilmente rappresentabile in forma vettoriale. Inoltre, per lavorare con testi scritti dobbiamo tenere conto di diverse caratteristiche:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Struttura linguistica&lt;/li&gt;
+&lt;li&gt;Linguaggio&lt;/li&gt;
+&lt;li&gt;Relazioni tra le parole (vicinanza, significato)&lt;/li&gt;
+&lt;li&gt;Importanza delle parole utilizzate&lt;/li&gt;
+&lt;li&gt;Negazioni, etc.&lt;/li&gt;
+&lt;li&gt;Grammatica, spelling, abbreviazioni, sinonimi, omografie&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Bisogna inoltre considerare che il testo serve per comunicare: il contesto e la sintassi sono importanti! In &lt;span class=&#34;citation&#34;&gt;&lt;a href=&#34;#ref-van2016exploring&#34; role=&#34;doc-biblioref&#34;&gt;Van Hee, Lefever, and Hoste&lt;/a&gt; (&lt;a href=&#34;#ref-van2016exploring&#34; role=&#34;doc-biblioref&#34;&gt;2016&lt;/a&gt;)&lt;/span&gt; sono mostrati alcuni esempi. Per questa ragione non esiste una vera e propria procedura ‘standard’ per manipolare i dati e al variare del contesto va scelto l’approccio giusto.&lt;/p&gt;
+&lt;div class=&#34;alert alert-info&#34;&gt;
+&lt;p&gt;&lt;strong&gt;&lt;svg aria-hidden=&#34;true&#34; role=&#34;img&#34; viewBox=&#34;0 0 352 512&#34; style=&#34;height:1em;width:0.69em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;&#34;&gt;&lt;path d=&#34;M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z&#34;/&gt;&lt;/svg&gt; Esempio.&lt;/strong&gt; There is a huge difference between the sentences ‘&lt;em&gt;Even the sun sets in paradise&lt;/em&gt;’ and ‘&lt;em&gt;The sun sets even in paradise&lt;/em&gt;’ or, again, between ‘&lt;em&gt;she only told me she loved him&lt;/em&gt;’ and ‘&lt;em&gt;she told me she loved only him&lt;/em&gt;,’ but for a computer those pairs of sentences are almost identical.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Come anticipato, il testo si presenta in forma non strutturata. Per poter analizzare questo tipo di dati è quindi necessario passare ad una forma strutturata mediante una manipolazione preliminare dei dati.&lt;/p&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;47%&#34; /&gt;
+&lt;col width=&#34;52%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;strong&gt;Structured data&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;strong&gt;Unstructured data&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;Sono i dati conservati in database, organizzati secondo schemi e tabelle rigide. Questa è la tipologia di dati più indicata per i modelli di gestione relazionale delle informazioni.&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Sono i dati conservati senza alcuno schema, come testi, immagini, video e altro. La mancanza di una struttura specifica rende questi dati di difficile lettura per i software informatici.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Per poter analizzare i dati testuali con dei modelli statistici c’è bisogno prima di trasformare tali dati da non strutturati a strutturati. In genere una collezione di &lt;strong&gt;documenti&lt;/strong&gt; è detta &lt;strong&gt;corpus&lt;/strong&gt; e ciascun documento è composto da &lt;strong&gt;tokens&lt;/strong&gt; o &lt;strong&gt;termini&lt;/strong&gt; (le parole).&lt;/p&gt;
+&lt;p&gt;Ciascun documento può essere dotato di caratteristiche differenti: può essere un libro (es. &lt;a href=&#34;https://textmining.nu/2018/10/29/text-mining-the-lord-of-the-rings/&#34;&gt;il Signore degli Anelli&lt;/a&gt;), un capitolo, alcune pagine, poche parole (e.g. Twitter posts) o addirittura una sola parola.
+La fase di conversione dei testi da una forma non strutturata ad una rappresentabile in forma vettoriale è anche detta &lt;strong&gt;featurization&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Per quanto riguarda i dati del PLS, ciascun documento è rappresentato da una breve risposta. Abbiamo chiesto ai partecipanti del seminario di rispondere (tramite Google Form) alla domanda ‘Cosa vorresti fare dopo il diploma?’ lasciando a disposizione una risposta aperta limitata a 200 lettere. Sono state raccolte 147 risposte, il dataset originale è disponibile &lt;a href=&#34;https://blog-neas.github.io/data/pls2021.csv&#34;&gt;qui&lt;/a&gt;.&lt;/p&gt;
+&lt;div id=&#34;text-mining-con-r&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Text Mining con R&lt;/h2&gt;
+&lt;p&gt;Il package &lt;code&gt;tm&lt;/code&gt; package è richiesto per utilizzare le principali funzioni del text mining, mentre il pacchetto &lt;code&gt;SnowballC&lt;/code&gt; è necessario per poter effettuare lo stemming.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rawdata &amp;lt;- read.csv(&amp;quot;pls2021.csv&amp;quot;,sep=&amp;quot;;&amp;quot;)
+head(rawdata)&lt;/code&gt;&lt;/pre&gt;
+&lt;div style=&#34;border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; &#34;&gt;
+&lt;table class=&#34;table&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+Id
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+risposte
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Università di medicina veterinaria
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Università
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Università - Informatica
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Università
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Vorrei iscrivermi a un corso di laurea di fisica o ingegneria aerospaziale
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;La funzione &lt;code&gt;SimpleCorpus&lt;/code&gt; trasforma il testo grezzo in un corpus di documenti.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus &amp;lt;- SimpleCorpus(VectorSource(rawdata[,2]),control = list(language=&amp;quot;it&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Quando i dati a disposizione sono di grandi dimensioni il consiglio è quello di utilizzare funzioni adatte a migliorare le prestazioni di calcolo e minimizzare il carico sulla memoria, come &lt;code&gt;VCorpus&lt;/code&gt; e &lt;code&gt;PCorpus&lt;/code&gt;. Con &lt;code&gt;str(corpus)&lt;/code&gt; possiamo esplorare le caratteristiche dell’oggetto appena definito.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str(corpus)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Classes &amp;#39;SimpleCorpus&amp;#39;, &amp;#39;Corpus&amp;#39;  hidden list of 3
+##  $ content: chr [1:147] &amp;quot;Università di medicina veterinaria&amp;quot; &amp;quot;Università &amp;quot; &amp;quot;Università - Informatica&amp;quot; &amp;quot;Università &amp;quot; ...
+##  $ meta   :List of 1
+##   ..$ language: chr &amp;quot;it&amp;quot;
+##   ..- attr(*, &amp;quot;class&amp;quot;)= chr &amp;quot;CorpusMeta&amp;quot;
+##  $ dmeta  :&amp;#39;data.frame&amp;#39;: 147 obs. of  0 variables&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;pre-processing-dei-dati&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Pre-processing dei dati&lt;/h3&gt;
+&lt;p&gt;Gli strumenti a disposizione per effettuare la featurization possono variare a seconda dell’obiettivo della ricerca. Presenteremo qui alcune tecniche di pre-processing più utilizzate.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Normalizzazione:&lt;/strong&gt; Il primo tentativo di riduzione del numero di parole presenti nel corpus consiste nel rimuovere tutte le varianti e nell’eliminare tutte le informazioni ridondanti. Tra questi, fanno parte la riduzione in lettere minuscole, la pulizia degli errori grammaticali e la rimozione dei caratteri speciali.&lt;/p&gt;
+&lt;p&gt;Una classica procedura di normalizzazione consiste nella riduzione in lettere minuscole.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus_cl &amp;lt;- tm_map(corpus, tolower)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In aggiunta può essere necessario trasformare le lettere accentate, comuni in molti linguagggi (come l’taliano), e i simboli speciali (es. le emoticons). Esistono molti modi per raggiungere l’obiettivo, uno di questi consiste nel decodificare il testo in ASCII con translitterazione (&lt;code&gt;ASCII//TRANSLIT&lt;/code&gt;) con la funzione &lt;code&gt;iconv()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus_cl &amp;lt;- tm_map(corpus_cl,iconv,from=&amp;quot;UTF-8&amp;quot;,to=&amp;quot;ASCII//TRANSLIT&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A volte la conversione genera un punto interrogativo “?” in questo caso l’algoritmo non è riuscito a trovare una corrispondenza tra il carattere iniziale e la codifica ASCII.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus[116]$content&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;la milionaria 😂&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus_cl[116]$content&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;la milionaria ?&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Questo errore sarà corretto nei passaggi successivi con l’eliminazione dei simboli di punteggiatura.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Stopwords:&lt;/strong&gt; La classificazione di testi e documenti trae giovamento dall’esclusione degli elementi non informativi ai fini delle analisi (come ad esempio ‘e,’ ‘circa,’ ‘comunque,’ ‘successivamente,’ ‘ancora,’ ecc.). La scelta più comune consiste nel rimuovere tali parole ‘secondarie’ dai documenti.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus_cl &amp;lt;- tm_map(corpus_cl, removeWords, c(stopwords(&amp;#39;it&amp;#39;)))
+corpus_cl[1:5]$content&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;universita  medicina veterinaria&amp;quot;                                   
+## [2] &amp;quot;universita &amp;quot;                                                        
+## [3] &amp;quot;universita - informatica&amp;quot;                                           
+## [4] &amp;quot;universita &amp;quot;                                                        
+## [5] &amp;quot;vorrei iscrivermi   corso  laurea  fisica  ingegneria aerospaziale &amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Il corpus può essere filtrato ulteriormente utilizzando le seguenti funzioni.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# rimozione dei numeri
+corpus_cl &amp;lt;- tm_map(corpus_cl, removeNumbers)
+# rimozione della punteggiatura
+corpus_cl &amp;lt;- tm_map(corpus_cl, removePunctuation)
+# definizione di un dizionario e rimozione di parole/acronimi non rilevanti
+drop &amp;lt;- c(&amp;quot;xke&amp;quot;,&amp;quot;pke&amp;quot;)
+corpus_cl &amp;lt;- tm_map(corpus_cl,removeWords,drop)
+# rimozione di spazi bianchi in eccesso
+corpus_cl &amp;lt;- tm_map(corpus_cl, stripWhitespace)
+
+corpus[117]$content&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Il mio più grande sogno è fare l&amp;#39;antropologa forense, ma ho molta paura di non riuscirci e di fare la scelta sbagliata, xke mi piacerebbe anche fare criminologia oppure fare la detective&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus_cl[117]$content&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot; piu grande sogno fare antropologa forense molta paura riuscirci fare scelta sbagliata piacerebbe fare criminologia oppure fare detective&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;La rimozione delle stopwords, così come altre procedure (come ad esempio lo stemming), è un algoritmo dipendente dalla lingua considerata: per ciascun linguaggio esiste una lista specifica di simboli e caratteri speciali.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lemmatizzazione/Stemming:&lt;/strong&gt; sostituzione del suffiso di una parola con uno più generico oppure riduzione delle parole alla loro radice, detta &lt;em&gt;lemma&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align*}
+ \text{deciso, decisa, decisi, decise, decis*} &amp;amp; \quad \Longrightarrow \quad &amp;amp; \text{decis} \\
+ \text{giurisprudenza} &amp;amp; \quad \Longrightarrow \quad &amp;amp; \text{giurisprudent}
+\end{align*}\]&lt;/span&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus_cl &amp;lt;- tm_map(corpus_cl, stemDocument,language = &amp;quot;it&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In alcuni casi, per evitare possibili ambiguità, la parola sostituita è leggermente diversa da quella originale. Il risultato finale può quindi essere diverso dal corpus iniziale.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus[1:5]$content&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Università di medicina veterinaria&amp;quot;                                         
+## [2] &amp;quot;Università &amp;quot;                                                                
+## [3] &amp;quot;Università - Informatica&amp;quot;                                                   
+## [4] &amp;quot;Università &amp;quot;                                                                
+## [5] &amp;quot;Vorrei iscrivermi a un corso di laurea di fisica o ingegneria aerospaziale &amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus_cl[1:5]$content&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;univers medicin veterinar&amp;quot;                         
+## [2] &amp;quot;univers&amp;quot;                                           
+## [3] &amp;quot;univers informat&amp;quot;                                  
+## [4] &amp;quot;univers&amp;quot;                                           
+## [5] &amp;quot;vorre iscriv cors laure fisic ingegner aerospazial&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;la-matrice-document-term&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;La matrice Document-Term&lt;/h3&gt;
+&lt;p&gt;Una volta completata la fase di preprocessing, i dati hanno la forma di un corpus ‘pulito,’ quindi una collezione di n = 147 vettori, ciascuno di essi contenente un insieme di &lt;span class=&#34;math inline&#34;&gt;\(p_i\)&lt;/span&gt; parole, with &lt;span class=&#34;math inline&#34;&gt;\(i=1, \ldots, n\)&lt;/span&gt;.
+A partire dal corpus si può costruire una &lt;strong&gt;matrice document-term&lt;/strong&gt; (DTM), di dimensioni &lt;span class=&#34;math inline&#34;&gt;\(n\times m\)&lt;/span&gt;, che ha in riga i documenti e in colonna i token utilizzati in tutto il corpus, presi una sola volta. Con questa rappresentazione è possibile descrivere in forma strutturata la frequenza dei termini che si presentano in una collezione di documenti. In alternativa è spesso utilizzata anche la trasposta della matrice document-term, detta &lt;strong&gt;matrice term-document&lt;/strong&gt; (TDM).&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Term 1&lt;/th&gt;
+&lt;th&gt;Term 2&lt;/th&gt;
+&lt;th&gt;&lt;span class=&#34;math inline&#34;&gt;\(\cdots\)&lt;/span&gt;&lt;/th&gt;
+&lt;th&gt;Term &lt;span class=&#34;math inline&#34;&gt;\(m\)&lt;/span&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Doc 1&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_{1,1}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_{1,2}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_{1,m}\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Doc 2&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_{2,1}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_{2,2}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_{2,m}\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Doc &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_{n,1}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_{n,2}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_{n,m}\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Nel nostro caso la matrice DTM è ottenuta utilizzando la funzione &lt;code&gt;DocumentTermMatrix&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DTM &amp;lt;- DocumentTermMatrix(corpus_cl)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;La DTM ottenuta dalle risposte degli studenti ha dimensione 147 x 287 ed i suoi elementi corrispondono al numero di volte che un singolo termine è stato utilizzato in ciascun documento. I marginali di riga rappresentano quindi il numero di termini utilizzati in un documento mentre i marginali di colonna sono il conteggio delle volte in cui un termine appare nel corpus.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;lt;&amp;lt;DocumentTermMatrix (documents: 5, terms: 5)&amp;gt;&amp;gt;
+## Non-/sparse entries: 8/17
+## Sparsity           : 68%
+## Maximal term length: 11
+## Weighting          : term frequency (tf)
+## Sample             :
+##     Terms
+## Docs aerospazial informat medicin univers veterinar
+##    1           0        0       1       1         1
+##    2           0        0       0       1         0
+##    3           0        1       0       1         0
+##    4           0        0       0       1         0
+##    5           1        0       0       0         0&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A seconda del tipo di misure statistiche da ricavare è possibile applicare diversi schemi per ottenere dei pesi a partire dalla DTM.&lt;/p&gt;
+&lt;p&gt;Nei prossimi articoli partiremo dalla DTM per calcolare alcune utili statistiche descrittive e produrre la word cloud.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;riferimenti&#34; class=&#34;section level2 unnumbered&#34;&gt;
+&lt;h2&gt;Riferimenti&lt;/h2&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34;&gt;
+&lt;div id=&#34;ref-hearst1999untangling&#34; class=&#34;csl-entry&#34;&gt;
+Hearst, Marti A. 1999. &lt;span&gt;“Untangling Text Data Mining.”&lt;/span&gt; In &lt;em&gt;Proceedings of the 37th Annual Meeting of the Association for Computational Linguistics&lt;/em&gt;, 3–10.
+&lt;/div&gt;
+&lt;div id=&#34;ref-van2016exploring&#34; class=&#34;csl-entry&#34;&gt;
+Van Hee, Cynthia, Els Lefever, and Véronique Hoste. 2016. &lt;span&gt;“Exploring the Realization of Irony in Twitter Data.”&lt;/span&gt; In &lt;em&gt;Proceedings of the Tenth International Conference on Language Resources and Evaluation (LREC’16)&lt;/em&gt;, 1794–99.
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>DESPOTA</title>

@@ -6,7 +6,17 @@
     <description>Recent content on Lucio Palazzo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Lucio Palazzo</copyright>
-    <lastBuildDate>Thu, 30 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Text Mining con R: preparazione dei dati</title>
+      <link>https://blog-neas.github.io/it/blog-neas/pls-seminar-one/</link>
+      <pubDate>Tue, 01 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/blog-neas/pls-seminar-one/</guid>
+      <description>Questo post è il primo di una serie che ha l’obiettivo di trattare il tema del text mining a partire dalla preparazione dei dati fino alla sentiment analysis.
+I temi trattati prendono spunto dal seminario online che si è tenuto nell’ambito della Scuola Estiva per il Piano di Lauree Scientifiche (PLS) promulgato dall’Università degli Studi di Napoli Federico II. L’audience era composto per la maggior parte da studenti delle scuole secondarie di secondo grado e studenti universitari all’inizio del loro percorso.</description>
+    </item>
+    
     <item>
       <title>DESPOTA</title>
       <link>https://blog-neas.github.io/it/blog-neas/despota-page/</link>

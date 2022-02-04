@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://blog-neas.github.io/it/blog-neas/</loc>
-    <lastmod>2021-12-30T00:00:00+00:00</lastmod>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -19,7 +19,7 @@
   
   <url>
     <loc>https://blog-neas.github.io/it/categories/</loc>
-    <lastmod>2021-12-30T00:00:00+00:00</lastmod>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -29,6 +29,86 @@
                 rel="alternate"
                 hreflang="it"
                 href="https://blog-neas.github.io/it/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/categories/pls/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/categories/pls/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/categories/pls/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/categories/pulizia-dei-dati/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/categories/text-mining/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/categories/text-mining/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/categories/text-mining/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/blog-neas/pls-seminar-one/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/blog-neas/pls-seminar-one/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/blog-neas/pls-seminar-one/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/categories/word-cloud/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/categories/word-cloud/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/categories/word-cloud/"
                 />
   </url>
   
@@ -74,21 +154,6 @@
                 rel="alternate"
                 hreflang="it"
                 href="https://blog-neas.github.io/it/blog-neas/despota-page/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/it/</loc>
-    <lastmod>2021-12-30T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/"
                 />
   </url>
   

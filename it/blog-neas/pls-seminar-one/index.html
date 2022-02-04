@@ -1,0 +1,588 @@
+<!doctype html>
+<html class="no-js" lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Text Mining con R: preparazione dei dati | Lucio Palazzo</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="https://blog-neas.github.io/fonts/academicons.ttf?v=1.7.0" as="font">
+    <link rel="preload" href="https://blog-neas.github.io/fonts/fontawesome-webfont.woff2?v=4.6.34Cas" as="font">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Merriweather" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css">
+    <link rel="stylesheet" href="https://blog-neas.github.io/css/foundation.min.css">
+    <link rel="stylesheet" href="https://blog-neas.github.io/css/stackoverflow-light.min.css">
+    <link rel="stylesheet" href="https://blog-neas.github.io/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://blog-neas.github.io/css/academicons.min.css">
+    <link rel="stylesheet" href="https://blog-neas.github.io/css/finite.min.css">
+    <link rel="stylesheet" href="https://blog-neas.github.io/css/kube.min.css">
+    <link rel="stylesheet" href="https://blog-neas.github.io/css/robjhyndman.min.css">
+    
+<script>
+(function(m,a,i,l,e,r){ m['MailerLiteObject']=e;function f(){
+var c={ a:arguments,q:[]};var r=this.push(c);return "number"!=typeof r?r:f.bind(c.q);}
+f.q=f.q||[];m[e]=m[e]||f.bind(f.q);m[e].q=m[e].q||f.q;r=a.createElement(i);
+var _=a.getElementsByTagName(i)[0];r.async=1;r.src=l+'?v'+(~~(new Date().getTime()/1000000));
+_.parentNode.insertBefore(r,_);})(window, document, 'script', 'https://static.mailerlite.com/js/universal.js', 'ml');
+
+var ml_account = ml('accounts', '3217732', 'q9y4a1d8i3', 'load');
+</script>
+
+</head>
+  <body>
+    <header>
+      <nav class="nav-bar">
+	
+	  <div class="title-bar" data-responsive-toggle="site-menu" data-hide-for="medium">
+	    <button class="site-hamburger" type="button" data-toggle>
+	      <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+	    </button>
+	    <div class="title-bar-title site-title">
+	      <a href="https://blog-neas.github.io/"  style="color: #b3cde0">Lucio Palazzo</a>
+	    </div>
+	    <div class="title-bar-right pull-right">
+	      
+
+
+	    </div>
+	  </div>
+
+	  
+	    <div class="top-bar" id="site-menu" >
+	      <div class="top-bar-title show-for-medium site-title">
+		<a href="https://blog-neas.github.io/"  style="color: #b3cde0;">Lucio Palazzo</a>
+	      </div>
+	      <div class="top-bar-left">
+		<ul class="menu vertical medium-horizontal">
+		  
+		  
+		  <li><a href="https://blog-neas.github.io/it/publications/">Pubblicazioni</a></li>
+		  
+		  <li><a href="https://blog-neas.github.io/it/seminars/">Seminari</a></li>
+		  
+		  <li><a href="https://blog-neas.github.io/it/teaching/">Didattica</a></li>
+		  
+		  <li><a href="https://blog-neas.github.io/it/research-team/">Gruppo di ricerca</a></li>
+		  
+		  <li><a href="https://blog-neas.github.io/it/about/">Chi sono</a></li>
+		  
+		  <li><a href="https://blog-neas.github.io/it/blog-neas/">NeaS blog</a></li>
+		  
+		  <li><a href="https://blog-neas.github.io/en/"><img width='20' height='20' src='https://blog-neas.github.io/img/gb.png' ></a></li>
+		  
+		</ul>
+	      </div>
+	      <div class="top-bar-right show-for-medium">
+		
+
+
+	      </div>
+	    </div>
+	  
+	</nav>
+    </header>
+    <main>
+      
+
+<div class="wrapper">
+<div class="units-row" style='margin-bottom: 0px;'>
+<div class="unit-20">&nbsp;</div>
+<div class="unit-70"><h1>Text Mining con R: preparazione dei dati</h1></div>
+</div>
+<div class="units-row">
+  <div class="unit-20 dateblock" style='text-align: right;'><h4 style='padding: .8ex 0px .8ex 0px;'><a href="https://blog-neas.github.io/it/blog-neas">NeaS Blog</a></h4>
+    <div class="post-metadata">
+  <span class="post-date">
+    <time datetime="2022-02-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">1 February 2022</time>
+  </span>
+  
+  </span>
+  
+  
+  
+  <span class="post-tags">
+    <p><i class="fa fa-tags"></i>
+    
+    <a class="post-tag" href="https://blog-neas.github.io/it/categories/pls">PLS</a>,
+    
+    
+    
+    <a class="post-tag" href="https://blog-neas.github.io/it/categories/text-mining">Text Mining</a>,
+    
+    
+    <a class="post-tag" href="https://blog-neas.github.io/it/categories/pulizia-dei-dati">Pulizia dei Dati</a>,
+    
+    
+    <a class="post-tag" href="https://blog-neas.github.io/it/categories/word-cloud">Word Cloud</a>
+    
+  </span>
+  
+  
+</div>
+
+  </div>
+<div class="unit-70">
+
+  
+<script src="https://blog-neas.github.io/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="https://blog-neas.github.io/rmarkdown-libs/kePrint/kePrint.js"></script>
+<link href="https://blog-neas.github.io/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
+
+
+<p>Questo post è il primo di una serie che ha l’obiettivo di trattare il tema del text mining a partire dalla preparazione dei dati fino alla sentiment analysis.</p>
+<p>I temi trattati prendono spunto dal seminario online che si è tenuto nell’ambito della Scuola Estiva per il <em>Piano di Lauree Scientifiche</em> (PLS) promulgato dall’Università degli Studi di Napoli Federico II.
+L’audience era composto per la maggior parte da studenti delle scuole secondarie di secondo grado e studenti universitari all’inizio del loro percorso. Per le analisi statistiche è stato utilizzato il software R.</p>
+<p>In questo articolo saranno introdotte le fasi principali relative alla pulizia preliminare dei dati testuali.</p>
+<blockquote>
+<p>Text expresses a vast, rich range of information, but encodes this information in a form that is difficult to decipher automatically.</p>
+<p><span class="citation"><a href="#ref-hearst1999untangling" role="doc-biblioref">Hearst</a> (<a href="#ref-hearst1999untangling" role="doc-biblioref">1999</a>)</span></p>
+</blockquote>
+<p>Il text mining è un insieme di algoritmi che permettono di selezionare ed analizzare dati testuali allo scopo di identificare degli schemi, di estrarre informazioni ed eseguire analisi semantiche.
+Alcuni dei modelli statistici tipici del text mining sono la classificazione ed il clustering del testo, la creazione di tassonomie, il riassunto di documenti, l’estrazione di informazioni e la sentiment analysis.</p>
+<p>Il vantaggio principale del text mining è che i dati testuali sono presenti (praticamente) dovunque, alcuni esempi sono:</p>
+<ul>
+<li>Registri medici</li>
+<li>Recensioni di prodotti</li>
+<li>Social (Facebook, Twitter, ecc.)</li>
+<li>Libri suggeriti</li>
+<li>Ambito legale e amministrativo</li>
+<li>Email</li>
+<li>Web</li>
+</ul>
+<p>ALlo stesso tempo, i dati testuali sono ‘sporchi’ e non strutturati: un testo (o un ineieme di testi) non è facilmente rappresentabile in forma vettoriale. Inoltre, per lavorare con testi scritti dobbiamo tenere conto di diverse caratteristiche:</p>
+<ul>
+<li>Struttura linguistica</li>
+<li>Linguaggio</li>
+<li>Relazioni tra le parole (vicinanza, significato)</li>
+<li>Importanza delle parole utilizzate</li>
+<li>Negazioni, etc.</li>
+<li>Grammatica, spelling, abbreviazioni, sinonimi, omografie</li>
+</ul>
+<p>Bisogna inoltre considerare che il testo serve per comunicare: il contesto e la sintassi sono importanti! In <span class="citation"><a href="#ref-van2016exploring" role="doc-biblioref">Van Hee, Lefever, and Hoste</a> (<a href="#ref-van2016exploring" role="doc-biblioref">2016</a>)</span> sono mostrati alcuni esempi. Per questa ragione non esiste una vera e propria procedura ‘standard’ per manipolare i dati e al variare del contesto va scelto l’approccio giusto.</p>
+<div class="alert alert-info">
+<p><strong><svg aria-hidden="true" role="img" viewBox="0 0 352 512" style="height:1em;width:0.69em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"/></svg> Esempio.</strong> There is a huge difference between the sentences ‘<em>Even the sun sets in paradise</em>’ and ‘<em>The sun sets even in paradise</em>’ or, again, between ‘<em>she only told me she loved him</em>’ and ‘<em>she told me she loved only him</em>,’ but for a computer those pairs of sentences are almost identical.</p>
+</div>
+<p>Come anticipato, il testo si presenta in forma non strutturata. Per poter analizzare questo tipo di dati è quindi necessario passare ad una forma strutturata mediante una manipolazione preliminare dei dati.</p>
+<table>
+<colgroup>
+<col width="47%" />
+<col width="52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><strong>Structured data</strong></th>
+<th align="center"><strong>Unstructured data</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Sono i dati conservati in database, organizzati secondo schemi e tabelle rigide. Questa è la tipologia di dati più indicata per i modelli di gestione relazionale delle informazioni.</td>
+<td align="center">Sono i dati conservati senza alcuno schema, come testi, immagini, video e altro. La mancanza di una struttura specifica rende questi dati di difficile lettura per i software informatici.</td>
+</tr>
+</tbody>
+</table>
+<p>Per poter analizzare i dati testuali con dei modelli statistici c’è bisogno prima di trasformare tali dati da non strutturati a strutturati. In genere una collezione di <strong>documenti</strong> è detta <strong>corpus</strong> e ciascun documento è composto da <strong>tokens</strong> o <strong>termini</strong> (le parole).</p>
+<p>Ciascun documento può essere dotato di caratteristiche differenti: può essere un libro (es. <a href="https://textmining.nu/2018/10/29/text-mining-the-lord-of-the-rings/">il Signore degli Anelli</a>), un capitolo, alcune pagine, poche parole (e.g. Twitter posts) o addirittura una sola parola.
+La fase di conversione dei testi da una forma non strutturata ad una rappresentabile in forma vettoriale è anche detta <strong>featurization</strong>.</p>
+<p>Per quanto riguarda i dati del PLS, ciascun documento è rappresentato da una breve risposta. Abbiamo chiesto ai partecipanti del seminario di rispondere (tramite Google Form) alla domanda ‘Cosa vorresti fare dopo il diploma?’ lasciando a disposizione una risposta aperta limitata a 200 lettere. Sono state raccolte 147 risposte, il dataset originale è disponibile <a href="https://blog-neas.github.io/data/pls2021.csv">qui</a>.</p>
+<div id="text-mining-con-r" class="section level2">
+<h2>Text Mining con R</h2>
+<p>Il package <code>tm</code> package è richiesto per utilizzare le principali funzioni del text mining, mentre il pacchetto <code>SnowballC</code> è necessario per poter effettuare lo stemming.</p>
+<pre class="r"><code>rawdata &lt;- read.csv(&quot;pls2021.csv&quot;,sep=&quot;;&quot;)
+head(rawdata)</code></pre>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+Id
+</th>
+<th style="text-align:left;">
+risposte
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Università di medicina veterinaria
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Università
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Università - Informatica
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Università
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Vorrei iscrivermi a un corso di laurea di fisica o ingegneria aerospaziale
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La funzione <code>SimpleCorpus</code> trasforma il testo grezzo in un corpus di documenti.</p>
+<pre class="r"><code>corpus &lt;- SimpleCorpus(VectorSource(rawdata[,2]),control = list(language=&quot;it&quot;))</code></pre>
+<p>Quando i dati a disposizione sono di grandi dimensioni il consiglio è quello di utilizzare funzioni adatte a migliorare le prestazioni di calcolo e minimizzare il carico sulla memoria, come <code>VCorpus</code> e <code>PCorpus</code>. Con <code>str(corpus)</code> possiamo esplorare le caratteristiche dell’oggetto appena definito.</p>
+<pre class="r"><code>str(corpus)</code></pre>
+<pre><code>## Classes &#39;SimpleCorpus&#39;, &#39;Corpus&#39;  hidden list of 3
+##  $ content: chr [1:147] &quot;Università di medicina veterinaria&quot; &quot;Università &quot; &quot;Università - Informatica&quot; &quot;Università &quot; ...
+##  $ meta   :List of 1
+##   ..$ language: chr &quot;it&quot;
+##   ..- attr(*, &quot;class&quot;)= chr &quot;CorpusMeta&quot;
+##  $ dmeta  :&#39;data.frame&#39;: 147 obs. of  0 variables</code></pre>
+<div id="pre-processing-dei-dati" class="section level3">
+<h3>Pre-processing dei dati</h3>
+<p>Gli strumenti a disposizione per effettuare la featurization possono variare a seconda dell’obiettivo della ricerca. Presenteremo qui alcune tecniche di pre-processing più utilizzate.</p>
+<p><strong>Normalizzazione:</strong> Il primo tentativo di riduzione del numero di parole presenti nel corpus consiste nel rimuovere tutte le varianti e nell’eliminare tutte le informazioni ridondanti. Tra questi, fanno parte la riduzione in lettere minuscole, la pulizia degli errori grammaticali e la rimozione dei caratteri speciali.</p>
+<p>Una classica procedura di normalizzazione consiste nella riduzione in lettere minuscole.</p>
+<pre class="r"><code>corpus_cl &lt;- tm_map(corpus, tolower)</code></pre>
+<p>In aggiunta può essere necessario trasformare le lettere accentate, comuni in molti linguagggi (come l’taliano), e i simboli speciali (es. le emoticons). Esistono molti modi per raggiungere l’obiettivo, uno di questi consiste nel decodificare il testo in ASCII con translitterazione (<code>ASCII//TRANSLIT</code>) con la funzione <code>iconv()</code>.</p>
+<pre class="r"><code>corpus_cl &lt;- tm_map(corpus_cl,iconv,from=&quot;UTF-8&quot;,to=&quot;ASCII//TRANSLIT&quot;)</code></pre>
+<p>A volte la conversione genera un punto interrogativo “?” in questo caso l’algoritmo non è riuscito a trovare una corrispondenza tra il carattere iniziale e la codifica ASCII.</p>
+<pre class="r"><code>corpus[116]$content</code></pre>
+<pre><code>## [1] &quot;la milionaria 😂&quot;</code></pre>
+<pre class="r"><code>corpus_cl[116]$content</code></pre>
+<pre><code>## [1] &quot;la milionaria ?&quot;</code></pre>
+<p>Questo errore sarà corretto nei passaggi successivi con l’eliminazione dei simboli di punteggiatura.</p>
+<p><strong>Stopwords:</strong> La classificazione di testi e documenti trae giovamento dall’esclusione degli elementi non informativi ai fini delle analisi (come ad esempio ‘e,’ ‘circa,’ ‘comunque,’ ‘successivamente,’ ‘ancora,’ ecc.). La scelta più comune consiste nel rimuovere tali parole ‘secondarie’ dai documenti.</p>
+<pre class="r"><code>corpus_cl &lt;- tm_map(corpus_cl, removeWords, c(stopwords(&#39;it&#39;)))
+corpus_cl[1:5]$content</code></pre>
+<pre><code>## [1] &quot;universita  medicina veterinaria&quot;                                   
+## [2] &quot;universita &quot;                                                        
+## [3] &quot;universita - informatica&quot;                                           
+## [4] &quot;universita &quot;                                                        
+## [5] &quot;vorrei iscrivermi   corso  laurea  fisica  ingegneria aerospaziale &quot;</code></pre>
+<p>Il corpus può essere filtrato ulteriormente utilizzando le seguenti funzioni.</p>
+<pre class="r"><code># rimozione dei numeri
+corpus_cl &lt;- tm_map(corpus_cl, removeNumbers)
+# rimozione della punteggiatura
+corpus_cl &lt;- tm_map(corpus_cl, removePunctuation)
+# definizione di un dizionario e rimozione di parole/acronimi non rilevanti
+drop &lt;- c(&quot;xke&quot;,&quot;pke&quot;)
+corpus_cl &lt;- tm_map(corpus_cl,removeWords,drop)
+# rimozione di spazi bianchi in eccesso
+corpus_cl &lt;- tm_map(corpus_cl, stripWhitespace)
+
+corpus[117]$content</code></pre>
+<pre><code>## [1] &quot;Il mio più grande sogno è fare l&#39;antropologa forense, ma ho molta paura di non riuscirci e di fare la scelta sbagliata, xke mi piacerebbe anche fare criminologia oppure fare la detective&quot;</code></pre>
+<pre class="r"><code>corpus_cl[117]$content</code></pre>
+<pre><code>## [1] &quot; piu grande sogno fare antropologa forense molta paura riuscirci fare scelta sbagliata piacerebbe fare criminologia oppure fare detective&quot;</code></pre>
+<p>La rimozione delle stopwords, così come altre procedure (come ad esempio lo stemming), è un algoritmo dipendente dalla lingua considerata: per ciascun linguaggio esiste una lista specifica di simboli e caratteri speciali.</p>
+<p><strong>Lemmatizzazione/Stemming:</strong> sostituzione del suffiso di una parola con uno più generico oppure riduzione delle parole alla loro radice, detta <em>lemma</em>.</p>
+<p><span class="math display">\[\begin{align*}
+ \text{deciso, decisa, decisi, decise, decis*} &amp; \quad \Longrightarrow \quad &amp; \text{decis} \\
+ \text{giurisprudenza} &amp; \quad \Longrightarrow \quad &amp; \text{giurisprudent}
+\end{align*}\]</span></p>
+<pre class="r"><code>corpus_cl &lt;- tm_map(corpus_cl, stemDocument,language = &quot;it&quot;)</code></pre>
+<p>In alcuni casi, per evitare possibili ambiguità, la parola sostituita è leggermente diversa da quella originale. Il risultato finale può quindi essere diverso dal corpus iniziale.</p>
+<pre class="r"><code>corpus[1:5]$content</code></pre>
+<pre><code>## [1] &quot;Università di medicina veterinaria&quot;                                         
+## [2] &quot;Università &quot;                                                                
+## [3] &quot;Università - Informatica&quot;                                                   
+## [4] &quot;Università &quot;                                                                
+## [5] &quot;Vorrei iscrivermi a un corso di laurea di fisica o ingegneria aerospaziale &quot;</code></pre>
+<pre class="r"><code>corpus_cl[1:5]$content</code></pre>
+<pre><code>## [1] &quot;univers medicin veterinar&quot;                         
+## [2] &quot;univers&quot;                                           
+## [3] &quot;univers informat&quot;                                  
+## [4] &quot;univers&quot;                                           
+## [5] &quot;vorre iscriv cors laure fisic ingegner aerospazial&quot;</code></pre>
+</div>
+<div id="la-matrice-document-term" class="section level3">
+<h3>La matrice Document-Term</h3>
+<p>Una volta completata la fase di preprocessing, i dati hanno la forma di un corpus ‘pulito,’ quindi una collezione di n = 147 vettori, ciascuno di essi contenente un insieme di <span class="math inline">\(p_i\)</span> parole, with <span class="math inline">\(i=1, \ldots, n\)</span>.
+A partire dal corpus si può costruire una <strong>matrice document-term</strong> (DTM), di dimensioni <span class="math inline">\(n\times m\)</span>, che ha in riga i documenti e in colonna i token utilizzati in tutto il corpus, presi una sola volta. Con questa rappresentazione è possibile descrivere in forma strutturata la frequenza dei termini che si presentano in una collezione di documenti. In alternativa è spesso utilizzata anche la trasposta della matrice document-term, detta <strong>matrice term-document</strong> (TDM).</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Term 1</th>
+<th>Term 2</th>
+<th><span class="math inline">\(\cdots\)</span></th>
+<th>Term <span class="math inline">\(m\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Doc 1</td>
+<td><span class="math inline">\(d_{1,1}\)</span></td>
+<td><span class="math inline">\(d_{1,2}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(d_{1,m}\)</span></td>
+</tr>
+<tr class="even">
+<td>Doc 2</td>
+<td><span class="math inline">\(d_{2,1}\)</span></td>
+<td><span class="math inline">\(d_{2,2}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(d_{2,m}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+</tr>
+<tr class="even">
+<td>Doc <span class="math inline">\(n\)</span></td>
+<td><span class="math inline">\(d_{n,1}\)</span></td>
+<td><span class="math inline">\(d_{n,2}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(d_{n,m}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Nel nostro caso la matrice DTM è ottenuta utilizzando la funzione <code>DocumentTermMatrix</code>.</p>
+<pre class="r"><code>DTM &lt;- DocumentTermMatrix(corpus_cl)</code></pre>
+<p>La DTM ottenuta dalle risposte degli studenti ha dimensione 147 x 287 ed i suoi elementi corrispondono al numero di volte che un singolo termine è stato utilizzato in ciascun documento. I marginali di riga rappresentano quindi il numero di termini utilizzati in un documento mentre i marginali di colonna sono il conteggio delle volte in cui un termine appare nel corpus.</p>
+<pre><code>## &lt;&lt;DocumentTermMatrix (documents: 5, terms: 5)&gt;&gt;
+## Non-/sparse entries: 8/17
+## Sparsity           : 68%
+## Maximal term length: 11
+## Weighting          : term frequency (tf)
+## Sample             :
+##     Terms
+## Docs aerospazial informat medicin univers veterinar
+##    1           0        0       1       1         1
+##    2           0        0       0       1         0
+##    3           0        1       0       1         0
+##    4           0        0       0       1         0
+##    5           1        0       0       0         0</code></pre>
+<p>A seconda del tipo di misure statistiche da ricavare è possibile applicare diversi schemi per ottenere dei pesi a partire dalla DTM.</p>
+<p>Nei prossimi articoli partiremo dalla DTM per calcolare alcune utili statistiche descrittive e produrre la word cloud.</p>
+</div>
+</div>
+<div id="riferimenti" class="section level2 unnumbered">
+<h2>Riferimenti</h2>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-hearst1999untangling" class="csl-entry">
+Hearst, Marti A. 1999. <span>“Untangling Text Data Mining.”</span> In <em>Proceedings of the 37th Annual Meeting of the Association for Computational Linguistics</em>, 3–10.
+</div>
+<div id="ref-van2016exploring" class="csl-entry">
+Van Hee, Cynthia, Els Lefever, and Véronique Hoste. 2016. <span>“Exploring the Realization of Irony in Twitter Data.”</span> In <em>Proceedings of the Tenth International Conference on Language Resources and Evaluation (LREC’16)</em>, 1794–99.
+</div>
+</div>
+</div>
+
+
+      <meta itemprop="wordCount" content="1715">
+      <meta itemprop="datePublished" content="2022-02-01">
+      <meta itemprop="url" content="https://blog-neas.github.io/it/blog-neas/pls-seminar-one/">
+
+<div class='sans' style="background: #dddddd; padding: 2em; margin-top: 20px;">
+<div style="padding-bottom: 1em" >
+<p>
+  
+    <a href="https://blog-neas.github.io/it/blog-neas/pls-seminar-one/">"Text Mining con R: preparazione dei dati"</a> by <a href="https://blog-neas.github.io/it/authors/">Lucio Palazzo</a>&nbsp;/&nbsp;<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  
+</p>
+<div class="share-box">
+  <ul class="share">
+    <li>
+      <a class="facebook" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog-neas.github.io%2fit%2fblog-neas%2fpls-seminar-one%2f" target="_blank">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="twitter" href="https://twitter.com/intent/tweet?text=Text%20Mining%20con%20R%3a%20preparazione%20dei%20dati. https%3a%2f%2fblog-neas.github.io%2fit%2fblog-neas%2fpls-seminar-one%2f from @robjhyndman" target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fblog-neas.github.io%2fit%2fblog-neas%2fpls-seminar-one%2f&amp;title=Text%20Mining%20con%20R%3a%20preparazione%20dei%20dati" target="_blank">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo" href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fblog-neas.github.io%2fit%2fblog-neas%2fpls-seminar-one%2f&amp;title=Text%20Mining%20con%20R%3a%20preparazione%20dei%20dati" target="_blank">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email" href="mailto:?subject=Text%20Mining%20con%20R%3a%20preparazione%20dei%20dati&amp;body=https%3a%2f%2fblog-neas.github.io%2fit%2fblog-neas%2fpls-seminar-one%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+</div>
+
+    <ul class="pagination" role="navigation" aria-label="Pagination">
+      
+      <li class="arrow" aria-disabled="true"><a href="https://blog-neas.github.io/it/blog-neas/despota-page/">&laquo; <em>Previous<span class="show-for-sr"> page</span></em>: DESPOTA</a></li>
+      
+      
+    </ul>
+      
+        
+      <a href="https://blog-neas.github.io/it/blog-neas/">Tutti i post del blog NeaS per data</a>
+      
+</div>
+
+<span style='font-family: Carlito'>
+ <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+              return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'palazzolucio';
+    
+    
+    
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</span>
+
+  </div>
+  </div></div>
+
+    </main>
+    <footer class="whatisthis">
+  <hr class='separator'/>
+  <span style="font-family: Carlito, sans; font-size: 0.9em; line-height: 1.05em;">
+  <div class="row">
+    <div class="column small-12 medium-4">
+      <figure class='image-left'>
+      <a href="https://blog-neas.github.io/" style="border-bottom: none;">
+      	<img src="https://blog-neas.github.io/img/fotoscholar_mod.png" alt="Portrait of the author" class='avatar' style="max-width: 100%;">
+      </a>
+      </figure>
+      <p>Lucio&nbsp;Palazzo <span style="font-size: 10pt;">PhD</span> is Research Fellow of the <a href="http://www.scienzepolitiche.unina.it">LabStat, Department of Political Sciences</a> at <a href="http://www.unina.it/en_GB/home">University of Naples Federico II</a>, Napoli.</p>
+    </div>
+    <div class="column small-12 medium-4">
+      
+      <h4 id="contact">Contact</h4>
+      <ul class="fa-ul">
+	
+	<li><i class="fa-li fa fa-university" style="color:#03396c;font-size:80%;padding-top:6px;"></i><a href="https://www.labstat.it/">LabStat - Statistics Laboratory, Department of Political Sciences, Federico II University, L. Rodinò 22 road - 80138 Napoli (NA), Italy.</a></li>
+	
+	<li><i class="fa-li fa fa-envelope" style="color:#03396c;font-size:80%;padding-top:6px;"></i><a href="mailto:lucio.palazzo@unina.it">lucio.palazzo@unina.it</a></li>
+	
+	<li><i class="fa-li ai ai-google-scholar" style="color:#03396c;font-size:80%;padding-top:6px;"></i><a href="https://scholar.google.com/citations?user=jyhrTYkAAAAJ">Google Scholar</a></li>
+	
+	<li><i class="fa-li ai ai-researchgate" style="color:#03396c;font-size:80%;padding-top:6px;"></i><a href="https://www.researchgate.net/profile/Lucio-Palazzo">ResearchGate</a></li>
+	
+	<li><i class="fa-li fa fa-github-alt" style="color:#03396c;font-size:80%;padding-top:6px;"></i><a href="https://github.com/blog-neas">LP-NeaS</a> on GitHub</li>
+	
+	<li><i class="fa-li ai ai-orcid" style="color:#03396c;font-size:80%;padding-top:6px;"></i><a href="https://orcid.org/0000-0001-7529-4689">0000-0001-7529-4689</a> on OrcID</li>
+	
+      </ul>
+    </div>
+
+  <div class="column small-12 medium-4">
+  <h4>Search</h4>
+  <a id="searchsite">
+  	<form method="get" action="https://duckduckgo.com/">
+	  <label for="search-field" class="show-for-sr">Search the site</label>
+	  <input type="search" name="q" maxlength="255" placeholder="Search the site" id="search-field">
+	  <input type="hidden" name="sites" value="https://blog-neas.github.io/"/>
+	  <input type="hidden" name="k7" value="#faf8f8"/>
+	  <input type="hidden" name="kj" value="#b33"/>
+	  <input type="hidden" name="ky" value="#fafafa"/>
+	  <input type="hidden" name="kx" value="b"/>
+	  <input type="hidden" name="ko" value="-1"/>
+	  <input type="hidden" name="k1" value="-1"/>
+	</form>
+  </a>
+
+  
+  <hr style="border-top:5px solid #faf8f8;"/>
+  
+  
+  
+    
+  
+
+
+  
+  </div>
+  </div>
+  </span>
+</footer>
+
+    <div class="endofpage">
+    <footer id="footer">
+    <section class="wrapper small">Inspired by <a href="https://robjhyndman.com">Rob&nbsp;J&nbsp;Hyndman's</a> blog. &nbsp;&nbsp; &copy;<a href="mailto:lucio.palazzo@unina.it">Lucio Palazzo</a> 2021&ndash;2022.
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://blog-neas.github.io/it/index.xml"><img src="https://blog-neas.github.io/img/rss2.png" width=12 align="bottom" alt="RSS icon"  style="padding-top: 0.7ex"></a>
+    </section>
+    </footer>
+    </div>
+
+    <script src="https://blog-neas.github.io/js/jquery.js"></script>
+    <script src="https://blog-neas.github.io/js/what-input.js"></script>
+    <script src="https://blog-neas.github.io/js/foundation.min.js"></script>
+    <script src="https://blog-neas.github.io/js/finite.js"></script>
+
+    
+    <script src="//cdn.bootcss.com/highlight.js/11.3.1/highlight.min.js"></script>
+    <script src="//cdn.bootcss.com/highlight.js/11.3.1/languages/r.min.js"></script>
+
+    <script>
+    hljs.configure({languages: []});
+    hljs.initHighlightingOnLoad();
+    </script>
+
+    
+    
+    
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-79C5JB0NHX', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+ </body>
+</html>

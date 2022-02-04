@@ -81,7 +81,7 @@ Il package `tm` package è richiesto per utilizzare le principali funzioni del t
 library(tm)
 library(wordcloud)
 library(SnowballC)
-rawdata <- read.csv("../../../static/data/pls2021_eng.csv",sep=";")
+rawdata <- read.csv("../../../static/data/pls2021.csv",sep=";")
 ```
 
 ```{r load_df_viz, eval=FALSE}
@@ -137,7 +137,7 @@ Questo errore sarà corretto nei passaggi successivi con l'eliminazione dei simb
 **Stopwords:** La classificazione di testi e documenti trae giovamento dall'esclusione degli elementi non informativi ai fini delle analisi (come ad esempio 'e', 'circa', 'comunque', 'successivamente', 'ancora', ecc.). La scelta più comune consiste nel rimuovere tali parole 'secondarie' dai documenti.
 
 ```{r stopwords}
-corpus_cl <- tm_map(corpus_cl, removeWords, c(stopwords('in')))
+corpus_cl <- tm_map(corpus_cl, removeWords, c(stopwords('it')))
 corpus_cl[1:5]$content
 ```
 
