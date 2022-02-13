@@ -57,6 +57,8 @@ var ml_account = ml('accounts', '3217732', 'q9y4a1d8i3', 'load');
 		  
 		  <li><a href="https://blog-neas.github.io/en/publications/">Publications</a></li>
 		  
+		  <li><a href="https://blog-neas.github.io/en/blog-neas/">NeaS blog</a></li>
+		  
 		  <li><a href="https://blog-neas.github.io/en/seminars/">Seminars</a></li>
 		  
 		  <li><a href="https://blog-neas.github.io/en/teaching/">Teaching</a></li>
@@ -64,8 +66,6 @@ var ml_account = ml('accounts', '3217732', 'q9y4a1d8i3', 'load');
 		  <li><a href="https://blog-neas.github.io/en/research-team/">Research team</a></li>
 		  
 		  <li><a href="https://blog-neas.github.io/en/about/">About</a></li>
-		  
-		  <li><a href="https://blog-neas.github.io/en/blog-neas/">NeaS blog</a></li>
 		  
 		  <li><a href="https://blog-neas.github.io/it/"><img width='20' height='20' src='https://blog-neas.github.io/img/it.png' ></a></li>
 		  
@@ -102,11 +102,14 @@ var ml_account = ml('accounts', '3217732', 'q9y4a1d8i3', 'load');
   <span class="post-tags">
     <p><i class="fa fa-tags"></i>
     
-    <a class="post-tag" href="https://blog-neas.github.io/en/categories/despota">DESPOTA</a>,
+    <a class="post-tag" href="https://blog-neas.github.io/en/categories/python">Python</a>,
     
     
     
-    <a class="post-tag" href="https://blog-neas.github.io/en/categories/classification">classification</a>,
+    <a class="post-tag" href="https://blog-neas.github.io/en/categories/statistics">statistics</a>,
+    
+    
+    <a class="post-tag" href="https://blog-neas.github.io/en/categories/data-mining">data mining</a>,
     
     
     <a class="post-tag" href="https://blog-neas.github.io/en/categories/test">test</a>
@@ -123,55 +126,94 @@ var ml_account = ml('accounts', '3217732', 'q9y4a1d8i3', 'load');
 <script src="https://blog-neas.github.io/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<table style="width:6%;">
-<colgroup>
-<col width="5%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><strong>Advertisement :)</strong></td>
-</tr>
-<tr class="even">
-<td>- <strong><a href="https://nodeca.github.io/pica/demo/">pica</a></strong> - high quality and fast image
-resize in browser.
-- <strong><a href="https://github.com/nodeca/babelfish/">babelfish</a></strong> - developer friendly
-i18n with plurals support and easy syntax.</td>
-</tr>
-<tr class="odd">
-<td>You will like those projects!</td>
-</tr>
-</tbody>
-</table>
-<div id="h1-heading-8-" class="section level1">
-<h1>h1 Heading 8-)</h1>
-<div id="h2-heading" class="section level2">
-<h2>h2 Heading</h2>
-<div id="h3-heading" class="section level3">
-<h3>h3 Heading</h3>
-<div id="h4-heading" class="section level4">
-<h4>h4 Heading</h4>
-<div id="h5-heading" class="section level5">
-<h5>h5 Heading</h5>
-<div id="h6-heading" class="section level6">
-<h6>h6 Heading</h6>
 <pre class="r"><code>library(reticulate)</code></pre>
-<pre class="r"><code>plot(rnorm(100),rnorm(100,2,4))</code></pre>
-<p><img src="https://blog-neas.github.io/english/blog-neas/R_Python_files/figure-html/uno-1.png" width="672" /></p>
+<p>Here I will describe what are the first step to perform to have a running version on Python on your PC.</p>
+<p>The version you need depends on what you want to do in Python. Some older projects are coded in Python version 2.xx (REF). Then, since there is no backward compatibility between 2.xx and 3.xx versions, if you want to work with older projects you probably need that version. If you are starting a project from scratch, you have the freedom to choose. Nowadays the Python 3.xx is the most COMMON version and, even if Python 4.xx will be out soon, it will be completely backward compatible.</p>
+<div id="windows" class="section level2">
+<h2>Windows</h2>
+<p>The installation procedure involves downloading the official Python .exe installer and running it on your system.</p>
+<ol style="list-style-type: decimal">
+<li>Download Python Executable Installer from … . Open your web browser and navigate to the Downloads for Windows section of the official Python website.</li>
+</ol>
+<div class="figure">
+<img src="https://octodex.github.com/images/stormtroopocat.jpg" title="The Stormtroopocat" alt="" />
+<p class="caption">Stormtroopocat</p>
+</div>
+<p>Search for your desired version of Python. At the time of publishing this article, the latest Python 3 release is version zzzz, while the latest Python 2 release is version yyyyyy.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Download Python Executable Installer. Select a link to download either the Windows x86-64 executable installer or Windows x86 executable installer (for older 32-bit systems).</p></li>
+<li><p>Run Executable Installer once downloaded. (In this example, we have downloaded Python 3.7.3.)</p>
+<ul>
+<li>Make sure you select the Install launcher for all users</li>
+<li>and Add Python 3.7 to PATH checkboxes.</li>
+</ul></li>
+</ol>
+<p>The latter places the interpreter in the execution path. For older versions of Python that do not support the Add Python to Path checkbox, see Step 6.
+The next dialog will prompt you to select whether to Disable path length limit, allowing Python to use path names longer than 260-characters.</p>
+<p>SE NON SI E’ VERIFICATO NESSUN PROBLEMA, now Python and pip are installed on your PC!
+Pip is a package management system for Python software packages, thus, make sure that you have it installed. Note that if you installed an older version of Python, it is possible that it did not come with pip preinstalled (SEGUI QUESTA GUIDA PER INSTALLARLO MAUNALMENTE).</p>
+<p>It is possible to verify if Python and pip are correctly installed on Windows from the Command Prompt application:</p>
+<ol style="list-style-type: decimal">
+<li>Open the Start menu (windows icon/button) and type <code>cmd</code></li>
+<li>click on the Command Prompt application.</li>
+<li>Type <code>python</code> in the console and press enter</li>
+<li>Then enter <code>pip -V</code> in the console and press enter again.</li>
+</ol>
+<p>If everything goes smoothly, you should see an output similar to the following:</p>
+<div class="figure">
+<img src="https://octodex.github.com/images/stormtroopocat.jpg" title="The Stormtroopocat" alt="" />
+<p class="caption">Stormtroopocat</p>
+</div>
+</div>
+<div id="mac-os" class="section level2">
+<h2>Mac OS</h2>
+<p>In general, MacOS comes with Python pre-installed, but it’s Python Version 2.xx. Then, until Apple decides to set Python 3.xx as default, you need to install it yourself.</p>
+<p>For some of you reading this, running the <code>python3</code> command from your MacOS terminal may be enough.</p>
+<ol style="list-style-type: decimal">
+<li>Open spotlight (command+space)</li>
+<li>Type “terminal”</li>
+<li>Type <code>python3</code> in the console</li>
+</ol>
+<p>Installation check can be performed by typing <code>python3 --version</code> and <code>pip --version</code> into the terminal.</p>
+<div class="figure">
+<img src="https://octodex.github.com/images/stormtroopocat.jpg" title="The Stormtroopocat" alt="" />
+<p class="caption">Stormtroopocat</p>
+</div>
+<p>SE TUTTO E’ STATO INSTALLATO CORRETTAMENTE, you should now have a working Python and Pip installations on your Mac.</p>
+</div>
+<div id="linux" class="section level2">
+<h2>Linux</h2>
+<p>sudo apt update
+sudo apt upgrade</p>
+<p>sudo apt install python3
+sudo apt install python3-pip</p>
+<p>python –version
+python-pip –version</p>
+</div>
+<div id="hello-world" class="section level2">
+<h2>Hello World!</h2>
+<p>Once python is installed in your PC you are ready to program. You can compile the script directly from terminal (or command prompt in windows) by calling the built-in interpreter:</p>
+<pre class="python"><code>print(&quot;Hello world!&quot;)</code></pre>
+<pre><code>## Hello world!</code></pre>
 <pre class="python"><code>import matplotlib.pyplot as plt
 plt.plot([1, 2, 3, 4])
 plt.ylabel(&#39;some numbers&#39;)
 plt.show()</code></pre>
-<p><img src="https://blog-neas.github.io/english/blog-neas/R_Python_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="https://blog-neas.github.io/english/blog-neas/2022-01-18-R-Python-install_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>plot(rnorm(100),rnorm(100,2,4))</code></pre>
+<p><img src="https://blog-neas.github.io/english/blog-neas/2022-01-18-R-Python-install_files/figure-html/uno-3.png" width="672" /></p>
+<p>Alternatively, you can consider using an Integrated Development Environment (IDE). IDEs are software programs dedicated to programming, integrating several tools specifically designed for software development.
+The web is full of IDEs with a smart Python editor, also providing useful additional features (code navigation, code completion, refactoring, debugging and so on). Check the <a href="https://wiki.python.org/moin/IntegratedDevelopmentEnvironments">wiki</a> for a not-exhaustive list of the most popular.</p>
+<pre class="python"><code>import matplotlib.pyplot as plt
+plt.plot([1, 2, 3, 4])
+plt.ylabel(&#39;some numbers&#39;)
+plt.show()</code></pre>
+<p><img src="https://blog-neas.github.io/english/blog-neas/2022-01-18-R-Python-install_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>git clone <a href="https://github.com/blog-neas/blog-neas.github.io.git" class="uri">https://github.com/blog-neas/blog-neas.github.io.git</a></p>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
 
 
-      <meta itemprop="wordCount" content="59">
+      <meta itemprop="wordCount" content="648">
       <meta itemprop="datePublished" content="2021-09-08">
       <meta itemprop="url" content="https://blog-neas.github.io/en/blog-neas/rpyhtonexample/">
 
