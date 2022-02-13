@@ -892,8 +892,12 @@ L&amp;rsquo;obiettivo è quello di presentare agli studenti (e ad un pubblico pi
 &lt;p&gt;Si darà spazio anche ad eventi locali (come meetup o conferenze), notizie relative all&amp;rsquo;insegnamento e suggerimenti, ad esempio la scrittura e la preparazione di una tesi, la scrittura di un articolo e la sua presentazione ad una rivista scientifica.
 Faremo uso dei software moderni che si suppone debbano far parte del cosiddetto &lt;em&gt;toolbox statistico&lt;/em&gt;, inclusi LaTeX, R e Python tra gli altri.&lt;/p&gt;
 &lt;p&gt;I post saranno pubblicati (speranzosamente!) con cadenza bisettimanale o settimanale e, tranne in alcuni casi particolari (post tematici), l&amp;rsquo;ordinamento cronologico non ha particolare importanza. I post sono scritti principalmente da me e da alcuni colleghi del &lt;a href=&#34;https://blog-neas.github.io/it/research-team&#34;&gt;team di ricerca&lt;/a&gt; di cui faccio parte, una lista degli autori è disponibile &lt;a href=&#34;https://blog-neas.github.io/it/authors&#34;&gt;qui&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&#34;alert alert-success&#34;&gt;
-&lt;strong&gt;&lt;i class=&#34;fa-li fa fa-comments&#34;&gt; Aiutaci!&lt;/strong&gt; Qualsiasi aiuto da parte di persone al di fuori della mia cerchia di conoscenti è molto apprezzato, per favore &lt;a href=&#34;mailto:lucio.palazzo@unina.it?subject=aiuto con il blog&#34;&gt;**scrivimi**&lt;/a&gt; se sei interessato a contribuire.
+&lt;div class=&#34;alert alert-info units-row&#34;&gt;
+&lt;div class=&#34;column unit-80&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Aiutaci!&lt;/h4&gt;
+Qualsiasi aiuto da parte di persone al di fuori della mia cerchia di conoscenti è molto apprezzato, per favore &lt;a class=&#34;alert-link&#34; href=&#34;mailto:lucio.palazzo@unina.it?subject=aiuto con il blog&#34;&gt;&lt;b&gt;scrivimi&lt;/b&gt;&lt;/a&gt; se sei interessato a contribuire.
+&lt;/div&gt;
+&lt;div class=&#34;column unit-20&#34;&gt;&lt;i class=&#34;fa fa-comments-o fa-5x&#34;&gt;&lt;/i&gt;&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>

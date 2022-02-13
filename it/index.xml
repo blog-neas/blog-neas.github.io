@@ -437,9 +437,10 @@ In questo lavoro si sono indagate le potenzialità di tecniche bootstrap per la 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://blog-neas.github.io/it/teaching/</guid>
-      <description>ETC3550: Applied Forecasting for Business and Economics Reliable forecasts of business and economic variables must often be obtained against a backdrop of structural change in markets and the economy. This unit introduces methods suitable for forecasting in these circumstances including the decomposition of time series, exponential smoothing methods, ARIMA modelling, and regression with auto-correlated disturbances. Students can expect to enhance their computer skills with exercises using R.
-Handbook entry
-Textbook: Forecasting: Principles and Practice, Hyndman &amp;amp; Athanasopoulos (3rd ed.</description>
+      <description>Laboratorio SAS ed R Pagina in allestimento
+ Laboratorio di Analisi Multivariata Avanzata Pagina in allestimento
+ Laboratorio di Statistica Pagina in allestimento
+ </description>
     </item>
     
     <item>
@@ -478,11 +479,8 @@ This is a non exhaustive list, please contact me if you have events to advertise
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://blog-neas.github.io/it/in-the-news/</guid>
-      <description>&amp;ldquo;Monash University’s Rob Hyndman awarded the Pitman Medal 2021&amp;rdquo;, Busy Continent, 28 July 2021.
-  &amp;ldquo;Top Stats Society Honour for ACEMS Chief Investigator&amp;rdquo;, ACEMS, 9 July 2021.
-  &amp;ldquo;Rob Hyndman awarded the Pitman Medal 2021&amp;rdquo;, Statistical Society of Australia, 8 July 2021.
-  &amp;ldquo;IIF Fellow &amp;amp; Distinguished Researcher: Rob Hyndman&amp;rdquo;, International Institute of Forecasters, 2 July 2021.
-  &amp;ldquo;International Journal of Forecasting Announces Best Papers from the M4 special issue&amp;rdquo;, International Institute of Forecasters, 30 June 2021.</description>
+      <description>Pagina Da Definire
+OK, I confess. I recklessly loaned my phone to someone I didn&#39;t know well. I also recklessly stopped to help a woman whose car had broken down. Then I recklessly paid for a man&#39;s lunch when he couldn&#39;t do so himself. Any one of them could have been a terrorist. I plead guilty. Please lock me up. I&#39;m a danger to society. I&#39;d rather die in prison for reckless acts of kindness than live a free man in a country where love, mercy and compassion are outlawed.</description>
     </item>
     
     <item>
@@ -491,7 +489,8 @@ This is a non exhaustive list, please contact me if you have events to advertise
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://blog-neas.github.io/it/research-team/</guid>
-      <description>Potential PhD students: please read Advice to PhD Applicants Potential research fellows: All available positions are filled.  Current research fellows  Puwasala Gamakumara  Zhuo Li  Current PhD students  Lakshan Bernard. Analytical tools for future power networks (PhD, begun 2020). Fan Cheng. Manifold learning on empirical probability distributions (PhD, begun 2019).  Sayani Gupta. Visualization of probability distributions of deconstructed temporal data (PhD, begun 2018).  Nuwani Palihawadana.</description>
+      <description>Pagina Da Definire
+](https://github.com/PuwasalaG) 2. **[Zhuo Li](https://sites.google.com/view/zhuo-li/home)** ## Current PhD students 1. **[Lakshan Bernard](https://acems.org.au/our-people/lakshan-bernard)**. *Analytical tools for future power networks* (PhD, begun 2020). 1. **[Fan Cheng](https://fancheng.me/)**. *Manifold learning on empirical probability distributions* (PhD, begun 2019). [](https://github.com/ffancheng) 1. **[Sayani Gupta](https://sayani.netlify.com/)**. *Visualization of probability distributions of deconstructed temporal data* (PhD, begun 2018). [](https://github.com/Sayani07) 1. **Nuwani Palihawadana**. *Optimal predictor selection for high-dimensional nonparametric forecasting* (PhD, begun 2020). [](https://github.com/nuwani-palihawadana) 1. **[Fin Yang](https://yangzhuoranyang.com/)**. *Forecast reconciliation with linear combinations* (PhD, begun 2020).</description>
     </item>
     
   </channel>

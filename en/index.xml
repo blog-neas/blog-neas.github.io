@@ -417,9 +417,10 @@ In this paper we identify the relationships between the Italian university cours
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://blog-neas.github.io/en/teaching/</guid>
-      <description>ETC3550: Applied Forecasting for Business and Economics Reliable forecasts of business and economic variables must often be obtained against a backdrop of structural change in markets and the economy. This unit introduces methods suitable for forecasting in these circumstances including the decomposition of time series, exponential smoothing methods, ARIMA modelling, and regression with auto-correlated disturbances. Students can expect to enhance their computer skills with exercises using R.
-Handbook entry
-Textbook: Forecasting: Principles and Practice, Hyndman &amp;amp; Athanasopoulos (3rd ed.</description>
+      <description>Laboratorio SAS ed R This course is taught in Italian. For additional information, please refer to the italian section.
+ Laboratorio di Analisi Multivariata Avanzata This course is taught in Italian. For additional information, please refer to the italian section.
+ Laboratorio di Statistica This course is taught in Italian. For additional information, please refer to the italian section.
+ </description>
     </item>
     
     <item>
@@ -449,7 +450,7 @@ This is a non exhaustive list, please contact me if you have events to advertise
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://blog-neas.github.io/en/in-the-news/</guid>
-      <description> &amp;ldquo;TITOLO ARTICOLO&amp;rdquo;, TITOLO RIVISTA, 12 August 2020.  </description>
+      <description>To Be Announced</description>
     </item>
     
     <item>
@@ -467,7 +468,8 @@ This is a non exhaustive list, please contact me if you have events to advertise
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://blog-neas.github.io/en/research-team/</guid>
-      <description>Potential PhD students: please read Advice to PhD Applicants Potential research fellows: All available positions are filled.  Current research fellows  Puwasala Gamakumara  Zhuo Li  Current PhD students  Lakshan Bernard. Analytical tools for future power networks (PhD, begun 2020). Fan Cheng. Manifold learning on empirical probability distributions (PhD, begun 2019).  Sayani Gupta. Visualization of probability distributions of deconstructed temporal data (PhD, begun 2018).  Nuwani Palihawadana.</description>
+      <description>To Be Announced
+](https://github.com/PuwasalaG) 2. **[Zhuo Li](https://sites.google.com/view/zhuo-li/home)** ## Current PhD students 1. **[Lakshan Bernard](https://acems.org.au/our-people/lakshan-bernard)**. *Analytical tools for future power networks* (PhD, begun 2020). 1. **[Fan Cheng](https://fancheng.me/)**. *Manifold learning on empirical probability distributions* (PhD, begun 2019). [](https://github.com/ffancheng) 1. **[Sayani Gupta](https://sayani.netlify.com/)**. *Visualization of probability distributions of deconstructed temporal data* (PhD, begun 2018). [](https://github.com/Sayani07) 1. **Nuwani Palihawadana**. *Optimal predictor selection for high-dimensional nonparametric forecasting* (PhD, begun 2020). [](https://github.com/nuwani-palihawadana) 1. **[Fin Yang](https://yangzhuoranyang.com/)**. *Forecast reconciliation with linear combinations* (PhD, begun 2020).</description>
     </item>
     
   </channel>
