@@ -553,9 +553,9 @@ We plan to introduce students (and also a broader audience) some current topics 
 &lt;p&gt;The covered topics will also include local events (such as meetups or conferences) and info related to teaching, i.e. writing and preparing a thesis, writing a journal article and submitting an article to a refereed journal.
 Throughout the blog there will be an extensive use of the modern softwares that are supposed to belong to the so-called &lt;em&gt;statistical toolbox&lt;/em&gt;, including LaTeX, R and Python among others.&lt;/p&gt;
 &lt;p&gt;Hopefully, blog posts will be added biweekly or weekly and, except in some particular cases (i.e. themed episodes), the ordering of material does not matter. Posts are mainly written by myself and eventually some colleagues of the &lt;a href=&#34;https://blog-neas.github.io/en/research-team&#34;&gt;research team&lt;/a&gt; I belong, a list of the authors is available &lt;a href=&#34;https://blog-neas.github.io/en/authors&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;::: {#helpus .alert .alert-primary role=&amp;ldquo;alert&amp;rdquo;}
-&lt;strong&gt;Help us!&lt;/strong&gt; I appreciate help from enthusiasts outside my circle of acquaintances, please &lt;a href=&#34;mailto:lucio.palazzo@unina.it?subject=help with the blog&#34;&gt;&lt;strong&gt;write me&lt;/strong&gt;&lt;/a&gt; if you want to contribute.
-:::&lt;/p&gt;
+&lt;div class=&#34;alert alert-primary&#34;&gt;
+&lt;strong&gt;`r fa(&#34;comments&#34;)` Help us!&lt;/strong&gt; I appreciate help from enthusiasts outside my circle of acquaintances, please &lt;a href=&#34;mailto:lucio.palazzo@unina.it?subject=help with the blog&#34;&gt;**write me**&lt;/a&gt; if you want to contribute.
+&lt;/div&gt;
 </description>
     </item>
     
