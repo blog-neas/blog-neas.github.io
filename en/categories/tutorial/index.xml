@@ -1,0 +1,397 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial on Lucio Palazzo</title>
+    <link>https://blog-neas.github.io/en/categories/tutorial/</link>
+    <description>Recent content in Tutorial on Lucio Palazzo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Lucio Palazzo</copyright>
+    <lastBuildDate>Sat, 12 Feb 2022 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://blog-neas.github.io/en/categories/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RMD python</title>
+      <link>https://blog-neas.github.io/en/blog-neas/rpyhtoninstall/</link>
+      <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/blog-neas/rpyhtoninstall/</guid>
+      <description>
+&lt;script src=&#34;https://blog-neas.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(reticulate)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here I will describe what are the first step to perform to have a running version on Python on your PC.&lt;/p&gt;
+&lt;p&gt;The version you need depends on what you want to do in Python. Some older projects are coded in Python version 2.xx (REF). Then, since there is no backward compatibility between 2.xx and 3.xx versions, if you want to work with older projects you probably need that version. If you are starting a project from scratch, you have the freedom to choose. Nowadays the Python 3.xx is the most COMMON version and, even if Python 4.xx will be out soon, it will be completely backward compatible.&lt;/p&gt;
+&lt;div id=&#34;windows&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Windows&lt;/h2&gt;
+&lt;p&gt;The installation procedure involves downloading the official Python .exe installer and running it on your system.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Download Python Executable Installer from … . Open your web browser and navigate to the Downloads for Windows section of the official Python website.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://octodex.github.com/images/stormtroopocat.jpg&#34; title=&#34;The Stormtroopocat&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Stormtroopocat&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Search for your desired version of Python. At the time of publishing this article, the latest Python 3 release is version zzzz, while the latest Python 2 release is version yyyyyy.&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Download Python Executable Installer. Select a link to download either the Windows x86-64 executable installer or Windows x86 executable installer (for older 32-bit systems).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Run Executable Installer once downloaded. (In this example, we have downloaded Python 3.7.3.)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Make sure you select the Install launcher for all users&lt;/li&gt;
+&lt;li&gt;and Add Python 3.7 to PATH checkboxes.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The latter places the interpreter in the execution path. For older versions of Python that do not support the Add Python to Path checkbox, see Step 6.
+The next dialog will prompt you to select whether to Disable path length limit, allowing Python to use path names longer than 260-characters.&lt;/p&gt;
+&lt;p&gt;SE NON SI E’ VERIFICATO NESSUN PROBLEMA, now Python and pip are installed on your PC!
+Pip is a package management system for Python software packages, thus, make sure that you have it installed. Note that if you installed an older version of Python, it is possible that it did not come with pip preinstalled (SEGUI QUESTA GUIDA PER INSTALLARLO MAUNALMENTE).&lt;/p&gt;
+&lt;p&gt;It is possible to verify if Python and pip are correctly installed on Windows from the Command Prompt application:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Open the Start menu (windows icon/button) and type &lt;code&gt;cmd&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;click on the Command Prompt application.&lt;/li&gt;
+&lt;li&gt;Type &lt;code&gt;python&lt;/code&gt; in the console and press enter&lt;/li&gt;
+&lt;li&gt;Then enter &lt;code&gt;pip -V&lt;/code&gt; in the console and press enter again.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If everything goes smoothly, you should see an output similar to the following:&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://octodex.github.com/images/stormtroopocat.jpg&#34; title=&#34;The Stormtroopocat&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Stormtroopocat&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;mac-os&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Mac OS&lt;/h2&gt;
+&lt;p&gt;In general, MacOS comes with Python pre-installed, but it’s Python Version 2.xx. Then, until Apple decides to set Python 3.xx as default, you need to install it yourself.&lt;/p&gt;
+&lt;p&gt;For some of you reading this, running the &lt;code&gt;python3&lt;/code&gt; command from your MacOS terminal may be enough.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Open spotlight (command+space)&lt;/li&gt;
+&lt;li&gt;Type “terminal”&lt;/li&gt;
+&lt;li&gt;Type &lt;code&gt;python3&lt;/code&gt; in the console&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Installation check can be performed by typing &lt;code&gt;python3 --version&lt;/code&gt; and &lt;code&gt;pip --version&lt;/code&gt; into the terminal.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://octodex.github.com/images/stormtroopocat.jpg&#34; title=&#34;The Stormtroopocat&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Stormtroopocat&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;SE TUTTO E’ STATO INSTALLATO CORRETTAMENTE, you should now have a working Python and Pip installations on your Mac.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;linux&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Linux&lt;/h2&gt;
+&lt;p&gt;sudo apt update
+sudo apt upgrade&lt;/p&gt;
+&lt;p&gt;sudo apt install python3
+sudo apt install python3-pip&lt;/p&gt;
+&lt;p&gt;python –version
+python-pip –version&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;hello-world&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Hello World!&lt;/h2&gt;
+&lt;p&gt;Once python is installed in your PC you are ready to program. You can compile the script directly from terminal (or command prompt in windows) by calling the built-in interpreter:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;Hello world!&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Hello world!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;import matplotlib.pyplot as plt
+plt.plot([1, 2, 3, 4])
+plt.ylabel(&amp;#39;some numbers&amp;#39;)
+plt.show()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-neas.github.io/english/blog-neas/2022-02-12-R-Python-install_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(rnorm(100),rnorm(100,2,4))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-neas.github.io/english/blog-neas/2022-02-12-R-Python-install_files/figure-html/uno-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Alternatively, you can consider using an Integrated Development Environment (IDE). IDEs are software programs dedicated to programming, integrating several tools specifically designed for software development.
+The web is full of IDEs with a smart Python editor, also providing useful additional features (code navigation, code completion, refactoring, debugging and so on). Check the &lt;a href=&#34;https://wiki.python.org/moin/IntegratedDevelopmentEnvironments&#34;&gt;wiki&lt;/a&gt; for a not-exhaustive list of the most popular.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;import matplotlib.pyplot as plt
+plt.plot([1, 2, 3, 4])
+plt.ylabel(&amp;#39;some numbers&amp;#39;)
+plt.show()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-neas.github.io/english/blog-neas/2022-02-12-R-Python-install_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;git clone &lt;a href=&#34;https://github.com/blog-neas/blog-neas.github.io.git&#34; class=&#34;uri&#34;&gt;https://github.com/blog-neas/blog-neas.github.io.git&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Text Mining with R: cleaning and preparing data</title>
+      <link>https://blog-neas.github.io/en/blog-neas/pls-seminar-one/</link>
+      <pubDate>Tue, 01 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/blog-neas/pls-seminar-one/</guid>
+      <description>
+&lt;script src=&#34;https://blog-neas.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://blog-neas.github.io/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://blog-neas.github.io/rmarkdown-libs/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+
+&lt;p&gt;This is the first post of a series intented to present an overview of the steps involved in undertaking text and data mining, from the data preparation to the sentiment analysis.
+This is an excerpt of the online seminar that was held as part of the Summer School for the &lt;em&gt;Plan for Science Degrees&lt;/em&gt; (&lt;em&gt;Piano di Lauree Scientifiche&lt;/em&gt;, PLS) promoted by the University of Naples Federico II.
+Participants consisted of secondary school students and early university students. R software was used for the statistical analyses.
+In this article I’ll introduce the first steps to take to preprocess textual data.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Text expresses a vast, rich range of information, but encodes this information in a form that is difficult to decipher automatically.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;citation&#34;&gt;&lt;a href=&#34;#ref-hearst1999untangling&#34; role=&#34;doc-biblioref&#34;&gt;Hearst&lt;/a&gt; (&lt;a href=&#34;#ref-hearst1999untangling&#34; role=&#34;doc-biblioref&#34;&gt;1999&lt;/a&gt;)&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Text mining is the automated process of selecting and analysing texttual data for the purpose to find patterns, extract information and perform semantic analysis.
+Some of the common text mining tasks are text classification, text clustering, creation of granular taxonomies, document summarisation, entity extraction, and sentiment analysis.&lt;/p&gt;
+&lt;p&gt;The main advantage of text mining is that text can be found (nearly) everywhere, some examples are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Medical records&lt;/li&gt;
+&lt;li&gt;Product reviews&lt;/li&gt;
+&lt;li&gt;Social posts (Facebook, Twitter, etc.)&lt;/li&gt;
+&lt;li&gt;Book recommendations&lt;/li&gt;
+&lt;li&gt;Legislation, court decisions&lt;/li&gt;
+&lt;li&gt;Emails&lt;/li&gt;
+&lt;li&gt;Websites&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;However, text data is ‘dirty’ and unstructured, meaning that there is no feature vector representation and we have to take into account for:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Linguistic structure&lt;/li&gt;
+&lt;li&gt;Language&lt;/li&gt;
+&lt;li&gt;Relationships between words&lt;/li&gt;
+&lt;li&gt;Importance of words&lt;/li&gt;
+&lt;li&gt;Negations, etc.&lt;/li&gt;
+&lt;li&gt;Grammatical, spelling, abbreviations, synonyms, homographs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;More importantly, we have to consider that text is intended for communication between people: context and syntax matter! See for instance &lt;span class=&#34;citation&#34;&gt;&lt;a href=&#34;#ref-van2016exploring&#34; role=&#34;doc-biblioref&#34;&gt;Van Hee, Lefever, and Hoste&lt;/a&gt; (&lt;a href=&#34;#ref-van2016exploring&#34; role=&#34;doc-biblioref&#34;&gt;2016&lt;/a&gt;)&lt;/span&gt;. For this reason, there is no ‘standard’ method; each document requires a dedicated approach.&lt;/p&gt;
+&lt;div class=&#34;alert alert-info&#34;&gt;
+&lt;p&gt;&lt;strong&gt;&lt;svg aria-hidden=&#34;true&#34; role=&#34;img&#34; viewBox=&#34;0 0 352 512&#34; style=&#34;height:1em;width:0.69em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;&#34;&gt;&lt;path d=&#34;M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z&#34;/&gt;&lt;/svg&gt; Example.&lt;/strong&gt; There is a huge difference between the sentences ‘&lt;em&gt;Even the sun sets in paradise&lt;/em&gt;’ and ‘&lt;em&gt;The sun sets even in paradise&lt;/em&gt;’ or, again, between ‘&lt;em&gt;she only told me she loved him&lt;/em&gt;’ and ‘&lt;em&gt;she told me she loved only him&lt;/em&gt;,’ but for a computer those pairs of sentences are almost identical.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;In general, text is stored in an unstructured way. Pre-processing the raw data to transform unstructured data into structured data is the first task to overcome, making it possible to analyse vast collections of text documents.&lt;/p&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;47%&#34; /&gt;
+&lt;col width=&#34;52%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;strong&gt;Structured data&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;strong&gt;Unstructured data&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;Data is organised in a defined format, allowing it to be easily parsed and manipulated by a computer.&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Data has irregularities and ambiguities that make it difficult to process it using traditional softwares.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!-- **Structured data** --&gt;
+&lt;!-- : Data are organised in a defined format, allowing it to be easily parsed and manipulated by a computer.  --&gt;
+&lt;!-- **Unstructured data** --&gt;
+&lt;!-- : Data has irregularities and ambiguities that make it difficult to process it using traditional softwares. --&gt;
+&lt;p&gt;Thus, the first step involves pre-processing the raw data to transform unstructured data into structured data, turning a collection of documents into a feature-vector representation. In general, a collection of &lt;strong&gt;documents&lt;/strong&gt; is called &lt;strong&gt;corpus&lt;/strong&gt; where each document is composed of individual &lt;strong&gt;tokens&lt;/strong&gt; or &lt;strong&gt;terms&lt;/strong&gt; (i.e. words).&lt;/p&gt;
+&lt;p&gt;The structure of each document can be various. Each document can be a full book (e.g. &lt;a href=&#34;https://textmining.nu/2018/10/29/text-mining-the-lord-of-the-rings/&#34;&gt;LOTR&lt;/a&gt;), a chapter, some pages, few sentences (e.g. Twitter posts) or even a single sentence.
+The process involving the conversion of this kind of unstructred data to a structured feature vector is called &lt;strong&gt;featurization&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;In our case, each document is represented by a short answer; we asked participants of the seminar to answer (using a Google Form) to the question ‘what would you like to do after graduation?’ (‘Cosa vorresti fare dopo il diploma?’),
+setting an open answer with fixed limit of 200 letters.&lt;/p&gt;
+&lt;p&gt;During the PLS seminar we gathered a total of 147 answers, the original dataset has been translated in english and it is available &lt;a href=&#34;https://blog-neas.github.io/data/pls2021_eng.csv&#34;&gt;here&lt;/a&gt; (&lt;a href=&#34;https://blog-neas.github.io/data/pls2021.csv&#34;&gt;here&lt;/a&gt; you can find the original version).&lt;/p&gt;
+&lt;div id=&#34;text-mining-with-r&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Text Mining with R&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;tm&lt;/code&gt; package is required for the text mining functions, while some stemming procedures need the use of &lt;code&gt;SnowballC&lt;/code&gt; package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rawdata &amp;lt;- read.csv(&amp;quot;pls2021_eng.csv&amp;quot;,sep=&amp;quot;;&amp;quot;)
+head(rawdata)&lt;/code&gt;&lt;/pre&gt;
+&lt;div style=&#34;border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; &#34;&gt;
+&lt;table class=&#34;table&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+ID
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+answer
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+University of Veterinary Medicine
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+University
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+University - Informatics
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+University
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+I would like to enroll in a physics or aerospace engineering degree program
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;The function &lt;code&gt;SimpleCorpus&lt;/code&gt; transforms raw texts, initially stored as a vector, into a corpus.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus &amp;lt;- SimpleCorpus(VectorSource(rawdata[,2]),control = list(language=&amp;quot;en&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;When data is large and more structured, other functions are suggested (i.e. &lt;code&gt;VCorpus&lt;/code&gt;, &lt;code&gt;PCorpus&lt;/code&gt;) to boost performance and minimize memory pressure.
+With &lt;code&gt;str(corpus)&lt;/code&gt; we can inspect the newly defined data structure.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str(corpus)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Classes &amp;#39;SimpleCorpus&amp;#39;, &amp;#39;Corpus&amp;#39;  hidden list of 3
+##  $ content: chr [1:147] &amp;quot;University of Veterinary Medicine&amp;quot; &amp;quot;University &amp;quot; &amp;quot;University - Informatics&amp;quot; &amp;quot;University &amp;quot; ...
+##  $ meta   :List of 1
+##   ..$ language: chr &amp;quot;en&amp;quot;
+##   ..- attr(*, &amp;quot;class&amp;quot;)= chr &amp;quot;CorpusMeta&amp;quot;
+##  $ dmeta  :&amp;#39;data.frame&amp;#39;: 147 obs. of  0 variables&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;pre-processing-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Pre-processing data&lt;/h3&gt;
+&lt;p&gt;Depending on the task, there may be several methods that we can take to standardise the text. Some pre-processing techniques are depicted as follows.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Normalisation:&lt;/strong&gt; It is the first attempt to reduce the number of unique tokens present in the text, removing the variations in a text and also cleaning for the redundant information. Among the most common approaches it is worth to consider the reduction of every characters to lower case, misspelling conversion and special characters removal.&lt;/p&gt;
+&lt;p&gt;Usually, a typical normalization involves the lowercase and deletion of stop words.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus_cl &amp;lt;- tm_map(corpus, tolower)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Additionally, it would be necessary to convert special symbols (i.e. emoticons) and accented characters, that are common in some languages (i.e. in Italian), to their plain version. In this case, there are several techniques that can do the trick, one of the most common is given by changing the original encoding to ASCII with transliteration option (&lt;code&gt;ASCII//TRANSLIT&lt;/code&gt;) by using the &lt;code&gt;iconv()&lt;/code&gt; function.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus_cl &amp;lt;- tm_map(corpus_cl,iconv,from=&amp;quot;UTF-8&amp;quot;,to=&amp;quot;ASCII//TRANSLIT&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Sometimes the conversion in ASCII returns the question mark “?” as result, meaning that the algorithm was not able to map the character from the initial encoding to ASCII.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus[116]$content&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;the millionaire 😂&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus_cl[116]$content&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;the millionaire ?&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This kind of error will be corrected in next step, when removing punctuation symbols.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Stopwords:&lt;/strong&gt; Text and document classification includes many words which do not contain important significance to be used in classification algorithms (e.g. ‘and,’ ‘about,’ ‘however,’ ‘afterwards,’ ‘again,’ etc.). The most common technique to deal with these words is to remove them from the documents.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus_cl &amp;lt;- tm_map(corpus_cl, removeWords, c(stopwords(&amp;#39;en&amp;#39;)))
+
+corpus_cl[1:5]$content&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;university  veterinary medicine&amp;quot;                                
+## [2] &amp;quot;university &amp;quot;                                                    
+## [3] &amp;quot;university - informatics&amp;quot;                                       
+## [4] &amp;quot;university &amp;quot;                                                    
+## [5] &amp;quot;  like  enroll   physics  aerospace engineering degree program &amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The corpus can be additionally filtered by using the following functions.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# remove numbers
+corpus_cl &amp;lt;- tm_map(corpus_cl, removeNumbers)
+# remove punctuation
+corpus_cl &amp;lt;- tm_map(corpus_cl, removePunctuation)
+# set the dictionary and remove additional words/acronyms
+drop &amp;lt;- c(&amp;quot;cuz&amp;quot;)
+corpus_cl &amp;lt;- tm_map(corpus_cl,removeWords,drop)
+# remove extra white spaces
+corpus_cl &amp;lt;- tm_map(corpus_cl, stripWhitespace)
+
+corpus[117]$content&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;My biggest dream is to be a forensic anthropologist, but I am very afraid of not being able to do it and of making the wrong choice, cuz I would also like to do criminology or be a detective.&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus_cl[117]$content&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot; biggest dream forensic anthropologist afraid able making wrong choice also like criminology detective&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Stopwords removal, as well as other procedures (see stemming below), is clearly language-dependent: each language has a specific list of symbols and special characters.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lemmatization/Stemming:&lt;/strong&gt; replace the suffix of a word with a different one or removes the suffix of a word completely to get the basic word form (&lt;em&gt;lemma&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align*}
+ \text{write, writing} &amp;amp; \quad \Longrightarrow \quad &amp;amp; \text{writ}
+\end{align*}\]&lt;/span&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus_cl &amp;lt;- tm_map(corpus_cl, stemDocument,language = &amp;quot;it&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In some cases, to avoid ambiguization, the replacement is slightly different from the original word. The final result is different from the initial corpus.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus[1:5]$content&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;University of Veterinary Medicine&amp;quot;                                           
+## [2] &amp;quot;University &amp;quot;                                                                 
+## [3] &amp;quot;University - Informatics&amp;quot;                                                    
+## [4] &amp;quot;University &amp;quot;                                                                 
+## [5] &amp;quot;I would like to enroll in a physics or aerospace engineering degree program &amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus_cl[1:5]$content&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;university veterinary medicin&amp;quot;                        
+## [2] &amp;quot;university&amp;quot;                                           
+## [3] &amp;quot;university informatics&amp;quot;                               
+## [4] &amp;quot;university&amp;quot;                                           
+## [5] &amp;quot;lik enroll physics aerospac engineering degre program&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;document-term-matrix&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Document-Term Matrix&lt;/h3&gt;
+&lt;p&gt;After pre-processing, the data have the form of a ‘clean’ corpus, consisting of a collection of n = 147 vectors, each of them containing a collection of &lt;span class=&#34;math inline&#34;&gt;\(p_i\)&lt;/span&gt; words, with &lt;span class=&#34;math inline&#34;&gt;\(i=1, \ldots, n\)&lt;/span&gt;.
+It is possible to define a &lt;strong&gt;document-term matrix&lt;/strong&gt; (DTM), a &lt;span class=&#34;math inline&#34;&gt;\(n\times m\)&lt;/span&gt; matrix where rows correspond to documents in the collection and columns correspond to the number of unique tokens of the corpus. This representation describes then the frequency of terms that occur in a collection of documents.
+Alternatively, It is also common to use the transposed version, also called &lt;strong&gt;term-document matrix&lt;/strong&gt; (TDM).&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Term 1&lt;/th&gt;
+&lt;th&gt;Term 2&lt;/th&gt;
+&lt;th&gt;&lt;span class=&#34;math inline&#34;&gt;\(\cdots\)&lt;/span&gt;&lt;/th&gt;
+&lt;th&gt;Term &lt;span class=&#34;math inline&#34;&gt;\(m\)&lt;/span&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Doc 1&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_{1,1}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_{1,2}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_{1,m}\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Doc 2&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_{2,1}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_{2,2}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_{2,m}\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Doc &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_{n,1}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_{n,2}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(d_{n,m}\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;In our case, the DTM is obtained through the use of the &lt;code&gt;DocumentTermMatrix&lt;/code&gt; function.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;DTM &amp;lt;- DocumentTermMatrix(corpus_cl)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The resulting DTM has dimension 147 x 298 and the values of the cells correspond to the raw counts of a given term.
+Row marginals represent the number of terms in each document while column marginals count how many times each unique term appears in the corpus.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;lt;&amp;lt;DocumentTermMatrix (documents: 5, terms: 5)&amp;gt;&amp;gt;
+## Non-/sparse entries: 8/17
+## Sparsity           : 68%
+## Maximal term length: 11
+## Weighting          : term frequency (tf)
+## Sample             :
+##     Terms
+## Docs aerospac informatics medicin university veterinary
+##    1        0           0       1          1          1
+##    2        0           0       0          1          0
+##    3        0           1       0          1          0
+##    4        0           0       0          1          0
+##    5        1           0       0          0          0&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Different schemes for weighting raw counts can be applied, depending on the type of statistical measures to be derived.&lt;/p&gt;
+&lt;p&gt;Next time, we will start from the DTM to provide some descriptive statistics and generate the word cloud.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level2 unnumbered&#34;&gt;
+&lt;h2&gt;References&lt;/h2&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34;&gt;
+&lt;div id=&#34;ref-hearst1999untangling&#34; class=&#34;csl-entry&#34;&gt;
+Hearst, Marti A. 1999. &lt;span&gt;“Untangling Text Data Mining.”&lt;/span&gt; In &lt;em&gt;Proceedings of the 37th Annual Meeting of the Association for Computational Linguistics&lt;/em&gt;, 3–10.
+&lt;/div&gt;
+&lt;div id=&#34;ref-van2016exploring&#34; class=&#34;csl-entry&#34;&gt;
+Van Hee, Cynthia, Els Lefever, and Véronique Hoste. 2016. &lt;span&gt;“Exploring the Realization of Irony in Twitter Data.”&lt;/span&gt; In &lt;em&gt;Proceedings of the Tenth International Conference on Language Resources and Evaluation (LREC’16)&lt;/em&gt;, 1794–99.
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

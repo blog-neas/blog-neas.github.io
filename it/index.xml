@@ -6,7 +6,17 @@
     <description>Recent content on Lucio Palazzo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Lucio Palazzo</copyright>
-    <lastBuildDate>Tue, 01 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RMD python</title>
+      <link>https://blog-neas.github.io/it/blog-neas/rpyhtoninstall/</link>
+      <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/blog-neas/rpyhtoninstall/</guid>
+      <description>library(reticulate) Here I will describe what are the first step to perform to have a running version on Python on your PC.
+The version you need depends on what you want to do in Python. Some older projects are coded in Python version 2.xx (REF). Then, since there is no backward compatibility between 2.xx and 3.xx versions, if you want to work with older projects you probably need that version.</description>
+    </item>
+    
     <item>
       <title>Text Mining con R: preparazione dei dati</title>
       <link>https://blog-neas.github.io/it/blog-neas/pls-seminar-one/</link>

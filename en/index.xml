@@ -6,7 +6,17 @@
     <description>Recent content on Lucio Palazzo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Lucio Palazzo</copyright>
-    <lastBuildDate>Tue, 01 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RMD python</title>
+      <link>https://blog-neas.github.io/en/blog-neas/rpyhtoninstall/</link>
+      <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/blog-neas/rpyhtoninstall/</guid>
+      <description>library(reticulate) Here I will describe what are the first step to perform to have a running version on Python on your PC.
+The version you need depends on what you want to do in Python. Some older projects are coded in Python version 2.xx (REF). Then, since there is no backward compatibility between 2.xx and 3.xx versions, if you want to work with older projects you probably need that version.</description>
+    </item>
+    
     <item>
       <title>Text Mining with R: cleaning and preparing data</title>
       <link>https://blog-neas.github.io/en/blog-neas/pls-seminar-one/</link>
@@ -80,16 +90,6 @@ The present work is part of the &amp;ldquo;Plan for Science Degrees&amp;rdquo; (
       
       <guid>https://blog-neas.github.io/en/seminars/eusn2021_2/</guid>
       <description>Dynamics of the football market transfer: an application to the Italian Serie A teams Conference: EUSN2021 5th European Conference on Social Network Authors: Roberto Rondinelli, Lucio Palazzo</description>
-    </item>
-    
-    <item>
-      <title>RMD python</title>
-      <link>https://blog-neas.github.io/en/blog-neas/rpyhtonexample/</link>
-      <pubDate>Wed, 08 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog-neas.github.io/en/blog-neas/rpyhtonexample/</guid>
-      <description>     Advertisement :)  - pica - high quality and fast image resize in browser. - babelfish - developer friendly i18n with plurals support and easy syntax.  You will like those projects!    h1 Heading 8-) h2 Heading h3 Heading h4 Heading h5 Heading h6 Heading library(reticulate) plot(rnorm(100),rnorm(100,2,4)) import matplotlib.pyplot as plt plt.plot([1, 2, 3, 4]) plt.ylabel(&amp;#39;some numbers&amp;#39;) plt.show() git clone https://github.com/blog-neas/blog-neas.github.io.git
-      </description>
     </item>
     
     <item>

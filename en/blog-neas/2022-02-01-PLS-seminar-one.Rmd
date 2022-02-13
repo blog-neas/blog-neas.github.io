@@ -8,6 +8,7 @@ categories:
   - Text Mining
   - Data Cleaning
   - Word Cloud
+  - Tutorial
 bibliography: ../../../static/biblio/bibliography.bib
 ---
 
