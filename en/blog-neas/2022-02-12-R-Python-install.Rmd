@@ -1,7 +1,7 @@
 ---
 date: 2022-02-12
 slug: rpyhtoninstall
-title: "RMD python"
+title: "Python installation guide"
 mathjax: true
 categories:
   - Python
@@ -12,51 +12,57 @@ categories:
 bibliography: ../../../static/biblio/bibliography.bib
 ---
 
-```{r load}
+
+
+```{r load_py, echo=FALSE, warning=FALSE}
 library(reticulate)
 ```
 
-Here I will describe what are the first step to perform to have a running version on Python on your PC.
+I will briefly describe the first steps needed to obtain a running version on Python on your PC.
 
-The version you need depends on what you want to do in Python. Some older projects are coded in Python version 2.xx (REF). Then, since there is no backward compatibility between 2.xx and 3.xx versions, if you want to work with older projects you probably need that version. If you are starting a project from scratch, you have the freedom to choose. Nowadays the Python 3.xx is the most COMMON version and, even if Python 4.xx will be out soon, it will be completely backward compatible.
+The version you need depends on what you want to do in Python. Some older projects are coded in Python version 2.xx, while nowadays 3.xx version is the most common. Since there is no backward compatibility between 2.xx and 3.xx, if you want to work with older projects you probably need the former version. Otherwise, if you are starting a project from scratch you have the freedom to choose. 
+
+Python 3.xx is the most popular version nowadays and, even if Python 4.xx will be out soon, it will be completely backward compatible.
 
 
 ## Windows 
 
 The installation procedure involves downloading the official Python .exe installer and running it on your system.
 
-1. Download Python Executable Installer from ... . Open your web browser and navigate to the Downloads for Windows section of the official Python website.
+1. Download Python Executable Installer [**here**](https://www.python.org/downloads/windows/). Open your web browser and navigate to the Downloads for Windows section of the official Python website.
 
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+2. Select a link to download either the Windows x86-64 executable installer or Windows x86 executable installer (for older 32-bit systems).
 
-Search for your desired version of Python. At the time of publishing this article, the latest Python 3 release is version zzzz, while the latest Python 2 release is version yyyyyy.
+![Download the latest stable release](../../../img/pythonWIN.png)
 
-2. Download Python Executable Installer. Select a link to download either the Windows x86-64 executable installer or Windows x86 executable installer (for older 32-bit systems).
+<!-- Search for your desired version of Python. At the time of publishing this article, the latest Python 3 release is version zzzz, while the latest Python 2 release is version yyyyyy. -->
 
-3. Run Executable Installer once downloaded. (In this example, we have downloaded Python 3.7.3.)
-	+ Make sure you select the Install launcher for all users
-	+ and Add Python 3.7 to PATH checkboxes.
+3. Run Executable Installer and follow the instructions. In particular:
+	+ Make sure you select the Install launcher for all users.
+	+ Do not forget to check the "add Python to PATH" option.
 
-The latter places the interpreter in the execution path. For older versions of Python that do not support the Add Python to Path checkbox, see Step 6.
+![The lasto option will place the interpreter directly into the execution path](../../../img/pythonWIN1.png)
+
 The next dialog will prompt you to select whether to Disable path length limit, allowing Python to use path names longer than 260-characters.
 
-SE NON SI E' VERIFICATO NESSUN PROBLEMA, now Python and pip are installed on your PC!
-Pip is a package management system for Python software packages, thus, make sure that you have it installed. Note that if you installed an older version of Python, it is possible that it did not come with pip preinstalled (SEGUI QUESTA GUIDA PER INSTALLARLO MAUNALMENTE).
+![](../../../img/pythonWIN2.png)
+
+Now both Python and pip are installed on your PC!
+Pip is a package management system for Python software packages, thus, make sure that you have it installed. Note that if you installed an older version of Python, it is possible that it did not come with pip preinstalled.
 
 It is possible to verify if Python and pip are correctly installed on Windows from the Command Prompt application:
 
-1. Open the Start menu (windows icon/button) and type `cmd`
+1. Open the Start menu (windows icon) and type `cmd`.
 2. click on the Command Prompt application.
-3. Type `python` in the console and press enter
-4. Then enter `pip -V` in the console and press enter again.
+3. Type `python --version` in the console and press enter.
+4. Then enter `pip --version` in the console and press enter again.
 
-If everything goes smoothly, you should see an output similar to the following:
+If everything goes smoothly, you should see an output similar to the following figure.
+
+![Python and pip are correctly installed on Windows](../../../img/pythonWIN3.png)
 
 
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
-
-
-## Mac OS 
+## Mac
 
 In general, MacOS comes with Python pre-installed, but it's Python Version 2.xx. Then, until Apple decides to set Python 3.xx as default, you need to install it yourself.
 
@@ -75,15 +81,30 @@ SE TUTTO E' STATO INSTALLATO CORRETTAMENTE, you should now have a working Python
 
 ## Linux
 
+To install the latest version of Python on Ubuntu Linux machines using the terminal, open a command prompt and run:
 
-sudo apt update
-sudo apt upgrade
+```console
+$ sudo apt update
+$ sudo apt upgrade
 
-sudo apt install python3
-sudo apt install python3-pip
+$ sudo apt install python3
+$ sudo apt install python3-pip
+```
 
-python --version
-python-pip --version
+To see which version of Python and pip you have installed, open a command prompt and run the following commands:
+
+```console
+$ python3 --version
+$ pip --version
+```
+
+If everything goes smoothly, you should see an output similar to the following:
+
+
+![Python and pip are correctly installed on Linux](../../../img/pythonLINUX.png)
+
+To launch the Python 3 interpreter it is enough to type `$ python3` into the terminal.
+
 
 ## Hello World!
 
@@ -94,7 +115,7 @@ print("Hello world!")
 ```
 
 
-```{python}
+```{python, eval=FALSE, include=FALSE}
 import matplotlib.pyplot as plt
 plt.plot([1, 2, 3, 4])
 plt.ylabel('some numbers')
@@ -103,19 +124,18 @@ plt.show()
 
 
 
-```{r uno}
+```{r uno, eval=FALSE, include=FALSE}
 plot(rnorm(100),rnorm(100,2,4))
 ```
 
-Alternatively, you can consider using an Integrated Development Environment (IDE). IDEs are software programs dedicated to programming, integrating several tools specifically designed for software development.
+Alternatively, you can consider using an Integrated Development Environment (IDE). IDEs are softwares dedicated to programming, integrating several tools specifically designed for software development.
 The web is full of IDEs with a smart Python editor, also providing useful additional features (code navigation, code completion, refactoring, debugging and so on). Check the [wiki](https://wiki.python.org/moin/IntegratedDevelopmentEnvironments) for a not-exhaustive list of the most popular. 
 
 
-```{python}
-import matplotlib.pyplot as plt
-plt.plot([1, 2, 3, 4])
-plt.ylabel('some numbers')
-plt.show()
-```
+## Further readings
 
-git clone https://github.com/blog-neas/blog-neas.github.io.git
+ * [**Python 2 forever:**](https://www.infoworld.com/article/3194915/python-2-forever-3-projects-that-will-keep-python-2-alive.html) this article discusses the longevity of older Python 2.xx versions, also providing some popular projects as example.
+ * [**Differences between Python 2.xx and 3.xx:**](https://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html) Sebastian Raschka highlights the major differences between the two versions of Python.
+ * [**Python IDEs:**](https://wiki.python.org/moin/IntegratedDevelopmentEnvironments) list of Python's most popular Integrated Development Environments.
+ * [**Pip troubleshooting**](https://www.makeuseof.com/tag/install-pip-for-python/) is pip installed correctly? follow this guide to solve (almost) any problem!
+ * [**Python download main page:**](https://www.python.org/downloads/) here you can find a list of all the versions for each supported operating system.

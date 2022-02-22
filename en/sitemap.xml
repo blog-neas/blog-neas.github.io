@@ -3,6 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog-neas.github.io/en/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/en/seminars/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/seminars/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/seminars/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/en/seminars/stats-football/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog-neas.github.io/en/blog-neas/</loc>
     <lastmod>2022-02-12T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -35,21 +70,6 @@
   <url>
     <loc>https://blog-neas.github.io/en/categories/installation/</loc>
     <lastmod>2022-02-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/en/</loc>
-    <lastmod>2022-02-12T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/"
-                />
   </url>
   
   <url>
@@ -494,21 +514,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://blog-neas.github.io/en/tags/text-mining/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/en/seminars/</loc>
-    <lastmod>2021-09-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/seminars/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/seminars/"
                 />
   </url>
   

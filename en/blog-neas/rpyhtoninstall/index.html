@@ -2,7 +2,7 @@
 <html class="no-js" lang="en-US">
   <head>
     <meta charset="utf-8">
-    <title>RMD python | Lucio Palazzo</title>
+    <title>Python installation guide | Lucio Palazzo</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preload" href="https://blog-neas.github.io/fonts/academicons.ttf?v=1.7.0" as="font">
@@ -86,7 +86,7 @@ var ml_account = ml('accounts', '3217732', 'q9y4a1d8i3', 'load');
 <div class="wrapper">
 <div class="units-row" style='margin-bottom: 0px;'>
 <div class="unit-20">&nbsp;</div>
-<div class="unit-70"><h1>RMD python</h1></div>
+<div class="unit-70"><h1>Python installation guide</h1></div>
 </div>
 <div class="units-row">
   <div class="unit-20 dateblock" style='text-align: right;'><h4 style='padding: .8ex 0px .8ex 0px;'><a href="https://blog-neas.github.io/en/blog-neas">NeaS Blog</a></h4>
@@ -129,47 +129,51 @@ var ml_account = ml('accounts', '3217732', 'q9y4a1d8i3', 'load');
 <script src="https://blog-neas.github.io/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<pre class="r"><code>library(reticulate)</code></pre>
-<p>Here I will describe what are the first step to perform to have a running version on Python on your PC.</p>
-<p>The version you need depends on what you want to do in Python. Some older projects are coded in Python version 2.xx (REF). Then, since there is no backward compatibility between 2.xx and 3.xx versions, if you want to work with older projects you probably need that version. If you are starting a project from scratch, you have the freedom to choose. Nowadays the Python 3.xx is the most COMMON version and, even if Python 4.xx will be out soon, it will be completely backward compatible.</p>
+<p>I will briefly describe the first steps needed to obtain a running version on Python on your PC.</p>
+<p>The version you need depends on what you want to do in Python. Some older projects are coded in Python version 2.xx, while nowadays 3.xx version is the most common. Since there is no backward compatibility between 2.xx and 3.xx, if you want to work with older projects you probably need the former version. Otherwise, if you are starting a project from scratch you have the freedom to choose.</p>
+<p>Python 3.xx is the most popular version nowadays and, even if Python 4.xx will be out soon, it will be completely backward compatible.</p>
 <div id="windows" class="section level2">
 <h2>Windows</h2>
 <p>The installation procedure involves downloading the official Python .exe installer and running it on your system.</p>
 <ol style="list-style-type: decimal">
-<li>Download Python Executable Installer from … . Open your web browser and navigate to the Downloads for Windows section of the official Python website.</li>
+<li><p>Download Python Executable Installer <a href="https://www.python.org/downloads/windows/"><strong>here</strong></a>. Open your web browser and navigate to the Downloads for Windows section of the official Python website.</p></li>
+<li><p>Select a link to download either the Windows x86-64 executable installer or Windows x86 executable installer (for older 32-bit systems).</p></li>
 </ol>
 <div class="figure">
-<img src="https://octodex.github.com/images/stormtroopocat.jpg" title="The Stormtroopocat" alt="" />
-<p class="caption">Stormtroopocat</p>
+<img src="../../../img/pythonWIN.png" alt="" />
+<p class="caption">Download the latest stable release</p>
 </div>
-<p>Search for your desired version of Python. At the time of publishing this article, the latest Python 3 release is version zzzz, while the latest Python 2 release is version yyyyyy.</p>
-<ol start="2" style="list-style-type: decimal">
-<li><p>Download Python Executable Installer. Select a link to download either the Windows x86-64 executable installer or Windows x86 executable installer (for older 32-bit systems).</p></li>
-<li><p>Run Executable Installer once downloaded. (In this example, we have downloaded Python 3.7.3.)</p>
+<!-- Search for your desired version of Python. At the time of publishing this article, the latest Python 3 release is version zzzz, while the latest Python 2 release is version yyyyyy. -->
+<ol start="3" style="list-style-type: decimal">
+<li>Run Executable Installer and follow the instructions. In particular:
 <ul>
-<li>Make sure you select the Install launcher for all users</li>
-<li>and Add Python 3.7 to PATH checkboxes.</li>
+<li>Make sure you select the Install launcher for all users.</li>
+<li>Do not forget to check the “add Python to PATH” option.</li>
 </ul></li>
 </ol>
-<p>The latter places the interpreter in the execution path. For older versions of Python that do not support the Add Python to Path checkbox, see Step 6.
-The next dialog will prompt you to select whether to Disable path length limit, allowing Python to use path names longer than 260-characters.</p>
-<p>SE NON SI E’ VERIFICATO NESSUN PROBLEMA, now Python and pip are installed on your PC!
-Pip is a package management system for Python software packages, thus, make sure that you have it installed. Note that if you installed an older version of Python, it is possible that it did not come with pip preinstalled (SEGUI QUESTA GUIDA PER INSTALLARLO MAUNALMENTE).</p>
+<div class="figure">
+<img src="../../../img/pythonWIN1.png" alt="" />
+<p class="caption">The lasto option will place the interpreter directly into the execution path</p>
+</div>
+<p>The next dialog will prompt you to select whether to Disable path length limit, allowing Python to use path names longer than 260-characters.</p>
+<p><img src="../../../img/pythonWIN2.png" /></p>
+<p>Now both Python and pip are installed on your PC!
+Pip is a package management system for Python software packages, thus, make sure that you have it installed. Note that if you installed an older version of Python, it is possible that it did not come with pip preinstalled.</p>
 <p>It is possible to verify if Python and pip are correctly installed on Windows from the Command Prompt application:</p>
 <ol style="list-style-type: decimal">
-<li>Open the Start menu (windows icon/button) and type <code>cmd</code></li>
+<li>Open the Start menu (windows icon) and type <code>cmd</code>.</li>
 <li>click on the Command Prompt application.</li>
-<li>Type <code>python</code> in the console and press enter</li>
-<li>Then enter <code>pip -V</code> in the console and press enter again.</li>
+<li>Type <code>python --version</code> in the console and press enter.</li>
+<li>Then enter <code>pip --version</code> in the console and press enter again.</li>
 </ol>
-<p>If everything goes smoothly, you should see an output similar to the following:</p>
+<p>If everything goes smoothly, you should see an output similar to the following figure.</p>
 <div class="figure">
-<img src="https://octodex.github.com/images/stormtroopocat.jpg" title="The Stormtroopocat" alt="" />
-<p class="caption">Stormtroopocat</p>
+<img src="../../../img/pythonWIN3.png" alt="" />
+<p class="caption">Python and pip are correctly installed on Windows</p>
 </div>
 </div>
-<div id="mac-os" class="section level2">
-<h2>Mac OS</h2>
+<div id="mac" class="section level2">
+<h2>Mac</h2>
 <p>In general, MacOS comes with Python pre-installed, but it’s Python Version 2.xx. Then, until Apple decides to set Python 3.xx as default, you need to install it yourself.</p>
 <p>For some of you reading this, running the <code>python3</code> command from your MacOS terminal may be enough.</p>
 <ol style="list-style-type: decimal">
@@ -186,37 +190,43 @@ Pip is a package management system for Python software packages, thus, make sure
 </div>
 <div id="linux" class="section level2">
 <h2>Linux</h2>
-<p>sudo apt update
-sudo apt upgrade</p>
-<p>sudo apt install python3
-sudo apt install python3-pip</p>
-<p>python –version
-python-pip –version</p>
+<p>To install the latest version of Python on Ubuntu Linux machines using the terminal, open a command prompt and run:</p>
+<pre class="console"><code>$ sudo apt update
+$ sudo apt upgrade
+
+$ sudo apt install python3
+$ sudo apt install python3-pip</code></pre>
+<p>To see which version of Python and pip you have installed, open a command prompt and run the following commands:</p>
+<pre class="console"><code>$ python3 --version
+$ pip --version</code></pre>
+<p>If everything goes smoothly, you should see an output similar to the following:</p>
+<div class="figure">
+<img src="../../../img/pythonLINUX.png" alt="" />
+<p class="caption">Python and pip are correctly installed on Linux</p>
+</div>
+<p>To launch the Python 3 interpreter it is enough to type <code>$ python3</code> into the terminal.</p>
 </div>
 <div id="hello-world" class="section level2">
 <h2>Hello World!</h2>
 <p>Once python is installed in your PC you are ready to program. You can compile the script directly from terminal (or command prompt in windows) by calling the built-in interpreter:</p>
 <pre class="python"><code>print(&quot;Hello world!&quot;)</code></pre>
 <pre><code>## Hello world!</code></pre>
-<pre class="python"><code>import matplotlib.pyplot as plt
-plt.plot([1, 2, 3, 4])
-plt.ylabel(&#39;some numbers&#39;)
-plt.show()</code></pre>
-<p><img src="https://blog-neas.github.io/english/blog-neas/2022-02-12-R-Python-install_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<pre class="r"><code>plot(rnorm(100),rnorm(100,2,4))</code></pre>
-<p><img src="https://blog-neas.github.io/english/blog-neas/2022-02-12-R-Python-install_files/figure-html/uno-3.png" width="672" /></p>
-<p>Alternatively, you can consider using an Integrated Development Environment (IDE). IDEs are software programs dedicated to programming, integrating several tools specifically designed for software development.
+<p>Alternatively, you can consider using an Integrated Development Environment (IDE). IDEs are softwares dedicated to programming, integrating several tools specifically designed for software development.
 The web is full of IDEs with a smart Python editor, also providing useful additional features (code navigation, code completion, refactoring, debugging and so on). Check the <a href="https://wiki.python.org/moin/IntegratedDevelopmentEnvironments">wiki</a> for a not-exhaustive list of the most popular.</p>
-<pre class="python"><code>import matplotlib.pyplot as plt
-plt.plot([1, 2, 3, 4])
-plt.ylabel(&#39;some numbers&#39;)
-plt.show()</code></pre>
-<p><img src="https://blog-neas.github.io/english/blog-neas/2022-02-12-R-Python-install_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>git clone <a href="https://github.com/blog-neas/blog-neas.github.io.git" class="uri">https://github.com/blog-neas/blog-neas.github.io.git</a></p>
+</div>
+<div id="further-readings" class="section level2">
+<h2>Further readings</h2>
+<ul>
+<li><a href="https://www.infoworld.com/article/3194915/python-2-forever-3-projects-that-will-keep-python-2-alive.html"><strong>Python 2 forever:</strong></a> this article discusses the longevity of older Python 2.xx versions, also providing some popular projects as example.</li>
+<li><a href="https://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html"><strong>Differences between Python 2.xx and 3.xx:</strong></a> Sebastian Raschka highlights the major differences between the two versions of Python.</li>
+<li><a href="https://wiki.python.org/moin/IntegratedDevelopmentEnvironments"><strong>Python IDEs:</strong></a> list of Python’s most popular Integrated Development Environments.</li>
+<li><a href="https://www.makeuseof.com/tag/install-pip-for-python/"><strong>Pip troubleshooting</strong></a> is pip installed correctly? follow this guide to solve (almost) any problem!</li>
+<li><a href="https://www.python.org/downloads/"><strong>Python download main page:</strong></a> here you can find a list of all the versions for each supported operating system.</li>
+</ul>
 </div>
 
 
-      <meta itemprop="wordCount" content="648">
+      <meta itemprop="wordCount" content="737">
       <meta itemprop="datePublished" content="2022-02-12">
       <meta itemprop="url" content="https://blog-neas.github.io/en/blog-neas/rpyhtoninstall/">
 
@@ -224,7 +234,7 @@ plt.show()</code></pre>
 <div style="padding-bottom: 1em" >
 <p>
   
-    <a href="https://blog-neas.github.io/en/blog-neas/rpyhtoninstall/">"RMD python"</a> by <a href="https://blog-neas.github.io/en/authors/">Lucio Palazzo</a>&nbsp;/&nbsp;<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    <a href="https://blog-neas.github.io/en/blog-neas/rpyhtoninstall/">"Python installation guide"</a> by <a href="https://blog-neas.github.io/en/authors/">Lucio Palazzo</a>&nbsp;/&nbsp;<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
   
 </p>
 <div class="share-box">
@@ -235,22 +245,22 @@ plt.show()</code></pre>
       </a>
     </li>
     <li>
-      <a class="twitter" href="https://twitter.com/intent/tweet?text=RMD%20python. https%3a%2f%2fblog-neas.github.io%2fen%2fblog-neas%2frpyhtoninstall%2f from @robjhyndman" target="_blank">
+      <a class="twitter" href="https://twitter.com/intent/tweet?text=Python%20installation%20guide. https%3a%2f%2fblog-neas.github.io%2fen%2fblog-neas%2frpyhtoninstall%2f from @robjhyndman" target="_blank">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
-      <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fblog-neas.github.io%2fen%2fblog-neas%2frpyhtoninstall%2f&amp;title=RMD%20python" target="_blank">
+      <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fblog-neas.github.io%2fen%2fblog-neas%2frpyhtoninstall%2f&amp;title=Python%20installation%20guide" target="_blank">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
-      <a class="weibo" href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fblog-neas.github.io%2fen%2fblog-neas%2frpyhtoninstall%2f&amp;title=RMD%20python" target="_blank">
+      <a class="weibo" href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fblog-neas.github.io%2fen%2fblog-neas%2frpyhtoninstall%2f&amp;title=Python%20installation%20guide" target="_blank">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
-      <a class="email" href="mailto:?subject=RMD%20python&amp;body=https%3a%2f%2fblog-neas.github.io%2fen%2fblog-neas%2frpyhtoninstall%2f">
+      <a class="email" href="mailto:?subject=Python%20installation%20guide&amp;body=https%3a%2f%2fblog-neas.github.io%2fen%2fblog-neas%2frpyhtoninstall%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>

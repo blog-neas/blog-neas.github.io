@@ -6,15 +6,25 @@
     <description>Recent content on Lucio Palazzo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Lucio Palazzo</copyright>
-    <lastBuildDate>Sat, 12 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>RMD python</title>
+      <title>Stats and Football</title>
+      <link>https://blog-neas.github.io/en/seminars/stats-football/</link>
+      <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/stats-football/</guid>
+      <description>Talk given for xxxxxx SUMMARY DEL SEMINARIO (300/500 parole)
+ Github repo  </description>
+    </item>
+    
+    <item>
+      <title>Python installation guide</title>
       <link>https://blog-neas.github.io/en/blog-neas/rpyhtoninstall/</link>
       <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog-neas.github.io/en/blog-neas/rpyhtoninstall/</guid>
-      <description>library(reticulate) Here I will describe what are the first step to perform to have a running version on Python on your PC.
-The version you need depends on what you want to do in Python. Some older projects are coded in Python version 2.xx (REF). Then, since there is no backward compatibility between 2.xx and 3.xx versions, if you want to work with older projects you probably need that version.</description>
+      <description>I will briefly describe the first steps needed to obtain a running version on Python on your PC.
+The version you need depends on what you want to do in Python. Some older projects are coded in Python version 2.xx, while nowadays 3.xx version is the most common. Since there is no backward compatibility between 2.xx and 3.xx, if you want to work with older projects you probably need the former version.</description>
     </item>
     
     <item>
