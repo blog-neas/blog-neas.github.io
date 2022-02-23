@@ -12,8 +12,6 @@ categories:
 bibliography: ../../../static/biblio/bibliography.bib
 ---
 
-
-
 ```{r load_py, echo=FALSE, warning=FALSE}
 library(reticulate)
 ```
@@ -41,7 +39,7 @@ The installation procedure involves downloading the official Python .exe install
 	+ Make sure you select the Install launcher for all users.
 	+ Do not forget to check the "add Python to PATH" option.
 
-![The lasto option will place the interpreter directly into the execution path](../../../img/pythonWIN1.png)
+![The last option will place the interpreter directly into the execution path](../../../img/pythonWIN1.png)
 
 The next dialog will prompt you to select whether to Disable path length limit, allowing Python to use path names longer than 260-characters.
 
@@ -66,17 +64,19 @@ If everything goes smoothly, you should see an output similar to the following f
 
 In general, MacOS comes with Python pre-installed, but it's Python Version 2.xx. Then, until Apple decides to set Python 3.xx as default, you need to install it yourself.
 
-For some of you reading this, running the `python3` command from your MacOS terminal may be enough.
+For some of you reading this, running the `python3` command from your MacOS terminal may be enough. If the software appears to not be present in your system, you can just follow the following steps:
 
-1. Open spotlight (command+space)
-2. Type "terminal"
-3. Type `python3` in the console
+1. Open spotlight (`command + space` keys).
+2. Type "terminal".
+3. Type `brew install python3` in the console.
+
+Homebrew will install the latest supported python3 version compatible with your OS along with pip. Otherwise, you can install pip separately following the [official documentation](https://pip.pypa.io/en/stable/installation/) webpage.
 
 Installation check can be performed by typing `python3 --version` and `pip --version` into the terminal.
 
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+![Python 3 interpreter interpreter is ready to accept instructions.](../../../img/pythonMAC.png)
 
-SE TUTTO E' STATO INSTALLATO CORRETTAMENTE, you should now have a working Python and Pip installations on your Mac.
+You now have Python 3 set up on your machine.
 
 
 ## Linux
@@ -98,8 +98,7 @@ $ python3 --version
 $ pip --version
 ```
 
-If everything goes smoothly, you should see an output similar to the following:
-
+if everything goes right, you should see an output similar to the following:
 
 ![Python and pip are correctly installed on Linux](../../../img/pythonLINUX.png)
 
@@ -114,6 +113,7 @@ Once python is installed in your PC you are ready to program. You can compile th
 print("Hello world!")
 ```
 
+For instance, a simple line connecting two points can be plotted by using some new lines of code.
 
 ```{python, eval=FALSE, include=FALSE}
 import matplotlib.pyplot as plt
@@ -122,14 +122,8 @@ plt.ylabel('some numbers')
 plt.show()
 ```
 
-
-
-```{r uno, eval=FALSE, include=FALSE}
-plot(rnorm(100),rnorm(100,2,4))
-```
-
-Alternatively, you can consider using an Integrated Development Environment (IDE). IDEs are softwares dedicated to programming, integrating several tools specifically designed for software development.
-The web is full of IDEs with a smart Python editor, also providing useful additional features (code navigation, code completion, refactoring, debugging and so on). Check the [wiki](https://wiki.python.org/moin/IntegratedDevelopmentEnvironments) for a not-exhaustive list of the most popular. 
+For obvious reasons, the original interpreter is light and (maybe excessively) simple. Alternatively, you can consider using an Integrated Development Environment (IDE). IDEs are softwares dedicated to programming, integrating several tools specifically designed for software development.
+The web is full of IDEs with a smart Python editor, also providing useful additional features (code navigation, code completion, refactoring, debugging and so on). Check the [wiki](https://wiki.python.org/moin/IntegratedDevelopmentEnvironments) for a not-exhaustive list of the most popular.
 
 
 ## Further readings
@@ -137,5 +131,5 @@ The web is full of IDEs with a smart Python editor, also providing useful additi
  * [**Python 2 forever:**](https://www.infoworld.com/article/3194915/python-2-forever-3-projects-that-will-keep-python-2-alive.html) this article discusses the longevity of older Python 2.xx versions, also providing some popular projects as example.
  * [**Differences between Python 2.xx and 3.xx:**](https://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html) Sebastian Raschka highlights the major differences between the two versions of Python.
  * [**Python IDEs:**](https://wiki.python.org/moin/IntegratedDevelopmentEnvironments) list of Python's most popular Integrated Development Environments.
- * [**Pip troubleshooting**](https://www.makeuseof.com/tag/install-pip-for-python/) is pip installed correctly? follow this guide to solve (almost) any problem!
+ * [**Pip troubleshooting**](https://www.makeuseof.com/tag/install-pip-for-python/) is pip installed correctly? follow this guide to solve (almost) any problem! You can also check the [**official pip documentation**](https://pip.pypa.io/en/stable/installation/) page.
  * [**Python download main page:**](https://www.python.org/downloads/) here you can find a list of all the versions for each supported operating system.

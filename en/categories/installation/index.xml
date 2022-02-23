@@ -44,7 +44,7 @@
 &lt;/ol&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;../../../img/pythonWIN1.png&#34; alt=&#34;&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;The lasto option will place the interpreter directly into the execution path&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;The last option will place the interpreter directly into the execution path&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;The next dialog will prompt you to select whether to Disable path length limit, allowing Python to use path names longer than 260-characters.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../../../img/pythonWIN2.png&#34; /&gt;&lt;/p&gt;
@@ -66,18 +66,19 @@ Pip is a package management system for Python software packages, thus, make sure
 &lt;div id=&#34;mac&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Mac&lt;/h2&gt;
 &lt;p&gt;In general, MacOS comes with Python pre-installed, but it’s Python Version 2.xx. Then, until Apple decides to set Python 3.xx as default, you need to install it yourself.&lt;/p&gt;
-&lt;p&gt;For some of you reading this, running the &lt;code&gt;python3&lt;/code&gt; command from your MacOS terminal may be enough.&lt;/p&gt;
+&lt;p&gt;For some of you reading this, running the &lt;code&gt;python3&lt;/code&gt; command from your MacOS terminal may be enough. If the software appears to not be present in your system, you can just follow the following steps:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Open spotlight (command+space)&lt;/li&gt;
-&lt;li&gt;Type “terminal”&lt;/li&gt;
-&lt;li&gt;Type &lt;code&gt;python3&lt;/code&gt; in the console&lt;/li&gt;
+&lt;li&gt;Open spotlight (&lt;code&gt;command + space&lt;/code&gt; keys).&lt;/li&gt;
+&lt;li&gt;Type “terminal.”&lt;/li&gt;
+&lt;li&gt;Type &lt;code&gt;brew install python3&lt;/code&gt; in the console.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;Homebrew will install the latest supported python3 version compatible with your OS along with pip. Otherwise, you can install pip separately following the &lt;a href=&#34;https://pip.pypa.io/en/stable/installation/&#34;&gt;official documentation&lt;/a&gt; webpage.&lt;/p&gt;
 &lt;p&gt;Installation check can be performed by typing &lt;code&gt;python3 --version&lt;/code&gt; and &lt;code&gt;pip --version&lt;/code&gt; into the terminal.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;https://octodex.github.com/images/stormtroopocat.jpg&#34; title=&#34;The Stormtroopocat&#34; alt=&#34;&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;Stormtroopocat&lt;/p&gt;
+&lt;img src=&#34;../../../img/pythonMAC.png&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Python 3 interpreter interpreter is ready to accept instructions.&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;SE TUTTO E’ STATO INSTALLATO CORRETTAMENTE, you should now have a working Python and Pip installations on your Mac.&lt;/p&gt;
+&lt;p&gt;You now have Python 3 set up on your machine.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;linux&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Linux&lt;/h2&gt;
@@ -90,7 +91,7 @@ $ sudo apt install python3-pip&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;To see which version of Python and pip you have installed, open a command prompt and run the following commands:&lt;/p&gt;
 &lt;pre class=&#34;console&#34;&gt;&lt;code&gt;$ python3 --version
 $ pip --version&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If everything goes smoothly, you should see an output similar to the following:&lt;/p&gt;
+&lt;p&gt;if everything goes right, you should see an output similar to the following:&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;../../../img/pythonLINUX.png&#34; alt=&#34;&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;Python and pip are correctly installed on Linux&lt;/p&gt;
@@ -102,7 +103,8 @@ $ pip --version&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Once python is installed in your PC you are ready to program. You can compile the script directly from terminal (or command prompt in windows) by calling the built-in interpreter:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;Hello world!&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Hello world!&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Alternatively, you can consider using an Integrated Development Environment (IDE). IDEs are softwares dedicated to programming, integrating several tools specifically designed for software development.
+&lt;p&gt;For instance, a simple line connecting two points can be plotted by using some new lines of code.&lt;/p&gt;
+&lt;p&gt;For obvious reasons, the original interpreter is light and (maybe excessively) simple. Alternatively, you can consider using an Integrated Development Environment (IDE). IDEs are softwares dedicated to programming, integrating several tools specifically designed for software development.
 The web is full of IDEs with a smart Python editor, also providing useful additional features (code navigation, code completion, refactoring, debugging and so on). Check the &lt;a href=&#34;https://wiki.python.org/moin/IntegratedDevelopmentEnvironments&#34;&gt;wiki&lt;/a&gt; for a not-exhaustive list of the most popular.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;further-readings&#34; class=&#34;section level2&#34;&gt;
@@ -111,7 +113,7 @@ The web is full of IDEs with a smart Python editor, also providing useful additi
 &lt;li&gt;&lt;a href=&#34;https://www.infoworld.com/article/3194915/python-2-forever-3-projects-that-will-keep-python-2-alive.html&#34;&gt;&lt;strong&gt;Python 2 forever:&lt;/strong&gt;&lt;/a&gt; this article discusses the longevity of older Python 2.xx versions, also providing some popular projects as example.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html&#34;&gt;&lt;strong&gt;Differences between Python 2.xx and 3.xx:&lt;/strong&gt;&lt;/a&gt; Sebastian Raschka highlights the major differences between the two versions of Python.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://wiki.python.org/moin/IntegratedDevelopmentEnvironments&#34;&gt;&lt;strong&gt;Python IDEs:&lt;/strong&gt;&lt;/a&gt; list of Python’s most popular Integrated Development Environments.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.makeuseof.com/tag/install-pip-for-python/&#34;&gt;&lt;strong&gt;Pip troubleshooting&lt;/strong&gt;&lt;/a&gt; is pip installed correctly? follow this guide to solve (almost) any problem!&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.makeuseof.com/tag/install-pip-for-python/&#34;&gt;&lt;strong&gt;Pip troubleshooting&lt;/strong&gt;&lt;/a&gt; is pip installed correctly? follow this guide to solve (almost) any problem! You can also check the &lt;a href=&#34;https://pip.pypa.io/en/stable/installation/&#34;&gt;&lt;strong&gt;official pip documentation&lt;/strong&gt;&lt;/a&gt; page.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.python.org/downloads/&#34;&gt;&lt;strong&gt;Python download main page:&lt;/strong&gt;&lt;/a&gt; here you can find a list of all the versions for each supported operating system.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
