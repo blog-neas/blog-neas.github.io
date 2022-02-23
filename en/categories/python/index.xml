@@ -110,11 +110,11 @@ IDEs are softwares dedicated to programming, integrating several tools specifica
 &lt;div id=&#34;further-readings&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Further readings&lt;/h2&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.python.org/downloads/&#34;&gt;&lt;strong&gt;Python download main page:&lt;/strong&gt;&lt;/a&gt; here you can find a list of all the versions for each supported operating system.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://wiki.python.org/moin/IntegratedDevelopmentEnvironments&#34;&gt;&lt;strong&gt;Python IDEs:&lt;/strong&gt;&lt;/a&gt; list of Python’s most popular Integrated Development Environments.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.makeuseof.com/tag/install-pip-for-python/&#34;&gt;&lt;strong&gt;Pip troubleshooting&lt;/strong&gt;&lt;/a&gt; is pip installed correctly? follow this guide to solve (almost) any problem! You can also check the &lt;a href=&#34;https://pip.pypa.io/en/stable/installation/&#34;&gt;&lt;em&gt;official pip documentation&lt;/em&gt;&lt;/a&gt; page for additional informations.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.infoworld.com/article/3194915/python-2-forever-3-projects-that-will-keep-python-2-alive.html&#34;&gt;&lt;strong&gt;Python 2 forever:&lt;/strong&gt;&lt;/a&gt; this article discusses the longevity of older Python 2.xx versions, also providing some popular projects as example.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html&#34;&gt;&lt;strong&gt;Differences between Python 2.xx and 3.xx:&lt;/strong&gt;&lt;/a&gt; Sebastian Raschka highlights the major differences between the two versions of Python.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://wiki.python.org/moin/IntegratedDevelopmentEnvironments&#34;&gt;&lt;strong&gt;Python IDEs:&lt;/strong&gt;&lt;/a&gt; list of Python’s most popular Integrated Development Environments.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.makeuseof.com/tag/install-pip-for-python/&#34;&gt;&lt;strong&gt;Pip troubleshooting&lt;/strong&gt;&lt;/a&gt; is pip installed correctly? follow this guide to solve (almost) any problem! You can also check the &lt;a href=&#34;https://pip.pypa.io/en/stable/installation/&#34;&gt;&lt;em&gt;official pip documentation&lt;/em&gt;&lt;/a&gt; page.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.python.org/downloads/&#34;&gt;&lt;strong&gt;Python download main page:&lt;/strong&gt;&lt;/a&gt; here you can find a list of all the versions for each supported operating system.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 </description>
