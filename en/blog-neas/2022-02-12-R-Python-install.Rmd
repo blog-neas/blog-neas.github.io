@@ -112,11 +112,11 @@ Once python is installed in your PC you are ready to program. You can compile th
 print("Hello world!")
 ```
 
-For instance, a simple line connecting two points can be plotted by using some new lines of code.
+For instance, a simple segment can be plotted by using few lines of code.
 
 ```{python plotex}
 import matplotlib.pyplot as plt
-plt.plot([1, 2, 3, 4])
+plt.plot([1, 2, 3, 4],[1, 2, 3, 4])
 plt.ylabel('some numbers')
 plt.show()
 ```
