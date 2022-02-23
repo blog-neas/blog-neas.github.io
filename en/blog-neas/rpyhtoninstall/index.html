@@ -131,13 +131,14 @@ var ml_account = ml('accounts', '3217732', 'q9y4a1d8i3', 'load');
 
 <p>I will briefly describe the first steps needed to obtain a running version on Python on your PC.</p>
 <p>The version you need depends on what you want to do in Python. Some older projects are coded in Python version 2.xx, while nowadays 3.xx version is the most common. Since there is no backward compatibility between 2.xx and 3.xx, if you want to work with older projects you probably need the former version. Otherwise, if you are starting a project from scratch you have the freedom to choose.</p>
-<p>Python 3.xx is the most popular version nowadays and, even if Python 4.xx will be out soon, it will be completely backward compatible.</p>
+<p>Python 3.xx is the most popular version nowadays and, even if Python 4.xx will be out soon, it will be completely backward compatible.
+The standard package manager for Python is pip. It allows you to install and manage libraries and dependencies that aren’t distributed as part of the standard library. In general, the Python 3 installer gives you the option to install pip when installing Python on your system.</p>
 <div id="windows" class="section level2">
 <h2>Windows</h2>
 <p>The installation procedure involves downloading the official Python .exe installer and running it on your system.</p>
 <ol style="list-style-type: decimal">
-<li><p>Download Python Executable Installer <a href="https://www.python.org/downloads/windows/"><strong>here</strong></a>. Open your web browser and navigate to the Downloads for Windows section of the official Python website.</p></li>
-<li><p>Select a link to download either the Windows x86-64 executable installer or Windows x86 executable installer (for older 32-bit systems).</p></li>
+<li><p>Download the Python Executable Installer <a href="https://www.python.org/downloads/windows/"><strong>here</strong></a>. Open your web browser and navigate to the Downloads for Windows section of the official Python website.</p></li>
+<li><p>Select a link to download either the Windows x64 or x86 (in case of older 32-bit systems) executable installer.</p></li>
 </ol>
 <div class="figure">
 <img src="../../../img/pythonWIN.png" alt="" />
@@ -158,7 +159,7 @@ var ml_account = ml('accounts', '3217732', 'q9y4a1d8i3', 'load');
 <p>The next dialog will prompt you to select whether to Disable path length limit, allowing Python to use path names longer than 260-characters.</p>
 <p><img src="../../../img/pythonWIN2.png" /></p>
 <p>Now both Python and pip are installed on your PC!
-Pip is a package management system for Python software packages, thus, make sure that you have it installed. Note that if you installed an older version of Python, it is possible that it did not come with pip preinstalled.</p>
+Note that if you installed an older version of Python, it is possible that it did not come with pip preinstalled.</p>
 <p>It is possible to verify if Python and pip are correctly installed on Windows from the Command Prompt application:</p>
 <ol style="list-style-type: decimal">
 <li>Open the Start menu (windows icon) and type <code>cmd</code>.</li>
@@ -227,7 +228,7 @@ IDEs are softwares dedicated to programming, integrating several tools specifica
 </div>
 
 
-      <meta itemprop="wordCount" content="824">
+      <meta itemprop="wordCount" content="852">
       <meta itemprop="datePublished" content="2022-02-12">
       <meta itemprop="url" content="https://blog-neas.github.io/en/blog-neas/rpyhtoninstall/">
 

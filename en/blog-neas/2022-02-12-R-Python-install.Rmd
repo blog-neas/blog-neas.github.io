@@ -21,15 +21,16 @@ I will briefly describe the first steps needed to obtain a running version on Py
 The version you need depends on what you want to do in Python. Some older projects are coded in Python version 2.xx, while nowadays 3.xx version is the most common. Since there is no backward compatibility between 2.xx and 3.xx, if you want to work with older projects you probably need the former version. Otherwise, if you are starting a project from scratch you have the freedom to choose. 
 
 Python 3.xx is the most popular version nowadays and, even if Python 4.xx will be out soon, it will be completely backward compatible.
+The standard package manager for Python is pip. It allows you to install and manage libraries and dependencies that aren't distributed as part of the standard library. In general, the Python 3 installer gives you the option to install pip when installing Python on your system.
 
 
 ## Windows 
 
 The installation procedure involves downloading the official Python .exe installer and running it on your system.
 
-1. Download Python Executable Installer [**here**](https://www.python.org/downloads/windows/). Open your web browser and navigate to the Downloads for Windows section of the official Python website.
+1. Download the Python Executable Installer [**here**](https://www.python.org/downloads/windows/). Open your web browser and navigate to the Downloads for Windows section of the official Python website.
 
-2. Select a link to download either the Windows x86-64 executable installer or Windows x86 executable installer (for older 32-bit systems).
+2. Select a link to download either the Windows x64 or x86 (in case of older 32-bit systems) executable installer.
 
 ![*Download the latest stable release.*](../../../img/pythonWIN.png)
 
@@ -46,7 +47,7 @@ The next dialog will prompt you to select whether to Disable path length limit, 
 ![](../../../img/pythonWIN2.png)
 
 Now both Python and pip are installed on your PC! 
-Pip is a package management system for Python software packages, thus, make sure that you have it installed. Note that if you installed an older version of Python, it is possible that it did not come with pip preinstalled.
+Note that if you installed an older version of Python, it is possible that it did not come with pip preinstalled.
 
 It is possible to verify if Python and pip are correctly installed on Windows from the Command Prompt application:
 

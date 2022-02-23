@@ -22,13 +22,14 @@
 
 &lt;p&gt;I will briefly describe the first steps needed to obtain a running version on Python on your PC.&lt;/p&gt;
 &lt;p&gt;The version you need depends on what you want to do in Python. Some older projects are coded in Python version 2.xx, while nowadays 3.xx version is the most common. Since there is no backward compatibility between 2.xx and 3.xx, if you want to work with older projects you probably need the former version. Otherwise, if you are starting a project from scratch you have the freedom to choose.&lt;/p&gt;
-&lt;p&gt;Python 3.xx is the most popular version nowadays and, even if Python 4.xx will be out soon, it will be completely backward compatible.&lt;/p&gt;
+&lt;p&gt;Python 3.xx is the most popular version nowadays and, even if Python 4.xx will be out soon, it will be completely backward compatible.
+The standard package manager for Python is pip. It allows you to install and manage libraries and dependencies that aren’t distributed as part of the standard library. In general, the Python 3 installer gives you the option to install pip when installing Python on your system.&lt;/p&gt;
 &lt;div id=&#34;windows&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Windows&lt;/h2&gt;
 &lt;p&gt;The installation procedure involves downloading the official Python .exe installer and running it on your system.&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;Download Python Executable Installer &lt;a href=&#34;https://www.python.org/downloads/windows/&#34;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;. Open your web browser and navigate to the Downloads for Windows section of the official Python website.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Select a link to download either the Windows x86-64 executable installer or Windows x86 executable installer (for older 32-bit systems).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Download the Python Executable Installer &lt;a href=&#34;https://www.python.org/downloads/windows/&#34;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;. Open your web browser and navigate to the Downloads for Windows section of the official Python website.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Select a link to download either the Windows x64 or x86 (in case of older 32-bit systems) executable installer.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;../../../img/pythonWIN.png&#34; alt=&#34;&#34; /&gt;
@@ -49,7 +50,7 @@
 &lt;p&gt;The next dialog will prompt you to select whether to Disable path length limit, allowing Python to use path names longer than 260-characters.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../../../img/pythonWIN2.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Now both Python and pip are installed on your PC!
-Pip is a package management system for Python software packages, thus, make sure that you have it installed. Note that if you installed an older version of Python, it is possible that it did not come with pip preinstalled.&lt;/p&gt;
+Note that if you installed an older version of Python, it is possible that it did not come with pip preinstalled.&lt;/p&gt;
 &lt;p&gt;It is possible to verify if Python and pip are correctly installed on Windows from the Command Prompt application:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;Open the Start menu (windows icon) and type &lt;code&gt;cmd&lt;/code&gt;.&lt;/li&gt;
