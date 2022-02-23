@@ -104,6 +104,11 @@ $ pip --version&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;Hello world!&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Hello world!&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;For instance, a simple line connecting two points can be plotted by using some new lines of code.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;import matplotlib.pyplot as plt
+plt.plot([1, 2, 3, 4])
+plt.ylabel(&amp;#39;some numbers&amp;#39;)
+plt.show()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-neas.github.io/english/blog-neas/2022-02-12-R-Python-install_files/figure-html/plotex-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;For obvious reasons, the original interpreter is lightweight and (maybe excessively) simple. Alternatively, you can consider using an Integrated Development Environment (IDE).
 IDEs are softwares dedicated to programming, integrating several tools specifically designed for software development. The web is full of IDEs with a smart Python editor, also providing useful additional features (code navigation, code completion, refactoring, debugging and so on). Check the &lt;a href=&#34;https://wiki.python.org/moin/IntegratedDevelopmentEnvironments&#34;&gt;wiki&lt;/a&gt; for a not-exhaustive list of the most popular.&lt;/p&gt;
 &lt;/div&gt;

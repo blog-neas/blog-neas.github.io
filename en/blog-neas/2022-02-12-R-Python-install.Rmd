@@ -108,13 +108,13 @@ To launch the Python 3 interpreter it is enough to type `$ python3` into the ter
 
 Once python is installed in your PC you are ready to program. You can compile the script directly from terminal (or command prompt in windows) by calling the built-in interpreter:
 
-```{python, helloworld}
+```{python helloworld}
 print("Hello world!")
 ```
 
 For instance, a simple line connecting two points can be plotted by using some new lines of code.
 
-```{python, eval=FALSE, include=FALSE}
+```{python plotex}
 import matplotlib.pyplot as plt
 plt.plot([1, 2, 3, 4])
 plt.ylabel('some numbers')
