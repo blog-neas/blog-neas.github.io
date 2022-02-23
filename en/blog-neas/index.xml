@@ -32,7 +32,7 @@
 &lt;/ol&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;../../../img/pythonWIN.png&#34; alt=&#34;&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;Download the latest stable release&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;&lt;em&gt;Download the latest stable release.&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;!-- Search for your desired version of Python. At the time of publishing this article, the latest Python 3 release is version zzzz, while the latest Python 2 release is version yyyyyy. --&gt;
 &lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
@@ -44,7 +44,7 @@
 &lt;/ol&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;../../../img/pythonWIN1.png&#34; alt=&#34;&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;The last option will place the interpreter directly into the execution path&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;&lt;em&gt;The last option will place the interpreter directly into the execution path.&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;The next dialog will prompt you to select whether to Disable path length limit, allowing Python to use path names longer than 260-characters.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../../../img/pythonWIN2.png&#34; /&gt;&lt;/p&gt;
@@ -60,7 +60,7 @@ Pip is a package management system for Python software packages, thus, make sure
 &lt;p&gt;If everything goes smoothly, you should see an output similar to the following figure.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;../../../img/pythonWIN3.png&#34; alt=&#34;&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;Python and pip are correctly installed on Windows&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;&lt;em&gt;Python and pip are correctly installed on Windows.&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;mac&#34; class=&#34;section level2&#34;&gt;
@@ -72,13 +72,12 @@ Pip is a package management system for Python software packages, thus, make sure
 &lt;li&gt;Type “terminal.”&lt;/li&gt;
 &lt;li&gt;Type &lt;code&gt;brew install python3&lt;/code&gt; in the console.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Homebrew will install the latest supported python3 version compatible with your OS along with pip. Otherwise, you can install pip separately following the &lt;a href=&#34;https://pip.pypa.io/en/stable/installation/&#34;&gt;official documentation&lt;/a&gt; webpage.&lt;/p&gt;
-&lt;p&gt;Installation check can be performed by typing &lt;code&gt;python3 --version&lt;/code&gt; and &lt;code&gt;pip --version&lt;/code&gt; into the terminal.&lt;/p&gt;
+&lt;p&gt;Homebrew will install the latest supported Python 3.xx version compatible with your OS along with pip. Otherwise, you can install pip separately following the &lt;a href=&#34;https://pip.pypa.io/en/stable/installation/&#34;&gt;official documentation&lt;/a&gt; webpage.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;../../../img/pythonMAC.png&#34; alt=&#34;&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;Python 3 interpreter interpreter is ready to accept instructions.&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;&lt;em&gt;Python 3 interpreter is ready to accept instructions.&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;You now have Python 3 set up on your machine.&lt;/p&gt;
+&lt;p&gt;You now have Python 3 set up on your machine. Installation check can be performed by typing &lt;code&gt;python3 --version&lt;/code&gt; and &lt;code&gt;pip --version&lt;/code&gt; into the terminal.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;linux&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Linux&lt;/h2&gt;
@@ -94,7 +93,7 @@ $ pip --version&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;if everything goes right, you should see an output similar to the following:&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;../../../img/pythonLINUX.png&#34; alt=&#34;&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;Python and pip are correctly installed on Linux&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;&lt;em&gt;Python and pip are correctly installed on Linux.&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;To launch the Python 3 interpreter it is enough to type &lt;code&gt;$ python3&lt;/code&gt; into the terminal.&lt;/p&gt;
 &lt;/div&gt;
@@ -104,8 +103,8 @@ $ pip --version&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;Hello world!&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Hello world!&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;For instance, a simple line connecting two points can be plotted by using some new lines of code.&lt;/p&gt;
-&lt;p&gt;For obvious reasons, the original interpreter is light and (maybe excessively) simple. Alternatively, you can consider using an Integrated Development Environment (IDE). IDEs are softwares dedicated to programming, integrating several tools specifically designed for software development.
-The web is full of IDEs with a smart Python editor, also providing useful additional features (code navigation, code completion, refactoring, debugging and so on). Check the &lt;a href=&#34;https://wiki.python.org/moin/IntegratedDevelopmentEnvironments&#34;&gt;wiki&lt;/a&gt; for a not-exhaustive list of the most popular.&lt;/p&gt;
+&lt;p&gt;For obvious reasons, the original interpreter is lightweight and (maybe excessively) simple. Alternatively, you can consider using an Integrated Development Environment (IDE).
+IDEs are softwares dedicated to programming, integrating several tools specifically designed for software development. The web is full of IDEs with a smart Python editor, also providing useful additional features (code navigation, code completion, refactoring, debugging and so on). Check the &lt;a href=&#34;https://wiki.python.org/moin/IntegratedDevelopmentEnvironments&#34;&gt;wiki&lt;/a&gt; for a not-exhaustive list of the most popular.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;further-readings&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Further readings&lt;/h2&gt;

@@ -31,7 +31,7 @@ The installation procedure involves downloading the official Python .exe install
 
 2. Select a link to download either the Windows x86-64 executable installer or Windows x86 executable installer (for older 32-bit systems).
 
-![Download the latest stable release](../../../img/pythonWIN.png)
+![*Download the latest stable release.*](../../../img/pythonWIN.png)
 
 <!-- Search for your desired version of Python. At the time of publishing this article, the latest Python 3 release is version zzzz, while the latest Python 2 release is version yyyyyy. -->
 
@@ -39,13 +39,13 @@ The installation procedure involves downloading the official Python .exe install
 	+ Make sure you select the Install launcher for all users.
 	+ Do not forget to check the "add Python to PATH" option.
 
-![The last option will place the interpreter directly into the execution path](../../../img/pythonWIN1.png)
+![*The last option will place the interpreter directly into the execution path.*](../../../img/pythonWIN1.png)
 
 The next dialog will prompt you to select whether to Disable path length limit, allowing Python to use path names longer than 260-characters.
 
 ![](../../../img/pythonWIN2.png)
 
-Now both Python and pip are installed on your PC!
+Now both Python and pip are installed on your PC! 
 Pip is a package management system for Python software packages, thus, make sure that you have it installed. Note that if you installed an older version of Python, it is possible that it did not come with pip preinstalled.
 
 It is possible to verify if Python and pip are correctly installed on Windows from the Command Prompt application:
@@ -57,7 +57,7 @@ It is possible to verify if Python and pip are correctly installed on Windows fr
 
 If everything goes smoothly, you should see an output similar to the following figure.
 
-![Python and pip are correctly installed on Windows](../../../img/pythonWIN3.png)
+![*Python and pip are correctly installed on Windows.*](../../../img/pythonWIN3.png)
 
 
 ## Mac
@@ -70,13 +70,11 @@ For some of you reading this, running the `python3` command from your MacOS term
 2. Type "terminal".
 3. Type `brew install python3` in the console.
 
-Homebrew will install the latest supported python3 version compatible with your OS along with pip. Otherwise, you can install pip separately following the [official documentation](https://pip.pypa.io/en/stable/installation/) webpage.
+Homebrew will install the latest supported Python 3.xx version compatible with your OS along with pip. Otherwise, you can install pip separately following the [official documentation](https://pip.pypa.io/en/stable/installation/) webpage.
 
-Installation check can be performed by typing `python3 --version` and `pip --version` into the terminal.
+![*Python 3 interpreter is ready to accept instructions.*](../../../img/pythonMAC.png)
 
-![Python 3 interpreter interpreter is ready to accept instructions.](../../../img/pythonMAC.png)
-
-You now have Python 3 set up on your machine.
+You now have Python 3 set up on your machine. Installation check can be performed by typing `python3 --version` and `pip --version` into the terminal.
 
 
 ## Linux
@@ -100,7 +98,7 @@ $ pip --version
 
 if everything goes right, you should see an output similar to the following:
 
-![Python and pip are correctly installed on Linux](../../../img/pythonLINUX.png)
+![*Python and pip are correctly installed on Linux.*](../../../img/pythonLINUX.png)
 
 To launch the Python 3 interpreter it is enough to type `$ python3` into the terminal.
 
@@ -122,8 +120,8 @@ plt.ylabel('some numbers')
 plt.show()
 ```
 
-For obvious reasons, the original interpreter is light and (maybe excessively) simple. Alternatively, you can consider using an Integrated Development Environment (IDE). IDEs are softwares dedicated to programming, integrating several tools specifically designed for software development.
-The web is full of IDEs with a smart Python editor, also providing useful additional features (code navigation, code completion, refactoring, debugging and so on). Check the [wiki](https://wiki.python.org/moin/IntegratedDevelopmentEnvironments) for a not-exhaustive list of the most popular.
+For obvious reasons, the original interpreter is lightweight and (maybe excessively) simple. Alternatively, you can consider using an Integrated Development Environment (IDE). 
+IDEs are softwares dedicated to programming, integrating several tools specifically designed for software development. The web is full of IDEs with a smart Python editor, also providing useful additional features (code navigation, code completion, refactoring, debugging and so on). Check the [wiki](https://wiki.python.org/moin/IntegratedDevelopmentEnvironments) for a not-exhaustive list of the most popular.
 
 
 ## Further readings
