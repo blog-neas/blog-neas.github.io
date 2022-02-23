@@ -33,7 +33,7 @@ The standard package manager for Python is pip. It allows you to install and man
 &lt;/ol&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;../../../img/pythonWIN.png&#34; alt=&#34;&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;&lt;em&gt;Download the latest stable release.&lt;/em&gt;&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;&lt;em&gt;I suggest to download the latest stable release.&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;!-- Search for your desired version of Python. At the time of publishing this article, the latest Python 3 release is version zzzz, while the latest Python 2 release is version yyyyyy. --&gt;
 &lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
@@ -105,7 +105,7 @@ $ pip --version&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Hello world!&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;For instance, a simple segment can be plotted by using few lines of code.&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;import matplotlib.pyplot as plt
-plt.plot([1, 2, 3, 4],[1, 2, 3, 4])
+plt.plot([1, 2, 3, 4])
 plt.ylabel(&amp;#39;some numbers&amp;#39;)
 plt.show()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://blog-neas.github.io/english/blog-neas/2022-02-12-R-Python-install_files/figure-html/plotex-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
