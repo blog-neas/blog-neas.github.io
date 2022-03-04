@@ -1,5 +1,5 @@
 ---
-date: 2022-02-12
+date: 2022-02-21
 slug: rpyhtoninstall
 title: "Python installation guide"
 mathjax: true
@@ -52,7 +52,7 @@ Note that if you installed an older version of Python, it is possible that it di
 It is possible to verify if Python and pip are correctly installed on Windows from the Command Prompt application:
 
 1. Open the Start menu (windows icon) and type `cmd`.
-2. click on the Command Prompt application.
+2. Click on the Command Prompt application.
 3. Type `python --version` in the console and press enter.
 4. Then enter `pip --version` in the console and press enter again.
 
@@ -106,7 +106,7 @@ To launch the Python 3 interpreter it is enough to type `$ python3` into the ter
 
 ## Hello World!
 
-Once python is installed in your PC you are ready to program. You can compile the script directly from terminal (or command prompt in windows) by calling the built-in interpreter:
+Once Python is installed in your PC you are ready to program. You can compile the script directly from terminal (or command prompt in windows) by calling the built-in interpreter:
 
 ```{python helloworld}
 print("Hello world!")

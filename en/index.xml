@@ -13,14 +13,13 @@
       <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog-neas.github.io/en/seminars/stats-football/</guid>
-      <description>Talk given for xxxxxx SUMMARY DEL SEMINARIO (300/500 parole)
- Github repo  </description>
+      <description>Talk given for Digita Academy  Summary statistics for football matches, such as ball possession and percentage of completed passes, are not always satisfyingly informative about team strategies seen on the pitch. Passing networks and their structural features can be used to evaluate the style of play in terms of passing behavior, analyzing and quantifying interactions among players.  The aim of this seminar is to show how some network-based variables can be related to the level of offensive actions and finalizations for a team.</description>
     </item>
     
     <item>
       <title>Python installation guide</title>
       <link>https://blog-neas.github.io/en/blog-neas/rpyhtoninstall/</link>
-      <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 21 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog-neas.github.io/en/blog-neas/rpyhtoninstall/</guid>
       <description>I will briefly describe the first steps needed to obtain a running version on Python on your PC.

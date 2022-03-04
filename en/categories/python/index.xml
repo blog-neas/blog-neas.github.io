@@ -5,7 +5,7 @@
     <description>Recent content in Python on Lucio Palazzo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Lucio Palazzo</copyright>
-    <lastBuildDate>Sat, 12 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Feb 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://blog-neas.github.io/en/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,7 +13,7 @@
     <item>
       <title>Python installation guide</title>
       <link>https://blog-neas.github.io/en/blog-neas/rpyhtoninstall/</link>
-      <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 21 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog-neas.github.io/en/blog-neas/rpyhtoninstall/</guid>
       <description>
@@ -54,7 +54,7 @@ Note that if you installed an older version of Python, it is possible that it di
 &lt;p&gt;It is possible to verify if Python and pip are correctly installed on Windows from the Command Prompt application:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;Open the Start menu (windows icon) and type &lt;code&gt;cmd&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;click on the Command Prompt application.&lt;/li&gt;
+&lt;li&gt;Click on the Command Prompt application.&lt;/li&gt;
 &lt;li&gt;Type &lt;code&gt;python --version&lt;/code&gt; in the console and press enter.&lt;/li&gt;
 &lt;li&gt;Then enter &lt;code&gt;pip --version&lt;/code&gt; in the console and press enter again.&lt;/li&gt;
 &lt;/ol&gt;
@@ -100,7 +100,7 @@ $ pip --version&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;hello-world&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Hello World!&lt;/h2&gt;
-&lt;p&gt;Once python is installed in your PC you are ready to program. You can compile the script directly from terminal (or command prompt in windows) by calling the built-in interpreter:&lt;/p&gt;
+&lt;p&gt;Once Python is installed in your PC you are ready to program. You can compile the script directly from terminal (or command prompt in windows) by calling the built-in interpreter:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;Hello world!&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Hello world!&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;For instance, a simple segment can be plotted by using few lines of code.&lt;/p&gt;
