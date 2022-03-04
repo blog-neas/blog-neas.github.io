@@ -17,9 +17,8 @@
       
       <guid>https://blog-neas.github.io/en/seminars/stats-football/</guid>
       <description>&lt;h2 id=&#34;talk-given-for-digita-academy&#34;&gt;Talk given for Digita Academy&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;    Summary statistics for football matches, such as ball possession and percentage of completed passes, are not always satisfyingly informative about team strategies seen on the pitch. Passing networks and their structural features can be used to evaluate the style of play in terms of passing behavior, analyzing and quantifying interactions among players.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The aim of this seminar is to show how some network-based variables can be related to the level of offensive actions and finalizations for a team.&lt;/p&gt;
+&lt;p&gt;Summary statistics for football matches, such as ball possession and percentage of completed passes, are not always satisfyingly informative about team strategies seen on the pitch. Passing networks and their structural features can be used to evaluate the style of play in terms of passing behavior, analyzing and quantifying interactions among players.
+The aim of this seminar is to show how some network-based variables can be related to the level of offensive actions and finalizations for a team.&lt;/p&gt;
 &lt;p&gt;Digita is the &amp;ldquo;&lt;em&gt;Digital Transformation &amp;amp; Industry Innovation Academy&lt;/em&gt;&amp;rdquo; of the University of Naples Federico II in partnership with Deloitte Digital, with the aim of providing young undergraduates the competencies required to fill the gap between companies and the Digital Ecosystem.&lt;/p&gt;
 &lt;!-- * [Github repo](tba) ---&gt;
 </description>
