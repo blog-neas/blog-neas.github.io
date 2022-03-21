@@ -26,6 +26,39 @@ class: center, middle, inverse, title-slide
 
 
 
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 70px;
+height: 70px;
+z-index: 0;
+background-image: url(./logo-unina_watermark.png);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:1em;right:1em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('div')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = null
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
 
 # Descrizione Corso
 
@@ -176,11 +209,11 @@ L'obiettivo *latente* del corso è anche quello di imparare ad essere *versatili
 - **Statistical Analysis, Predictive Modeling and Machine Learning**
   + Statistics 1: Introduction to ANOVA, Regression and Logistic Regression
 - **Visual Analytics and Visual Statistics**
-  + SAS Visual Analytics 1 for SAS Viya: Basics
+  + SAS Visual Statistics in SAS Viya: Interactive Model Building
 
 #### Moduli "secondari" (studenti magistrali)
 
-SAS SQL 1, SAS Programming for R Users, Statistics 2, SAS Visual Analytics 2 for SAS Viya, SAS Report Writing 1
+SAS SQL 1, SAS Programming for R Users, Statistics 2, SAS Visual Analytics 1 for SAS Viya, SAS Report Writing 1
 
 .center[.content-box-blue[
 Completare i vari badge è **caldamente suggerito** sia per gli studenti triennali che magistrali
@@ -201,6 +234,12 @@ Completare i vari badge è **caldamente suggerito** sia per gli studenti trienna
 - Report
 
 Saranno introdotti anche alcuni strumenti *di supporto*, come ad esempio markdown e github
+
+---
+layout:false
+class: inverse, middle, center
+
+# Software SAS 
 
 ---
 layout:true
@@ -459,6 +498,119 @@ Finalmente siete connessi a SAS Studio, da qui in poi potete iniziare a lavorare
 ---
 layout:true
 
+# Convalidare i badge SAS
+
+---
+
+Al completamento di ciascun corso in elearning si ottiene un codice univoco in grado di dimostrare di aver seguito e completato con successo i corsi.
+
+Tale codice può essere trasformato in un **digital badge**, un bollino che può essere condiviso principalmente  sui social dedicati allo sviluppo di contatti professionali (es. LinkedIn).
+
+Per poter ottenere il badge è necessario iscriversi (gratuitamente) ad un servizio di credenziali certificate:
+
+- è l'equivalente di un attestato cartaceo
+- generalmente i badge sono legati al conseguimento di un corso elearning (MOOC)
+- link univoco e personale
+- per ciascun corso completato si otterrà un badge diverso
+- utilizzabile su molteplici piattaforme web e nel CV
+
+Per quanto riguarda SAS, faremo uso del portale web **Credly**
+
+---
+
+### Credly: iscrizione 
+
+Link al sito: [**info.credly.com/**](https://info.credly.com/)
+
+&lt;img src="imgSASR/credly0.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Credly: iscrizione 
+
+&lt;img src="imgSASR/credly1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Credly: iscrizione 
+
+&lt;img src="imgSASR/credly2.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ### Credly: aggiungere il badge --&gt;
+
+&lt;!-- da finire --&gt;
+
+---
+
+
+### Credly: profilo personale
+
+In genere il link al profilo personale è del tipo: **credly.com/users/nome-cognome**
+
+.my-pull-left[
+
+Cliccando sui singoli badge si ottengono ulteriori informazioni.
+
+]
+
+.my-pull-right[
+
+&lt;img src="imgSASR/credlybadge0.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+
+---
+
+### Credly: condividere il badge
+
+Link diretto al badge: [**www.credly.com/badges/06686e09-34b7-4266-bd86-4cb33e49ac9b**](https://www.credly.com/badges/06686e09-34b7-4266-bd86-4cb33e49ac9b)
+
+.my-pull-left[
+
+Posso copiare il link della pagina del badge su LinkedIn per condividere con la mia rete il completamento del corso.
+
+]
+
+.my-pull-right[
+
+&lt;img src="imgSASR/credlybadge1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+### Credly: condividere il badge
+
+.my-pull-left[
+
+I potenziali interessati potranno cliccare sul badge ed ottenere ulteriori informazioni:
+
+- tipo di certificato
+- nome del corso
+- titolare del certificato
+- data di completamento
+
+]
+
+.my-pull-right[
+
+&lt;img src="imgSASR/credlybadge2.png" width="33%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+layout:false
+class: inverse, middle, center
+
+# Software R 
+
+---
+layout:true
+
 # Installare R
 
 ---
@@ -642,7 +794,29 @@ Cliccando sull'icona di RStudio sarà possibile accedere al software ed iniziare
 
 ---
 layout:false
-class: center, middle
+
+# Link utili
+
+## SAS
+
+- 🔗 homepage SAS [www.sas.com/it_it/home.html](https://www.sas.com/it_it/home.html)
+
+- 🔗 login SAS Studio [www.sas.com/en_us/software/on-demand-for-academics.html](https://www.sas.com/en_us/software/on-demand-for-academics.html)
+
+- 🔗 Manuale online [support.sas.com/en/documentation.html](https://support.sas.com/en/documentation.html)
+
+- 🔗 homepage Credly [info.credly.com](https://info.credly.com/)
+
+## R
+
+- 🔗 homepage R-CRAN [cran.r-project.org](https://cran.r-project.org/)
+
+- 🔗 homepage RStudio [www.rstudio.com](https://www.rstudio.com/)
+
+
+---
+layout:false
+class: center, middle, hide_logo
 
 &lt;div class="figure" style="text-align: center"&gt;
 &lt;img src="./logo-unina_blue.jpeg" alt="Lucio Palazzo" width="15%" /&gt;
