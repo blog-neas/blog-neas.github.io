@@ -5,10 +5,111 @@
     <description>Recent content in Seminars on Lucio Palazzo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Lucio Palazzo</copyright>
-    <lastBuildDate>Fri, 04 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 06 Apr 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://blog-neas.github.io/en/seminars/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cluster Analysis Workshop</title>
+      <link>https://blog-neas.github.io/en/seminars/inapp2022/</link>
+      <pubDate>Wed, 06 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/inapp2022/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; 06-07 April 2022&lt;br&gt;
+&lt;strong&gt;Location:&lt;/strong&gt; Rome, Italy&lt;/p&gt;
+&lt;h2 id=&#34;workshop-description&#34;&gt;Workshop Description&lt;/h2&gt;
+&lt;p&gt;The workshop illustrates the most popular statistical methods of Automatic Classification based both on the hierarchical approach, with reference to agglomerative algorithms, and on the non-hierarchical or partitive approach. In particular, within the partitive models, the workshop introduces the geometric methods, also mentioning the methods based on Gaussian mixture models.&lt;/p&gt;
+&lt;p&gt;The National Institute for the Analysis of Public Policies (&lt;em&gt;Istituto Nazionale per l&amp;rsquo;Analisi delle Politiche Pubbliche&lt;/em&gt;, INAPP) is a public research organization, which carries out analysis, monitoring and evaluation of labor policies and employment services, education and training policies, social policies and all those public policies that have an effect on the labor market. INAPP collaborates with European institutions and is part of the Italian Statistical System (&lt;em&gt;Sistema Statistico Nazionale&lt;/em&gt;, SISTAN) within which, together with Istat, it represents the only statistical reporting agency.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;Please bring your own laptop with a recent version of R and RStudio installed. Some additional packages are required and they will be presented and installed during the lab session.&lt;/p&gt;
+&lt;p&gt;Participants will be assumed to be familiar with basic statistical tools and with R environment, but no knowledge of advanced statistical modeling and clustering will be assumed.&lt;/p&gt;
+&lt;h2 id=&#34;program&#34;&gt;Program&lt;/h2&gt;
+&lt;!-- 
+&lt;table border=1 cellpadding=2 cellspacing=5 width=100%&gt;
+&lt;col width=&#34;20%&#34;&gt;
+&lt;col width=&#34;65%&#34;&gt;
+&lt;col width=&#34;15%&#34;&gt;
+&lt;tr&gt;
+  &lt;td&gt;09:30 - 13:00&lt;/td&gt;
+  &lt;td&gt;Forecast evaluation&lt;/td&gt;
+  &lt;td&gt;&lt;a href=&#34;https://blog-neas.github.io/acemsforecasting2018/1-Forecast-Evaluation.pdf&#34; target=&#34;_new&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;13:00 - 14:00&lt;/td&gt;
+  &lt;td&gt;&lt;em&gt;Break&lt;/em&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;14:00 - 16:30&lt;/td&gt;
+  &lt;td&gt;Hierarchical forecasting&lt;/td&gt;
+  &lt;td&gt;&lt;a href=&#34;https://blog-neas.github.io/acemsforecasting2018/4-Hierarchical.pdf&#34; target=&#34;_new&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&amp;nbsp;
+ ---&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Day 1&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;09:30 - 13:00&lt;/td&gt;
+&lt;td&gt;Introduction to the concepts of distance, dissimilarity and the measurement of heterogeneity in statistics&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Lab&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;13:00 - 14:00&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Lunch break&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;14:00 - 16:30&lt;/td&gt;
+&lt;td&gt;Hierarchical methods: simple, average, complete linkage and Ward&amp;rsquo;s criterion, choice of number of groups and evaluation of the classification&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Lab&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Day 2&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;09:30 - 13:00&lt;/td&gt;
+&lt;td&gt;Non-hierarchical methods: McQueen&amp;rsquo;s algorithm and the method of k-means, other geometric partitive algorithms&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Lab&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;13:00 - 14:00&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Lunch break&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;14:00 - 16:30&lt;/td&gt;
+&lt;td&gt;Gaussian mixtures: definition of mixture distribution, criteria for estimating mixture parameters and determination of classes&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Lab&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
     
     <item>
       <title>Stats and Football</title>

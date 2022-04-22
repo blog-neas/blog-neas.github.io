@@ -6,7 +6,19 @@
     <description>Recent content on Lucio Palazzo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Lucio Palazzo</copyright>
-    <lastBuildDate>Fri, 04 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cluster Analysis Workshop</title>
+      <link>https://blog-neas.github.io/en/seminars/inapp2022/</link>
+      <pubDate>Wed, 06 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/inapp2022/</guid>
+      <description>Date: 06-07 April 2022
+Location: Rome, Italy
+Workshop Description The workshop illustrates the most popular statistical methods of Automatic Classification based both on the hierarchical approach, with reference to agglomerative algorithms, and on the non-hierarchical or partitive approach. In particular, within the partitive models, the workshop introduces the geometric methods, also mentioning the methods based on Gaussian mixture models.
+The National Institute for the Analysis of Public Policies (Istituto Nazionale per l&amp;rsquo;Analisi delle Politiche Pubbliche, INAPP) is a public research organization, which carries out analysis, monitoring and evaluation of labor policies and employment services, education and training policies, social policies and all those public policies that have an effect on the labor market.</description>
+    </item>
+    
     <item>
       <title>Stats and Football</title>
       <link>https://blog-neas.github.io/en/seminars/stats-football/</link>
@@ -476,8 +488,7 @@ This is a non exhaustive list, please contact me if you have events to advertise
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://blog-neas.github.io/en/research-team/</guid>
-      <description>To Be Announced
-](https://github.com/PuwasalaG) 2. **[Zhuo Li](https://sites.google.com/view/zhuo-li/home)** ## Current PhD students 1. **[Lakshan Bernard](https://acems.org.au/our-people/lakshan-bernard)**. *Analytical tools for future power networks* (PhD, begun 2020). 1. **[Fan Cheng](https://fancheng.me/)**. *Manifold learning on empirical probability distributions* (PhD, begun 2019). [](https://github.com/ffancheng) 1. **[Sayani Gupta](https://sayani.netlify.com/)**. *Visualization of probability distributions of deconstructed temporal data* (PhD, begun 2018). [](https://github.com/Sayani07) 1. **Nuwani Palihawadana**. *Optimal predictor selection for high-dimensional nonparametric forecasting* (PhD, begun 2020). [](https://github.com/nuwani-palihawadana) 1. **[Fin Yang](https://yangzhuoranyang.com/)**. *Forecast reconciliation with linear combinations* (PhD, begun 2020).</description>
+      <description>Main topics for potential bachelor/master thesis  Model-based clustering Machine Learning models (supervised, unsupervised, ensemble methods, adversarial models) Statistical methods in sport analysis Network analysis (triadic census, local clustering coefficient) Genomic and transcriptome data clustering  ](https://github.com/PuwasalaG) 2. **[Zhuo Li](https://sites.google.com/view/zhuo-li/home)** ## Current PhD students 1. **[Lakshan Bernard](https://acems.org.au/our-people/lakshan-bernard)**. *Analytical tools for future power networks* (PhD, begun 2020). 1. **[Fan Cheng](https://fancheng.me/)**. *Manifold learning on empirical probability distributions* (PhD, begun 2019). [](https://github.com/ffancheng) 1. **[Sayani Gupta](https://sayani.</description>
     </item>
     
   </channel>

@@ -3,8 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog-neas.github.io/en/seminars/inapp2022/</loc>
+    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/seminars/inapp2022/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/seminars/inapp2022/"
+                />
+  </url>
+  
+  <url>
     <loc>https://blog-neas.github.io/en/</loc>
-    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="it"
@@ -19,7 +34,7 @@
   
   <url>
     <loc>https://blog-neas.github.io/en/seminars/</loc>
-    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="it"
@@ -35,6 +50,16 @@
   <url>
     <loc>https://blog-neas.github.io/en/seminars/stats-football/</loc>
     <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/seminars/stats-football/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/seminars/stats-football/"
+                />
   </url>
   
   <url>

@@ -5,10 +5,126 @@
     <description>Recent content in Seminars on Lucio Palazzo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Lucio Palazzo</copyright>
-    <lastBuildDate>Thu, 09 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 06 Apr 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://blog-neas.github.io/it/seminars/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cluster Analysis Workshop</title>
+      <link>https://blog-neas.github.io/it/seminars/inapp2022/</link>
+      <pubDate>Wed, 06 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/seminars/inapp2022/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Data:&lt;/strong&gt; 06-07 Aprile 2022&lt;br&gt;
+&lt;strong&gt;Luogo:&lt;/strong&gt; Roma, Italia&lt;/p&gt;
+&lt;h2 id=&#34;descrizione-del-workshop&#34;&gt;Descrizione del Workshop&lt;/h2&gt;
+&lt;p&gt;Il workshop illustra le i metodi statistici più diffusi di Classificazione Automatica basati sia sull&amp;rsquo;approccio gerarchico, con riferimento agli algoritmi agglomerativi, sia sull&amp;rsquo;approccio non gerarchico o partitivo. In particolare, nell’ambito dei modelli partitivi, il workshop presenta i metodi geometrici con alcuni cenni agli metodi basati su modelli di miscugli di gaussiane.&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;Istituto Nazionale per l&amp;rsquo;Analisi delle Politiche Pubbliche (INAPP) è un ente pubblico di ricerca, che svolge analisi, monitoraggio e valutazione delle politiche del lavoro e dei servizi per il lavoro, delle politiche dell’istruzione e della formazione, delle politiche sociali e di tutte quelle politiche pubbliche che hanno effetti sul mercato del lavoro. L&amp;rsquo;INAPP collabora con le istituzioni europee e fa parte del Sistema Statistico Nazionale (SISTAN) all&amp;rsquo;interno del quale, insieme ad Istat, è l&amp;rsquo;unico ente di informazione statistica.&lt;/p&gt;
+&lt;h2 id=&#34;requisiti&#34;&gt;Requisiti&lt;/h2&gt;
+&lt;p&gt;Si raccomanda di portare il proprio laptop con sè, dotato di una versione recente di R e RStudio. Alcuni pacchetti aggiuntivi sono richiesti e saranno presentati ed installati durante le sessioni di laboratorio.&lt;/p&gt;
+&lt;p&gt;Si presume che i partecipanti abbiano familiarità con gli strumenti statistici di base e con l&amp;rsquo;ambiente R, ma non si presuppone alcuna conoscenza avanzata riguardo i modelli statistici e il clustering.&lt;/p&gt;
+&lt;h2 id=&#34;programma&#34;&gt;Programma&lt;/h2&gt;
+&lt;!-- 
+&lt;table border=1 cellpadding=2 cellspacing=5 width=100%&gt;
+&lt;col width=&#34;20%&#34;&gt;
+&lt;col width=&#34;65%&#34;&gt;
+&lt;col width=&#34;15%&#34;&gt;
+&lt;tr&gt;
+  &lt;td&gt;09:30 - 13:00&lt;/td&gt;
+  &lt;td&gt;Forecast evaluation&lt;/td&gt;
+  &lt;td&gt;&lt;a href=&#34;https://blog-neas.github.io/acemsforecasting2018/1-Forecast-Evaluation.pdf&#34; target=&#34;_new&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;13:00 - 14:00&lt;/td&gt;
+  &lt;td&gt;&lt;em&gt;Break&lt;/em&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;14:00 - 16:30&lt;/td&gt;
+  &lt;td&gt;Hierarchical forecasting&lt;/td&gt;
+  &lt;td&gt;&lt;a href=&#34;https://blog-neas.github.io/acemsforecasting2018/4-Hierarchical.pdf&#34; target=&#34;_new&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&amp;nbsp;
+ ---&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Giorno 1&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;09:30 - 13:00&lt;/td&gt;
+&lt;td&gt;Richiami ai concetti di distanza, prossimità e alla misura dell&amp;rsquo;eterogeneità in statistica&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Lab&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;13:00 - 14:00&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Pausa pranzo&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;14:00 - 16:30&lt;/td&gt;
+&lt;td&gt;Metodi gerarchici: legame semplice, medio, completo e criterio di Ward, scelta del numero di gruppi e valutazione della classificazione&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Lab&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Giorno 2&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;09:30 - 13:00&lt;/td&gt;
+&lt;td&gt;Metodi non gerarchici: l&amp;rsquo;algoritmo di McQueen e il metodo delle k-medie, altri algoritmi partitivi di tipo geometrico&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Lab&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;13:00 - 14:00&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Pausa pranzo&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;14:00 - 16:30&lt;/td&gt;
+&lt;td&gt;Miscugli di Gaussiane: definizione di distribuzione miscuglio, criterio di stima dei parametri del miscuglio e determinazione delle classi&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Lab&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!-- * [Github repo](tba) ---&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Stats and Football</title>
+      <link>https://blog-neas.github.io/it/seminars/stats-football/</link>
+      <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/seminars/stats-football/</guid>
+      <description>&lt;h2 id=&#34;seminario-per-digita-academy&#34;&gt;Seminario per Digita Academy&lt;/h2&gt;
+&lt;p&gt;Le statistiche legate alle partite di calcio, come il possesso palla e la percentuale di passaggi completati, non sono sempre sufficientemente informative delle strategie di squadra viste in campo. Le reti dei passaggi e le loro caratteristiche strutturali possono essere utilizzate per valutare lo stile di gioco in base alla struttura dei passaggi, analizzando e quantificando le interazioni tra i giocatori.
+Lo scopo di questo seminario è quello di mostrare come alcune variabili basate sulla rete possono essere correlate al livello di azioni e finalizzazioni offensive di una squadra.&lt;/p&gt;
+&lt;p&gt;Digita è la &amp;ldquo;&lt;em&gt;Digital Transformation &amp;amp; Industry Innovation Academy&lt;/em&gt;&amp;rdquo; dell&amp;rsquo;Università degli studi di Napoli Federico II, in partnership con Deloitte Digital, con l&amp;rsquo;obiettivo di fornire ai giovani laureandi le competenze necessarie a colmare il gap tra le aziende e l&amp;rsquo;ecosistema digitale.&lt;/p&gt;
+&lt;!-- * [Github repo](tba) ---&gt;
+</description>
+    </item>
     
     <item>
       <title>Start-ups and incubators: a two-mode network of Italian emerging firms</title>

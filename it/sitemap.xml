@@ -3,6 +3,66 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog-neas.github.io/it/seminars/inapp2022/</loc>
+    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/seminars/inapp2022/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/seminars/inapp2022/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/</loc>
+    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/seminars/</loc>
+    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/seminars/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/seminars/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/seminars/stats-football/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/seminars/stats-football/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/seminars/stats-football/"
+                />
+  </url>
+  
+  <url>
     <loc>https://blog-neas.github.io/it/blog-neas/</loc>
     <lastmod>2022-02-12T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -35,21 +95,6 @@
   <url>
     <loc>https://blog-neas.github.io/it/categories/installazione/</loc>
     <lastmod>2022-02-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/it/</loc>
-    <lastmod>2022-02-12T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/"
-                />
   </url>
   
   <url>
@@ -494,21 +539,6 @@
                 rel="alternate"
                 hreflang="it"
                 href="https://blog-neas.github.io/it/tags/text-mining/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/it/seminars/</loc>
-    <lastmod>2021-09-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/seminars/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/seminars/"
                 />
   </url>
   
