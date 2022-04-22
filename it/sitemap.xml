@@ -1811,6 +1811,20 @@
   </url>
   
   <url>
+    <loc>https://blog-neas.github.io/it/research-team/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/research-team/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/research-team/"
+                />
+  </url>
+  
+  <url>
     <loc>https://blog-neas.github.io/it/in-the-news/</loc>
     <xhtml:link
                 rel="alternate"
@@ -1835,20 +1849,6 @@
                 rel="alternate"
                 hreflang="it"
                 href="https://blog-neas.github.io/it/tags/linear-circular-data./"
-                />
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/it/research-team/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/research-team/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/research-team/"
                 />
   </url>
   
