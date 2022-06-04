@@ -1,14 +1,14 @@
 ---
-date: 2022-02-21
-slug: rpyhtoninstall
 title: "Python installation guide"
-mathjax: true
+slug: rpyhtoninstall
+date: '2022-02-21'
+mathjax: yes
 categories:
-  - Python
-  - Statistics
-  - Software
-  - Installation
-  - Tutorial
+- Python
+- Statistics
+- Software
+- Installation
+- Tutorial
 bibliography: ../../../static/biblio/bibliography.bib
 ---
 
