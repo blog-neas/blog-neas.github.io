@@ -2,7 +2,7 @@
 <html class="no-js" lang="en-US">
   <head>
     <meta charset="utf-8">
-    <title>Cluster Analysis Workshop | Lucio Palazzo</title>
+    <title>Power Analysis: main sources of statistical error, sample size, effect size and power of a test | Lucio Palazzo</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preload" href="https://blog-neas.github.io/fonts/academicons.ttf?v=1.7.0" as="font">
@@ -98,14 +98,14 @@ var ml_account = ml('accounts', '3217732', 'q9y4a1d8i3', 'load');
 <div class="wrapper">
 <div class="units-row" style='margin-bottom: 0px;'>
 <div class="unit-20">&nbsp;</div>
-<div class="unit-70"><h1>Cluster Analysis Workshop</h1></div>
+<div class="unit-70"><h1>Power Analysis: main sources of statistical error, sample size, effect size and power of a test</h1></div>
 </div>
 <div class="units-row">
   <div class="unit-20 dateblock" style='text-align: right;'>
-                  6&nbsp;April&nbsp;2022<br>
+                  9&nbsp;May&nbsp;2022<br>
                   
                   
-                  INAPP
+                  PhD Course
                   
                   
     </div>
@@ -126,15 +126,18 @@ var ml_account = ml('accounts', '3217732', 'q9y4a1d8i3', 'load');
       
       
       
-       <div class="pub-content"><p><strong>Date:</strong> 06-07 April 2022<br>
-<strong>Location:</strong> Rome, Italy</p>
-<h2 id="workshop-description">Workshop Description</h2>
-<p>The workshop illustrates the most popular statistical methods of Automatic Classification based both on the hierarchical approach, with reference to agglomerative algorithms, and on the non-hierarchical or partitive approach. In particular, within the partitive models, the workshop introduces the geometric methods, also mentioning the methods based on Gaussian mixture models.</p>
-<p>The National Institute for the Analysis of Public Policies (<em>Istituto Nazionale per l&rsquo;Analisi delle Politiche Pubbliche</em>, INAPP) is a public research organization, which carries out analysis, monitoring and evaluation of labor policies and employment services, education and training policies, social policies and all those public policies that have an effect on the labor market. INAPP collaborates with European institutions and is part of the Italian Statistical System (<em>Sistema Statistico Nazionale</em>, SISTAN) within which, together with Istat, it represents the only statistical reporting agency.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>Please bring your own laptop with a recent version of R and RStudio installed. Some additional packages are required and they will be presented and installed during the lab session.</p>
-<p>Participants will be assumed to be familiar with basic statistical tools and with R environment, but no knowledge of advanced statistical modeling and clustering will be assumed.</p>
-<h2 id="program">Program</h2>
+       <div class="pub-content"><p><strong>Data:</strong> 09, 16 Maggio 2022<br>
+<strong>Luogo:</strong> Meeting Hall - Psychology - Porta di Massa road 1, Napoli, Italy</p>
+<p>This course has been taught in Italian.</p>
+<p>Invited professor at the PhD School &ldquo;Mind, Gender and Language&rdquo; of the Department of Humanities as part of the &ldquo;Statistical Methodologies in Psychosocial Research&rdquo; PhD lectures.</p>
+<h2 id="outline-of-the-course">Outline of the course</h2>
+<p>Any measurement entails a source of uncertainty that cannot be eliminated and can significantly affect the results of a statistical analysis. Every time a survey is carried out, several decisions must be made: among them, the choice of sample size plays a crucial role.</p>
+<p>The power of a statistical test allows to control the probability of making incorrect decisions, to assess the reliability of a study and to determine the (ideal) sample size required to obtain statistically significant results.
+In this context, power analysis is generally used at the beginning of a research project to determine a proper sample size.</p>
+<p>The first seminar will focus on the main concepts concerning the sampling theory (sample collection and selection), with special emphasis on the main sources of sampling error, while the second part of the seminar will focus on statistical test theory and the study of the power of a test. The topics covered will be accompanied by various applications and, in addition, G*Power software will be introduced as a tool for performing power analysis.</p>
+<h2 id="main-requirements">Main requirements</h2>
+<p>Participants are expected to have basic statistical knowledge but no specialized knowledge is required. It is recommended that participants have a PC with the G*Power software previously installed in order to carry out the exercises. In conclusion, some R software packages (especially <code>pwr</code> and <code>simglm</code>) used to apply Power analysis in different contexts will also be introduced for demonstration purposes.</p>
+<h2 id="syllabus">Syllabus</h2>
 <!-- 
 <table border=1 cellpadding=2 cellspacing=5 width=100%>
 <col width="20%">
@@ -161,7 +164,7 @@ var ml_account = ml('accounts', '3217732', 'q9y4a1d8i3', 'load');
 <table>
 <thead>
 <tr>
-<th><strong>Day 1</strong></th>
+<th><strong>Giorno 1</strong></th>
 <th></th>
 <th></th>
 <th></th>
@@ -169,20 +172,14 @@ var ml_account = ml('accounts', '3217732', 'q9y4a1d8i3', 'load');
 </thead>
 <tbody>
 <tr>
-<td>09:30 - 13:00</td>
-<td>Introduction to the concepts of distance, dissimilarity and the measurement of heterogeneity in statistics</td>
-<td><a href="...">Slides</a></td>
-<td><a href="...">Lab</a></td>
-</tr>
-<tr>
-<td>13:00 - 14:00</td>
-<td><em>Lunch break</em></td>
+<td>09:00 - 11:00</td>
+<td>Reminders to the concepts of sample theory: the steps of statistical investigation. The main sources of sampling error. Sample size</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>14:00 - 16:30</td>
-<td>Hierarchical methods: simple, average, complete linkage and Ward&rsquo;s criterion, choice of number of groups and evaluation of the classification</td>
+<td>11:00 - 13:00</td>
+<td>Examples of statistical surveys: the case of secondary school students. Focus: drawbacks of surveys administered through social media</td>
 <td><a href="...">Slides</a></td>
 <td><a href="...">Lab</a></td>
 </tr>
@@ -191,7 +188,7 @@ var ml_account = ml('accounts', '3217732', 'q9y4a1d8i3', 'load');
 <table>
 <thead>
 <tr>
-<th><strong>Day 2</strong></th>
+<th><strong>Giorno 2</strong></th>
 <th></th>
 <th></th>
 <th></th>
@@ -199,33 +196,27 @@ var ml_account = ml('accounts', '3217732', 'q9y4a1d8i3', 'load');
 </thead>
 <tbody>
 <tr>
-<td>09:30 - 13:00</td>
-<td>Non-hierarchical methods: McQueen&rsquo;s algorithm and the method of k-means, other geometric partitive algorithms</td>
-<td><a href="...">Slides</a></td>
-<td><a href="...">Lab</a></td>
-</tr>
-<tr>
-<td>13:00 - 14:00</td>
-<td><em>Lunch break</em></td>
+<td>09:00 - 11:00</td>
+<td>Recalls to asymptotic statistical theory, central limit theorem, confidence intervals and tests</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>14:00 - 16:30</td>
-<td>Gaussian mixtures: definition of mixture distribution, criteria for estimating mixture parameters and determination of classes</td>
+<td>11:00 - 13:00</td>
+<td>Power analysis: interpretation and evaluation of a test, sample size and effect size. Application with G*Power and demonstration of power analysis with R software</td>
 <td><a href="...">Slides</a></td>
 <td><a href="...">Lab</a></td>
 </tr>
 </tbody>
 </table>
+<!-- * [Github repo](tba) --->
 </div>
        </article>
 
           <hr>
         <span style="font-family: Carlito;">
         
-        <a href="https://blog-neas.github.io/en/seminars/stats-football/"> &laquo;&nbsp;Stats and Football</a>  | <a href="https://blog-neas.github.io/en/seminars/psi2022/">Power Analysis: main sources of statistical error, sample size, effect size and power of a test&nbsp;&raquo; </a>
-        
+        <a href="https://blog-neas.github.io/en/seminars/inapp2022/"> &laquo;&nbsp;Cluster Analysis Workshop</a> 
         </span>
   </div>
   </div>

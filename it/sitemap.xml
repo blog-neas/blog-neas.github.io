@@ -20,6 +20,16 @@
   <url>
     <loc>https://blog-neas.github.io/it/seminars/psi2022/</loc>
     <lastmod>2022-05-09T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/seminars/psi2022/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/seminars/psi2022/"
+                />
   </url>
   
   <url>
