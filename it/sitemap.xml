@@ -3,23 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog-neas.github.io/it/seminars/inapp2022/</loc>
-    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/seminars/inapp2022/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/seminars/inapp2022/"
-                />
-  </url>
-  
-  <url>
     <loc>https://blog-neas.github.io/it/</loc>
-    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -34,12 +19,12 @@
   
   <url>
     <loc>https://blog-neas.github.io/it/seminars/psi2022/</loc>
-    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog-neas.github.io/it/seminars/</loc>
-    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -49,6 +34,21 @@
                 rel="alternate"
                 hreflang="it"
                 href="https://blog-neas.github.io/it/seminars/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/seminars/inapp2022/</loc>
+    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/seminars/inapp2022/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/seminars/inapp2022/"
                 />
   </url>
   

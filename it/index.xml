@@ -6,7 +6,19 @@
     <description>Recent content on Lucio Palazzo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Lucio Palazzo</copyright>
-    <lastBuildDate>Wed, 06 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Power Analysis: principali fonti di errore statistico, calcolo della sample size ed effect size, potenza dei test</title>
+      <link>https://blog-neas.github.io/it/seminars/psi2022/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/seminars/psi2022/</guid>
+      <description>Data: 09, 16 Maggio 2022
+Luogo: Sala Riunioni - sezione Psicologia - Via Porta di Massa 1, Napoli, Italia
+Descrizione Incarico di insegnamento nell&amp;rsquo;ambito della Scuola di Dottorato di Ricerca &amp;ldquo;Mind, Gender and Language&amp;rdquo; del Dipartimento di Studi Umanistici. facente parte del ciclo &amp;ldquo;Metodologie statistiche nell’ambito della ricerca psico-sociale&amp;rdquo;.
+Descrizione del Corso Qualsiasi misurazione, sia effettuata una sola volta sia ripetuta più volte, è accompagnata da una fonte di incertezza non eliminabile che può influenzare significativamente i risultati di un&amp;rsquo;analisi statistica.</description>
+    </item>
+    
     <item>
       <title>Cluster Analysis Workshop</title>
       <link>https://blog-neas.github.io/it/seminars/inapp2022/</link>
@@ -17,18 +29,6 @@
 Luogo: Roma, Italia
 Descrizione del Workshop Il workshop illustra le i metodi statistici più diffusi di Classificazione Automatica basati sia sull&amp;rsquo;approccio gerarchico, con riferimento agli algoritmi agglomerativi, sia sull&amp;rsquo;approccio non gerarchico o partitivo. In particolare, nell’ambito dei modelli partitivi, il workshop presenta i metodi geometrici con alcuni cenni agli metodi basati su modelli di miscugli di gaussiane.
 L&amp;rsquo;Istituto Nazionale per l&amp;rsquo;Analisi delle Politiche Pubbliche (INAPP) è un ente pubblico di ricerca, che svolge analisi, monitoraggio e valutazione delle politiche del lavoro e dei servizi per il lavoro, delle politiche dell’istruzione e della formazione, delle politiche sociali e di tutte quelle politiche pubbliche che hanno effetti sul mercato del lavoro.</description>
-    </item>
-    
-    <item>
-      <title>Power Analysis: principali fonti di errore statistico, calcolo della sample size ed effect size, potenza dei test</title>
-      <link>https://blog-neas.github.io/it/seminars/psi2022/</link>
-      <pubDate>Wed, 06 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog-neas.github.io/it/seminars/psi2022/</guid>
-      <description>Data: 09, 16 Maggio 2022
-Luogo: Sala Riunioni - sezione Psicologia - Via Porta di Massa 1, Napoli, Italia
-Descrizione Incarico di insegnamento nell&amp;rsquo;ambito della Scuola di Dottorato di Ricerca &amp;ldquo;Mind, Gender and Language&amp;rdquo; del Dipartimento di Studi Umanistici. facente parte del ciclo &amp;ldquo;Metodologie statistiche nell’ambito della ricerca psico-sociale&amp;rdquo;.
-Descrizione del Corso Qualsiasi misurazione, sia effettuata una sola volta sia ripetuta più volte, è accompagnata da una fonte di incertezza non eliminabile che può influenzare significativamente i risultati di un&amp;rsquo;analisi statistica.</description>
     </item>
     
     <item>

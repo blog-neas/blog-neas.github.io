@@ -5,10 +5,103 @@
     <description>Recent content in Seminars on Lucio Palazzo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Lucio Palazzo</copyright>
-    <lastBuildDate>Wed, 06 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://blog-neas.github.io/it/seminars/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Power Analysis: principali fonti di errore statistico, calcolo della sample size ed effect size, potenza dei test</title>
+      <link>https://blog-neas.github.io/it/seminars/psi2022/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/seminars/psi2022/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Data:&lt;/strong&gt; 09, 16 Maggio 2022&lt;br&gt;
+&lt;strong&gt;Luogo:&lt;/strong&gt; Sala Riunioni - sezione Psicologia - Via Porta di Massa 1, Napoli, Italia&lt;/p&gt;
+&lt;h2 id=&#34;descrizione&#34;&gt;Descrizione&lt;/h2&gt;
+&lt;p&gt;Incarico di insegnamento nell&amp;rsquo;ambito della Scuola di Dottorato di Ricerca &amp;ldquo;Mind, Gender and Language&amp;rdquo; del Dipartimento di Studi Umanistici. facente parte del ciclo &amp;ldquo;Metodologie statistiche nell’ambito della ricerca psico-sociale&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id=&#34;descrizione-del-corso&#34;&gt;Descrizione del Corso&lt;/h2&gt;
+&lt;p&gt;Qualsiasi misurazione, sia effettuata una sola volta sia ripetuta più volte, è accompagnata da una fonte di incertezza non eliminabile che può influenzare significativamente i risultati di un&amp;rsquo;analisi statistica. Ogni volta che si effettua una ricerca è necessario infatti effettuare diverse decisioni: tra queste, la scelta dell&amp;rsquo;ampiezza del campione riveste un ruolo cruciale.&lt;/p&gt;
+&lt;p&gt;La potenza di un test statistico permette di controllare la probabilità di prendere decisioni errate, di valutare l&amp;rsquo;attendibilità di uno studio e di determinare quale è la numerosità campionaria necessaria per ottenere risultati statisticamente significativi.
+L&amp;rsquo;analisi della potenza (in inglese, power analysis) viene generalmete adoperata all&amp;rsquo;inizio di un progetto di ricerca per determinare una corretta numerosità campionaria.&lt;/p&gt;
+&lt;p&gt;Il primo seminario sarà incentrato sui metodi statistici per la raccolta e la selezione dei campioni, con particolare enfasi sulle principali fonti di errore campionario, mentre la seconda parte del seminario sarà incentrata sulla teoria dei test statistici e sullo studio della potenza dei test. Gli argomenti trattati saranno accompagnati da diverse applicazioni ed, inoltre, sarà introdotto il software G*Power come strumento per effettuare l’analisi di potenza.&lt;/p&gt;
+&lt;h2 id=&#34;requisiti-e-dotazioni&#34;&gt;Requisiti e dotazioni&lt;/h2&gt;
+&lt;p&gt;Si presume che i partecipanti abbiano conoscenze statistiche di base ma non si presuppone alcuna conoscenza specialistica. Si raccomanda di avere con sé un PC con il software G*Power installato per poter svolgere le esercitazioni. Saranno inoltre introdotti a titolo dimostrativo alcuni pacchetti del software R (in particolare &lt;code&gt;pwr&lt;/code&gt; e &lt;code&gt;simglm&lt;/code&gt;) utilizzati per applicare la Power analysis in differenti contesti.&lt;/p&gt;
+&lt;h2 id=&#34;programma&#34;&gt;Programma&lt;/h2&gt;
+&lt;!-- 
+&lt;table border=1 cellpadding=2 cellspacing=5 width=100%&gt;
+&lt;col width=&#34;20%&#34;&gt;
+&lt;col width=&#34;65%&#34;&gt;
+&lt;col width=&#34;15%&#34;&gt;
+&lt;tr&gt;
+  &lt;td&gt;09:30 - 13:00&lt;/td&gt;
+  &lt;td&gt;Forecast evaluation&lt;/td&gt;
+  &lt;td&gt;&lt;a href=&#34;https://blog-neas.github.io/acemsforecasting2018/1-Forecast-Evaluation.pdf&#34; target=&#34;_new&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;13:00 - 14:00&lt;/td&gt;
+  &lt;td&gt;&lt;em&gt;Break&lt;/em&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;14:00 - 16:30&lt;/td&gt;
+  &lt;td&gt;Hierarchical forecasting&lt;/td&gt;
+  &lt;td&gt;&lt;a href=&#34;https://blog-neas.github.io/acemsforecasting2018/4-Hierarchical.pdf&#34; target=&#34;_new&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&amp;nbsp;
+ ---&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Giorno 1&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;09:00 - 11:00&lt;/td&gt;
+&lt;td&gt;Richiami ai concetti della teoria dei campioni: le fasi dell&amp;rsquo;indagine statistica. Le principali fonti di errore campionario. Ampiezza campionaria&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;11:00 - 13:00&lt;/td&gt;
+&lt;td&gt;Esempi di indagini statistiche: il caso della scuola secondaria di secondo grado. Focus: le indagini somministrate via social&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Lab&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Giorno 2&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;09:00 - 11:00&lt;/td&gt;
+&lt;td&gt;Richiami alla teoria statistica asintotica, teorema del limite centrale, intervalli di confidenza e test&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;11:00 - 13:00&lt;/td&gt;
+&lt;td&gt;La power analysis: interpretazione e valutazione del test, sample size ed effect size. Esercitazione con G*Power e cenni alla power analysis con il software R&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Lab&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!-- * [Github repo](tba) ---&gt;
+</description>
+    </item>
     
     <item>
       <title>Cluster Analysis Workshop</title>
@@ -103,99 +196,6 @@
 &lt;tr&gt;
 &lt;td&gt;14:00 - 16:30&lt;/td&gt;
 &lt;td&gt;Miscugli di Gaussiane: definizione di distribuzione miscuglio, criterio di stima dei parametri del miscuglio e determinazione delle classi&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Lab&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;!-- * [Github repo](tba) ---&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Power Analysis: principali fonti di errore statistico, calcolo della sample size ed effect size, potenza dei test</title>
-      <link>https://blog-neas.github.io/it/seminars/psi2022/</link>
-      <pubDate>Wed, 06 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog-neas.github.io/it/seminars/psi2022/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Data:&lt;/strong&gt; 09, 16 Maggio 2022&lt;br&gt;
-&lt;strong&gt;Luogo:&lt;/strong&gt; Sala Riunioni - sezione Psicologia - Via Porta di Massa 1, Napoli, Italia&lt;/p&gt;
-&lt;h2 id=&#34;descrizione&#34;&gt;Descrizione&lt;/h2&gt;
-&lt;p&gt;Incarico di insegnamento nell&amp;rsquo;ambito della Scuola di Dottorato di Ricerca &amp;ldquo;Mind, Gender and Language&amp;rdquo; del Dipartimento di Studi Umanistici. facente parte del ciclo &amp;ldquo;Metodologie statistiche nell’ambito della ricerca psico-sociale&amp;rdquo;.&lt;/p&gt;
-&lt;h2 id=&#34;descrizione-del-corso&#34;&gt;Descrizione del Corso&lt;/h2&gt;
-&lt;p&gt;Qualsiasi misurazione, sia effettuata una sola volta sia ripetuta più volte, è accompagnata da una fonte di incertezza non eliminabile che può influenzare significativamente i risultati di un&amp;rsquo;analisi statistica. Ogni volta che si effettua una ricerca è necessario infatti effettuare diverse decisioni: tra queste, la scelta dell&amp;rsquo;ampiezza del campione riveste un ruolo cruciale.&lt;/p&gt;
-&lt;p&gt;La potenza di un test statistico permette di controllare la probabilità di prendere decisioni errate, di valutare l&amp;rsquo;attendibilità di uno studio e di determinare quale è la numerosità campionaria necessaria per ottenere risultati statisticamente significativi.
-L&amp;rsquo;analisi della potenza (in inglese, power analysis) viene generalmete adoperata all&amp;rsquo;inizio di un progetto di ricerca per determinare una corretta numerosità campionaria.&lt;/p&gt;
-&lt;p&gt;Il primo seminario sarà incentrato sui metodi statistici per la raccolta e la selezione dei campioni, con particolare enfasi sulle principali fonti di errore campionario, mentre la seconda parte del seminario sarà incentrata sulla teoria dei test statistici e sullo studio della potenza dei test. Gli argomenti trattati saranno accompagnati da diverse applicazioni ed, inoltre, sarà introdotto il software G*Power come strumento per effettuare l’analisi di potenza.&lt;/p&gt;
-&lt;h2 id=&#34;requisiti-e-dotazioni&#34;&gt;Requisiti e dotazioni&lt;/h2&gt;
-&lt;p&gt;Si presume che i partecipanti abbiano conoscenze statistiche di base ma non si presuppone alcuna conoscenza specialistica. Si raccomanda di avere con sé un PC con il software G*Power installato per poter svolgere le esercitazioni. Saranno inoltre introdotti a titolo dimostrativo alcuni pacchetti del software R (in particolare &lt;code&gt;pwr&lt;/code&gt; e &lt;code&gt;simglm&lt;/code&gt;) utilizzati per applicare la Power analysis in differenti contesti.&lt;/p&gt;
-&lt;h2 id=&#34;programma&#34;&gt;Programma&lt;/h2&gt;
-&lt;!-- 
-&lt;table border=1 cellpadding=2 cellspacing=5 width=100%&gt;
-&lt;col width=&#34;20%&#34;&gt;
-&lt;col width=&#34;65%&#34;&gt;
-&lt;col width=&#34;15%&#34;&gt;
-&lt;tr&gt;
-  &lt;td&gt;09:30 - 13:00&lt;/td&gt;
-  &lt;td&gt;Forecast evaluation&lt;/td&gt;
-  &lt;td&gt;&lt;a href=&#34;https://blog-neas.github.io/acemsforecasting2018/1-Forecast-Evaluation.pdf&#34; target=&#34;_new&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-  &lt;td&gt;13:00 - 14:00&lt;/td&gt;
-  &lt;td&gt;&lt;em&gt;Break&lt;/em&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-  &lt;td&gt;14:00 - 16:30&lt;/td&gt;
-  &lt;td&gt;Hierarchical forecasting&lt;/td&gt;
-  &lt;td&gt;&lt;a href=&#34;https://blog-neas.github.io/acemsforecasting2018/4-Hierarchical.pdf&#34; target=&#34;_new&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-
-&amp;nbsp;
- ---&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;strong&gt;Giorno 1&lt;/strong&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;09:00 - 11:00&lt;/td&gt;
-&lt;td&gt;Richiami ai concetti della teoria dei campioni: le fasi dell&amp;rsquo;indagine statistica. Le principali fonti di errore campionario. Ampiezza campionaria&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;11:00 - 13:00&lt;/td&gt;
-&lt;td&gt;Esempi di indagini statistiche: il caso della scuola secondaria di secondo grado. Focus: le indagini somministrate via social&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;...&#34;&gt;Lab&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;strong&gt;Giorno 2&lt;/strong&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;09:00 - 11:00&lt;/td&gt;
-&lt;td&gt;Richiami alla teoria statistica asintotica, teorema del limite centrale, intervalli di confidenza e test&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;11:00 - 13:00&lt;/td&gt;
-&lt;td&gt;La power analysis: interpretazione e valutazione del test, sample size ed effect size. Esercitazione con G*Power e cenni alla power analysis con il software R&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;...&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;...&#34;&gt;Lab&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
