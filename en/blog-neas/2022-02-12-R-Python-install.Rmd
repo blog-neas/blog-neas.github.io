@@ -129,7 +129,7 @@ IDEs are softwares dedicated to programming, integrating several tools specifica
 
  * [**Python download main page:**](https://www.python.org/downloads/) here you can find a list of all the versions for each supported operating system.
  * [**Python IDEs:**](https://wiki.python.org/moin/IntegratedDevelopmentEnvironments) list of Python's most popular Integrated Development Environments.
- * [**Pip troubleshooting**](https://www.makeuseof.com/tag/install-pip-for-python/) is pip installed correctly? follow this guide to solve (almost) any problem! You can also check the [*official pip documentation*](https://pip.pypa.io/en/stable/installation/) page for additional informations.
+ * [**Pip troubleshooting**](https://www.makeuseof.com/tag/install-pip-for-python/) is pip installed correctly? follow this guide to solve (almost) any problem! You can also check the [*official pip documentation*](https://pip.pypa.io/en/stable/installation/) page for additional information.
  * [**Python 2 forever:**](https://www.infoworld.com/article/3194915/python-2-forever-3-projects-that-will-keep-python-2-alive.html) this article discusses the longevity of older Python 2.xx versions, also providing some popular projects as example.
  * [**Differences between Python 2.xx and 3.xx:**](https://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html) Sebastian Raschka highlights the major differences between the two versions of Python.
 
