@@ -5,10 +5,20 @@
     <description>Recent content in Publications on Lucio Palazzo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Lucio Palazzo</copyright>
-    <lastBuildDate>Mon, 13 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 May 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://blog-neas.github.io/en/publications/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Searching for the determinants of new social enterprises: the case of Italian social start-ups</title>
+      <link>https://blog-neas.github.io/en/publications/determinants-siavs-ijas/</link>
+      <pubDate>Tue, 17 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/publications/determinants-siavs-ijas/</guid>
+      <description>&lt;p&gt;Social start-ups constitute a subclass of the innovative entrepreneurship market and they are a relatively new topic in the literature from both the scientific and normative perspectives. In Italy, a start-up can be registered as social-oriented innovative startup (SIAVS), after demonstrating its ability to make social impacts and satisfy a set of normative requirements. This paper describes and models (at the territorial level) the presence of these innovative companies focused on social, cultural, and/or environmental needs. We combine data on the number of SIAVS and other start-ups in Italy with other socio economic quantities at the territorial level (NUTS 3 regions). Variables such as population density, metropolitan cities, number of certified incubators and percentage of non-profit organisations are identified as determinants of new social enterprises through the application of generalised linear models, while also considering the presence of zero inflation.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Local clustering coefficient to measure intra-regional tourism in Italy</title>
@@ -19,16 +29,6 @@
       <description>&lt;p&gt;Network analysis represents a useful approach to measure intra-regional tourism flows. Relevant information about this phenomenon can be retrieved using Network Analysis local clustering coefficient (LCC). In this work we study Italian tourism flows in two-year period 2018-2019, identifying different patterns and two main groups of regions.
 This preliminary study shows the potential of LCCs to evaluate the effects of tourism policies in terms of attractiveness and receptivity of a region (or groups of regions).
 Future steps would involve the study of tourism flows in a multidimensional perspective, including in the analysis other relevant aspects such as geography, climate, culture and politics.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Searching for the determinants of new social enterprises: the case of Italian social start-ups</title>
-      <link>https://blog-neas.github.io/en/publications/determinants-siavs-ijas/</link>
-      <pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog-neas.github.io/en/publications/determinants-siavs-ijas/</guid>
-      <description>&lt;p&gt;Social start-ups constitute a subclass of the innovative entrepreneurship market and they are a relatively new topic in the literature from both the scientific and normative perspectives. In Italy, a start-up can be registered as social-oriented innovative startup (SIAVS), after demonstrating its ability to make social impacts and satisfy a set of normative requirements. This paper describes and models (at the territorial level) the presence of these innovative companies focused on social, cultural, and/or environmental needs. We combine data on the number of SIAVS and other start-ups in Italy with other socio economic quantities at the territorial level (NUTS 3 regions). Variables such as population density, metropolitan cities, number of certified incubators and percentage of non-profit organisations are identified as determinants of new social enterprises through the application of generalised linear models, while also considering the presence of zero inflation.&lt;/p&gt;
 </description>
     </item>
     

@@ -3,8 +3,38 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog-neas.github.io/en/tags/count-models/</loc>
+    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/tags/count-models/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/tags/count-models/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/en/tags/generalized-linear-models/</loc>
+    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/tags/generalized-linear-models/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/tags/generalized-linear-models/"
+                />
+  </url>
+  
+  <url>
     <loc>https://blog-neas.github.io/en/</loc>
-    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="it"
@@ -14,6 +44,96 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://blog-neas.github.io/en/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/en/publications/</loc>
+    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/publications/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/publications/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/en/publications/determinants-siavs-ijas/</loc>
+    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/publications/determinants-siavs-ijas/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/publications/determinants-siavs-ijas/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/en/tags/social-entrepreneurship/</loc>
+    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/tags/social-entrepreneurship/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/tags/social-entrepreneurship/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/en/tags/start-ups/</loc>
+    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/tags/start-ups/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/tags/start-ups/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/en/tags/</loc>
+    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/en/tags/zero-inflation/</loc>
+    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/tags/zero-inflation/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/tags/zero-inflation/"
                 />
   </url>
   
@@ -333,36 +453,6 @@
   </url>
   
   <url>
-    <loc>https://blog-neas.github.io/en/publications/</loc>
-    <lastmod>2021-12-13T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/publications/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/publications/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/en/tags/</loc>
-    <lastmod>2021-12-13T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/tags/"
-                />
-  </url>
-  
-  <url>
     <loc>https://blog-neas.github.io/en/tags/tourism-circle/</loc>
     <lastmod>2021-12-13T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -389,96 +479,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://blog-neas.github.io/en/tags/tourism-flows/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/en/tags/count-models/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/tags/count-models/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/tags/count-models/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/en/tags/generalized-linear-models/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/tags/generalized-linear-models/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/tags/generalized-linear-models/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/en/publications/determinants-siavs-ijas/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/publications/determinants-siavs-ijas/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/publications/determinants-siavs-ijas/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/en/tags/social-entrepreneurship/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/tags/social-entrepreneurship/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/tags/social-entrepreneurship/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/en/tags/start-ups/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/tags/start-ups/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/tags/start-ups/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/en/tags/zero-inflation/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/tags/zero-inflation/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/tags/zero-inflation/"
                 />
   </url>
   
