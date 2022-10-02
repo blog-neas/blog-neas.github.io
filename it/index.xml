@@ -6,7 +6,52 @@
     <description>Recent content on Lucio Palazzo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Lucio Palazzo</copyright>
-    <lastBuildDate>Tue, 17 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/it/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Detecting Differences in Italian Regional Health Services During Two Covid-19 Waves</title>
+      <link>https://blog-neas.github.io/it/seminars/ifcs2022_2/</link>
+      <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/seminars/ifcs2022_2/</guid>
+      <description>Detecting Differences in Italian Regional Health Services During Two Covid-19 Waves Conference: IFCS 2022, Classification and Data Science in the Digital Age. 17th Conference of the International Federation of Classification Societies Authors: Lucio Palazzo, Riccardo Ievoli</description>
+    </item>
+    
+    <item>
+      <title>Students&#39; Assessment Through a IRT and Archetypal Analysis Joint Strategy</title>
+      <link>https://blog-neas.github.io/it/seminars/ifcs2022_1/</link>
+      <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/seminars/ifcs2022_1/</guid>
+      <description>Students&#39; Assessment Through a IRT and Archetypal Analysis Joint Strategy Conference: IFCS 2022, Classification and Data Science in the Digital Age. 17th Conference of the International Federation of Classification Societies Authors: Lucio Palazzo, Francesco Palumbo</description>
+    </item>
+    
+    <item>
+      <title>A Semiparametric Approach to Test for the Presence of INAR: Simulations and Empirical Applications</title>
+      <link>https://blog-neas.github.io/it/publications/mathematics-inar/</link>
+      <pubDate>Mon, 18 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/publications/mathematics-inar/</guid>
+      <description>The present paper explores the application of bootstrap methods in testing for serial dependence in observed driven Integer-AutoRegressive (models) considering Poisson arrivals (P-INAR). To this end, a new semiparametric and restricted bootstrap algorithm is developed to ameliorate the performance of the score-based test statistic, especially when the time series present small or moderately small lengths. The performance of the proposed bootstrap test, in terms of empirical size and power, is investigated through a simulation study even considering deviation from Poisson assumptions for innovations, i.</description>
+    </item>
+    
+    <item>
+      <title>Assessing students&#39; abilities: A hybrid archetypal analysis and IRT approach</title>
+      <link>https://blog-neas.github.io/it/seminars/imps2022/</link>
+      <pubDate>Wed, 13 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/seminars/imps2022/</guid>
+      <description>Assessing students&#39; abilities: A hybrid archetypal analysis and IRT approach Conference: IMPS 2022, 87th Annual Meeting of the Psychometric Society Authors: Lucio Palazzo, Francesco Palumbo</description>
+    </item>
+    
+    <item>
+      <title>Bootstrapping Bivariate INAR Models with Applications</title>
+      <link>https://blog-neas.github.io/it/seminars/isbis2022/</link>
+      <pubDate>Tue, 21 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/seminars/isbis2022/</guid>
+      <description>Bootstrapping Bivariate INAR Models with Applications Conference: ISBIS 2022, Statistics and Data Science in Business and Industry Authors: Lucio Palazzo and Riccardo Ievoli</description>
+    </item>
+    
     <item>
       <title>Searching for the determinants of new social enterprises: the case of Italian social start-ups</title>
       <link>https://blog-neas.github.io/it/publications/determinants-siavs-ijas/</link>
@@ -14,6 +59,17 @@
       
       <guid>https://blog-neas.github.io/it/publications/determinants-siavs-ijas/</guid>
       <description>Social start-ups constitute a subclass of the innovative entrepreneurship market and they are a relatively new topic in the literature from both the scientific and normative perspectives. In Italy, a start-up can be registered as social-oriented innovative startup (SIAVS), after demonstrating its ability to make social impacts and satisfy a set of normative requirements. This paper describes and models (at the territorial level) the presence of these innovative companies focused on social, cultural, and/or environmental needs.</description>
+    </item>
+    
+    <item>
+      <title>Analysis of Social and Economic Networks - Developing Business Skills</title>
+      <link>https://blog-neas.github.io/it/seminars/cdcelje2022/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/seminars/cdcelje2022/</guid>
+      <description>Date: 08-09 May 2022
+Location: International School for Social and Business Studies (ISSBS), Maribor University, Celje, Slovenia
+   Material         Celje Network Slides Lab    </description>
     </item>
     
     <item>
@@ -512,7 +568,11 @@ Si tratta di una lista non esaustiva, gentilmente contattami se sei interessato 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://blog-neas.github.io/it/research-team/</guid>
-      <description>Argomenti principali per potenziali tesi triennali/magistrali  Metodi di clustering model-based Modelli di Machine Learning (supervised, unsupervised, ensemble methods, adversarial models) Metodi e modelli statistici applicati allo sport Network analysis (triadi, local clustering coefficient) Clustering di dati genomici e trascrittomici Serie storiche a valori discreti e conteggio  ](https://github.com/PuwasalaG) 2. **[Zhuo Li](https://sites.google.com/view/zhuo-li/home)** ## Current PhD students 1. **[Lakshan Bernard](https://acems.org.au/our-people/lakshan-bernard)**. *Analytical tools for future power networks* (PhD, begun 2020). 1. **[Fan Cheng](https://fancheng.</description>
+      <description>Principali attività del gruppo di ricerca di cui faccio parte.
+Eventi e Conferenze Scientifiche   Socstat22,
+  ISBIS 2022,
+  EUSN 2021,
+  Argomenti principali per potenziali tesi triennali/magistrali  Metodi di clustering model-based Modelli di Machine Learning (supervised, unsupervised, ensemble methods, adversarial models) Metodi e modelli statistici applicati allo sport Network analysis (triadi, local clustering coefficient) Clustering di dati genomici e trascrittomici Serie storiche a valori discreti e conteggio  ](https://github.</description>
     </item>
     
     <item>

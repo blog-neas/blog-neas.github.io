@@ -5,10 +5,87 @@
     <description>Recent content in Seminars on Lucio Palazzo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Lucio Palazzo</copyright>
-    <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 Jul 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://blog-neas.github.io/it/seminars/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Detecting Differences in Italian Regional Health Services During Two Covid-19 Waves</title>
+      <link>https://blog-neas.github.io/it/seminars/ifcs2022_2/</link>
+      <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/seminars/ifcs2022_2/</guid>
+      <description>&lt;h3 id=&#34;detecting-differences-in-italian-regional-health-services-during-two-covid-19-waves&#34;&gt;Detecting Differences in Italian Regional Health Services During Two Covid-19 Waves&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Conference:&lt;/strong&gt; IFCS 2022, Classification and Data Science in the Digital Age. 17th Conference of the International Federation of Classification Societies
+&lt;strong&gt;Authors:&lt;/strong&gt; &lt;em&gt;Lucio Palazzo&lt;/em&gt;, Riccardo Ievoli&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Students&#39; Assessment Through a IRT and Archetypal Analysis Joint Strategy</title>
+      <link>https://blog-neas.github.io/it/seminars/ifcs2022_1/</link>
+      <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/seminars/ifcs2022_1/</guid>
+      <description>&lt;h3 id=&#34;students-assessment-through-a-irt-and-archetypal-analysis-joint-strategy&#34;&gt;Students&#39; Assessment Through a IRT and Archetypal Analysis Joint Strategy&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Conference:&lt;/strong&gt; IFCS 2022, Classification and Data Science in the Digital Age. 17th Conference of the International Federation of Classification Societies
+&lt;strong&gt;Authors:&lt;/strong&gt; &lt;em&gt;Lucio Palazzo&lt;/em&gt;, Francesco Palumbo&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Assessing students&#39; abilities: A hybrid archetypal analysis and IRT approach</title>
+      <link>https://blog-neas.github.io/it/seminars/imps2022/</link>
+      <pubDate>Wed, 13 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/seminars/imps2022/</guid>
+      <description>&lt;h3 id=&#34;assessing-students-abilities-a-hybrid-archetypal-analysis-and-irt-approach&#34;&gt;Assessing students&#39; abilities: A hybrid archetypal analysis and IRT approach&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Conference:&lt;/strong&gt; IMPS 2022, 87th Annual Meeting of the Psychometric Society
+&lt;strong&gt;Authors:&lt;/strong&gt; &lt;em&gt;Lucio Palazzo&lt;/em&gt;, Francesco Palumbo&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bootstrapping Bivariate INAR Models with Applications</title>
+      <link>https://blog-neas.github.io/it/seminars/isbis2022/</link>
+      <pubDate>Tue, 21 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/seminars/isbis2022/</guid>
+      <description>&lt;h3 id=&#34;bootstrapping-bivariate-inar-models-with-applications&#34;&gt;Bootstrapping Bivariate INAR Models with Applications&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Conference:&lt;/strong&gt; ISBIS 2022, Statistics and Data Science in Business and Industry
+&lt;strong&gt;Authors:&lt;/strong&gt; Lucio Palazzo and &lt;em&gt;Riccardo Ievoli&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Analysis of Social and Economic Networks - Developing Business Skills</title>
+      <link>https://blog-neas.github.io/it/seminars/cdcelje2022/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/it/seminars/cdcelje2022/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; 08-09 May 2022&lt;br&gt;
+&lt;strong&gt;Location:&lt;/strong&gt; International School for Social and Business Studies (ISSBS), Maribor University, Celje, Slovenia&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Material&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Celje Network&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;../../CDCelje2022/.......&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://blog-neas.github.io/data/...&#34;&gt;Lab&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
     
     <item>
       <title>Power Analysis: principali fonti di errore statistico, calcolo della sample size ed effect size, potenza dei test</title>

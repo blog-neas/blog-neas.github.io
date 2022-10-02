@@ -3,6 +3,216 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog-neas.github.io/it/seminars/ifcs2022_2/</loc>
+    <lastmod>2022-07-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/seminars/ifcs2022_2/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/seminars/ifcs2022_2/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/</loc>
+    <lastmod>2022-07-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/seminars/</loc>
+    <lastmod>2022-07-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/seminars/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/seminars/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/seminars/ifcs2022_1/</loc>
+    <lastmod>2022-07-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/seminars/ifcs2022_1/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/seminars/ifcs2022_1/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/publications/mathematics-inar/</loc>
+    <lastmod>2022-07-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/publications/mathematics-inar/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/publications/mathematics-inar/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/tags/low-counts/</loc>
+    <lastmod>2022-07-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/tags/low-counts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/tags/low-counts/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/tags/overdispersion/</loc>
+    <lastmod>2022-07-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/tags/overdispersion/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/tags/overdispersion/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/publications/</loc>
+    <lastmod>2022-07-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/publications/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/publications/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/tags/score-test/</loc>
+    <lastmod>2022-07-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/tags/score-test/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/tags/score-test/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/tags/semiparametric-bootstrap/</loc>
+    <lastmod>2022-07-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/tags/semiparametric-bootstrap/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/tags/semiparametric-bootstrap/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/tags/</loc>
+    <lastmod>2022-07-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/tags/underdispersion/</loc>
+    <lastmod>2022-07-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/tags/underdispersion/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/tags/underdispersion/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/seminars/imps2022/</loc>
+    <lastmod>2022-07-13T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/seminars/imps2022/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/seminars/imps2022/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog-neas.github.io/it/seminars/isbis2022/</loc>
+    <lastmod>2022-06-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/seminars/isbis2022/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/seminars/isbis2022/"
+                />
+  </url>
+  
+  <url>
     <loc>https://blog-neas.github.io/it/tags/count-models/</loc>
     <lastmod>2022-05-17T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -29,36 +239,6 @@
                 rel="alternate"
                 hreflang="it"
                 href="https://blog-neas.github.io/it/tags/generalized-linear-models/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/it/</loc>
-    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/it/publications/</loc>
-    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/publications/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/publications/"
                 />
   </url>
   
@@ -108,21 +288,6 @@
   </url>
   
   <url>
-    <loc>https://blog-neas.github.io/it/tags/</loc>
-    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/tags/"
-                />
-  </url>
-  
-  <url>
     <loc>https://blog-neas.github.io/it/tags/zero-inflation/</loc>
     <lastmod>2022-05-17T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -138,6 +303,21 @@
   </url>
   
   <url>
+    <loc>https://blog-neas.github.io/it/seminars/cdcelje2022/</loc>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/seminars/cdcelje2022/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/seminars/cdcelje2022/"
+                />
+  </url>
+  
+  <url>
     <loc>https://blog-neas.github.io/it/seminars/psi2022/</loc>
     <lastmod>2022-05-09T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -149,21 +329,6 @@
                 rel="alternate"
                 hreflang="it"
                 href="https://blog-neas.github.io/it/seminars/psi2022/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/it/seminars/</loc>
-    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/seminars/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/seminars/"
                 />
   </url>
   
@@ -1094,36 +1259,6 @@
                 rel="alternate"
                 hreflang="it"
                 href="https://blog-neas.github.io/it/tags/parametric-bootstrap/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/it/tags/score-test/</loc>
-    <lastmod>2020-11-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/tags/score-test/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/tags/score-test/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/it/tags/semiparametric-bootstrap/</loc>
-    <lastmod>2020-11-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/tags/semiparametric-bootstrap/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/tags/semiparametric-bootstrap/"
                 />
   </url>
   

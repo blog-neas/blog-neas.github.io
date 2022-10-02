@@ -6,7 +6,52 @@
     <description>Recent content in Tags on Lucio Palazzo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Lucio Palazzo</copyright>
-    <lastBuildDate>Tue, 17 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog-neas.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>low counts</title>
+      <link>https://blog-neas.github.io/en/tags/low-counts/</link>
+      <pubDate>Mon, 18 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/tags/low-counts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>overdispersion</title>
+      <link>https://blog-neas.github.io/en/tags/overdispersion/</link>
+      <pubDate>Mon, 18 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/tags/overdispersion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>score test</title>
+      <link>https://blog-neas.github.io/en/tags/score-test/</link>
+      <pubDate>Mon, 18 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/tags/score-test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>semiparametric bootstrap</title>
+      <link>https://blog-neas.github.io/en/tags/semiparametric-bootstrap/</link>
+      <pubDate>Mon, 18 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/tags/semiparametric-bootstrap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>underdispersion</title>
+      <link>https://blog-neas.github.io/en/tags/underdispersion/</link>
+      <pubDate>Mon, 18 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/tags/underdispersion/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>count models</title>
       <link>https://blog-neas.github.io/en/tags/count-models/</link>
@@ -301,24 +346,6 @@
       <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>https://blog-neas.github.io/en/tags/parametric-bootstrap/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>score test</title>
-      <link>https://blog-neas.github.io/en/tags/score-test/</link>
-      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog-neas.github.io/en/tags/score-test/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>semiparametric bootstrap</title>
-      <link>https://blog-neas.github.io/en/tags/semiparametric-bootstrap/</link>
-      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog-neas.github.io/en/tags/semiparametric-bootstrap/</guid>
       <description></description>
     </item>
     

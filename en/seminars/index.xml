@@ -5,10 +5,136 @@
     <description>Recent content in Seminars on Lucio Palazzo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Lucio Palazzo</copyright>
-    <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 Jul 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://blog-neas.github.io/en/seminars/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Detecting Differences in Italian Regional Health Services During Two Covid-19 Waves</title>
+      <link>https://blog-neas.github.io/en/seminars/ifcs2022_2/</link>
+      <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/ifcs2022_2/</guid>
+      <description>&lt;h3 id=&#34;detecting-differences-in-italian-regional-health-services-during-two-covid-19-waves&#34;&gt;Detecting Differences in Italian Regional Health Services During Two Covid-19 Waves&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Conference:&lt;/strong&gt; IFCS 2022, Classification and Data Science in the Digital Age. 17th Conference of the International Federation of Classification Societies
+&lt;strong&gt;Authors:&lt;/strong&gt; &lt;em&gt;Lucio Palazzo&lt;/em&gt; and Riccardo Ievoli&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Students&#39; Assessment Through a IRT and Archetypal Analysis Joint Strategy</title>
+      <link>https://blog-neas.github.io/en/seminars/ifcs2022_1/</link>
+      <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/ifcs2022_1/</guid>
+      <description>&lt;h3 id=&#34;students-assessment-through-a-irt-and-archetypal-analysis-joint-strategy&#34;&gt;Students&#39; Assessment Through a IRT and Archetypal Analysis Joint Strategy&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Conference:&lt;/strong&gt; IFCS 2022, Classification and Data Science in the Digital Age. 17th Conference of the International Federation of Classification Societies
+&lt;strong&gt;Authors:&lt;/strong&gt; &lt;em&gt;Lucio Palazzo&lt;/em&gt; and Francesco Palumbo&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Assessing students’ abilities: A hybrid archetypal analysis and IRT approach</title>
+      <link>https://blog-neas.github.io/en/seminars/imps2022/</link>
+      <pubDate>Wed, 13 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/imps2022/</guid>
+      <description>&lt;h3 id=&#34;assessing-students-abilities-a-hybrid-archetypal-analysis-and-irt-approach&#34;&gt;Assessing students’ abilities: A hybrid archetypal analysis and IRT approach&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Conference:&lt;/strong&gt; IMPS 2022, 87th Annual Meeting of the Psychometric Society
+&lt;strong&gt;Authors:&lt;/strong&gt; &lt;em&gt;Lucio Palazzo&lt;/em&gt; and Francesco Palumbo&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bootstrapping Bivariate INAR Models with Applications</title>
+      <link>https://blog-neas.github.io/en/seminars/isbis2022/</link>
+      <pubDate>Tue, 21 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/isbis2022/</guid>
+      <description>&lt;h3 id=&#34;bootstrapping-bivariate-inar-models-with-applications&#34;&gt;Bootstrapping Bivariate INAR Models with Applications&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Conference:&lt;/strong&gt; ISBIS 2022, Statistics and Data Science in Business and Industry
+&lt;strong&gt;Authors:&lt;/strong&gt; Lucio Palazzo and &lt;em&gt;Riccardo Ievoli&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Analysis of Social and Economic Networks - Developing Business Skills</title>
+      <link>https://blog-neas.github.io/en/seminars/cdcelje2022/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/seminars/cdcelje2022/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; 08-09 May 2022&lt;br&gt;
+&lt;strong&gt;Location:&lt;/strong&gt; International School for Social and Business Studies (ISSBS), Maribor University, Celje, Slovenia&lt;/p&gt;
+&lt;!-- 
+This course has been taught in Italian.
+
+Invited professor at the PhD School &#34;Mind, Gender and Language&#34; of the Department of Humanities as part of the &#34;Statistical Methodologies in Psychosocial Research&#34; lectures for PhD students.
+
+## Outline of the course
+
+Any measurement entails a source of uncertainty that cannot be eliminated and can significantly affect the results of a statistical analysis. Every time a survey is carried out, several decisions must be made: among them, the choice of sample size plays a crucial role.
+
+The power of a statistical test allows to control the probability of making incorrect decisions, to assess the reliability of a study and to determine the (ideal) sample size required to obtain statistically significant results.
+In this context, power analysis is generally used at the beginning of a research project to determine a proper sample size. 
+
+This two-week course is divided in two parts. The first lecture will focus on the main concepts concerning the sampling theory (sample collection and selection), with special emphasis on the main sources of sampling error, while the second part of the seminar will focus on statistical test theory and the study of the power of a test. The topics covered will be accompanied by various applications and, in addition, G*Power software will be introduced as a tool for performing power analysis.
+
+## Main requirements
+
+Participants are expected to have basic statistical knowledge but no specialized knowledge is required. It is recommended that participants have a PC with the G*Power software previously installed in order to carry out the exercises. In conclusion, some R software packages (especially `pwr` and `simglm`) used to apply Power analysis in different contexts will also be introduced for demonstration purposes.
+
+## Syllabus
+ ---&gt;
+&lt;!-- 
+&lt;table border=1 cellpadding=2 cellspacing=5 width=100%&gt;
+&lt;col width=&#34;20%&#34;&gt;
+&lt;col width=&#34;65%&#34;&gt;
+&lt;col width=&#34;15%&#34;&gt;
+&lt;tr&gt;
+  &lt;td&gt;09:30 - 13:00&lt;/td&gt;
+  &lt;td&gt;Forecast evaluation&lt;/td&gt;
+  &lt;td&gt;&lt;a href=&#34;https://blog-neas.github.io/acemsforecasting2018/1-Forecast-Evaluation.pdf&#34; target=&#34;_new&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;13:00 - 14:00&lt;/td&gt;
+  &lt;td&gt;&lt;em&gt;Break&lt;/em&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;14:00 - 16:30&lt;/td&gt;
+  &lt;td&gt;Hierarchical forecasting&lt;/td&gt;
+  &lt;td&gt;&lt;a href=&#34;https://blog-neas.github.io/acemsforecasting2018/4-Hierarchical.pdf&#34; target=&#34;_new&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&amp;nbsp;
+ ---&gt;
+&lt;!-- 
+| **Day 1** |  |  |  |
+| --- | --- | --- | --- |
+| 09:00 - 11:00  | Reminders to the concepts of sample theory: the steps of statistical investigation. The main sources of sampling error. Sample size | | |
+| 11:00 - 13:00  | Examples of statistical surveys: the case of secondary school students. Focus: drawbacks of surveys administered through social media | [Slides](...) | [Lab](...) |
+ ---&gt;
+&lt;!-- 
+slides: &#34;../../CDCelje2022/......&#34;
+slidespdf: &#34;......&#34;
+ ---&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Material&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;!-- 
+| 09:00 - 11:00  | Recalls to asymptotic statistical theory, central limit theorem, confidence intervals and tests | | |  ---&gt;
+&lt;p&gt;|  | Celje Network | &lt;a href=&#34;../../CDCelje2022/.......&#34;&gt;Slides&lt;/a&gt; | &lt;a href=&#34;https://blog-neas.github.io/data/...&#34;&gt;Lab&lt;/a&gt; |&lt;/p&gt;
+&lt;!-- * [Github repo](tba) ---&gt;
+</description>
+    </item>
     
     <item>
       <title>Power Analysis: main sources of statistical error, sample size, effect size and power of a test</title>
