@@ -1860,6 +1860,20 @@
   </url>
   
   <url>
+    <loc>https://blog-neas.github.io/en/research-team/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="it"
+                href="https://blog-neas.github.io/it/research-team/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog-neas.github.io/en/research-team/"
+                />
+  </url>
+  
+  <url>
     <loc>https://blog-neas.github.io/en/software/</loc>
     <priority>0</priority>
     <xhtml:link
@@ -1970,20 +1984,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://blog-neas.github.io/en/students/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://blog-neas.github.io/en/research-team/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="it"
-                href="https://blog-neas.github.io/it/research-team/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog-neas.github.io/en/research-team/"
                 />
   </url>
   

@@ -493,6 +493,18 @@ In this paper we identify the relationships between the Italian university cours
     
     <item>
       <title></title>
+      <link>https://blog-neas.github.io/en/research-team/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog-neas.github.io/en/research-team/</guid>
+      <description>List of the main academic activities and research groups in which I am involved to a certain extent.
+ Editorial staff of the Italian Journal of Applied Statistics  Projects   ORIENTATION, study of the phenomenon of academic drop-out
+  CITIES, Climate Initiative for Transforming and Improving Environmental Sustainability
+  Organized Events and Scientific Meetings   BIP24 , Blended Intensive Program: Methods for Fintech and Artificial Intelligence in Finance</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://blog-neas.github.io/en/software/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -539,7 +551,9 @@ This is a non exhaustive list, please contact me if you have events to advertise
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://blog-neas.github.io/en/in-the-news/</guid>
-      <description>To Be Announced</description>
+      <description>  &amp;ldquo;Soccer passing patterns indicate more than just play style&amp;rdquo;, Academic Times Interview, 26 April 2021.
+  &amp;ldquo;Best WI-FI 2023 Young Researcher Paper&amp;rdquo;, Competition winner, 31 May 2023.
+  </description>
     </item>
     
     <item>
@@ -549,19 +563,6 @@ This is a non exhaustive list, please contact me if you have events to advertise
       
       <guid>https://blog-neas.github.io/en/students/</guid>
       <description>Former PhD students  Passaretti Davide. Large – scale statistical methods: the case of quantile regression (PhD, graduated 2020). Now a Data Scientist, Coca-Cola Hellenic Bottling Company. Costanzo Antonella. Robust methods for style analysis (PhD, graduated 2014). Now a Statistical Officer - ASSCO, Ufficio Settore Strategico e Programmazione at Sapienza Università di Roma.  Former Bachelor and Master students  Tarantino Igor, Cognitive biases, probabilistic reasoning and the gambler&amp;rsquo;s ruin, Bachelor thesis in Psychology, University of Naples Federico II, a.</description>
-    </item>
-    
-    <item>
-      <title>Research team</title>
-      <link>https://blog-neas.github.io/en/research-team/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog-neas.github.io/en/research-team/</guid>
-      <description>Main activities of the research group in which I am involved to a certain extent. You can also refer to the LabStat calendar for a list of the most recent activities.
-Organized Events and Scientific Meetings   Socstat22, Summer school in Social Statistics (II Edition) 
-  FinAI, Diversity challenges and opportunities in FinTech 
-  ECDA 2022, European Conference on Data Analysis 
-  ISBIS 2022, Statistics and Data Science in Business and Industry</description>
     </item>
     
   </channel>
