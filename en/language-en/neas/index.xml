@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>NeaS blog</title>
+<link>https://blog-neas.github.io/language-en/neas/</link>
+<atom:link href="https://blog-neas.github.io/language-en/neas/index.xml" rel="self" type="application/rss+xml"/>
+<description>Blog posts by Professor Lucio Palazzo</description>
+<generator>quarto-1.8.25</generator>
+<lastBuildDate>Mon, 10 Jan 2022 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Marginal plots with ggside</title>
+  <link>https://blog-neas.github.io/language-en/neas/ggside/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>A marginal plot is a combination of a bivariate plot (typically a scatter plot) and one/two univariate plots (density, boxplot, dotplot, …). It is an interesting plot since you can inspect both the relationship between two variables and the distribution of each variable.</p>
+<p>Even if there are several options to obtain a marginal plot, here I exploit <code>ggside</code>, an useful extension for <code>ggplot2</code>.</p>
+<p>Note: <code>ggside</code> can be used also for adding univariate plot(s) to a generic <code>ggplot</code>.</p>
+<section id="install-and-load-ggside" class="level2">
+<h2 class="anchored" data-anchor-id="install-and-load-ggside">Install and load <code>ggside</code></h2>
+<p><code>ggside</code> can be installed from CRAN (latest stable version) or from github (development version):</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install the CRAN version</span></span>
+<span id="cb1-2">utils<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ggside"</span>)</span>
+<span id="cb1-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install the latest development version (from Github)</span></span>
+<span id="cb1-4">devtools<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install_github</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"jtlandis/ggside"</span>)</span></code></pre></div></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggside)</span></code></pre></div></div>
+</div>
+<p>The message prompts that <code>ggside</code> overwrites the <code>+.gg</code> method of <code>ggplot2</code>, adding functionalities for plotting on the two margins of a <code>ggplot2</code> object.</p>
+<p>Detailed information on <code>ggside</code> are available on the <a href="https://github.com/jtlandis/ggside">official github repository</a> and on the <a href="https://cran.r-project.org/web/packages/ggside/index.html">CRAN package webpage</a>.</p>
+</section>
+<section id="the-penguins-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="the-penguins-dataset">The penguins dataset</h2>
+<p>I exploit below the <code>penguins</code> dataset available in the <code>palmerpenguins</code> package.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"palmerpenguins"</span>)</span></code></pre></div></div>
+</div>
+<p><code>penguins</code> is a tibble with 344 rows and 8 variables, containing measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex. You can read more information on the dataset inspecting the related help page:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(palmerpenguins)</span>
+<span id="cb4-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">help</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"penguins"</span>)</span></code></pre></div></div>
+</div>
+</section>
+<section id="marginal-plot" class="level2">
+<h2 class="anchored" data-anchor-id="marginal-plot">Marginal plot</h2>
+<p>Here is a classical scatterplot using <code>bill_length_mm</code> (bill length, millimeters) on the horizontal axis and <code>body_mass_g</code> (body mass in grams) on the vertical axis, enriching the plot using the color information for the <code>species</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> penguins, </span>
+<span id="cb5-2">       <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> bill_length_mm, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> body_mass_g)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb5-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> species))</span></code></pre></div></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You can add a marginal plot for the <code>x</code> (<code>y</code>) variable exploiting the set of <code>geom_xside*</code> (<code>geom_yside*</code>) functions. The available functions, listed in the following table, inherit from the original <code>ggplot2</code> functions, differing only in the position of the final plot:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 64%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">functions</th>
+<th style="text-align: left;">graphical representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">geom_xsidebar<br>geom_ysidebar</td>
+<td style="text-align: left;">barplot</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">geom_xsideboxplot<br>geom_ysideboxplot</td>
+<td style="text-align: left;">boxplot</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">geom_xsidedensity<br>geom_ysidedensity</td>
+<td style="text-align: left;">density plot</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">geom_xsidefreqpoly<br>geom_ysidefreqpoly</td>
+<td style="text-align: left;">frequency polygon</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">geom_xsidehistogram<br>geom_ysidehistogram</td>
+<td style="text-align: left;">histogram</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">geom_xsideline<br>geom_ysideline</td>
+<td style="text-align: left;">line plot</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">geom_xsidepoint<br>geom_ysidepoint</td>
+<td style="text-align: left;">dotplot</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">geom_xsidesegment<br>geom_ysidesegment</td>
+<td style="text-align: left;">dotplot</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">geom_xsidetext<br>geom_ysidetext</td>
+<td style="text-align: left;">text</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">geom_xsidetile<br>geom_ysidetile</td>
+<td style="text-align: left;">tile plot</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">geom_xsideviolin<br>geom_ysideviolin</td>
+<td style="text-align: left;">violin plot</td>
+</tr>
+</tbody>
+</table>
+<p>The choice of the plot to use on the margins depends on the type of data and on your taste.</p>
+</section>
+<section id="some-examples" class="level2">
+<h2 class="anchored" data-anchor-id="some-examples">Some examples</h2>
+<p>Two histograms can be added to the previous scatterplot exploiting the functions <code>geom_xsidehistogram</code> and <code>geom_ysidehistogram</code> (the bins argument is the same of <code>geom_histogram</code> for setting the number of bins):</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> penguins, </span>
+<span id="cb6-2">       <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> bill_length_mm, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> body_mass_g)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb6-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb6-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_xsidehistogram</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">bins =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb6-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_ysidehistogram</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">bins =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>)</span></code></pre></div></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>It is clearly possible to add only one side plot using only one of the two functions above. Color can be used to enrich the plot representing information of another variable, using the same syntax of <code>ggplot2</code> function:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> penguins, </span>
+<span id="cb7-2">       <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> bill_length_mm, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> body_mass_g)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb7-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> species)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb7-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_xsidehistogram</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> species), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">bins =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb7-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_ysidehistogram</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> species), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">bins =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>)</span></code></pre></div></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Densities are useful alternative to histograms, the <code>alpha</code> argument is here used to change the transparency of the geometrical objects:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> penguins, </span>
+<span id="cb8-2">       <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> bill_length_mm, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> body_mass_g)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> species)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_xsidedensity</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> species), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">alpha =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_ysidedensity</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> species), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">alpha =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>)</span></code></pre></div></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Stacked densities can be obtained setting the classical <code>position</code> argument to <code>stack</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> penguins, </span>
+<span id="cb9-2">       <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> bill_length_mm, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> body_mass_g)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb9-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> species)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb9-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_xsidedensity</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> species), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">alpha =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">position =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"stack"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb9-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_ysidedensity</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> species), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">alpha =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">position =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"stack"</span>)</span></code></pre></div></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Marginal boxplots deserve a note. “Perpendicular” boxplots are plotted by default (vertical for the <code>x</code> variable and horizontal for the <code>y</code> variable):</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> penguins, </span>
+<span id="cb10-2">       <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> bill_depth_mm, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> body_mass_g)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb10-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb10-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_xsideboxplot</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb10-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_ysideboxplot</span>()</span></code></pre></div></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A more useful representation can be obtained changing the orientation of the side boxplots through the <code>orientation</code> arguments:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> penguins, </span>
+<span id="cb11-2">       <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> bill_depth_mm, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> body_mass_g)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb11-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb11-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_xsideboxplot</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">orientation =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"y"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb11-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_ysideboxplot</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">orientation =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"x"</span>)</span></code></pre></div></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Using a qualitative variable (<code>species</code> in the example below) provides parallel boxplots, that are really useful for a quick inspection of differences in the conditional distributions:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> penguins, </span>
+<span id="cb12-2">       <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> bill_depth_mm, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> body_mass_g, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> species)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb12-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb12-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_xsideboxplot</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">orientation =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"y"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb12-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_ysideboxplot</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">orientation =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"x"</span>)</span></code></pre></div></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Finally, the set of <code>geom_xside*</code> and <code>geom_yside*</code> functions can be used also in case of panel plots obtained exploiting <code>facet_wrap</code> and <code>facet_grid</code>. Here is a simple example using <code>facet_wrap</code> for subsetting data according to the levels of the variables <code>species</code> and <code>island</code> and adding conditional densities at the two side of scatterplot of <code>bill_depth_mm</code> and <code>body_mass_g</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> penguins, </span>
+<span id="cb13-2">       <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> bill_depth_mm, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> body_mass_g)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb13-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb13-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_xsidedensity</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb13-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_ysidedensity</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb13-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">facet_wrap</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">vars</span>(species, island)) </span></code></pre></div></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="1056"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Again, color can be exploited to compare conditional distributions. The following code represents two densities at each side of the main plot, each one showing the distribution of one of the two levels of <code>sex</code> of penguins:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> tidyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">drop_na</span>(penguins, sex), </span>
+<span id="cb14-2">       <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> bill_depth_mm, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> body_mass_g)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb14-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb14-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_xsidedensity</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> sex)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb14-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_ysidedensity</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> sex)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb14-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">facet_wrap</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">vars</span>(species, island)) </span></code></pre></div></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Note: since there are missing values for the <code>sex</code> variable, I exploit the <code>drop_na</code> function (<code>tidyr</code> package) to drop rows containing missing values in such variable (you need to install <code>tidyr</code> to test the last chunk of code).</p>
+<p>Finally, additional functions are available in <code>ggside</code> for setting options on the <code>x</code> and <code>y</code> scales: refer to the <a href="https://cran.r-project.org/web/packages/ggside/ggside.pdf">official documentation</a> for the list of functions.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>marginal plots</category>
+  <category>ggplot2</category>
+  <category>ggside</category>
+  <guid>https://blog-neas.github.io/language-en/neas/ggside/</guid>
+  <pubDate>Mon, 10 Jan 2022 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Easy customisation of ggplot2: ggeasy</title>
+  <link>https://blog-neas.github.io/language-en/neas/ggeasy/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>If you are interested to customise a <code>ggplot2</code> graph without going crazy in remembering all the technicalities for rotating labels, removing or rotaging axes, removing or changing appeareance of legends, change the text appearance, I suggest to inspect <code>ggeasy</code>. Documentation and tutorials are available on the <a href="https://jonocarroll.github.io/ggeasy/index.html"><code>ggeasy</code> official github repository</a>.</p>
+<p>Instead (or maybe, at the same), if you are instead interested to master <code>ggplot2</code> without shortcuts, please refer to the must-read book <a href="https://ggplot2-book.org"><code>ggplot2</code>: Elegant Graphic for Data Analysis</a>, freely available online.</p>
+
+
+
+ ]]></description>
+  <category>ggeasy</category>
+  <category>ggplot2</category>
+  <guid>https://blog-neas.github.io/language-en/neas/ggeasy/</guid>
+  <pubDate>Sun, 09 Jan 2022 23:00:00 GMT</pubDate>
+  <media:content url="https://blog-neas.github.io/img/ggeasy-img.gif" medium="image" type="image/gif"/>
+</item>
+<item>
+  <title>DESPOTA</title>
+  <link>https://blog-neas.github.io/language-en/neas/despota/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>DESPOTA (<strong>DE</strong>ndogram <strong>S</strong>licing through a <strong>P</strong>ermutati<strong>O</strong>n <strong>T</strong>est <strong>A</strong>pproach) is a novel approach exploiting permutation tests in order to automatically detect a partition among those embedded in a dendrogram. Unlike the traditional approach, DESPOTA includes in the search space also partitions not corresponding to horizontal cuts of the dendrogram.</p>
+<p>The output of hierarchical clustering methods is typically displayed as a dendrogram describing a family of nested partitions. However, the exploitable partitions are usually restricted to those relying on horizontal cuts of the tree, missing the possibility to explore the whole set of partitions housed in the dendrogram. We introduced an algorithm, DESPOTA, exploiting the methodological framework of permutation tests, that permits a partition to be automatically found where clusters do not necessarily obey the above principle. Our solution adapts to every choice of the distance metric and agglomeration criterion used to grow the tree.</p>
+<section id="papers" class="level2">
+<h2 class="anchored" data-anchor-id="papers">Papers</h2>
+<table>
+<tbody><tr>
+<td>
+2018
+</td>
+<td width="60%">
+DESPOTA: an algorithm to detect the partition in the extended hierarchy of a dendrogram.<br> In: (Eds.): Cira Perna Monica Pratesi Anne Ruiz-Gazen, Studies in Theoretical and Applied Statistics. p.&nbsp;83-93, Cham:Springer
+</td>
+<td>
+<a href="http://doi.org/10.1007/978-3-319-73906-9_8" class="badge badge-small badge-blue">DOI</a>
+</td>
+<td>
+<a href="../../../it/publications/springer-despota/" class="badge badge-small badge-red">LINK</a>
+</td>
+<td>
+English
+</td>
+</tr>
+<tr>
+<td>
+2015
+</td>
+<td width="60%">
+DESPOTA: a permutation test algoritm to detect a partition from a dendrogram<br> Journal of Classification, (32), Springer DOI: 10.1007/s00357- 015-9179-x
+</td>
+<td>
+<a href="http://doi.org/10.1007/s00357-015-9179-x" class="badge badge-small badge-blue">DOI</a>
+</td>
+<td>
+<a href="../../../it/publications/joc-despota/" class="badge badge-small badge-red">LINK</a>
+</td>
+<td>
+English
+</td>
+</tr>
+<tr>
+<td>
+2010
+</td>
+<td width="60%">
+Cutting the dendrogram through permutation tests<br> Proceedings of Compstat’2010, Ed. by L. Y. S. G. EDS. NEW YORK: Physica-Verlag, HEIDELBERG, pp.&nbsp;847– 854
+</td>
+<td>
+<a href="https://link.springer.com/content/pdf/bfm%3A978-3-7908-2604-3%2F1.pdf" class="badge badge-small badge-blue">DOI</a>
+</td>
+<td>
+<a href="../../../papers/2010_cutting-dendrogram-permutation-test_COMPSTAT.pdf" class="badge badge-small badge-red">LINK</a>
+</td>
+<td>
+English
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="abstract-short-papers-and-slides" class="level2">
+<h2 class="anchored" data-anchor-id="abstract-short-papers-and-slides">Abstract, short papers and slides</h2>
+<table>
+<tbody><tr>
+<td>
+2015
+</td>
+<td width="60%">
+DESPOTA: an algorithm to automatically detect a reliable partition on a dendrogram.<br> CARME 2015, Naples, Italy, September 20–13
+</td>
+<td>
+</td>
+<td>
+<a href="../../../talks/2015-carme-napoli/carme2015_abstract.pdf" class="badge badge-small badge-red">abstract</a>
+</td>
+<td>
+English
+</td>
+</tr>
+<tr>
+<td>
+2015
+</td>
+<td width="60%">
+DESPOTA: a permutation test algorithm to detect a partition from a dendrogram.<br> IFCS 2015, Bologna, Italy, July 6–8
+</td>
+<td>
+<a href="../../../talks/2015-ifcs-bologna/ifcs2015-vistocco_slides.pdf" class="badge badge-small badge-green">slides</a>
+</td>
+<td>
+</td>
+<td>
+English
+</td>
+</tr>
+<tr>
+<td>
+2013
+</td>
+<td width="60%">
+DESPOTA: un approccio basato sui test di permutazione per la ricerca della partizione su un dendrogramma<br> AISC 2013, Associazione Italiana di Scienze Cognitive, X Convegno Annuale, Napoli 19-22 novembre
+</td>
+<td>
+<a href="https://prezi.com/scpulaxh0r1d/" class="badge badge-small badge-black">&nbsp;&nbsp;prezi&nbsp;&nbsp;</a><br> <a href="../../../talks/2013-aisc-napoli/aisc2013_movie-cut_1sec.mov" class="badge badge-small badge-black">movie 1</a><br> <a href="../../../talks/2013-aisc-napoli/aisc2013_movie-despota_1sec.mov" class="badge badge-small badge-black">movie 2</a>
+</td>
+<td>
+<a href="../../../talks/2013-aisc-napoli/aisc2013_short_paper.pdf" class="badge badge-small badge-red">short paper</a>
+</td>
+<td>
+Italian
+</td>
+</tr>
+<tr>
+<td>
+2010
+</td>
+<td width="60%">
+Cutting the dendrogram through permutation tests<br> Proceedings of Compstat’2010, Ed. by L. Y. S. G. EDS. NEW YORK: Physica-Verlag, HEIDELBERG, pp.&nbsp;847– 854
+</td>
+<td>
+<a href="../../../talks/2010-compstat-paris/compstat2010_slides.pdf" class="badge badge-small badge-green">slides</a>
+</td>
+<td>
+<a href="../../../talks/2010-compstat-paris/compstat2010_paper.pdf" class="badge badge-small badge-red">short paper</a>
+</td>
+<td>
+English
+</td>
+</tr>
+<tr>
+<td>
+2009
+</td>
+<td width="60%">
+Stairstep-like dendrogram cut: a permutation test approach<br> useR!, The R User Conference 2009, Agrocampus-Ouest, Rennes, France, July 8-10
+</td>
+<td>
+<a href="../../../talks/2009-user-rennes/UseR2009_slides.pdf" class="badge badge-small badge-green">slides</a>
+</td>
+<td>
+<a href="../../../talks/2009-user-rennes/UseR2009_abstract.pdf" class="badge badge-small badge-red">abstract</a>
+</td>
+<td>
+English
+</td>
+</tr>
+<tr>
+<td>
+2009
+</td>
+<td width="60%">
+Una procedura di taglio a gradini per l’estrazione della partizione ottimale da un dendrogramma<br> SISMEC 2009, Pavia, Italy, September 16-19
+</td>
+<td>
+<a href="../../../talks/2009-sismec-pavia/sismec2013_slides.pdf" class="badge badge-small badge-green">slides</a>
+</td>
+<td>
+<a href="../../../talks/2009-sismec-pavia/sismec2013_short-paper.pdf" class="badge badge-small badge-red">short paper</a>
+</td>
+<td>
+Italian
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="software-code" class="level2">
+<h2 class="anchored" data-anchor-id="software-code">Software code</h2>
+<p>At the moment there is no official code for Despota. The current version of the code is not very fast in case of big data, but it works.</p>
+<p>A small tutorial including the main functions and some auxiliary plotting functions is available on this <a href="https://github.com/domenicovistocco/despota"></a><a href="https://github.com/domenicovistocco/despota" class="badge badge-small badge-black">GITHUB page</a>.</p>
+<p>I would be very glad of having any (positive as well as negative) feedback if you use DESPOTA on your data. Moreover, let me known in case you are interested to start a collaboration on the topic.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>DESPOTA</category>
+  <category>classification</category>
+  <guid>https://blog-neas.github.io/language-en/neas/despota/</guid>
+  <pubDate>Wed, 29 Dec 2021 23:00:00 GMT</pubDate>
+  <media:content url="https://blog-neas.github.io/img/logo-despota-colors.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>About DV blog</title>
+  <link>https://blog-neas.github.io/language-en/neas/about/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I decided to collect material related to my experience on R, statistics, coding and other things of my interest on the <a href="../../../it/dv-blog"><strong>DV blog</strong></a>. Since I learned (and continue to learn) a lot from the web, I hope that this material will be useful and of interest to those who have interests in common with me.</p>
+<p>Since it is not a book, the published material does not follow any order but is meant to be browsed/searched by date or by topic, rather than according to a particular sequence.</p>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p>This blog is not a newspaper as it is updated without any periodicity. Therefore, it cannot be considered an editorial product under Law n° 62 del 7.03.2001.</p>
+<p>The blog author is not responsible for the content of the comments to posts, nor for the content of linked sites.</p>
+<p>Some texts or images included in this blog are taken from the internet and therefore they considered public domain; if their publication smash any copyright, please notify me by email. They will be immediately removed if your report is correct.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>about</category>
+  <guid>https://blog-neas.github.io/language-en/neas/about/</guid>
+  <pubDate>Tue, 28 Dec 2021 23:00:00 GMT</pubDate>
+  <media:content url="https://blog-neas.github.io/img/dv-logo-avatar.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Help</title>
+  <link>https://blog-neas.github.io/language-en/neas/help/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This is not a help service for all your R and statistical questions, so please try to avoid to post general questions in the comments, or send them to me by email. Please, limit to comments related to the published content.</p>
+<p>If you have questions about data analysis, ask for help on <a href="http://crossvalidated.com">crossvalidated.com</a>.</p>
+<p>If you have questions about R, ask for help on <a href="http://stackoverflow.com">stackoverflow.com</a>.</p>
+<p>Please, be polite in your comment: you do not necessarily have to agree with my posts but you can always kindly manifest your opinion. As far as I can, I will try to respond to all comments.</p>
+
+
+
+ ]]></description>
+  <guid>https://blog-neas.github.io/language-en/neas/help/</guid>
+  <pubDate>Tue, 28 Dec 2021 23:00:00 GMT</pubDate>
+  <media:content url="https://blog-neas.github.io/img/dv-help.jpg" medium="image" type="image/jpeg"/>
+</item>
+</channel>
+</rss>

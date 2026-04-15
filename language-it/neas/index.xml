@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>NeaS blog</title>
+<link>https://blog-neas.github.io/language-it/neas/</link>
+<atom:link href="https://blog-neas.github.io/language-it/neas/index.xml" rel="self" type="application/rss+xml"/>
+<description>Blog posts by Professor Lucio Palazzo</description>
+<generator>quarto-1.8.25</generator>
+<lastBuildDate>Fri, 31 Dec 2021 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Help</title>
+  <link>https://blog-neas.github.io/language-it/neas/help.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Il sito ed il blog non sono un servizio di aiuto per le tue domande sulla statistica ed i software. Esistono sul web delle piattaforme dedicate principalmente a tale scopo, ad esempio:</p>
+<ul>
+<li>Se hai domande sull’analisi dei dati, chiedi aiuto su <a href="http://crossvalidated.com">crossvalidated.com</a>.</li>
+<li>Se hai domande su R o Python, chiedi aiuto su <a href="http://stackoverflow.com">stackoverflow.com</a>.</li>
+<li>Se hai domande sul sito, dai uno sguardo al <a href="https://github.com/blog-neas/blog-neas.github.io">mio github</a> ed al <a href="https://github.com/rbind/robjhyndman.com">codice sorgente originale</a>.</li>
+</ul>
+<p>Ti chiedo perciò di cercare di evitare domande generali nei commenti o via mail, e di limitarti a commenti relativi ai contenuti pubblicati. Inoltre, sii gentile e corretto nei commenti: non devi necessariamente di essere d’accordo con quello che scrivo ma abbi cura di scriverlo con gentilezza. Per quanto mi sarà possibile, cercherò di rispondere a tutti i commenti.</p>
+
+
+
+ ]]></description>
+  <guid>https://blog-neas.github.io/language-it/neas/help.html</guid>
+  <pubDate>Fri, 31 Dec 2021 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>DESPOTA</title>
+  <link>https://blog-neas.github.io/language-it/neas/despota/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>DESPOTA (<strong>DE</strong>ndogram <strong>S</strong>licing through a <strong>P</strong>ermutati<strong>O</strong>n <strong>T</strong>est <strong>A</strong>pproach) is a novel approach exploiting permutation tests in order to automatically detect a partition among those embedded in a dendrogram. Unlike the traditional approach, DESPOTA includes in the search space also partitions not corresponding to horizontal cuts of the dendrogram.</p>
+<p>The output of hierarchical clustering methods is typically displayed as a dendrogram describing a family of nested partitions. However, the exploitable partitions are usually restricted to those relying on horizontal cuts of the tree, missing the possibility to explore the whole set of partitions housed in the dendrogram. We introduced an algorithm, DESPOTA, exploiting the methodological framework of permutation tests, that permits a partition to be automatically found where clusters do not necessarily obey the above principle. Our solution adapts to every choice of the distance metric and agglomeration criterion used to grow the tree.</p>
+<section id="papers" class="level2">
+<h2 class="anchored" data-anchor-id="papers">Papers</h2>
+<table>
+<tbody><tr>
+<td>
+2018
+</td>
+<td width="60%">
+DESPOTA: an algorithm to detect the partition in the extended hierarchy of a dendrogram.<br> In: (Eds.): Cira Perna Monica Pratesi Anne Ruiz-Gazen, Studies in Theoretical and Applied Statistics. p.&nbsp;83-93, Cham:Springer
+</td>
+<td>
+<a href="http://doi.org/10.1007/978-3-319-73906-9_8" class="badge badge-small badge-blue">DOI</a>
+</td>
+<td>
+<a href="../../../en/publications/springer-despota/" class="badge badge-small badge-red">LINK</a>
+</td>
+<td>
+English
+</td>
+</tr>
+<tr>
+<td>
+2015
+</td>
+<td width="60%">
+DESPOTA: a permutation test algoritm to detect a partition from a dendrogram<br> Journal of Classification, (32), Springer DOI: 10.1007/s00357- 015-9179-x
+</td>
+<td>
+<a href="http://doi.org/10.1007/s00357-015-9179-x" class="badge badge-small badge-blue">DOI</a>
+</td>
+<td>
+<a href="../../../en/publications/joc-despota/" class="badge badge-small badge-red">LINK</a>
+</td>
+<td>
+English
+</td>
+</tr>
+<tr>
+<td>
+2010
+</td>
+<td width="60%">
+Cutting the dendrogram through permutation tests<br> Proceedings of Compstat’2010, Ed. by L. Y. S. G. EDS. NEW YORK: Physica-Verlag, HEIDELBERG, pp.&nbsp;847– 854
+</td>
+<td>
+<a href="https://github.com/jforbes14/eechidna" class="badge badge-small badge-blue">DOI</a>
+</td>
+<td>
+<a href="https://cloud.r-project.org/package=eechidna" class="badge badge-small badge-red">LINK</a>
+</td>
+<td>
+English
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="abstract-short-papers-and-slides" class="level2">
+<h2 class="anchored" data-anchor-id="abstract-short-papers-and-slides">Abstract, short papers and slides</h2>
+<table>
+<tbody><tr>
+<td>
+2018
+</td>
+<td width="60%">
+DESPOTA: an algorithm to detect the partition in the extended hierarchy of a dendrogram.<br> In: (Eds.): Cira Perna Monica Pratesi Anne Ruiz-Gazen, Studies in Theoretical and Applied Statistics. p.&nbsp;83-93, Cham:Springer
+</td>
+<td>
+<a href="https://github.com/jforbes14/eechidna" class="badge badge-small badge-green">slides</a>
+</td>
+<td>
+<a href="https://cloud.r-project.org/package=eechidna" class="badge badge-small badge-red">LINK</a>
+</td>
+<td>
+English
+</td>
+</tr>
+<tr>
+<td>
+2015
+</td>
+<td width="60%">
+DESPOTA: a permutation test algoritm to detect a partition from a dendrogram<br> Journal of Classification, (32), Springer DOI: 10.1007/s00357- 015-9179-x
+</td>
+<td>
+<a href="https://github.com/ropenscilabs/cricketdata" class="badge badge-small badge-green">slides</a>
+</td>
+<td>
+<a href="https://github.com/ropenscilabs/cricketdata" class="badge badge-small badge-red">LINK</a>
+</td>
+<td>
+English
+</td>
+</tr>
+<tr>
+<td>
+2010
+</td>
+<td width="60%">
+Cutting the dendrogram through permutation tests<br> Proceedings of Compstat’2010, Ed. by L. Y. S. G. EDS. NEW YORK: Physica-Verlag, HEIDELBERG, pp.&nbsp;847– 854
+</td>
+<td>
+<a href="https://github.com/jforbes14/eechidna" class="badge badge-small badge-green">slides</a>
+</td>
+<td>
+<a href="https://cloud.r-project.org/package=eechidna" class="badge badge-small badge-red">LINK</a>
+</td>
+<td>
+English
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="software-code" class="level2">
+<h2 class="anchored" data-anchor-id="software-code">Software code</h2>
+<p>At the moment there is no official code for Despota. The current version of the code is not very fast in case of big data, but it works.</p>
+<p>A small tutorial including the main functions and some auxiliary plotting functions is available on this <a href="https://github.com/robjhyndman/MonashEBSTemplates"></a><a href="https://github.com/jforbes14/eechidna" class="badge badge-small badge-black">GITHUB page</a>.</p>
+<p>I would be very glad of having any (positive as well as negative) feedback if you use DESPOTA on your data. Moreover, let me known in case you are interested to start a collaboration on the topic.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>DESPOTA</category>
+  <category>classification</category>
+  <guid>https://blog-neas.github.io/language-it/neas/despota/</guid>
+  <pubDate>Wed, 29 Dec 2021 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Cosa è NeaS</title>
+  <dc:creator>palazzolucio </dc:creator>
+  <link>https://blog-neas.github.io/language-it/neas/about-neas.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Il blog Nea-Statistic (NeaS) vuole essere un luogo di incontro virtuale dove le persone possono leggere argomenti legati alla statistica e condividere nuove scoperte relative alla Data Science. L’obiettivo è quello di presentare agli studenti (e ad un pubblico più ampio) alcune tematiche legate alla Data Science mostrando, allo stesso tempo, alcuni dei nostri interessi di ricerca ad un’ampia platea.</p>
+<p>La nostra speranza è quella di creare un angolo accogliente dove possiamo condividere idee e discutere in maniera informale con una comunità internazionale, senza applicare necessariamente il sistema di peer review.</p>
+<p>I temi trattati nel blog saranno principalmente incentrati sulla ricerca statistica, come ad esempio i modelli lineari generalizzati, l’analisi dei dati discreti e categorici, i modelli per dati non standard, la classificazione e il clustering. Gli argomenti saranno accompagnati da applicazioni in diversi campi, quali l’ambiente, l’apprendimento, l’informatica, gli studi territoriali ed i servizi.</p>
+<p>Si darà spazio anche ad eventi locali (come meetup o conferenze), notizie relative all’insegnamento e suggerimenti, ad esempio la scrittura e la preparazione di una tesi, la scrittura di un articolo e la sua presentazione ad una rivista scientifica. Faremo uso dei software moderni che si suppone debbano far parte del cosiddetto <em>toolbox statistico</em>, inclusi LaTeX, R e Python tra gli altri.</p>
+<p>I post saranno pubblicati (speranzosamente!) con cadenza bisettimanale o settimanale e, tranne in alcuni casi particolari (post tematici), l’ordinamento cronologico non ha particolare importanza. I post sono scritti principalmente da me e da alcuni colleghi del <a href="../../it/research-team">team di ricerca</a> di cui faccio parte, una lista degli autori è disponibile <a href="../../it/authors">qui</a>.</p>
+<div class="alert alert-info units-row">
+<div class="column unit-80">
+<h4 class="alert-heading anchored">
+Aiutaci!
+</h4>
+<p>Qualsiasi aiuto da parte di persone al di fuori della mia cerchia di conoscenti è molto apprezzato, per favore <a class="alert-link" href="mailto:lucio.palazzo@unina.it?subject=aiuto con il blog"><b>scrivimi</b></a> se sei interessato a contribuire.</p>
+</div>
+<div class="column unit-20">
+<i class="fa fa-comments-o fa-5x"></i>
+</div>
+</div>
+
+
+
+ ]]></description>
+  <guid>https://blog-neas.github.io/language-it/neas/about-neas.html</guid>
+  <pubDate>Fri, 01 Jan 2021 09:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
