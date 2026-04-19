@@ -1300,6 +1300,415 @@ Italian
       <pubDate>Tue, 23 Oct 2018 22:00:00 GMT</pubDate>
     </item>
     <item>
+      <title>Quantile composite-based path modeling: algorithms, properties and applications</title>
+      <creator>Pasquale Dolce, Cristina Davino, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2021-11-02-adac-qcpm.html</link>
+      <description> 
+
+
+
+&lt;p&gt;Composite-based path modeling aims to study the relationships among a set of constructs, that is a representation of theoretical concepts. Such constructs are operationalized as composites (i.e.&amp;nbsp;linear combinations of observed or manifest variables). The traditional partial least squares approach to composite-based path modeling focuses on the conditional means of the response distributions, being based on ordinary least squares regressions. Several are the cases where limiting to the mean could not reveal interesting effects at other locations of the outcome variables. Among these: when response variables are highly skewed, distributions have heavy tails and the analysis is concerned also about the tail part, heteroscedastic variances of the errors is present, distributions are characterized by outliers and other extreme data. In such cases, the quantile approach to path modeling is a valuable tool to complement the traditional approach, analyzing the entire distribution of outcome variables. Previous research has already shown the benefits of Quantile Composite-based Path Modeling but the methodological properties of the method have never been investigated. This paper offers a complete description of Quantile Composite-based Path Modeling, illustrating in details the method, the algorithms, the partial optimization criteria along with the machinery for validating and assessing the models. The asymptotic properties of the method are investigated through a simulation study. Moreover, an application on chronic kidney disease in diabetic patients is used to provide guidelines for the interpretation of results and to show the potentialities of the method to detect heterogeneity in the variable relationships.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Articles</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2021-11-02-adac-qcpm.html</guid>
+      <pubDate>Mon, 01 Nov 2021 23:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Component-based structural equation modeling for the assessment of psycho-social aspects and performance of athletes</title>
+      <creator>Rosa Fabbricatore, Maria Iannario, Rosaria Romano, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2021-08-31-asta-cbsem-sport.html</link>
+      <description> 
+
+
+
+&lt;p&gt;Recent studies have pointed out the effect of personality traits on athletes’ performance and success; however, fewer analyses have focused the relation among these features and specific athletic behaviors, skills, and strategies to enhance performance. To fill this void, the present paper provides evidence on what personality traits mostly affect athletes’ mental skills and, in turn, their effect on the performance of a sample of elite swimmers. The main findings were obtained by exploiting a component-based structural equation modeling which allows to analyze the relationships among some psychological constructs, measuring personality traits and mental skills, and a construct measuring sports performance. The partial least squares path modeling was employed, as it is the most recognized method among the component-based approaches. The introduced method simultaneously encompasses latent and emergent variables. Rather than focusing only on objective behaviors or game/race outcomes, such an approach evaluates variables not directly observable related to sport performance, such as cognition and affect, considering measurement error and measurement invariance, as well as the validity and reliability of the obtained latent constructs. The obtained results could be an asset to design strategies and interventions both for coaches and swimmers establishing an innovative use of statistical methods for maximizing athletes’ performance and well-being.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Articles</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2021-08-31-asta-cbsem-sport.html</guid>
+      <pubDate>Mon, 30 Aug 2021 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Measuring Social Vulnerability in an Urban Space Through Multivariate Methods and Models</title>
+      <creator>Cristina Davino, Marco Gherghi, Silvia Sorana, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2021-04-28-sir-social-vulnerability.html</link>
+      <description> 
+
+
+
+&lt;p&gt;This article proposes a quantitative analysis to measure social vulnerability in a urban space, specifically in the area of the Municipality of Rome. Social vulnerability can be defined as a situation in which people are characterized by a condition of multidimensional deprivation that encompasses multiple aspects of life and exposes population to different risks and hazards produced by natural, environmental, socioeconomic and epidemic factors. The analysis that follows presents the use of multivariate methods and models to provide an index for every dimensions of vulnerability (housing quality, social context, education, employment, urban mobility, social relations and economic conditions) and a global index for mapping social vulnerability. The analysis also succeeds in identifying significant vulnerability spatial patterns and to measure how and if vulnerability can be different in case of an observed heterogeneity in urban space.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Articles</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2021-04-28-sir-social-vulnerability.html</guid>
+      <pubDate>Tue, 27 Apr 2021 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Impact of organic and “protected designation of origin” labels in the perception of olive oil sensory quality</title>
+      <creator>Sara Spognardi, Domenico Vistocco, Lucio Cappelli, Patrizia Papetti</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2021-01-13-bfj-olive-oil.html</link>
+      <description> 
+
+
+
+&lt;section id="purpose" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="purpose"&gt;Purpose&lt;/h2&gt;
+&lt;p&gt;Investigate the behaviour and the habits of the consumers from central-southern Italy in relation to extra olive oil consumption, focussing on the impact of protected designation of origin (PDO) and EU–organic certification on purchase intention and quality perception.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="designmethodologyapproach" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="designmethodologyapproach"&gt;Design/methodology/approach&lt;/h2&gt;
+&lt;p&gt;A specific questionnaire was submitted to 160 consumers; a subsample of ten experts, ten semi-experts and ten habitual consumers of olive oil tested, through a blind test first and a normal one then, three Italian samples: an extra-virgin olive oil (EVOO) without certification, an organic EVOO and a PDO EVOO, which were characterised also from a chemical-physical point of view. The answers provided during the tastings were statistically analysed and compared.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="findings" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="findings"&gt;Findings&lt;/h2&gt;
+&lt;p&gt;People interviewed prefer local olive oils; they are positively influenced by PDO/organic certification, while price is not a decisive factor on the purchasing choices. According to tasting panel results: experts gave consistent answers preferring organic olive oil, semi-experts are positively influenced by the PDO brand contrary to what they claimed; non-experts would buy EVOO, although they are positively influenced by the PDO brand and negatively by the organic certification.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="practical-implications" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="practical-implications"&gt;Practical implications&lt;/h2&gt;
+&lt;p&gt;Only knowledge and experience can aid consumers make consistent and aware choices. Information campaigns could help them to distinguish products, correctly identify food attributes and overcome their scepticism towards quality of organic products.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="originalityvalue" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="originalityvalue"&gt;Originality/value&lt;/h2&gt;
+&lt;p&gt;Few works investigated the impact of quality and sustainability labelling on perception of olive oils, valuing the consistency between answers provided before and after sensory assessments.&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+ </description>
+      <category>Articles</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2021-01-13-bfj-olive-oil.html</guid>
+      <pubDate>Tue, 12 Jan 2021 23:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Composite-Based Path Modeling for Conditional Quantiles Prediction. An Application to Assess Health Differences at Local Level in a Well-Being Perspective</title>
+      <creator>Cristina Davino, Pasquale Dolce, Stefania Taralli, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2020-07-24-sir-cbpm-well-being.html</link>
+      <description> 
+
+
+
+&lt;p&gt;Quantile composite-based path modeling is a recent extension to the conventional partial least squares path modeling. It estimates the effects that predictors exert on the whole conditional distributions of the outcomes involved in path models and provides a comprehensive view on the structure of the relationships among the variables. This method can also be used in a predictive way as it estimates model parameters for each quantile of interest and provides conditional quantile predictions for the manifest variables of the outcome blocks. Quantile composite-based path modeling is shown in action on real data concerning well-being indicators. Health outcomes are assessed taking into account the effects of Economic well-being and Education. In fact, to support an accurate evaluation of the regional performances, the conditions within the outcomes arise should be properly considered. Assessing health inequalities in this multidimensional perspective can highlight the unobserved heterogeneity and contribute to advances in knowledge about the dynamics producing the well-being outcomes at local level.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Articles</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2020-07-24-sir-cbpm-well-being.html</guid>
+      <pubDate>Thu, 23 Jul 2020 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>On the use of quantile regression to deal with heterogeneity: the case of multi-block data</title>
+      <creator>Cristina Davino, Rosaria Romano, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2020-07-19-adac-qr-heterogenity-multiblock.html</link>
+      <description> 
+
+
+
+&lt;p&gt;The aim of the paper is to propose a quantile regression based strategy to assess heterogeneity in a multi-block type data structure. Specifically, the paper deals with a particular data structure where several blocks of variables are observed on the same units and a structure of relations is assumed between the different blocks. The idea is that quantile regression complements the results of the least squares regression by evaluating the impact of regressors on the entire distribution of the dependent variable, and not only exclusively on the expected value. By taking advantage of this, the proposed approach analyses the relationship among a dependent variable block and a set of regressors blocks but highlighting possible similarities among the statistical units. An empirical analysis is provided in the consumer analysis framework with the aim to cluster groups of consumers according to the similarities in the dependence structure among their overall liking and the liking for different drivers.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Articles</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2020-07-19-adac-qr-heterogenity-multiblock.html</guid>
+      <pubDate>Sat, 18 Jul 2020 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Ordinal probability effect measures for dyadic analysis in cumulative models</title>
+      <creator>Maria Iannario, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2020-06-01-sis-dyads-cumulative-models.html</link>
+      <description> 
+
+
+
+&lt;section id="english" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="english"&gt;English&lt;/h2&gt;
+&lt;p&gt;Dyadic data analysis (DDA) is increasingly being used to better under- stand, analyze and model intra- and inter-personal mechanisms in various types of dyads such as husband-wife, caregiver-patient, doctor-patient, parent-child or athlete-coach as in our example. A key strength of the DDA is its flexibility to take the (non)independence available in the dyads into account. In this article, we illustrate the value of using DDA to examine how sports performance is perceived by an athlete and if it is consistent with the declared performance by his/her coach. A probability summary for ordered comparison of groups referred to a measure of stochastic superiority is used to indicate the consistency of perceived assessments.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="italian" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="italian"&gt;Italian&lt;/h2&gt;
+&lt;p&gt;L’analisi dei dati diadici (DDA) è sempre più utilizzata per comprendere, analizzare e modellare i meccanismi intra e interpersonali in vari tipi di diade come marito-moglie, assistente-paziente, medico-paziente, genitore–bambino o atleta–allenatore. Quest’ultimo caso viene analizzato nel presente contributo. In particolare, la flessibilità della DDA nel tener conto della (non)indipendenza presente nelle diadi viene qui considerata per esaminare in che modo un atleta percepisce la prestazione sportiva e se questa percezione è coerente con la valutazione della prestazione dichiarata dal suo allenatore. Al fine di considerare la coerenza delle valutazioni espresse dai due attori del processo considerato, si utilizza una misura di probabilit `a stocastica che permette il confronto ordinato dei gruppi.&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2020-06-01-sis-dyads-cumulative-models.html</guid>
+      <pubDate>Sun, 31 May 2020 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Exploring multicollinearity in quantile regression</title>
+      <creator>Cristina Davino, Tormod Naes, Rosaria Romano and Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2020-06-01-sis-qr-multicollinearity.html</link>
+      <description> 
+
+
+
+&lt;section id="english" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="english"&gt;English&lt;/h2&gt;
+&lt;p&gt;The aim of the paper is to propose a simulation study to explore the multicollinearity problem in quantile regression, as compared to the classical linear regression. The simulation exploits the concept of a relevant subspace and relevant predictors, considering different degrees of collinearity among the involved predictors. The approach is based on principal components and consists in evaluating the degree of dependence between the predictors on the basis of the eigenvalue structure of their covariance matrix. It is well known that in case of highly intercorrelated predictors the least squares coefficients, although determinate, posses large standard errors, causing precision problems for their estimation. For this reason, results of the simulation study focus on standard errors estimated according to different collinearity levels. A possible solution based on regression on principal components is briefly presented.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="italian" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="italian"&gt;Italian&lt;/h2&gt;
+&lt;p&gt;L’articolo presenta uno studio di simulazione che mira ad esplorare il problema della multicollinearità nella regressione quantile, offrendo al contempo un parallelo con la regressione lineare classica. Lo studio sfrutta il concetto di sottospazio rilevante e predittori rilevanti, prendendo in considerazione diversi gradi di collinearità tra i predittori. L’approccio, basato sulle componenti principali, consiste nel valutare il grado di dipendenza tra i predittori rispetto alla struttura degli autovalori della loro matrice di covarianza. In caso di predittori altamente intercorrelati, è infatti noto che i coefficienti dei minimi quadrati, sebbene determinati, presentano errori standard elevati, causando problemi di precisione delle stime. I risultati presentati si concentrano pertanto sugli errori standard dei coefficienti, stimati in base a diversi livelli di collinearità. Una possibile soluzione al problema è mostrata sfruttando la regressione sulle componenti principali, in luogo dei regressori originari, al fine di eliminare il problema di collinearità.&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2020-06-01-sis-qr-multicollinearity.html</guid>
+      <pubDate>Sun, 31 May 2020 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Teaching statistics - an assessment framework based on Multidimensional IRT and Knowledge Space Theory</title>
+      <creator>Cristina Davino, Rosa Fabbricatore, Carla Galluccio, Daniela Pacella, Domenico Vistocco, Francesco Palumbo</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2020-06-01-sis-teaching-statistics-aleas.html</link>
+      <description> 
+
+
+
+&lt;section id="english" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="english"&gt;English&lt;/h2&gt;
+&lt;p&gt;In recent years, there is an increasing need for technology-based platforms to assist traditional learning methodologies. However, it is challenging to set up a common assessment framework to evaluate user knowledge. To address this issue, we propose an approach to teaching undergraduate statistics that makes use of the psychometric Item Response Theory based on latent class categorization to evaluate the user ability based on the European learning outcomes - the Dublin descriptors. Additionally, we enclose the user assessment workflow in a formalized structure using the principles of Knowledge Space Theory to track the current user knowledge state adaptively. The methodological framework serves as a base for the app developed within the ALEAS ERASMUS+ Project.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="italian" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="italian"&gt;Italian&lt;/h2&gt;
+&lt;p&gt;Di recente, è stata evidenziata una maggiore necessità di piattaforme tecnologiche come ausilio alle metodologie di apprendimento tradizionali. Tuttavia, è difficile istituire un quadro di valutazione comune per le conoscenze degli utenti. Pertanto, proponiamo un approccio all’insegnamento della statistica universitaria che si avvalga della teoria psicometrica Item Response Theory basata sulla categorizzazione in classi latenti, allo scopo di valutare la capacità dell’utente sulla base di obiettivi di apprendimento europei, i descrittori di Dublino. Inoltre, racchiudiamo il flusso di valutazione degli utenti in una struttura formalizzata utilizzando i principi della Knowledge Space Theory per tracciare in modo adattivo l’attuale stato della conoscenza dell’utente.&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2020-06-01-sis-teaching-statistics-aleas.html</guid>
+      <pubDate>Sun, 31 May 2020 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Modelling students’ performance in MOOCs: a multivariate approach</title>
+      <creator>Maria Carannante, Cristina Davino, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2020-02-10-sihe-mooc-performance.html</link>
+      <description> 
+
+
+
+&lt;p&gt;Massive Open Online Courses, universally labelled as MOOCs, become more and more relevant in the era of digitalization of higher education. The availability of free education resources without access restrictions for a plenty of potential users has changed the learning market in a way unthinkable only few decades ago. This form of web-based education allows to track all the actions of the students, thus providing an information base to understand how students’ behaviour can influence their performance. The paper proposes a structural equation model in the framework of the component-based approach to measure which are the main factors affecting students’ performance (Partial Least Squares Path Modelling). The novelty of the approach is the simultaneous analysis of more than one factor that exerts an impact on the performance. The analysis is carried out on the log data of a course available on the edX MOOCs platform named FedericaX.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Articles</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2020-02-10-sihe-mooc-performance.html</guid>
+      <pubDate>Sun, 09 Feb 2020 23:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A quantile regression perspective on consumer heterogeneity</title>
+      <creator>Cristina Davino, Rosaria Romano, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2019-07-04-ies-qr-consumer-heterogeneity.html</link>
+      <description> 
+
+
+
+&lt;section id="english" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="english"&gt;English&lt;/h2&gt;
+&lt;p&gt;The main objective of the consumer analysis is to analyze the hetero- geneity of preferences with respect to a predefined set of products. In some cases, consumer preferences are also related to some specific drivers in order to obtain preference models to be used in planning marketing strategies. The aim of this work is to present a strategy that allows to estimate preference models taking into account the individual differences of consumers in the liking pattern. The proposed strategy consists in using quantile regression to obtain preference models for homogeneous groups of consumers with respect to the quantile that best represents them. The strat- egy will be tested on data deriving from a case study on consumer’s preferences for muscadine grape juices.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="italian" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="italian"&gt;Italian&lt;/h2&gt;
+&lt;p&gt;L’obiettivo principale dell’analisi delle preferenze dei consumatori e` analizzare l’eterogeneità delle preferenze rispetto ad un insieme predefinito di prodotti. In alcuni casi, le preferenze sono anche messe in relazione ad alcuni driver specifici, al fine di ottenere modelli di preferenza da utilizzare nella piani- ficazione delle strategie di marketing. Lo scopo di questo lavoro è presentare una strategia di analisi che consenta di stimare modelli di preferenza che tengano conto anche delle differenze individuali dei consumatori. La strategia proposta consiste nell’utilizzare la regressione quantile per ottenere modelli per gruppi omogenei di consumatori rispetto al quantile che meglio li rappresenta. La proposta sarà testata su dati derivanti da un caso di studio sulle preferenze dei consumatori per i succhi di uva muscadine.&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2019-07-04-ies-qr-consumer-heterogeneity.html</guid>
+      <pubDate>Tue, 24 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Quantile composite-based path modeling to estimate the conditional quantiles of health indicators</title>
+      <creator>Pasquale Dolce, Cristina Davino, Stefania Taralli, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2019-09-11-cladag-qcpm-health-indicators.html</link>
+      <description> 
+
+
+
+&lt;p&gt;Quantile Composed-based Path Modeling complements the classical PLS Path Modeling. The latter is widely used to model relationships among latent variables and between the manifest variables and their corresponding latent variables. Since it essentially exploits classical least square regressions, PLS Path Modeling focuses on the effect the predictors exert on the conditional means of the different outcome variables involved in models. Quantile Composed-based Path Modeling extends the analysis to the whole conditional distributions of the outcomes. This paper proposes a procedure to estimate the conditional quantiles for the manifest variables of the outcome blocks. Starting from the information related to a grid of conditional quantiles, it is possible to define the most accurate model for each health indicator and the best predictive model for each Italian province. The proposed method is shown in action both on artificial and real data. The real data concerns the prediction of health indicators.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2019-09-11-cladag-qcpm-health-indicators.html</guid>
+      <pubDate>Tue, 24 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A mixture model with discrete variables for depression diagnosis in infertile couples</title>
+      <creator>Maria Iannario, Domenico Vistocco, Maria Clelia Zurlo</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2019-09-25-asa-mixture-models-depression-infertile-couples.html</link>
+      <description> 
+
+
+
+&lt;p&gt;Infertility is a major psycho–social crisis as well as being a medical problem. The factors that predict psycho–social consequences of infertility may vary in different gender, education level, socio-economic status. The primary purpose of this study was to investigate the relation- ship between socio-demographic characteristics and levels of depression and anxiety in infertile couples by exploring the role of each partner and of the related perceived levels of depression and of quality of dyadic adjustment. The perception of depression and/or anxiety are typically evaluated through latent components. This paper analyses these components by means of a mixture model for ordinal rating responses, allowing for uncertainty in answering. In responding to rating questions, indeed, an individual may give answers either according to her/his feeling or to her/his level of indecision, typically motivated by a response style. Since ignoring the uncertainty may entail misleading re- sults, we define the distribution of the ordinal responses via a mixture model which weights both components in answering. The study allows also to model the actor/partner interdependence in case of categorical dyadic data by presenting an alternative approach with respect to the current used methods. The effectiveness of the model is attested through the analysis of a cross-sectional study of infertile couples. The research aims to test and to evaluate the effects that some aspects linked to the couple’s relationship in infertile dyads have on depressive experience for both partners. It points out the role played by marital adjustment perceived by the wives in the definition of depressive symptoms of husbands, and vice versa. Specifically, the study is designed to measure interdependence within interpersonal relationship, that is when one person’s emotion, cogni- tion, or behaviour affects the emotion, cognition, or behaviour of the partner. One of the consequences is that observations of the two individuals are linked or correlated such that knowledge of one person’s score provides information about the other individual’s score.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2019-09-25-asa-mixture-models-depression-infertile-couples.html</guid>
+      <pubDate>Tue, 24 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Quantile Composite-based path modelling to handle differences in territorial well-being</title>
+      <creator>Cristina Davino, Pasquale Dolce, Stefania Taralli, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2019-09-25-asa-qcpm-territorial-well-being.html</link>
+      <description> 
+
+
+
+&lt;p&gt;The Italian system of indicators on Equitable and Sustainable Well-being (Benessere Equo e Sostenibile - BES) proposed by the National Institute of Statistics represents a well-established reference database in the national and international debate on the research on alternative well- being measures. The main strengths of this set are represented by the broad coverage of all the components of this complex concept and the availability of information not only at the aggre- gate level but also at the provincial level (NUTS3 level). In this framework, it is possible to consider not only the levels of well-being but also the differ- ences in their distribution thus highlighting differences in the territories. The paper proposes an advancement of work elaborated in Davino et al.&amp;nbsp;(2018), where a hierarchical composite model was used to study relationships among components of the BES. The proposed hierar- chical composite model allows us to synthesize individual indicators into single indexes, in order to construct composite indicators at a global and a partial level. Partial Least Squares path modeling and a recent method, called Quantile Composite-based path modeling, were used respectively to estimate average effects in the network of relationships among variables and to explore whether the magnitude of these effects changes across different parts of the variables distributions. The present contribution aims to deepen the study taking into account that living conditions are quite different according to unobserved or observed heterogeneity (for example according to the geographic area of the province).&lt;/p&gt;
+
+
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2019-09-25-asa-qcpm-territorial-well-being.html</guid>
+      <pubDate>Tue, 24 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The effects of attitude towards Statistics and Math knowledge on Statistical anxiety - A path model approach</title>
+      <creator>Rosa Fabbricatore, Carla Galluccio, Cristina Davino, Daniela Pacella, Domenico Vistocco, Francesco Palumbo</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2019-09-25-asa-statistical-anxiety.html</link>
+      <description> 
+
+
+
+&lt;p&gt;Academic well-being is an important task to achieve at all educational stages. Specifically, the well-being of university students and their academic performances are negatively affected by stress and anxiety. The discomfort that some students feel in regard to Math or Statistics has a great impact on them. In literature this is referred to as statistical anxiety (SA). SA can be defined as “the feeling of anxiety encountered when attending a statistics course or doing statistical analyses”. In particular, since Statistics has been introduced in many university curriculum programs, including many humanities courses, such as psychology, political sciences or sociology, in recent years statistical anxiety has been widely studied. Students who attend non-mathematics programs consider Statistics as a burd and exhibit higher SA levels. They are made weary by anything related to mathematics and believe that Statistics is not important for their degree programs and careers. SA negatively affects students’ statistics examinations: higher levels of SA lead them to lower performance. Due to SA great impact on students’ academic well-being and performance, several studies have focused on this topic and classified SA antecedents into situational factors (e.g.&amp;nbsp;math skills, previous statistical experience), dispositional factors (e.g.&amp;nbsp;attitude toward statistics, self-concept and self-efficacy) and demographic factors (e.g.&amp;nbsp;gender, age).&lt;/p&gt;
+&lt;p&gt;Data collected in the context of the ALEAS &lt;a href="https://aleas-%20project.eu/wordpress/"&gt;Adaptive LEArning in Statistics&lt;/a&gt; ERASMUS+ project were used in this work to explore the antecedents of SA in undergraduate students enrolled in the psychology course at Federico II University of Naples. In addition to the variables discussed above, in this study we also considered as antecedents of SA the high school final mark and the past experience with Statistics.&lt;/p&gt;
+&lt;p&gt;In particular, we tested the following hypotheses:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Hypothesis 1&lt;/strong&gt;. Gender, high school final mark, math comprehension and math background affect both the attitude towards Statistics and the levels of statistical anxiety;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Hypothesis 2&lt;/strong&gt;. Past experience with Statistics and attitude towards Statistics predict statistical anxiety.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2019-09-25-asa-statistical-anxiety.html</guid>
+      <pubDate>Tue, 24 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A new approach to preference mapping through quantile regression</title>
+      <creator>Cristina Davino, Tormod Naes, Rosaria Romano, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2019-09-11-cladag-qr-preference-mapping.html</link>
+      <description> 
+
+
+
+&lt;p&gt;The aim of the paper is to propose a new approach to preference mapping by exploiting quantile regression. The proposal consists into a multi-steps procedure combining principal component analysis, least squares and quantile regression. Results of the procedure on a case study show how the classical preference map can be enriched by information on the variability along the direction of the most preferred products. Such an additional information is obtained by the use of quantile regression.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2019-09-11-cladag-qr-preference-mapping.html</guid>
+      <pubDate>Tue, 10 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>MOOCS learning assessment - Conceptualisation, operativisation and measurement</title>
+      <creator>Carannante Maria, Cristina Davino, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2019-09-11-inted-moocs-learning-assessment.html</link>
+      <description> 
+
+
+
+&lt;p&gt;The Massive Open Online Courses (MOOCs) phenomenon, emerged with much popularity in recent years, raises questions about why some learners reach their achievement while others do not. Online learning environments differ from traditional forms of learning, because of their limited time and location restrictions, then online student engagement and learning needs a different considerations than the other forms of learning. We can see engagement as the investment of time, energy, and effort in learning, that is a degree of participation, individual or collective, to learning process. In educational literature, there are three distinct domains of engagement: behavioural, cognitive, and emotional. Behavioural engagement is intuitively defined as all the actions taken by learners to achieve their own goals. In learning analytics literature there are many analysis relating to how MOOC learners’ behaviours determine performance and reaching online course achievements, using a wide range of statistical instruments. On the basis of this literature it is possible to make hypothesis about how construct learning and engagement as latent variables and the relationship between these two concepts using a structural equation model. Furthermore, considered the complex nature of MOOCs that offers different forms of learning (videos, texts, discussion forums, quizzes, etc.) it is necessary to consider engagement and learning in MOOCs context as multidimensional variables, measurable using a structural equation model.&lt;/p&gt;
+&lt;p&gt;Since there is no theoretical model relating learning through MOOCs, it is necessary to compare different theoretically plausible alternative models. Statistical literature offers many goodness of fit index and information criteria to choose the best theoretical model.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2019-09-11-inted-moocs-learning-assessment.html</guid>
+      <pubDate>Tue, 10 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Effects of the exposure to ultrafine particles on heart rate in a healthy population</title>
+      <creator>Valeria Rizza, Luca Stabile, Domenico Vistocco, Aldo Russi, Stefano Pardi, Giorgio Buonanno</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2019-07-19-ste-exposure-ultrafine-particles.html</link>
+      <description> 
+
+
+
+&lt;section id="highlights" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="highlights"&gt;Highlights&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Evaluation of the correlation amongst ultrafine particles and heart rate&lt;/li&gt;
+&lt;li&gt;Personal monitoring of 50 volunteers in terms of particle number concentrations&lt;/li&gt;
+&lt;li&gt;Use of a statistical linear mixed model to fit the experimental data&lt;/li&gt;
+&lt;li&gt;The short-term exposure to ultrafine particles is positively associated with heart.&lt;/li&gt;
+&lt;li&gt;A logarithmic correlation amongst ultrafine particles and heart rate was estimated.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section id="abstract" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;The correlation amongst exposure to ultrafine particle concentrations and heart rate in a large healthy population was investigated. The study was conducted by continuously monitoring for seven days fifty volunteers in terms of exposure to particle concentrations, heart rate and physical activity performed through portable monitors. Data were analyzed adopting a linear mixed model able to manage the obtained repeated measures and to recognize a general trend resulting from the subject-specific patterns. Results show that the short-term exposure to ultrafine particle concentrations is positively associated with the heart rate for the different physical activities of the subject investigated (laying down, sitting, standing positions). In particular, a logarithmic correlation was recognized with a sharper increase of about &lt;img src="https://latex.codecogs.com/png.latex?4-6"&gt; bpm for a variation of the particle number concentration of &lt;img src="https://latex.codecogs.com/png.latex?2%20%C3%97%2010%5E4"&gt; part/cm&lt;img src="https://latex.codecogs.com/png.latex?%5E3"&gt; and a slighter effect for further increases of about &lt;img src="https://latex.codecogs.com/png.latex?0.1-0.2%20%C3%97%2010%5E%7B-4%7D"&gt; bpm/(part/cm).&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="capsule" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="capsule"&gt;Capsule&lt;/h2&gt;
+&lt;p&gt;A positive correlation can be associated between the exposure to ultrafine particles and the heart rate.&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+ </description>
+      <category>Articles</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2019-07-19-ste-exposure-ultrafine-particles.html</guid>
+      <pubDate>Thu, 18 Jul 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Exploring synergy between CUB models and quantile regression - a comparative analysis through continuousized data</title>
+      <creator>Cristina Davino, Rosaria Simone, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2018-10-24-asmod-cub-qr.html</link>
+      <description> 
+
+
+
+&lt;p&gt;The paper investigates a parallel between CUB models and quantile regressionthrough an illustrative case study on rating data. While CUB models have been proposedfor modeling ordinal variables, quantile regression is mostly convenient for quantitative re-sponses. The goal is to advance a comprehensive approach in which discrete ordinal out-comes on one hand and their continuousized version on the other coexist so to take advantageof two modern modeling frameworks.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Book chapters</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2018-10-24-asmod-cub-qr.html</guid>
+      <pubDate>Tue, 23 Oct 2018 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Modeling preferences: beyond the average effects data</title>
+      <creator>Cristina Davino, Rosaria Romano, Tormod Naes, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2018-10-24-asmod-qr-preferences.html</link>
+      <description> 
+
+
+
+&lt;p&gt;Preference mapping are a collection of multivariate statistical techniques widelyused by marketing and R&amp;amp;D divisions to understand which sensory characteristics drive consumer acceptance of goods. These techniques provide a perceptual map of the products basedon the so-called sensory dimensions, on which the liking values for each consumer are regressed. This study proposes an innovative preference mapping based on the quantile regression. Using the quantile regression instead of the classical least squares regression allows toexplore the whole distribution of the consumer preference. This permits to obtain additionalinformation both at the individual consumer level, analyzing how the preference varies withrespect to the different quantiles and at the general level, highlighting on the preference mapconsumers with homogeneous behaviors with respect to the different quantiles.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Book chapters</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2018-10-24-asmod-qr-preferences.html</guid>
+      <pubDate>Tue, 23 Oct 2018 22:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Ansia da valutazione, procrastinazione, grinta e autoefficacia: quale rapporto?</title>
       <link>https://blog-neas.github.io/language-en/seminars/2021-scuola_specializzazione-roma.html</link>
       <description> 
