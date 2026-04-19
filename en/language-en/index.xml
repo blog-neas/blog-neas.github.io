@@ -1,0 +1,1810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Lucio Palazzo</title>
+    <link>https://blog-neas.github.io</link>
+    <link href="https://blog-neas.github.io/index.xml" rel="self" type="application/rss+xml"/>
+    <description>Recent content by Lucio Palazzo</description>
+    <generator>quarto-1.8.25</generator>
+    <lastBuildDate>Mon, 10 Jan 2022 23:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Marginal plots with ggside</title>
+      <link>https://blog-neas.github.io/language-en/neas/ggside/</link>
+      <description> 
+
+
+
+
+&lt;p&gt;A marginal plot is a combination of a bivariate plot (typically a scatter plot) and one/two univariate plots (density, boxplot, dotplot, …). It is an interesting plot since you can inspect both the relationship between two variables and the distribution of each variable.&lt;/p&gt;
+&lt;p&gt;Even if there are several options to obtain a marginal plot, here I exploit &lt;code&gt;ggside&lt;/code&gt;, an useful extension for &lt;code&gt;ggplot2&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Note: &lt;code&gt;ggside&lt;/code&gt; can be used also for adding univariate plot(s) to a generic &lt;code&gt;ggplot&lt;/code&gt;.&lt;/p&gt;
+&lt;section id="install-and-load-ggside" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="install-and-load-ggside"&gt;Install and load &lt;code&gt;ggside&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ggside&lt;/code&gt; can be installed from CRAN (latest stable version) or from github (development version):&lt;/p&gt;
+&lt;div class="cell"&gt;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode r code-with-copy"&gt;&lt;code class="sourceCode r"&gt;&lt;span id="cb1-1"&gt;&lt;span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;# install the CRAN version&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb1-2"&gt;utils&lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;::&lt;/span&gt;&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;install.packages&lt;/span&gt;(&lt;span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"&gt;"ggside"&lt;/span&gt;)&lt;/span&gt;
+&lt;span id="cb1-3"&gt;&lt;span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;# install the latest development version (from Github)&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb1-4"&gt;devtools&lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;::&lt;/span&gt;&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;install_github&lt;/span&gt;(&lt;span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"&gt;"jtlandis/ggside"&lt;/span&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell"&gt;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode r code-with-copy"&gt;&lt;code class="sourceCode r"&gt;&lt;span id="cb2-1"&gt;&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;library&lt;/span&gt;(ggplot2)&lt;/span&gt;
+&lt;span id="cb2-2"&gt;&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;library&lt;/span&gt;(ggside)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;The message prompts that &lt;code&gt;ggside&lt;/code&gt; overwrites the &lt;code&gt;+.gg&lt;/code&gt; method of &lt;code&gt;ggplot2&lt;/code&gt;, adding functionalities for plotting on the two margins of a &lt;code&gt;ggplot2&lt;/code&gt; object.&lt;/p&gt;
+&lt;p&gt;Detailed information on &lt;code&gt;ggside&lt;/code&gt; are available on the &lt;a href="https://github.com/jtlandis/ggside"&gt;official github repository&lt;/a&gt; and on the &lt;a href="https://cran.r-project.org/web/packages/ggside/index.html"&gt;CRAN package webpage&lt;/a&gt;.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="the-penguins-dataset" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="the-penguins-dataset"&gt;The penguins dataset&lt;/h2&gt;
+&lt;p&gt;I exploit below the &lt;code&gt;penguins&lt;/code&gt; dataset available in the &lt;code&gt;palmerpenguins&lt;/code&gt; package.&lt;/p&gt;
+&lt;div class="cell"&gt;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode r code-with-copy"&gt;&lt;code class="sourceCode r"&gt;&lt;span id="cb3-1"&gt;&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;install.packages&lt;/span&gt;(&lt;span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"&gt;"palmerpenguins"&lt;/span&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;penguins&lt;/code&gt; is a tibble with 344 rows and 8 variables, containing measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex. You can read more information on the dataset inspecting the related help page:&lt;/p&gt;
+&lt;div class="cell"&gt;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode r code-with-copy"&gt;&lt;code class="sourceCode r"&gt;&lt;span id="cb4-1"&gt;&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;library&lt;/span&gt;(palmerpenguins)&lt;/span&gt;
+&lt;span id="cb4-2"&gt;&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;help&lt;/span&gt;(&lt;span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"&gt;"penguins"&lt;/span&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section id="marginal-plot" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="marginal-plot"&gt;Marginal plot&lt;/h2&gt;
+&lt;p&gt;Here is a classical scatterplot using &lt;code&gt;bill_length_mm&lt;/code&gt; (bill length, millimeters) on the horizontal axis and &lt;code&gt;body_mass_g&lt;/code&gt; (body mass in grams) on the vertical axis, enriching the plot using the color information for the &lt;code&gt;species&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="cell"&gt;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode r code-with-copy"&gt;&lt;code class="sourceCode r"&gt;&lt;span id="cb5-1"&gt;&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;ggplot&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;data =&lt;/span&gt; penguins, &lt;/span&gt;
+&lt;span id="cb5-2"&gt;       &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;x =&lt;/span&gt; bill_length_mm, &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;y =&lt;/span&gt; body_mass_g)) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb5-3"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_point&lt;/span&gt;(&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;col =&lt;/span&gt; species))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="cell-output-display"&gt;
+&lt;div&gt;
+&lt;figure class="figure"&gt;
+&lt;p&gt;&lt;img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"&gt;&lt;/p&gt;
+&lt;/figure&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;You can add a marginal plot for the &lt;code&gt;x&lt;/code&gt; (&lt;code&gt;y&lt;/code&gt;) variable exploiting the set of &lt;code&gt;geom_xside*&lt;/code&gt; (&lt;code&gt;geom_yside*&lt;/code&gt;) functions. The available functions, listed in the following table, inherit from the original &lt;code&gt;ggplot2&lt;/code&gt; functions, differing only in the position of the final plot:&lt;/p&gt;
+&lt;table class="caption-top table"&gt;
+&lt;colgroup&gt;
+&lt;col style="width: 64%"&gt;
+&lt;col style="width: 35%"&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class="header"&gt;
+&lt;th style="text-align: left;"&gt;functions&lt;/th&gt;
+&lt;th style="text-align: left;"&gt;graphical representation&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class="odd"&gt;
+&lt;td style="text-align: left;"&gt;geom_xsidebar&lt;br&gt;geom_ysidebar&lt;/td&gt;
+&lt;td style="text-align: left;"&gt;barplot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="even"&gt;
+&lt;td style="text-align: left;"&gt;geom_xsideboxplot&lt;br&gt;geom_ysideboxplot&lt;/td&gt;
+&lt;td style="text-align: left;"&gt;boxplot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="odd"&gt;
+&lt;td style="text-align: left;"&gt;geom_xsidedensity&lt;br&gt;geom_ysidedensity&lt;/td&gt;
+&lt;td style="text-align: left;"&gt;density plot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="even"&gt;
+&lt;td style="text-align: left;"&gt;geom_xsidefreqpoly&lt;br&gt;geom_ysidefreqpoly&lt;/td&gt;
+&lt;td style="text-align: left;"&gt;frequency polygon&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="odd"&gt;
+&lt;td style="text-align: left;"&gt;geom_xsidehistogram&lt;br&gt;geom_ysidehistogram&lt;/td&gt;
+&lt;td style="text-align: left;"&gt;histogram&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="even"&gt;
+&lt;td style="text-align: left;"&gt;geom_xsideline&lt;br&gt;geom_ysideline&lt;/td&gt;
+&lt;td style="text-align: left;"&gt;line plot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="odd"&gt;
+&lt;td style="text-align: left;"&gt;geom_xsidepoint&lt;br&gt;geom_ysidepoint&lt;/td&gt;
+&lt;td style="text-align: left;"&gt;dotplot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="even"&gt;
+&lt;td style="text-align: left;"&gt;geom_xsidesegment&lt;br&gt;geom_ysidesegment&lt;/td&gt;
+&lt;td style="text-align: left;"&gt;dotplot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="odd"&gt;
+&lt;td style="text-align: left;"&gt;geom_xsidetext&lt;br&gt;geom_ysidetext&lt;/td&gt;
+&lt;td style="text-align: left;"&gt;text&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="even"&gt;
+&lt;td style="text-align: left;"&gt;geom_xsidetile&lt;br&gt;geom_ysidetile&lt;/td&gt;
+&lt;td style="text-align: left;"&gt;tile plot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="odd"&gt;
+&lt;td style="text-align: left;"&gt;geom_xsideviolin&lt;br&gt;geom_ysideviolin&lt;/td&gt;
+&lt;td style="text-align: left;"&gt;violin plot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The choice of the plot to use on the margins depends on the type of data and on your taste.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="some-examples" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="some-examples"&gt;Some examples&lt;/h2&gt;
+&lt;p&gt;Two histograms can be added to the previous scatterplot exploiting the functions &lt;code&gt;geom_xsidehistogram&lt;/code&gt; and &lt;code&gt;geom_ysidehistogram&lt;/code&gt; (the bins argument is the same of &lt;code&gt;geom_histogram&lt;/code&gt; for setting the number of bins):&lt;/p&gt;
+&lt;div class="cell"&gt;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode r code-with-copy"&gt;&lt;code class="sourceCode r"&gt;&lt;span id="cb6-1"&gt;&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;ggplot&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;data =&lt;/span&gt; penguins, &lt;/span&gt;
+&lt;span id="cb6-2"&gt;       &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;x =&lt;/span&gt; bill_length_mm, &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;y =&lt;/span&gt; body_mass_g)) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb6-3"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_point&lt;/span&gt;() &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb6-4"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_xsidehistogram&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;bins =&lt;/span&gt; &lt;span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;"&gt;15&lt;/span&gt;) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb6-5"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_ysidehistogram&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;bins =&lt;/span&gt; &lt;span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;"&gt;15&lt;/span&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="cell-output-display"&gt;
+&lt;div&gt;
+&lt;figure class="figure"&gt;
+&lt;p&gt;&lt;img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"&gt;&lt;/p&gt;
+&lt;/figure&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;It is clearly possible to add only one side plot using only one of the two functions above. Color can be used to enrich the plot representing information of another variable, using the same syntax of &lt;code&gt;ggplot2&lt;/code&gt; function:&lt;/p&gt;
+&lt;div class="cell"&gt;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode r code-with-copy"&gt;&lt;code class="sourceCode r"&gt;&lt;span id="cb7-1"&gt;&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;ggplot&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;data =&lt;/span&gt; penguins, &lt;/span&gt;
+&lt;span id="cb7-2"&gt;       &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;x =&lt;/span&gt; bill_length_mm, &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;y =&lt;/span&gt; body_mass_g)) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb7-3"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_point&lt;/span&gt;(&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;col =&lt;/span&gt; species)) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb7-4"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_xsidehistogram&lt;/span&gt;(&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;fill =&lt;/span&gt; species), &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;bins =&lt;/span&gt; &lt;span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;"&gt;15&lt;/span&gt;) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb7-5"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_ysidehistogram&lt;/span&gt;(&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;fill =&lt;/span&gt; species), &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;bins =&lt;/span&gt; &lt;span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;"&gt;15&lt;/span&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="cell-output-display"&gt;
+&lt;div&gt;
+&lt;figure class="figure"&gt;
+&lt;p&gt;&lt;img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"&gt;&lt;/p&gt;
+&lt;/figure&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Densities are useful alternative to histograms, the &lt;code&gt;alpha&lt;/code&gt; argument is here used to change the transparency of the geometrical objects:&lt;/p&gt;
+&lt;div class="cell"&gt;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode r code-with-copy"&gt;&lt;code class="sourceCode r"&gt;&lt;span id="cb8-1"&gt;&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;ggplot&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;data =&lt;/span&gt; penguins, &lt;/span&gt;
+&lt;span id="cb8-2"&gt;       &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;x =&lt;/span&gt; bill_length_mm, &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;y =&lt;/span&gt; body_mass_g)) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb8-3"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_point&lt;/span&gt;(&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;col =&lt;/span&gt; species)) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb8-4"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_xsidedensity&lt;/span&gt;(&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;fill =&lt;/span&gt; species), &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;alpha =&lt;/span&gt; &lt;span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;"&gt;0.5&lt;/span&gt;) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb8-5"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_ysidedensity&lt;/span&gt;(&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;fill =&lt;/span&gt; species), &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;alpha =&lt;/span&gt; &lt;span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;"&gt;0.5&lt;/span&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="cell-output-display"&gt;
+&lt;div&gt;
+&lt;figure class="figure"&gt;
+&lt;p&gt;&lt;img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"&gt;&lt;/p&gt;
+&lt;/figure&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Stacked densities can be obtained setting the classical &lt;code&gt;position&lt;/code&gt; argument to &lt;code&gt;stack&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="cell"&gt;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode r code-with-copy"&gt;&lt;code class="sourceCode r"&gt;&lt;span id="cb9-1"&gt;&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;ggplot&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;data =&lt;/span&gt; penguins, &lt;/span&gt;
+&lt;span id="cb9-2"&gt;       &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;x =&lt;/span&gt; bill_length_mm, &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;y =&lt;/span&gt; body_mass_g)) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb9-3"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_point&lt;/span&gt;(&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;col =&lt;/span&gt; species)) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb9-4"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_xsidedensity&lt;/span&gt;(&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;fill =&lt;/span&gt; species), &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;alpha =&lt;/span&gt; &lt;span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;"&gt;0.5&lt;/span&gt;, &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;position =&lt;/span&gt; &lt;span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"&gt;"stack"&lt;/span&gt;) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb9-5"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_ysidedensity&lt;/span&gt;(&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;fill =&lt;/span&gt; species), &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;alpha =&lt;/span&gt; &lt;span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;"&gt;0.5&lt;/span&gt;, &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;position =&lt;/span&gt; &lt;span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"&gt;"stack"&lt;/span&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="cell-output-display"&gt;
+&lt;div&gt;
+&lt;figure class="figure"&gt;
+&lt;p&gt;&lt;img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"&gt;&lt;/p&gt;
+&lt;/figure&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Marginal boxplots deserve a note. “Perpendicular” boxplots are plotted by default (vertical for the &lt;code&gt;x&lt;/code&gt; variable and horizontal for the &lt;code&gt;y&lt;/code&gt; variable):&lt;/p&gt;
+&lt;div class="cell"&gt;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode r code-with-copy"&gt;&lt;code class="sourceCode r"&gt;&lt;span id="cb10-1"&gt;&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;ggplot&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;data =&lt;/span&gt; penguins, &lt;/span&gt;
+&lt;span id="cb10-2"&gt;       &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;x =&lt;/span&gt; bill_depth_mm, &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;y =&lt;/span&gt; body_mass_g)) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb10-3"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_point&lt;/span&gt;() &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb10-4"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_xsideboxplot&lt;/span&gt;() &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb10-5"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_ysideboxplot&lt;/span&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="cell-output-display"&gt;
+&lt;div&gt;
+&lt;figure class="figure"&gt;
+&lt;p&gt;&lt;img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"&gt;&lt;/p&gt;
+&lt;/figure&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;A more useful representation can be obtained changing the orientation of the side boxplots through the &lt;code&gt;orientation&lt;/code&gt; arguments:&lt;/p&gt;
+&lt;div class="cell"&gt;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode r code-with-copy"&gt;&lt;code class="sourceCode r"&gt;&lt;span id="cb11-1"&gt;&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;ggplot&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;data =&lt;/span&gt; penguins, &lt;/span&gt;
+&lt;span id="cb11-2"&gt;       &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;x =&lt;/span&gt; bill_depth_mm, &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;y =&lt;/span&gt; body_mass_g)) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb11-3"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_point&lt;/span&gt;() &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb11-4"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_xsideboxplot&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;orientation =&lt;/span&gt; &lt;span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"&gt;"y"&lt;/span&gt;) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb11-5"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_ysideboxplot&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;orientation =&lt;/span&gt; &lt;span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"&gt;"x"&lt;/span&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="cell-output-display"&gt;
+&lt;div&gt;
+&lt;figure class="figure"&gt;
+&lt;p&gt;&lt;img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"&gt;&lt;/p&gt;
+&lt;/figure&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Using a qualitative variable (&lt;code&gt;species&lt;/code&gt; in the example below) provides parallel boxplots, that are really useful for a quick inspection of differences in the conditional distributions:&lt;/p&gt;
+&lt;div class="cell"&gt;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode r code-with-copy"&gt;&lt;code class="sourceCode r"&gt;&lt;span id="cb12-1"&gt;&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;ggplot&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;data =&lt;/span&gt; penguins, &lt;/span&gt;
+&lt;span id="cb12-2"&gt;       &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;x =&lt;/span&gt; bill_depth_mm, &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;y =&lt;/span&gt; body_mass_g, &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;col =&lt;/span&gt; species)) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb12-3"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_point&lt;/span&gt;() &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb12-4"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_xsideboxplot&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;orientation =&lt;/span&gt; &lt;span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"&gt;"y"&lt;/span&gt;) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb12-5"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_ysideboxplot&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;orientation =&lt;/span&gt; &lt;span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"&gt;"x"&lt;/span&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="cell-output-display"&gt;
+&lt;div&gt;
+&lt;figure class="figure"&gt;
+&lt;p&gt;&lt;img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"&gt;&lt;/p&gt;
+&lt;/figure&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Finally, the set of &lt;code&gt;geom_xside*&lt;/code&gt; and &lt;code&gt;geom_yside*&lt;/code&gt; functions can be used also in case of panel plots obtained exploiting &lt;code&gt;facet_wrap&lt;/code&gt; and &lt;code&gt;facet_grid&lt;/code&gt;. Here is a simple example using &lt;code&gt;facet_wrap&lt;/code&gt; for subsetting data according to the levels of the variables &lt;code&gt;species&lt;/code&gt; and &lt;code&gt;island&lt;/code&gt; and adding conditional densities at the two side of scatterplot of &lt;code&gt;bill_depth_mm&lt;/code&gt; and &lt;code&gt;body_mass_g&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="cell"&gt;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode r code-with-copy"&gt;&lt;code class="sourceCode r"&gt;&lt;span id="cb13-1"&gt;&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;ggplot&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;data =&lt;/span&gt; penguins, &lt;/span&gt;
+&lt;span id="cb13-2"&gt;       &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;x =&lt;/span&gt; bill_depth_mm, &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;y =&lt;/span&gt; body_mass_g)) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb13-3"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_point&lt;/span&gt;() &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb13-4"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_xsidedensity&lt;/span&gt;() &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb13-5"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_ysidedensity&lt;/span&gt;() &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb13-6"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;facet_wrap&lt;/span&gt;(&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;vars&lt;/span&gt;(species, island)) &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="cell-output-display"&gt;
+&lt;div&gt;
+&lt;figure class="figure"&gt;
+&lt;p&gt;&lt;img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="1056"&gt;&lt;/p&gt;
+&lt;/figure&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Again, color can be exploited to compare conditional distributions. The following code represents two densities at each side of the main plot, each one showing the distribution of one of the two levels of &lt;code&gt;sex&lt;/code&gt; of penguins:&lt;/p&gt;
+&lt;div class="cell"&gt;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode r code-with-copy"&gt;&lt;code class="sourceCode r"&gt;&lt;span id="cb14-1"&gt;&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;ggplot&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;data =&lt;/span&gt; tidyr&lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;::&lt;/span&gt;&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;drop_na&lt;/span&gt;(penguins, sex), &lt;/span&gt;
+&lt;span id="cb14-2"&gt;       &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;x =&lt;/span&gt; bill_depth_mm, &lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;y =&lt;/span&gt; body_mass_g)) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb14-3"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_point&lt;/span&gt;() &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb14-4"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_xsidedensity&lt;/span&gt;(&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;col =&lt;/span&gt; sex)) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb14-5"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;geom_ysidedensity&lt;/span&gt;(&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;aes&lt;/span&gt;(&lt;span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"&gt;col =&lt;/span&gt; sex)) &lt;span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"&gt;+&lt;/span&gt;&lt;/span&gt;
+&lt;span id="cb14-6"&gt;  &lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;facet_wrap&lt;/span&gt;(&lt;span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"&gt;vars&lt;/span&gt;(species, island)) &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="cell-output-display"&gt;
+&lt;div&gt;
+&lt;figure class="figure"&gt;
+&lt;p&gt;&lt;img src="https://blog-neas.github.io/language-en/neas/ggside/index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="960"&gt;&lt;/p&gt;
+&lt;/figure&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Note: since there are missing values for the &lt;code&gt;sex&lt;/code&gt; variable, I exploit the &lt;code&gt;drop_na&lt;/code&gt; function (&lt;code&gt;tidyr&lt;/code&gt; package) to drop rows containing missing values in such variable (you need to install &lt;code&gt;tidyr&lt;/code&gt; to test the last chunk of code).&lt;/p&gt;
+&lt;p&gt;Finally, additional functions are available in &lt;code&gt;ggside&lt;/code&gt; for setting options on the &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt; scales: refer to the &lt;a href="https://cran.r-project.org/web/packages/ggside/ggside.pdf"&gt;official documentation&lt;/a&gt; for the list of functions.&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+ </description>
+      <category>marginal plots</category>
+      <category>ggplot2</category>
+      <category>ggside</category>
+      <guid>https://blog-neas.github.io/language-en/neas/ggside/</guid>
+      <pubDate>Mon, 10 Jan 2022 23:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Easy customisation of ggplot2: ggeasy</title>
+      <link>https://blog-neas.github.io/language-en/neas/ggeasy/</link>
+      <description> 
+
+
+
+
+&lt;p&gt;If you are interested to customise a &lt;code&gt;ggplot2&lt;/code&gt; graph without going crazy in remembering all the technicalities for rotating labels, removing or rotaging axes, removing or changing appeareance of legends, change the text appearance, I suggest to inspect &lt;code&gt;ggeasy&lt;/code&gt;. Documentation and tutorials are available on the &lt;a href="https://jonocarroll.github.io/ggeasy/index.html"&gt;&lt;code&gt;ggeasy&lt;/code&gt; official github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Instead (or maybe, at the same), if you are instead interested to master &lt;code&gt;ggplot2&lt;/code&gt; without shortcuts, please refer to the must-read book &lt;a href="https://ggplot2-book.org"&gt;&lt;code&gt;ggplot2&lt;/code&gt;: Elegant Graphic for Data Analysis&lt;/a&gt;, freely available online.&lt;/p&gt;
+
+
+
+ </description>
+      <category>ggeasy</category>
+      <category>ggplot2</category>
+      <guid>https://blog-neas.github.io/language-en/neas/ggeasy/</guid>
+      <pubDate>Sun, 09 Jan 2022 23:00:00 GMT</pubDate>
+      <content url="https://blog-neas.github.io/img/ggeasy-img.gif" medium="image" type="image/gif"/>
+    </item>
+    <item>
+      <title>DESPOTA</title>
+      <link>https://blog-neas.github.io/language-en/neas/despota/</link>
+      <description> 
+
+
+
+
+&lt;p&gt;DESPOTA (&lt;strong&gt;DE&lt;/strong&gt;ndogram &lt;strong&gt;S&lt;/strong&gt;licing through a &lt;strong&gt;P&lt;/strong&gt;ermutati&lt;strong&gt;O&lt;/strong&gt;n &lt;strong&gt;T&lt;/strong&gt;est &lt;strong&gt;A&lt;/strong&gt;pproach) is a novel approach exploiting permutation tests in order to automatically detect a partition among those embedded in a dendrogram. Unlike the traditional approach, DESPOTA includes in the search space also partitions not corresponding to horizontal cuts of the dendrogram.&lt;/p&gt;
+&lt;p&gt;The output of hierarchical clustering methods is typically displayed as a dendrogram describing a family of nested partitions. However, the exploitable partitions are usually restricted to those relying on horizontal cuts of the tree, missing the possibility to explore the whole set of partitions housed in the dendrogram. We introduced an algorithm, DESPOTA, exploiting the methodological framework of permutation tests, that permits a partition to be automatically found where clusters do not necessarily obey the above principle. Our solution adapts to every choice of the distance metric and agglomeration criterion used to grow the tree.&lt;/p&gt;
+&lt;section id="papers" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="papers"&gt;Papers&lt;/h2&gt;
+&lt;table&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;
+2018
+&lt;/td&gt;
+&lt;td width="60%"&gt;
+DESPOTA: an algorithm to detect the partition in the extended hierarchy of a dendrogram.&lt;br&gt; In: (Eds.): Cira Perna Monica Pratesi Anne Ruiz-Gazen, Studies in Theoretical and Applied Statistics. p.&amp;nbsp;83-93, Cham:Springer
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href="http://doi.org/10.1007/978-3-319-73906-9_8" class="badge badge-small badge-blue"&gt;DOI&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href="../../../it/publications/springer-despota/" class="badge badge-small badge-red"&gt;LINK&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+English
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+2015
+&lt;/td&gt;
+&lt;td width="60%"&gt;
+DESPOTA: a permutation test algoritm to detect a partition from a dendrogram&lt;br&gt; Journal of Classification, (32), Springer DOI: 10.1007/s00357- 015-9179-x
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href="http://doi.org/10.1007/s00357-015-9179-x" class="badge badge-small badge-blue"&gt;DOI&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href="../../../it/publications/joc-despota/" class="badge badge-small badge-red"&gt;LINK&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+English
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+2010
+&lt;/td&gt;
+&lt;td width="60%"&gt;
+Cutting the dendrogram through permutation tests&lt;br&gt; Proceedings of Compstat’2010, Ed. by L. Y. S. G. EDS. NEW YORK: Physica-Verlag, HEIDELBERG, pp.&amp;nbsp;847– 854
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href="https://link.springer.com/content/pdf/bfm%3A978-3-7908-2604-3%2F1.pdf" class="badge badge-small badge-blue"&gt;DOI&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href="../../../papers/2010_cutting-dendrogram-permutation-test_COMPSTAT.pdf" class="badge badge-small badge-red"&gt;LINK&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+English
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;/section&gt;
+&lt;section id="abstract-short-papers-and-slides" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="abstract-short-papers-and-slides"&gt;Abstract, short papers and slides&lt;/h2&gt;
+&lt;table&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;
+2015
+&lt;/td&gt;
+&lt;td width="60%"&gt;
+DESPOTA: an algorithm to automatically detect a reliable partition on a dendrogram.&lt;br&gt; CARME 2015, Naples, Italy, September 20–13
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href="../../../talks/2015-carme-napoli/carme2015_abstract.pdf" class="badge badge-small badge-red"&gt;abstract&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+English
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+2015
+&lt;/td&gt;
+&lt;td width="60%"&gt;
+DESPOTA: a permutation test algorithm to detect a partition from a dendrogram.&lt;br&gt; IFCS 2015, Bologna, Italy, July 6–8
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href="../../../talks/2015-ifcs-bologna/ifcs2015-vistocco_slides.pdf" class="badge badge-small badge-green"&gt;slides&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;td&gt;
+English
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+2013
+&lt;/td&gt;
+&lt;td width="60%"&gt;
+DESPOTA: un approccio basato sui test di permutazione per la ricerca della partizione su un dendrogramma&lt;br&gt; AISC 2013, Associazione Italiana di Scienze Cognitive, X Convegno Annuale, Napoli 19-22 novembre
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href="https://prezi.com/scpulaxh0r1d/" class="badge badge-small badge-black"&gt;&amp;nbsp;&amp;nbsp;prezi&amp;nbsp;&amp;nbsp;&lt;/a&gt;&lt;br&gt; &lt;a href="../../../talks/2013-aisc-napoli/aisc2013_movie-cut_1sec.mov" class="badge badge-small badge-black"&gt;movie 1&lt;/a&gt;&lt;br&gt; &lt;a href="../../../talks/2013-aisc-napoli/aisc2013_movie-despota_1sec.mov" class="badge badge-small badge-black"&gt;movie 2&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href="../../../talks/2013-aisc-napoli/aisc2013_short_paper.pdf" class="badge badge-small badge-red"&gt;short paper&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+Italian
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+2010
+&lt;/td&gt;
+&lt;td width="60%"&gt;
+Cutting the dendrogram through permutation tests&lt;br&gt; Proceedings of Compstat’2010, Ed. by L. Y. S. G. EDS. NEW YORK: Physica-Verlag, HEIDELBERG, pp.&amp;nbsp;847– 854
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href="../../../talks/2010-compstat-paris/compstat2010_slides.pdf" class="badge badge-small badge-green"&gt;slides&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href="../../../talks/2010-compstat-paris/compstat2010_paper.pdf" class="badge badge-small badge-red"&gt;short paper&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+English
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+2009
+&lt;/td&gt;
+&lt;td width="60%"&gt;
+Stairstep-like dendrogram cut: a permutation test approach&lt;br&gt; useR!, The R User Conference 2009, Agrocampus-Ouest, Rennes, France, July 8-10
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href="../../../talks/2009-user-rennes/UseR2009_slides.pdf" class="badge badge-small badge-green"&gt;slides&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href="../../../talks/2009-user-rennes/UseR2009_abstract.pdf" class="badge badge-small badge-red"&gt;abstract&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+English
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+2009
+&lt;/td&gt;
+&lt;td width="60%"&gt;
+Una procedura di taglio a gradini per l’estrazione della partizione ottimale da un dendrogramma&lt;br&gt; SISMEC 2009, Pavia, Italy, September 16-19
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href="../../../talks/2009-sismec-pavia/sismec2013_slides.pdf" class="badge badge-small badge-green"&gt;slides&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href="../../../talks/2009-sismec-pavia/sismec2013_short-paper.pdf" class="badge badge-small badge-red"&gt;short paper&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+Italian
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;/section&gt;
+&lt;section id="software-code" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="software-code"&gt;Software code&lt;/h2&gt;
+&lt;p&gt;At the moment there is no official code for Despota. The current version of the code is not very fast in case of big data, but it works.&lt;/p&gt;
+&lt;p&gt;A small tutorial including the main functions and some auxiliary plotting functions is available on this &lt;a href="https://github.com/domenicovistocco/despota"&gt;&lt;/a&gt;&lt;a href="https://github.com/domenicovistocco/despota" class="badge badge-small badge-black"&gt;GITHUB page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I would be very glad of having any (positive as well as negative) feedback if you use DESPOTA on your data. Moreover, let me known in case you are interested to start a collaboration on the topic.&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+ </description>
+      <category>DESPOTA</category>
+      <category>classification</category>
+      <guid>https://blog-neas.github.io/language-en/neas/despota/</guid>
+      <pubDate>Wed, 29 Dec 2021 23:00:00 GMT</pubDate>
+      <content url="https://blog-neas.github.io/img/logo-despota-colors.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>About DV blog</title>
+      <link>https://blog-neas.github.io/language-en/neas/about/</link>
+      <description> 
+
+
+
+
+&lt;p&gt;I decided to collect material related to my experience on R, statistics, coding and other things of my interest on the &lt;a href="../../../it/dv-blog"&gt;&lt;strong&gt;DV blog&lt;/strong&gt;&lt;/a&gt;. Since I learned (and continue to learn) a lot from the web, I hope that this material will be useful and of interest to those who have interests in common with me.&lt;/p&gt;
+&lt;p&gt;Since it is not a book, the published material does not follow any order but is meant to be browsed/searched by date or by topic, rather than according to a particular sequence.&lt;/p&gt;
+&lt;section id="section" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="section"&gt;&lt;/h2&gt;
+&lt;p&gt;This blog is not a newspaper as it is updated without any periodicity. Therefore, it cannot be considered an editorial product under Law n° 62 del 7.03.2001.&lt;/p&gt;
+&lt;p&gt;The blog author is not responsible for the content of the comments to posts, nor for the content of linked sites.&lt;/p&gt;
+&lt;p&gt;Some texts or images included in this blog are taken from the internet and therefore they considered public domain; if their publication smash any copyright, please notify me by email. They will be immediately removed if your report is correct.&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+ </description>
+      <category>about</category>
+      <guid>https://blog-neas.github.io/language-en/neas/about/</guid>
+      <pubDate>Tue, 28 Dec 2021 23:00:00 GMT</pubDate>
+      <content url="https://blog-neas.github.io/img/dv-logo-avatar.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Help</title>
+      <link>https://blog-neas.github.io/language-en/neas/help/</link>
+      <description> 
+
+
+
+
+&lt;p&gt;This is not a help service for all your R and statistical questions, so please try to avoid to post general questions in the comments, or send them to me by email. Please, limit to comments related to the published content.&lt;/p&gt;
+&lt;p&gt;If you have questions about data analysis, ask for help on &lt;a href="http://crossvalidated.com"&gt;crossvalidated.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you have questions about R, ask for help on &lt;a href="http://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Please, be polite in your comment: you do not necessarily have to agree with my posts but you can always kindly manifest your opinion. As far as I can, I will try to respond to all comments.&lt;/p&gt;
+
+
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/neas/help/</guid>
+      <pubDate>Tue, 28 Dec 2021 23:00:00 GMT</pubDate>
+      <content url="https://blog-neas.github.io/img/dv-help.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Quantile composite-based path modeling: algorithms, properties and applications</title>
+      <creator>Pasquale Dolce, Cristina Davino, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2021-11-02-adac-qcpm.html</link>
+      <description> 
+
+
+
+&lt;p&gt;Composite-based path modeling aims to study the relationships among a set of constructs, that is a representation of theoretical concepts. Such constructs are operationalized as composites (i.e.&amp;nbsp;linear combinations of observed or manifest variables). The traditional partial least squares approach to composite-based path modeling focuses on the conditional means of the response distributions, being based on ordinary least squares regressions. Several are the cases where limiting to the mean could not reveal interesting effects at other locations of the outcome variables. Among these: when response variables are highly skewed, distributions have heavy tails and the analysis is concerned also about the tail part, heteroscedastic variances of the errors is present, distributions are characterized by outliers and other extreme data. In such cases, the quantile approach to path modeling is a valuable tool to complement the traditional approach, analyzing the entire distribution of outcome variables. Previous research has already shown the benefits of Quantile Composite-based Path Modeling but the methodological properties of the method have never been investigated. This paper offers a complete description of Quantile Composite-based Path Modeling, illustrating in details the method, the algorithms, the partial optimization criteria along with the machinery for validating and assessing the models. The asymptotic properties of the method are investigated through a simulation study. Moreover, an application on chronic kidney disease in diabetic patients is used to provide guidelines for the interpretation of results and to show the potentialities of the method to detect heterogeneity in the variable relationships.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Articles</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2021-11-02-adac-qcpm.html</guid>
+      <pubDate>Mon, 01 Nov 2021 23:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Component-based structural equation modeling for the assessment of psycho-social aspects and performance of athletes</title>
+      <creator>Rosa Fabbricatore, Maria Iannario, Rosaria Romano, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2021-08-31-asta-cbsem-sport.html</link>
+      <description> 
+
+
+
+&lt;p&gt;Recent studies have pointed out the effect of personality traits on athletes’ performance and success; however, fewer analyses have focused the relation among these features and specific athletic behaviors, skills, and strategies to enhance performance. To fill this void, the present paper provides evidence on what personality traits mostly affect athletes’ mental skills and, in turn, their effect on the performance of a sample of elite swimmers. The main findings were obtained by exploiting a component-based structural equation modeling which allows to analyze the relationships among some psychological constructs, measuring personality traits and mental skills, and a construct measuring sports performance. The partial least squares path modeling was employed, as it is the most recognized method among the component-based approaches. The introduced method simultaneously encompasses latent and emergent variables. Rather than focusing only on objective behaviors or game/race outcomes, such an approach evaluates variables not directly observable related to sport performance, such as cognition and affect, considering measurement error and measurement invariance, as well as the validity and reliability of the obtained latent constructs. The obtained results could be an asset to design strategies and interventions both for coaches and swimmers establishing an innovative use of statistical methods for maximizing athletes’ performance and well-being.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Articles</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2021-08-31-asta-cbsem-sport.html</guid>
+      <pubDate>Mon, 30 Aug 2021 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Measuring Social Vulnerability in an Urban Space Through Multivariate Methods and Models</title>
+      <creator>Cristina Davino, Marco Gherghi, Silvia Sorana, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2021-04-28-sir-social-vulnerability.html</link>
+      <description> 
+
+
+
+&lt;p&gt;This article proposes a quantitative analysis to measure social vulnerability in a urban space, specifically in the area of the Municipality of Rome. Social vulnerability can be defined as a situation in which people are characterized by a condition of multidimensional deprivation that encompasses multiple aspects of life and exposes population to different risks and hazards produced by natural, environmental, socioeconomic and epidemic factors. The analysis that follows presents the use of multivariate methods and models to provide an index for every dimensions of vulnerability (housing quality, social context, education, employment, urban mobility, social relations and economic conditions) and a global index for mapping social vulnerability. The analysis also succeeds in identifying significant vulnerability spatial patterns and to measure how and if vulnerability can be different in case of an observed heterogeneity in urban space.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Articles</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2021-04-28-sir-social-vulnerability.html</guid>
+      <pubDate>Tue, 27 Apr 2021 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Impact of organic and “protected designation of origin” labels in the perception of olive oil sensory quality</title>
+      <creator>Sara Spognardi, Domenico Vistocco, Lucio Cappelli, Patrizia Papetti</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2021-01-13-bfj-olive-oil.html</link>
+      <description> 
+
+
+
+&lt;section id="purpose" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="purpose"&gt;Purpose&lt;/h2&gt;
+&lt;p&gt;Investigate the behaviour and the habits of the consumers from central-southern Italy in relation to extra olive oil consumption, focussing on the impact of protected designation of origin (PDO) and EU–organic certification on purchase intention and quality perception.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="designmethodologyapproach" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="designmethodologyapproach"&gt;Design/methodology/approach&lt;/h2&gt;
+&lt;p&gt;A specific questionnaire was submitted to 160 consumers; a subsample of ten experts, ten semi-experts and ten habitual consumers of olive oil tested, through a blind test first and a normal one then, three Italian samples: an extra-virgin olive oil (EVOO) without certification, an organic EVOO and a PDO EVOO, which were characterised also from a chemical-physical point of view. The answers provided during the tastings were statistically analysed and compared.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="findings" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="findings"&gt;Findings&lt;/h2&gt;
+&lt;p&gt;People interviewed prefer local olive oils; they are positively influenced by PDO/organic certification, while price is not a decisive factor on the purchasing choices. According to tasting panel results: experts gave consistent answers preferring organic olive oil, semi-experts are positively influenced by the PDO brand contrary to what they claimed; non-experts would buy EVOO, although they are positively influenced by the PDO brand and negatively by the organic certification.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="practical-implications" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="practical-implications"&gt;Practical implications&lt;/h2&gt;
+&lt;p&gt;Only knowledge and experience can aid consumers make consistent and aware choices. Information campaigns could help them to distinguish products, correctly identify food attributes and overcome their scepticism towards quality of organic products.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="originalityvalue" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="originalityvalue"&gt;Originality/value&lt;/h2&gt;
+&lt;p&gt;Few works investigated the impact of quality and sustainability labelling on perception of olive oils, valuing the consistency between answers provided before and after sensory assessments.&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+ </description>
+      <category>Articles</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2021-01-13-bfj-olive-oil.html</guid>
+      <pubDate>Tue, 12 Jan 2021 23:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Composite-Based Path Modeling for Conditional Quantiles Prediction. An Application to Assess Health Differences at Local Level in a Well-Being Perspective</title>
+      <creator>Cristina Davino, Pasquale Dolce, Stefania Taralli, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2020-07-24-sir-cbpm-well-being.html</link>
+      <description> 
+
+
+
+&lt;p&gt;Quantile composite-based path modeling is a recent extension to the conventional partial least squares path modeling. It estimates the effects that predictors exert on the whole conditional distributions of the outcomes involved in path models and provides a comprehensive view on the structure of the relationships among the variables. This method can also be used in a predictive way as it estimates model parameters for each quantile of interest and provides conditional quantile predictions for the manifest variables of the outcome blocks. Quantile composite-based path modeling is shown in action on real data concerning well-being indicators. Health outcomes are assessed taking into account the effects of Economic well-being and Education. In fact, to support an accurate evaluation of the regional performances, the conditions within the outcomes arise should be properly considered. Assessing health inequalities in this multidimensional perspective can highlight the unobserved heterogeneity and contribute to advances in knowledge about the dynamics producing the well-being outcomes at local level.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Articles</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2020-07-24-sir-cbpm-well-being.html</guid>
+      <pubDate>Thu, 23 Jul 2020 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>On the use of quantile regression to deal with heterogeneity: the case of multi-block data</title>
+      <creator>Cristina Davino, Rosaria Romano, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2020-07-19-adac-qr-heterogenity-multiblock.html</link>
+      <description> 
+
+
+
+&lt;p&gt;The aim of the paper is to propose a quantile regression based strategy to assess heterogeneity in a multi-block type data structure. Specifically, the paper deals with a particular data structure where several blocks of variables are observed on the same units and a structure of relations is assumed between the different blocks. The idea is that quantile regression complements the results of the least squares regression by evaluating the impact of regressors on the entire distribution of the dependent variable, and not only exclusively on the expected value. By taking advantage of this, the proposed approach analyses the relationship among a dependent variable block and a set of regressors blocks but highlighting possible similarities among the statistical units. An empirical analysis is provided in the consumer analysis framework with the aim to cluster groups of consumers according to the similarities in the dependence structure among their overall liking and the liking for different drivers.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Articles</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2020-07-19-adac-qr-heterogenity-multiblock.html</guid>
+      <pubDate>Sat, 18 Jul 2020 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Ordinal probability effect measures for dyadic analysis in cumulative models</title>
+      <creator>Maria Iannario, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2020-06-01-sis-dyads-cumulative-models.html</link>
+      <description> 
+
+
+
+&lt;section id="english" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="english"&gt;English&lt;/h2&gt;
+&lt;p&gt;Dyadic data analysis (DDA) is increasingly being used to better under- stand, analyze and model intra- and inter-personal mechanisms in various types of dyads such as husband-wife, caregiver-patient, doctor-patient, parent-child or athlete-coach as in our example. A key strength of the DDA is its flexibility to take the (non)independence available in the dyads into account. In this article, we illustrate the value of using DDA to examine how sports performance is perceived by an athlete and if it is consistent with the declared performance by his/her coach. A probability summary for ordered comparison of groups referred to a measure of stochastic superiority is used to indicate the consistency of perceived assessments.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="italian" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="italian"&gt;Italian&lt;/h2&gt;
+&lt;p&gt;L’analisi dei dati diadici (DDA) è sempre più utilizzata per comprendere, analizzare e modellare i meccanismi intra e interpersonali in vari tipi di diade come marito-moglie, assistente-paziente, medico-paziente, genitore–bambino o atleta–allenatore. Quest’ultimo caso viene analizzato nel presente contributo. In particolare, la flessibilità della DDA nel tener conto della (non)indipendenza presente nelle diadi viene qui considerata per esaminare in che modo un atleta percepisce la prestazione sportiva e se questa percezione è coerente con la valutazione della prestazione dichiarata dal suo allenatore. Al fine di considerare la coerenza delle valutazioni espresse dai due attori del processo considerato, si utilizza una misura di probabilit `a stocastica che permette il confronto ordinato dei gruppi.&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2020-06-01-sis-dyads-cumulative-models.html</guid>
+      <pubDate>Sun, 31 May 2020 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Exploring multicollinearity in quantile regression</title>
+      <creator>Cristina Davino, Tormod Naes, Rosaria Romano and Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2020-06-01-sis-qr-multicollinearity.html</link>
+      <description> 
+
+
+
+&lt;section id="english" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="english"&gt;English&lt;/h2&gt;
+&lt;p&gt;The aim of the paper is to propose a simulation study to explore the multicollinearity problem in quantile regression, as compared to the classical linear regression. The simulation exploits the concept of a relevant subspace and relevant predictors, considering different degrees of collinearity among the involved predictors. The approach is based on principal components and consists in evaluating the degree of dependence between the predictors on the basis of the eigenvalue structure of their covariance matrix. It is well known that in case of highly intercorrelated predictors the least squares coefficients, although determinate, posses large standard errors, causing precision problems for their estimation. For this reason, results of the simulation study focus on standard errors estimated according to different collinearity levels. A possible solution based on regression on principal components is briefly presented.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="italian" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="italian"&gt;Italian&lt;/h2&gt;
+&lt;p&gt;L’articolo presenta uno studio di simulazione che mira ad esplorare il problema della multicollinearità nella regressione quantile, offrendo al contempo un parallelo con la regressione lineare classica. Lo studio sfrutta il concetto di sottospazio rilevante e predittori rilevanti, prendendo in considerazione diversi gradi di collinearità tra i predittori. L’approccio, basato sulle componenti principali, consiste nel valutare il grado di dipendenza tra i predittori rispetto alla struttura degli autovalori della loro matrice di covarianza. In caso di predittori altamente intercorrelati, è infatti noto che i coefficienti dei minimi quadrati, sebbene determinati, presentano errori standard elevati, causando problemi di precisione delle stime. I risultati presentati si concentrano pertanto sugli errori standard dei coefficienti, stimati in base a diversi livelli di collinearità. Una possibile soluzione al problema è mostrata sfruttando la regressione sulle componenti principali, in luogo dei regressori originari, al fine di eliminare il problema di collinearità.&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2020-06-01-sis-qr-multicollinearity.html</guid>
+      <pubDate>Sun, 31 May 2020 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Teaching statistics - an assessment framework based on Multidimensional IRT and Knowledge Space Theory</title>
+      <creator>Cristina Davino, Rosa Fabbricatore, Carla Galluccio, Daniela Pacella, Domenico Vistocco, Francesco Palumbo</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2020-06-01-sis-teaching-statistics-aleas.html</link>
+      <description> 
+
+
+
+&lt;section id="english" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="english"&gt;English&lt;/h2&gt;
+&lt;p&gt;In recent years, there is an increasing need for technology-based platforms to assist traditional learning methodologies. However, it is challenging to set up a common assessment framework to evaluate user knowledge. To address this issue, we propose an approach to teaching undergraduate statistics that makes use of the psychometric Item Response Theory based on latent class categorization to evaluate the user ability based on the European learning outcomes - the Dublin descriptors. Additionally, we enclose the user assessment workflow in a formalized structure using the principles of Knowledge Space Theory to track the current user knowledge state adaptively. The methodological framework serves as a base for the app developed within the ALEAS ERASMUS+ Project.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="italian" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="italian"&gt;Italian&lt;/h2&gt;
+&lt;p&gt;Di recente, è stata evidenziata una maggiore necessità di piattaforme tecnologiche come ausilio alle metodologie di apprendimento tradizionali. Tuttavia, è difficile istituire un quadro di valutazione comune per le conoscenze degli utenti. Pertanto, proponiamo un approccio all’insegnamento della statistica universitaria che si avvalga della teoria psicometrica Item Response Theory basata sulla categorizzazione in classi latenti, allo scopo di valutare la capacità dell’utente sulla base di obiettivi di apprendimento europei, i descrittori di Dublino. Inoltre, racchiudiamo il flusso di valutazione degli utenti in una struttura formalizzata utilizzando i principi della Knowledge Space Theory per tracciare in modo adattivo l’attuale stato della conoscenza dell’utente.&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2020-06-01-sis-teaching-statistics-aleas.html</guid>
+      <pubDate>Sun, 31 May 2020 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Modelling students’ performance in MOOCs: a multivariate approach</title>
+      <creator>Maria Carannante, Cristina Davino, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2020-02-10-sihe-mooc-performance.html</link>
+      <description> 
+
+
+
+&lt;p&gt;Massive Open Online Courses, universally labelled as MOOCs, become more and more relevant in the era of digitalization of higher education. The availability of free education resources without access restrictions for a plenty of potential users has changed the learning market in a way unthinkable only few decades ago. This form of web-based education allows to track all the actions of the students, thus providing an information base to understand how students’ behaviour can influence their performance. The paper proposes a structural equation model in the framework of the component-based approach to measure which are the main factors affecting students’ performance (Partial Least Squares Path Modelling). The novelty of the approach is the simultaneous analysis of more than one factor that exerts an impact on the performance. The analysis is carried out on the log data of a course available on the edX MOOCs platform named FedericaX.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Articles</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2020-02-10-sihe-mooc-performance.html</guid>
+      <pubDate>Sun, 09 Feb 2020 23:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A quantile regression perspective on consumer heterogeneity</title>
+      <creator>Cristina Davino, Rosaria Romano, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2019-07-04-ies-qr-consumer-heterogeneity.html</link>
+      <description> 
+
+
+
+&lt;section id="english" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="english"&gt;English&lt;/h2&gt;
+&lt;p&gt;The main objective of the consumer analysis is to analyze the hetero- geneity of preferences with respect to a predefined set of products. In some cases, consumer preferences are also related to some specific drivers in order to obtain preference models to be used in planning marketing strategies. The aim of this work is to present a strategy that allows to estimate preference models taking into account the individual differences of consumers in the liking pattern. The proposed strategy consists in using quantile regression to obtain preference models for homogeneous groups of consumers with respect to the quantile that best represents them. The strat- egy will be tested on data deriving from a case study on consumer’s preferences for muscadine grape juices.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="italian" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="italian"&gt;Italian&lt;/h2&gt;
+&lt;p&gt;L’obiettivo principale dell’analisi delle preferenze dei consumatori e` analizzare l’eterogeneità delle preferenze rispetto ad un insieme predefinito di prodotti. In alcuni casi, le preferenze sono anche messe in relazione ad alcuni driver specifici, al fine di ottenere modelli di preferenza da utilizzare nella piani- ficazione delle strategie di marketing. Lo scopo di questo lavoro è presentare una strategia di analisi che consenta di stimare modelli di preferenza che tengano conto anche delle differenze individuali dei consumatori. La strategia proposta consiste nell’utilizzare la regressione quantile per ottenere modelli per gruppi omogenei di consumatori rispetto al quantile che meglio li rappresenta. La proposta sarà testata su dati derivanti da un caso di studio sulle preferenze dei consumatori per i succhi di uva muscadine.&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2019-07-04-ies-qr-consumer-heterogeneity.html</guid>
+      <pubDate>Tue, 24 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Quantile composite-based path modeling to estimate the conditional quantiles of health indicators</title>
+      <creator>Pasquale Dolce, Cristina Davino, Stefania Taralli, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2019-09-11-cladag-qcpm-health-indicators.html</link>
+      <description> 
+
+
+
+&lt;p&gt;Quantile Composed-based Path Modeling complements the classical PLS Path Modeling. The latter is widely used to model relationships among latent variables and between the manifest variables and their corresponding latent variables. Since it essentially exploits classical least square regressions, PLS Path Modeling focuses on the effect the predictors exert on the conditional means of the different outcome variables involved in models. Quantile Composed-based Path Modeling extends the analysis to the whole conditional distributions of the outcomes. This paper proposes a procedure to estimate the conditional quantiles for the manifest variables of the outcome blocks. Starting from the information related to a grid of conditional quantiles, it is possible to define the most accurate model for each health indicator and the best predictive model for each Italian province. The proposed method is shown in action both on artificial and real data. The real data concerns the prediction of health indicators.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2019-09-11-cladag-qcpm-health-indicators.html</guid>
+      <pubDate>Tue, 24 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A mixture model with discrete variables for depression diagnosis in infertile couples</title>
+      <creator>Maria Iannario, Domenico Vistocco, Maria Clelia Zurlo</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2019-09-25-asa-mixture-models-depression-infertile-couples.html</link>
+      <description> 
+
+
+
+&lt;p&gt;Infertility is a major psycho–social crisis as well as being a medical problem. The factors that predict psycho–social consequences of infertility may vary in different gender, education level, socio-economic status. The primary purpose of this study was to investigate the relation- ship between socio-demographic characteristics and levels of depression and anxiety in infertile couples by exploring the role of each partner and of the related perceived levels of depression and of quality of dyadic adjustment. The perception of depression and/or anxiety are typically evaluated through latent components. This paper analyses these components by means of a mixture model for ordinal rating responses, allowing for uncertainty in answering. In responding to rating questions, indeed, an individual may give answers either according to her/his feeling or to her/his level of indecision, typically motivated by a response style. Since ignoring the uncertainty may entail misleading re- sults, we define the distribution of the ordinal responses via a mixture model which weights both components in answering. The study allows also to model the actor/partner interdependence in case of categorical dyadic data by presenting an alternative approach with respect to the current used methods. The effectiveness of the model is attested through the analysis of a cross-sectional study of infertile couples. The research aims to test and to evaluate the effects that some aspects linked to the couple’s relationship in infertile dyads have on depressive experience for both partners. It points out the role played by marital adjustment perceived by the wives in the definition of depressive symptoms of husbands, and vice versa. Specifically, the study is designed to measure interdependence within interpersonal relationship, that is when one person’s emotion, cogni- tion, or behaviour affects the emotion, cognition, or behaviour of the partner. One of the consequences is that observations of the two individuals are linked or correlated such that knowledge of one person’s score provides information about the other individual’s score.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2019-09-25-asa-mixture-models-depression-infertile-couples.html</guid>
+      <pubDate>Tue, 24 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Quantile Composite-based path modelling to handle differences in territorial well-being</title>
+      <creator>Cristina Davino, Pasquale Dolce, Stefania Taralli, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2019-09-25-asa-qcpm-territorial-well-being.html</link>
+      <description> 
+
+
+
+&lt;p&gt;The Italian system of indicators on Equitable and Sustainable Well-being (Benessere Equo e Sostenibile - BES) proposed by the National Institute of Statistics represents a well-established reference database in the national and international debate on the research on alternative well- being measures. The main strengths of this set are represented by the broad coverage of all the components of this complex concept and the availability of information not only at the aggre- gate level but also at the provincial level (NUTS3 level). In this framework, it is possible to consider not only the levels of well-being but also the differ- ences in their distribution thus highlighting differences in the territories. The paper proposes an advancement of work elaborated in Davino et al.&amp;nbsp;(2018), where a hierarchical composite model was used to study relationships among components of the BES. The proposed hierar- chical composite model allows us to synthesize individual indicators into single indexes, in order to construct composite indicators at a global and a partial level. Partial Least Squares path modeling and a recent method, called Quantile Composite-based path modeling, were used respectively to estimate average effects in the network of relationships among variables and to explore whether the magnitude of these effects changes across different parts of the variables distributions. The present contribution aims to deepen the study taking into account that living conditions are quite different according to unobserved or observed heterogeneity (for example according to the geographic area of the province).&lt;/p&gt;
+
+
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2019-09-25-asa-qcpm-territorial-well-being.html</guid>
+      <pubDate>Tue, 24 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The effects of attitude towards Statistics and Math knowledge on Statistical anxiety - A path model approach</title>
+      <creator>Rosa Fabbricatore, Carla Galluccio, Cristina Davino, Daniela Pacella, Domenico Vistocco, Francesco Palumbo</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2019-09-25-asa-statistical-anxiety.html</link>
+      <description> 
+
+
+
+&lt;p&gt;Academic well-being is an important task to achieve at all educational stages. Specifically, the well-being of university students and their academic performances are negatively affected by stress and anxiety. The discomfort that some students feel in regard to Math or Statistics has a great impact on them. In literature this is referred to as statistical anxiety (SA). SA can be defined as “the feeling of anxiety encountered when attending a statistics course or doing statistical analyses”. In particular, since Statistics has been introduced in many university curriculum programs, including many humanities courses, such as psychology, political sciences or sociology, in recent years statistical anxiety has been widely studied. Students who attend non-mathematics programs consider Statistics as a burd and exhibit higher SA levels. They are made weary by anything related to mathematics and believe that Statistics is not important for their degree programs and careers. SA negatively affects students’ statistics examinations: higher levels of SA lead them to lower performance. Due to SA great impact on students’ academic well-being and performance, several studies have focused on this topic and classified SA antecedents into situational factors (e.g.&amp;nbsp;math skills, previous statistical experience), dispositional factors (e.g.&amp;nbsp;attitude toward statistics, self-concept and self-efficacy) and demographic factors (e.g.&amp;nbsp;gender, age).&lt;/p&gt;
+&lt;p&gt;Data collected in the context of the ALEAS &lt;a href="https://aleas-%20project.eu/wordpress/"&gt;Adaptive LEArning in Statistics&lt;/a&gt; ERASMUS+ project were used in this work to explore the antecedents of SA in undergraduate students enrolled in the psychology course at Federico II University of Naples. In addition to the variables discussed above, in this study we also considered as antecedents of SA the high school final mark and the past experience with Statistics.&lt;/p&gt;
+&lt;p&gt;In particular, we tested the following hypotheses:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Hypothesis 1&lt;/strong&gt;. Gender, high school final mark, math comprehension and math background affect both the attitude towards Statistics and the levels of statistical anxiety;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Hypothesis 2&lt;/strong&gt;. Past experience with Statistics and attitude towards Statistics predict statistical anxiety.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2019-09-25-asa-statistical-anxiety.html</guid>
+      <pubDate>Tue, 24 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A new approach to preference mapping through quantile regression</title>
+      <creator>Cristina Davino, Tormod Naes, Rosaria Romano, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2019-09-11-cladag-qr-preference-mapping.html</link>
+      <description> 
+
+
+
+&lt;p&gt;The aim of the paper is to propose a new approach to preference mapping by exploiting quantile regression. The proposal consists into a multi-steps procedure combining principal component analysis, least squares and quantile regression. Results of the procedure on a case study show how the classical preference map can be enriched by information on the variability along the direction of the most preferred products. Such an additional information is obtained by the use of quantile regression.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2019-09-11-cladag-qr-preference-mapping.html</guid>
+      <pubDate>Tue, 10 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>MOOCS learning assessment - Conceptualisation, operativisation and measurement</title>
+      <creator>Carannante Maria, Cristina Davino, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2019-09-11-inted-moocs-learning-assessment.html</link>
+      <description> 
+
+
+
+&lt;p&gt;The Massive Open Online Courses (MOOCs) phenomenon, emerged with much popularity in recent years, raises questions about why some learners reach their achievement while others do not. Online learning environments differ from traditional forms of learning, because of their limited time and location restrictions, then online student engagement and learning needs a different considerations than the other forms of learning. We can see engagement as the investment of time, energy, and effort in learning, that is a degree of participation, individual or collective, to learning process. In educational literature, there are three distinct domains of engagement: behavioural, cognitive, and emotional. Behavioural engagement is intuitively defined as all the actions taken by learners to achieve their own goals. In learning analytics literature there are many analysis relating to how MOOC learners’ behaviours determine performance and reaching online course achievements, using a wide range of statistical instruments. On the basis of this literature it is possible to make hypothesis about how construct learning and engagement as latent variables and the relationship between these two concepts using a structural equation model. Furthermore, considered the complex nature of MOOCs that offers different forms of learning (videos, texts, discussion forums, quizzes, etc.) it is necessary to consider engagement and learning in MOOCs context as multidimensional variables, measurable using a structural equation model.&lt;/p&gt;
+&lt;p&gt;Since there is no theoretical model relating learning through MOOCs, it is necessary to compare different theoretically plausible alternative models. Statistical literature offers many goodness of fit index and information criteria to choose the best theoretical model.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Conference proceedings</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2019-09-11-inted-moocs-learning-assessment.html</guid>
+      <pubDate>Tue, 10 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Effects of the exposure to ultrafine particles on heart rate in a healthy population</title>
+      <creator>Valeria Rizza, Luca Stabile, Domenico Vistocco, Aldo Russi, Stefano Pardi, Giorgio Buonanno</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2019-07-19-ste-exposure-ultrafine-particles.html</link>
+      <description> 
+
+
+
+&lt;section id="highlights" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="highlights"&gt;Highlights&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Evaluation of the correlation amongst ultrafine particles and heart rate&lt;/li&gt;
+&lt;li&gt;Personal monitoring of 50 volunteers in terms of particle number concentrations&lt;/li&gt;
+&lt;li&gt;Use of a statistical linear mixed model to fit the experimental data&lt;/li&gt;
+&lt;li&gt;The short-term exposure to ultrafine particles is positively associated with heart.&lt;/li&gt;
+&lt;li&gt;A logarithmic correlation amongst ultrafine particles and heart rate was estimated.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section id="abstract" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="abstract"&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;The correlation amongst exposure to ultrafine particle concentrations and heart rate in a large healthy population was investigated. The study was conducted by continuously monitoring for seven days fifty volunteers in terms of exposure to particle concentrations, heart rate and physical activity performed through portable monitors. Data were analyzed adopting a linear mixed model able to manage the obtained repeated measures and to recognize a general trend resulting from the subject-specific patterns. Results show that the short-term exposure to ultrafine particle concentrations is positively associated with the heart rate for the different physical activities of the subject investigated (laying down, sitting, standing positions). In particular, a logarithmic correlation was recognized with a sharper increase of about &lt;img src="https://latex.codecogs.com/png.latex?4-6"&gt; bpm for a variation of the particle number concentration of &lt;img src="https://latex.codecogs.com/png.latex?2%20%C3%97%2010%5E4"&gt; part/cm&lt;img src="https://latex.codecogs.com/png.latex?%5E3"&gt; and a slighter effect for further increases of about &lt;img src="https://latex.codecogs.com/png.latex?0.1-0.2%20%C3%97%2010%5E%7B-4%7D"&gt; bpm/(part/cm).&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="capsule" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="capsule"&gt;Capsule&lt;/h2&gt;
+&lt;p&gt;A positive correlation can be associated between the exposure to ultrafine particles and the heart rate.&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+ </description>
+      <category>Articles</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2019-07-19-ste-exposure-ultrafine-particles.html</guid>
+      <pubDate>Thu, 18 Jul 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Exploring synergy between CUB models and quantile regression - a comparative analysis through continuousized data</title>
+      <creator>Cristina Davino, Rosaria Simone, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2018-10-24-asmod-cub-qr.html</link>
+      <description> 
+
+
+
+&lt;p&gt;The paper investigates a parallel between CUB models and quantile regressionthrough an illustrative case study on rating data. While CUB models have been proposedfor modeling ordinal variables, quantile regression is mostly convenient for quantitative re-sponses. The goal is to advance a comprehensive approach in which discrete ordinal out-comes on one hand and their continuousized version on the other coexist so to take advantageof two modern modeling frameworks.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Book chapters</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2018-10-24-asmod-cub-qr.html</guid>
+      <pubDate>Tue, 23 Oct 2018 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Modeling preferences: beyond the average effects data</title>
+      <creator>Cristina Davino, Rosaria Romano, Tormod Naes, Domenico Vistocco</creator>
+      <link>https://blog-neas.github.io/language-en/publications/2018-10-24-asmod-qr-preferences.html</link>
+      <description> 
+
+
+
+&lt;p&gt;Preference mapping are a collection of multivariate statistical techniques widelyused by marketing and R&amp;amp;D divisions to understand which sensory characteristics drive consumer acceptance of goods. These techniques provide a perceptual map of the products basedon the so-called sensory dimensions, on which the liking values for each consumer are regressed. This study proposes an innovative preference mapping based on the quantile regression. Using the quantile regression instead of the classical least squares regression allows toexplore the whole distribution of the consumer preference. This permits to obtain additionalinformation both at the individual consumer level, analyzing how the preference varies withrespect to the different quantiles and at the general level, highlighting on the preference mapconsumers with homogeneous behaviors with respect to the different quantiles.&lt;/p&gt;
+
+
+
+ </description>
+      <category>Book chapters</category>
+      <guid>https://blog-neas.github.io/language-en/publications/2018-10-24-asmod-qr-preferences.html</guid>
+      <pubDate>Tue, 23 Oct 2018 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Ansia da valutazione, procrastinazione, grinta e autoefficacia: quale rapporto?</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2021-scuola_specializzazione-roma.html</link>
+      <description> 
+
+
+
+&lt;section id="scuola-di-specializzazione-in-metodologia-della-ricerca-università-pontificia-salesiana." class="level3"&gt;
+&lt;h3 class="anchored" data-anchor-id="scuola-di-specializzazione-in-metodologia-della-ricerca-università-pontificia-salesiana."&gt;Scuola di specializzazione in “Metodologia della ricerca”, Università Pontificia Salesiana.&lt;/h3&gt;
+&lt;p&gt;&lt;a href="../../files/seminars/2021-scuola_specializzazione-roma/2021-scuola_specializzazione-roma_programma.pdf"&gt;&lt;strong&gt;You can read here the programme of the event&lt;/strong&gt; (Italian)&lt;/a&gt;&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+
+&lt;iframe src="https://docs.google.com/gview?url=/files/talks/2021-scuola_specializzazione-roma/2021-scuola_specializzazione-roma_slide.pdf&amp;amp;embedded=true" width="100%" height="465"&gt;&lt;/iframe&gt;
+&lt;a href="../../files/talks/2021-scuola_specializzazione-roma/2021-scuola_specializzazione-roma_slide.pdf" class="badge badge-small badge-red"&gt;Download pdf&lt;/a&gt;
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2021-scuola_specializzazione-roma.html</guid>
+      <pubDate>Fri, 22 Oct 2021 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>La certezza assoluta ed altre finzioni. Leggerezza, inganni ed estetica del caso (Italian)</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2021-scuola-pls.html</link>
+      <description> 
+
+
+
+&lt;section id="pls-virtual-summer-school-for-students-psv3-italian-seconda-edizione-6-10-settembre-2021." class="level3"&gt;
+&lt;h3 class="anchored" data-anchor-id="pls-virtual-summer-school-for-students-psv3-italian-seconda-edizione-6-10-settembre-2021."&gt;PLS Virtual Summer School for Students PSV3 (Italian)&lt;br&gt; Seconda edizione, 6-10 settembre 2021.&lt;/h3&gt;
+&lt;p&gt;La fallacia dello scommettitore è spesso legata ad un’idea che tutti noi abbiamo della casualità e che si basa su una serie di regole estetiche che secondo noi il caso dovrebbe rispettare per potersi definire tali. Un esempio emblematico al riguardo è la funzione “shuffle” (riproduzione casuali dei brani) che le prime versioni degli iPod di Apple introdussero sul mercato. Quando si selezionava questa opzione, poteva accadere (e spesso accadeva) che venissero riprodotte l’una dopo l’altra più canzoni dello stesso artista e/o album. La reazione dell’utente di fronte a questa ripetizione dipendeva dal particolare brano che veniva ripetuto. In alcuni casi, infatti, quando il risultava gradito, si tendeva ad attribuire una sorta di intelligenza al dispositivo, ipotizzando che lo stesso fosse in grado di “imparare” il gusto musicale del proprietario. Nei casi in cui invece il brano selezionato per la ripetizione non era tra quelli preferiti, non mancavano le critiche rivolte al costruttore. Proprio in seguito a tali critiche, la Apple modificò l’iniziale estrattore casuale dei brani sostituendolo con un estrattore “quasi casuale”, che selezionava casualmente ogni canzone ma solo tra quelle di un differente autore e album rispetto a quella ascoltata precedentemente. La frase di Steve Jobs al riguardo è emblematica: “«We’re making it (the shuffle) less random to make it feel more random», perchè ci permette di intuire che spesso è più facile adattare il caso alle nostre regole estetiche che convincerci di come funziona veramente.&lt;/p&gt;
+&lt;p&gt;Lo stesso avviene per molti meccanismi distorsivi (bias cognitivi) legati al ragionamento umano in condizioni di incertezza, molti dei quali sono alla base delle falsi convizioni legate al gioco d’azzardo da parte degli scommettitori. Alcuni di questi meccanismi sono stati studiati e descritti da Amos Tversky e Daniel Kahneman nel filone della letteratura nota come economia comportamentale. Analoghi studi, con particolari applicazioni in campi assicurativo, furono sviluppati da Bruno de Finetti nel 1940, con la formalizzazione del teorema della rovina del giocatore.&lt;/p&gt;
+&lt;p&gt;&lt;a href="../../files/seminars/2021-scuola-pls/abstract-vistocco-pls2021.pdf"&gt;&lt;strong&gt;PDF version of the abstract (Italian)&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+
+&lt;iframe src="https://docs.google.com/gview?url=/talks/2021-scuola-pls/slide-pls-2021-vistocco.pdf&amp;amp;embedded=true" width="100%" height="465"&gt;&lt;/iframe&gt;
+&lt;a href="../../talks/2021-scuola-pls/slide-pls-2021-vistocco.pdf" class="badge badge-small badge-red"&gt;Download pdf&lt;/a&gt;
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2021-scuola-pls.html</guid>
+      <pubDate>Wed, 08 Sep 2021 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Effects of distance teaching on students and their families: the experience at Federico II University of Naples</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2021-asa-webinar.html</link>
+      <description> 
+
+
+
+&lt;section id="webinar-dapertura-del-convegno-asa2021---associazione-per-la-statistica-applicata-luniversità-italiana-ai-tempi-del-covid-dalla-gestione-dellemergenza-unopportunità-di-crescita-nel-modo-di-fare-didattica" class="level3"&gt;
+&lt;h3 class="anchored" data-anchor-id="webinar-dapertura-del-convegno-asa2021---associazione-per-la-statistica-applicata-luniversità-italiana-ai-tempi-del-covid-dalla-gestione-dellemergenza-unopportunità-di-crescita-nel-modo-di-fare-didattica"&gt;Webinar d’apertura del convegno ASA2021 - Associazione per la Statistica Applicata&lt;br&gt; L’Università italiana ai tempi del Covid: dalla gestione dell’emergenza un’opportunità di crescita nel modo di fare didattica?&lt;/h3&gt;
+&lt;p&gt;&lt;a href="../../files/seminars/2021-asa-webinar/2021-asa-webinar_programme.pdf"&gt;&lt;strong&gt;You can read here the programme of the event&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+
+&lt;iframe src="https://docs.google.com/gview?url=/talks/2021-asa-webinar/2021-asa-webinar_slides.pdf&amp;amp;embedded=true" width="100%" height="465"&gt;&lt;/iframe&gt;
+&lt;a href="../../talks/2021-asa-webinar/2021-asa-webinar_slides.pdf" class="badge badge-small badge-red"&gt;Download pdf&lt;/a&gt;
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2021-asa-webinar.html</guid>
+      <pubDate>Sun, 05 Sep 2021 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Exploring the Effects of E-learning on Students and Families: the Case of the University of Naples</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2021-isi-world-statistics-congress.html</link>
+      <description> 
+
+
+
+&lt;section id="rd-isi-world-statistics-congress-2021-11-16-july-2021-session-ips-non-live-123---statistical-methods-for-assessing-the-effectiveness-of-e-learning-during-the-covid-19-era." class="level3"&gt;
+&lt;h3 class="anchored" data-anchor-id="rd-isi-world-statistics-congress-2021-11-16-july-2021-session-ips-non-live-123---statistical-methods-for-assessing-the-effectiveness-of-e-learning-during-the-covid-19-era."&gt;63rd ISI World Statistics Congress 2021, 11-16 July 2021&lt;br&gt; Session: IPS Non-Live 123 - Statistical methods for assessing the effectiveness of e-learning during the COVID-19 era.&lt;/h3&gt;
+&lt;p&gt;Universities around the world moved the teaching activities online to face with Covid-19 emergency. Even if such a strategy has made it possible to continue offering teaching activities, the switch to online teaching is expected to exacerbate existing educational inequalities and penalize more vulnerable students. Indeed, since less advantaged students have difficulty accessing relevant learning digital resources, family social and economic conditions could impact the e-learning experience. It goes without saying that less advantaged students could experience more likely experiment problems for proper equipment and a comfortable learning environment. This paper aims to analyze the impact of distance learning activities on students’ families regarding the arrangement of the learning environment and the costs to set it up. The study exploits data collected at the University of Naples Federico II. The same data offer the opportunity to reflect on students’ performance due to the closure of the universities.&lt;/p&gt;
+&lt;p&gt;&lt;a href="../../files/seminars/2021-isi/2021-isi-vistocco-davino-palumbo_paper.pdf"&gt;&lt;strong&gt;You can read here the paper&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+&lt;div class="embed video-player" style="padding-bottom: 4ex;"&gt;
+  &lt;iframe class="youtube-player" type="text/html" src="https://www.youtube.com/embed/dGPF7o-0Ngk" allowfullscreen="" frameborder="0"&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;iframe src="https://docs.google.com/gview?url=/talks/2021-isi/2021-isi-vistocco-davino-palumbo_slides.pdf&amp;amp;embedded=true" width="100%" height="465"&gt;&lt;/iframe&gt;
+&lt;a href="../../talks/2021-isi/2021-isi-vistocco-davino-palumbo_slides.pdf" class="badge badge-small badge-red"&gt;Download pdf&lt;/a&gt;
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2021-isi-world-statistics-congress.html</guid>
+      <pubDate>Sat, 10 Jul 2021 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Exploring Students’ Profile and Performance Before and After Covid-19 Lock-down</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2021-sis-pisa.html</link>
+      <description> 
+
+
+
+&lt;section id="riunione-scientifica-sis-2021---società-italiana-di-statistica-satellite-event-covid-19-the-urgent-call-for-a-unified-statistical-and-demographic-challenge." class="level3"&gt;
+&lt;h3 class="anchored" data-anchor-id="riunione-scientifica-sis-2021---società-italiana-di-statistica-satellite-event-covid-19-the-urgent-call-for-a-unified-statistical-and-demographic-challenge."&gt;Riunione Scientifica SIS 2021 - Società italiana di statistica&lt;br&gt; Satellite event: Covid-19: the urgent call for a unified statistical and demographic challenge.&lt;/h3&gt;
+&lt;/section&gt;
+&lt;section id="abstract-english" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="abstract-english"&gt;Abstract (English)&lt;/h2&gt;
+&lt;p&gt;Universities around the world have responded to the emergency arising from the Covid-19 pandemic by moving teaching activities online. Nowadays it is important to study on the effects of this sudden change on students’life. This paper proposes some reflections on the effects that the closure of universities has had on the performance and characteristics of university students. The proposed empirical analysis is based on data from the University of Naples Federico II in Italy.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="abstract-italian" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="abstract-italian"&gt;Abstract (Italian)&lt;/h2&gt;
+&lt;p&gt;Le Università di tutto il mondo hanno risposto all’emergenza derivante dalla pandemia da Covid-19 con il trasferimento online delle attività didattiche. In questo periodo in cui la pandemia ancora perdura ma anche in prospettiva di una totale ripresa, è importante riflettere sugli effetti di questo cambio repentino che ha investo gli studenti di ogni ordine e grado. Questo lavoro propone alcune riflessioni sugli effetti che la chiusura delle strutture universitarie ha avuto sulla performance e sulle caratteristiche degli studenti universitari. L’analisi empirica proposta è basata sui dati relativi all’Università di Napoli Federico II.&lt;/p&gt;
+&lt;p&gt;You can read &lt;a href="../../files/seminars/2021-sis-pisa/2021-sis-pisa_programme.pdf"&gt;&lt;strong&gt;here the programme of the event&lt;/strong&gt;&lt;/a&gt; and &lt;a href="../../files/seminars/2021-sis-pisa/2021-sis-pisa_paper.pdf"&gt;&lt;strong&gt;here the paper&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+
+&lt;iframe src="https://docs.google.com/gview?url=/talks/2021-sis-pisa/2021-sis-pisa_slides.pdf&amp;amp;embedded=true" width="100%" height="465"&gt;&lt;/iframe&gt;
+&lt;a href="../../talks/2021-sis-pisa/2021-sis-pisa_slides.pdf" class="badge badge-small badge-red"&gt;Download pdf&lt;/a&gt;
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2021-sis-pisa.html</guid>
+      <pubDate>Thu, 17 Jun 2021 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The e-learning experience: a possible driver for increasing inequalities</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2021-sieds.html</link>
+      <description> 
+
+
+
+&lt;section id="lvii-riunione-scientifica-sieds---società-italiana-di-economia-demografia-e-statistica-session-composite-indicators." class="level3"&gt;
+&lt;h3 class="anchored" data-anchor-id="lvii-riunione-scientifica-sieds---società-italiana-di-economia-demografia-e-statistica-session-composite-indicators."&gt;LVII Riunione Scientifica SIEDS - Società italiana di economia demografia e statistica&lt;br&gt; Session: Composite indicators.&lt;/h3&gt;
+&lt;p&gt;The covid-19 pandemic has disrupted people’s lives and forced governments to impose great sacrifices on their citizens. One of the areas where the pandemic has imposed the greatest sacrifices is certainly education. To avoid the complete suspension of educational activities, it was necessary to adopt a completely different type of teaching than that traditionally used. Schools and Universities around the world have responded to the crisis by moving teaching activities online. While the enormous effort made to quickly make the transition to these new ways of teaching was certainly appreciated, the transition certainly had a major impact on the lives of students and teachers and their families.&lt;/p&gt;
+&lt;p&gt;The aim of this paper is to evaluate the impact of e-learning on the different types of students, in terms of preparation, characteristics and social background. The challenge is to explore if the switch from on-site to online learning caused by the emergence is exacerbating existing educational inequalities penalising more vulnerable students. The risk is that the social and economic conditions of families have a major influence on the e-learning experience because less advantaged students are less likely to have access to relevant learning digital resources (e.g.&amp;nbsp;laptop/computer, broadband internet connection) and less likely to have a suitable home learning environment (e.g.&amp;nbsp;a quiet place to study or their own desk).&lt;/p&gt;
+&lt;p&gt;The study is based on the analysis of data collected at the University of Naples Federico II in June 2020. More than 19,000 students took part in a survey, carried out to monitor distance learning activities and perceptions. The paper exploits a factorial method to obtain a composite indicator measuring the family impact of distance learning. Then, the family impact is analysed, trying to understand if it takes different forms and intensity depending on the students’characteristics, the availability of computer equipment and the type of teaching used. Finally, quantile regression allows to differentiate the study of effects for different levels of family impact. Some considerations on the preferred teaching method for the future and on the effects that the closure of universities has had on the performance of students are also enclosed.&lt;/p&gt;
+&lt;p&gt;The results, although in many cases expected, allow to quantify, and visualising heterogeneity in the conditions and characteristics of students. For example, the study quantifies the difference in the family impact among students who predominantly experienced a quiet e-learning experience without changing family habits (they already had all the equipment available for their exclusive use) and students who were forced to share both the workstation and the device with family members engaged in smart working or other learning activities. Moreover, quantile regression detects the different effects of socio-demographics and IT equipment in case of low, medium, or high family impact.&lt;/p&gt;
+&lt;p&gt;[&lt;strong&gt;PDF version of the abstract&lt;/strong&gt;]/files/seminars/2021-sieds/2021-sieds-davino_vistocco-abstract.pdf)&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+
+&lt;iframe src="https://docs.google.com/gview?url=/talks/2021-sieds/2021-sieds-davino_vistocco-slides.pdf&amp;amp;embedded=true" width="100%" height="465"&gt;&lt;/iframe&gt;
+&lt;a href="../../talks/2021-sieds/2021-sieds-davino_vistocco-slides.pdf" class="badge badge-small badge-red"&gt;Download pdf&lt;/a&gt;
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2021-sieds.html</guid>
+      <pubDate>Wed, 26 May 2021 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A Quantitative Study to Measure the Impact of E-Learning on Families</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2021-asa-conference.html</link>
+      <description> 
+
+
+
+&lt;section id="pre-conference-on-evaluation-of-educational-systems-of-asa---applied-statistics-associations." class="level3"&gt;
+&lt;h3 class="anchored" data-anchor-id="pre-conference-on-evaluation-of-educational-systems-of-asa---applied-statistics-associations."&gt;Pre-conference on “Evaluation of Educational Systems” of ASA - Applied Statistics Associations.&lt;/h3&gt;
+&lt;p&gt;The Covid-19 emergency has forced universities around the world to transfer teaching activities online. Even if online teaching allowed to carry out the planned teaching activities, it is necessary, in retrospect, to evaluate the impact of this teaching method on the different types of students, in terms of preparation, characteristics and social background. The switch from offline to online learning caused by Covid-19 is expected to exacerbate existing educational inequalities penalising more vulnerable students. The social and economic conditions of families have a major influence on the e-learning experience because less advantaged students are less likely to have access to relevant learning digital resources (e.g.&amp;nbsp;laptop/computer, broadband internet connection) and less likely to have a suitable home learning environment (e.g.&amp;nbsp;a quiet place to study or their own desk) (Di Pietro et al., 2020). Furthermore, according to the 2020 European Commission’s annual report on the levels of digitalisation achieved by the various member states, Italy ranks 25th among the 28 EU Member States.&lt;/p&gt;
+&lt;p&gt;The aim of this paper is to analyse whether and how the distance learning activities impacted on the students’ families both in terms of the organisation of spaces and daily rhythms and from an economic point of view, having required additional expenses. The study is based on the analysis of data collected at the University of Naples Federico II in June 2020. More than 19,000 students took part in a survey, carried out to monitor distance learning activities and perceptions. The paper is organised into two sections. In the first, a factorial method is exploited to obtain a composite indicator measuring the family impact of distance learning. Then, we try to explain if the family impact takes different forms and intensity depending on the students’ characteristics, the availability of computer equipment and the type of teaching used. Finally, quantile regression allow to differentiate the study of effects for different levels of family impact. Some considerations on the distance learning experience in terms of family impact and the evaluation on the preferred teaching method for the future are also enclosed.&lt;/p&gt;
+&lt;p&gt;&lt;a href="../../files/seminars/2021-asa-firenze/2021-asa-firenze_paper.pdf"&gt;&lt;strong&gt;You can read here the paper&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+&lt;/section&gt;
+
+&lt;div class="embed video-player" style="padding-bottom: 4ex;"&gt;
+  &lt;iframe class="youtube-player" type="text/html" src="https://www.youtube.com/embed/l67dXHzraMc" allowfullscreen="" frameborder="0"&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;iframe src="https://docs.google.com/gview?url=/talks/2021-asa-firenze/2021-asa-firenze_slides.pdf&amp;amp;embedded=true" width="100%" height="465"&gt;&lt;/iframe&gt;
+&lt;a href="../../talks/2021-asa-firenze/2021-asa-firenze_slides.pdf" class="badge badge-small badge-red"&gt;Download pdf&lt;/a&gt;
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2021-asa-conference.html</guid>
+      <pubDate>Thu, 18 Feb 2021 23:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ALEAS: a tutoring system for teaching and assessing statistical knowledge</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2020-psychobit.html</link>
+      <description> 
+
+
+
+&lt;section id="psychobit-2020---second-symposium-on-psychology-based-technologies-conference-webpage" class="level3"&gt;
+&lt;h3 class="anchored" data-anchor-id="psychobit-2020---second-symposium-on-psychology-based-technologies-conference-webpage"&gt;PSYCHOBIT 2020 - Second Symposium on Psychology-Based Technologies&lt;br&gt; &lt;a href="https://www.psychobit.org/second-edition/"&gt;Conference webpage&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Over the years, several studies have shown the relevance of one-to-one compared to one-to-many tutoring, shedding light on the need for technology-based platforms to assist traditional learning methodologies. Therefore, in recent years, tutoring systems that collect and analyse responses during the user interaction for an automated assessment and profiling were developed as a new standard to improve the learning outcome. In this framework, the tutoring system Adaptive LEArning system for Statistics (ALEAS) is aimed at providing an adaptive assessment of undergraduate students’ statistical abilities enrolled in social and human sciences courses. ALEAS is developed in the contest of the ERASMUS+ Project (KA+ 2018-1-IT02-KA203-048519). The article describes the ALEAS workflow; in particular, it focuses on the students’ categorisation according to their abilities. The student follows a learning process defined according to the Knowledge Space Theory, and she/he is classified at the end of each learning unit. The proposed classification method is based on the multidimensional latent class item response theory, where the dimensions are defined according to the Dublin learning dimensions. In this work, results from a simulation study support our approach’s effectiveness and encourage its future use with students.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../files/seminars/2020-psychobit/2020-psychobit-davino_et_al-paper.pdf"&gt;&lt;strong&gt;You can read here the paper&lt;/strong&gt;&lt;/a&gt; &lt;!-- - [**Here is conference online version of the paper**](http://ceur-ws.org/Vol-2730/paper36.pdf) --&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;/section&gt;
+
+
+&lt;iframe src="https://docs.google.com/gview?url=/talks/2020-psychobit/2020-psychobit-davino_et_al-slides.pdf&amp;amp;embedded=true" width="100%" height="465"&gt;&lt;/iframe&gt;
+&lt;a href="../../talks/2020-psychobit/2020-psychobit-davino_et_al-slides.pdf" class="badge badge-small badge-red"&gt;Download pdf&lt;/a&gt;
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2020-psychobit.html</guid>
+      <pubDate>Sun, 27 Sep 2020 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Quiz con Moodle. Tipologie di domande, impostazione e somministrazione di un test (Italian)</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2020-dises-quiz-moodle.html</link>
+      <description> 
+
+
+
+&lt;section id="tutorial-on-the-use-of-moodle-italian" class="level3"&gt;
+
+
+
+&lt;/section&gt;
+
+&lt;div class="embed video-player" style="padding-bottom: 4ex;"&gt;
+  &lt;iframe class="youtube-player" type="text/html" src="https://www.youtube.com/embed/vr80qJob1B8" allowfullscreen="" frameborder="0"&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2020-dises-quiz-moodle.html</guid>
+      <pubDate>Wed, 03 Jun 2020 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Verifica attivazione account Moodle Unina (Italian)</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2020-youtube-unina-moodle-account.html</link>
+      <description> 
+
+
+
+&lt;section id="verifica-attivazione-dellaccount-moodle-per-i-docenti-della-federico-ii-italian" class="level3"&gt;
+
+
+
+&lt;/section&gt;
+
+&lt;div class="embed video-player" style="padding-bottom: 4ex;"&gt;
+  &lt;iframe class="youtube-player" type="text/html" src="https://www.youtube.com/embed/lx8fO3u2q0w" allowfullscreen="" frameborder="0"&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2020-youtube-unina-moodle-account.html</guid>
+      <pubDate>Mon, 11 May 2020 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Google Meet tutorial - part 1 (Italian)</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2020-youtube-google-meet-part-1.html</link>
+      <description> 
+
+
+
+&lt;section id="google-meet-come-avviare-una-lezione-a-distanza-ai-tempi-del-coronavirus-italian" class="level3"&gt;
+
+
+
+&lt;/section&gt;
+
+&lt;div class="embed video-player" style="padding-bottom: 4ex;"&gt;
+  &lt;iframe class="youtube-player" type="text/html" src="https://www.youtube.com/embed/8fAKYtRbnmc" allowfullscreen="" frameborder="0"&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2020-youtube-google-meet-part-1.html</guid>
+      <pubDate>Sun, 08 Mar 2020 23:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Google Meet tutorial - part 2 (Italian)</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2020-youtube-google-meet-part-2.html</link>
+      <description> 
+
+
+
+&lt;section id="google-meet-parte-2-come-effettuare-una-lezione-a-distanza-ai-tempi-del-coronavirus-italian" class="level3"&gt;
+
+
+
+&lt;/section&gt;
+
+&lt;div class="embed video-player" style="padding-bottom: 4ex;"&gt;
+  &lt;iframe class="youtube-player" type="text/html" src="https://www.youtube.com/embed/bIaNfalz2GE" allowfullscreen="" frameborder="0"&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2020-youtube-google-meet-part-2.html</guid>
+      <pubDate>Sun, 08 Mar 2020 23:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Ti piace vincere facile? Distorsioni cognitive legate al gioco d’azzardo (Italian)</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2019-distorsioni-cognitive.html</link>
+      <description> 
+
+
+
+&lt;section id="convegno-sulle-dipendenze-organizzato-dal-centro-servizi-per-il-volontariato-di-napoli-e-dallazienda-consortile-per-i-servizi-alla-persona-penisola-sorrentina" class="level3"&gt;
+
+
+
+&lt;/section&gt;
+
+
+&lt;iframe src="https://docs.google.com/gview?url=/talks/2019-comune-meta/vistocco-slide-comune-meta.pdf&amp;amp;embedded=true" width="100%" height="465"&gt;&lt;/iframe&gt;
+&lt;a href="../../talks/2019-comune-meta/vistocco-slide-comune-meta.pdf" class="badge badge-small badge-red"&gt;Download pdf&lt;/a&gt;
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2019-distorsioni-cognitive.html</guid>
+      <pubDate>Wed, 20 Nov 2019 23:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A mixture model with discrete variables for depression diagnosis in infertile couples</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2019-asa-brescia-mixture_model.html</link>
+      <description> 
+
+
+
+&lt;section id="asa-conference-2019---statistics-for-health-and-well-being-conference-of-the-applied-statistics-association." class="level3"&gt;
+&lt;h3 class="anchored" data-anchor-id="asa-conference-2019---statistics-for-health-and-well-being-conference-of-the-applied-statistics-association."&gt;ASA Conference 2019 - Statistics for Health and Well-being&lt;br&gt; Conference of the Applied Statistics Association.&lt;/h3&gt;
+&lt;p&gt;Infertility is a major psychosocial crisis as well as being a medical problem. The factors that predict psychosocial consequences of infertility may vary in different gender, education level, socio-economic status. The primary purpose of this study was to investigate the relationship between sociodemographic characteristics and levels of depression and anxiety in infertile couples by exploring the role of each partner and of the related perceived levels of depression and of quality of dyadic adjustment.&lt;/p&gt;
+&lt;p&gt;This paper analyses these components by means of a mixture model for ordinal rating responses, allowing for uncertainty in answering (Piccolo, 2003). In responding to rating questions as the latent components which lead the perception of depression and/or anxiety, an individual may give answers either according to his/her feeling or to his/her level of indecision, typically motivated by a response style. Since ignoring this uncertainty may lead to misleading results, we define the distribution of the ordinal responses via a mixture model which weights both components in answering. The study allows also to model the actor/partner interdependence in case of categorical dyadic data by presenting an alternative approach with respect to the current used methods (see Kenny et al.&amp;nbsp;(2006), among others).&lt;/p&gt;
+&lt;p&gt;The effectiveness of the model is attested through the analysis of a cross-sectional study of 206 infertile couples interviewed from 2014 to 2016. A gynecologist evaluated participants for demographic and medical data and then they were visited by a psychologist to perform questionnaire scales which were the Dyadic Adjustment Scale, the Edinburgh Depression Scale and the State-Trait Anxiety Inventory for the evaluation of the perceived levels of psychological disease (Zurlo et al, 2018, 2017).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../files/seminars/2019-asa-brescia/2019-asa-brescia-iannario-et-al_abstract.pdf"&gt;&lt;strong&gt;PDF version of the abstract&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="../../files/seminars/2019-asa-brescia/2019-asa-brescia-iannario-et-al_paper.pdf"&gt;&lt;strong&gt;Read here the paper&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;/section&gt;
+
+
+&lt;iframe src="https://docs.google.com/gview?url=/talks/2019-asa-brescia/2019-asa-brescia-iannario-et-al_slides.pdf&amp;amp;embedded=true" width="100%" height="465"&gt;&lt;/iframe&gt;
+&lt;a href="../../talks/2019-asa-brescia/2019-asa-brescia-iannario-et-al_slides.pdf" class="badge badge-small badge-red"&gt;Download pdf&lt;/a&gt;
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2019-asa-brescia-mixture_model.html</guid>
+      <pubDate>Tue, 24 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Quantile Composite-based path modelling to handle differences in territorial well-being</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2019-asa-brescia-qcpm.html</link>
+      <description> 
+
+
+
+&lt;section id="asa-conference-2019---statistics-for-health-and-well-being-conference-of-the-applied-statistics-association." class="level3"&gt;
+&lt;h3 class="anchored" data-anchor-id="asa-conference-2019---statistics-for-health-and-well-being-conference-of-the-applied-statistics-association."&gt;ASA Conference 2019 - Statistics for Health and Well-being&lt;br&gt; Conference of the Applied Statistics Association.&lt;/h3&gt;
+&lt;p&gt;The Italian system of indicators on Equitable and Sustainable Well-being (Benessere Equo e Sostenibile - BES) proposed by the National Institute of Statistics represents a well-established reference database in the national and international debate on the research on alternative well- being measures. The main strengths of this set are represented by the broad coverage of all the components of this complex concept and the availability of information not only at the aggregate level but also at the provincial level (NUTS3 level) (Istat, 2019; Taralli et al.&amp;nbsp;2015). In this framework, it is possible to consider not only the levels of well-being but also the differences in their distribution thus highlighting differences in the territories.&lt;/p&gt;
+&lt;p&gt;The paper proposes an advancement of work elaborated in Davino et al.&amp;nbsp;(2018), where a hierarchical model was used to study the relationships among components of the BES. The proposed hierarchical model allows us to synthesize individual indicators into single indexes, in order to construct composite indicators at a global and a partial level. Partial Least Squares path modeling (Lohmöller J.B., 1989) and a recent method, called Quantile Composite-based path modeling (Davino and Vinzi, 2016), were used respectively to estimate average effects in the network of relationships among variables and to explore whether the magnitude of these effects changes across different parts of the variables distributions. The present contribution aims to deepen the study taking into account that living conditions are quite different according to an unobserved or observed heterogeneity (for example according to the geographic area of the province).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../files/seminars/2019-asa-brescia/2019-asa-brescia-davino-et-al_abstract.pdf"&gt;&lt;strong&gt;PDF version of the abstract&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="../../files/seminars/2019-asa-brescia/2019-asa-brescia-davino-et-al_paper.pdf"&gt;&lt;strong&gt;Read here the paper&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;/section&gt;
+
+
+&lt;iframe src="https://docs.google.com/gview?url=/talks/2019-asa-brescia/2019-asa-brescia-davino-et-al_slides.pdf&amp;amp;embedded=true" width="100%" height="465"&gt;&lt;/iframe&gt;
+&lt;a href="../../talks/2019-asa-brescia/2019-asa-brescia-davino-et-al_slides.pdf" class="badge badge-small badge-red"&gt;Download pdf&lt;/a&gt;
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2019-asa-brescia-qcpm.html</guid>
+      <pubDate>Tue, 24 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The effects of attitude toward Statistics and Math knowledge on Statistical anxiety: A path model approach</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2019-asa-brescia-statistical_anxiety.html</link>
+      <description> 
+
+
+
+&lt;section id="asa-conference-2019---statistics-for-health-and-well-being-conference-of-the-applied-statistics-association." class="level3"&gt;
+&lt;h3 class="anchored" data-anchor-id="asa-conference-2019---statistics-for-health-and-well-being-conference-of-the-applied-statistics-association."&gt;ASA Conference 2019 - Statistics for Health and Well-being&lt;br&gt; Conference of the Applied Statistics Association.&lt;/h3&gt;
+&lt;p&gt;Academic well-being and performance are important tasks to achieve in all school grades, and are negatively affected by stress and anxiety. Actually, students feel discomfort with regard to specific subjects, like Math and Statistics. For this reason, mathematical and statistical anxiety have been widely studied (among the others, see Primi, Donati &amp;amp; Chiesi, 2016). Statistics is a mandatory course in the curriculum in most of humanities programs. Many authors showed that these students consider Statistics as a burden and exhibit higher levels of statistical anxiety. Statistical anxiety can be defined as “the feeling of anxiety encountered when attending a Statistics course or doing statistical analyses” (Cruise, Cash &amp;amp; Bolton, 1985, p.92). These students are made weary by anything related to Mathematics and believe that Statistics is not important for their degree programs and careers (Primi, Donati &amp;amp; Chiesi, 2016). Moreover, Statistics is viewed as an unpleasant and difficult subject, making students feel uncomfortable and leading them to believe that they are not able to achieve the task that is being requested from them. Several studies on this topic classified the statistical anxiety antecedents. They are typically divided in situational factors (e.g.&amp;nbsp;math skills, previous statistical experience), dispositional factors (e.g.&amp;nbsp;attitude toward Statistics, self-concept and self-efficacy) and demographic factors (e.g.&amp;nbsp;gender, age). The most common and widely used psychometrics tools to assess statistical anxiety are STARS (Cruise, Cash &amp;amp; Bolton, 1985) and SAS (Vigil-Colet, Lorenzo-Seva &amp;amp; Condon, 2008).&lt;/p&gt;
+&lt;p&gt;In this work we present a preliminary analysis based on data collected within the ALEAS (Adaptive LEArning in Statistics) ERASMUS+ project (https://aleas-project.eu/wordpress/) about statistical anxiety in undergraduate students enrolled in the Psychology course at Federico II University of Naples.&lt;/p&gt;
+&lt;p&gt;Path analysis (Duncan, 1966) was carried out to study the interplay between statistical anxiety and a set of considered variables. Our results show that math background affects the attitude towards Statistics and the statistical anxiety. Moreover, statistical anxiety also depends on other variables such as math comprehension, gender, high school final mark, and past experience in Statistics.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://domenicovistocco.it/files_download/seminars/2019-asa-brescia/2019-asa-brescia-fabbricatore-et-al_abstract.pdf"&gt;&lt;strong&gt;PDF version of the abstract&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://domenicovistocco.it/files_download/seminars/2019-asa-brescia/2019-asa-brescia-fabbricatore-et-al_paper.pdf"&gt;&lt;strong&gt;Read here the paper&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;/section&gt;
+
+
+&lt;iframe src="https://docs.google.com/gview?url=/talks/2019-asa-brescia/2019-asa-brescia-fabbricatore-et-al_slides.pdf&amp;amp;embedded=true" width="100%" height="465"&gt;&lt;/iframe&gt;
+&lt;a href="../../talks/2019-asa-brescia/2019-asa-brescia-fabbricatore-et-al_slides.pdf" class="badge badge-small badge-red"&gt;Download pdf&lt;/a&gt;
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2019-asa-brescia-statistical_anxiety.html</guid>
+      <pubDate>Tue, 24 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>MOOC learning assessment: conceptualisation, operativisation and measurement</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2019-inted-valencia-mooc_learning_assessment.html</link>
+      <description> 
+
+
+
+&lt;section id="inted-2019---13th-international-technology-education-and-development-conference-valencia-spain-11-13-march" class="level3"&gt;
+&lt;h3 class="anchored" data-anchor-id="inted-2019---13th-international-technology-education-and-development-conference-valencia-spain-11-13-march"&gt;INTED 2019 - 13th International Technology, Education and Development Conference&lt;br&gt; Valencia, Spain, 11-13 March&lt;/h3&gt;
+&lt;p&gt;Massive Open Online Courses differ from traditional forms of learning, because of their free access, abundance of resources and of user interaction tools available. Notwithstanding these features, some learners reach their achievement while others do not. In learning analytics literature there are many contributing relating to how Massive Open Online Courses learners’ behaviours determine performance. The paper proposes a study to face the conceptualisation, operativisation and measurement of learning and engagement, two determinists of learners’ performance. Moreover, considering the multidimensional and complex nature of Massive Open Online Courses learning assessment, a Partial Least Squares model is also proposed.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../files/seminars/2019-inted/2019-inted-carannante-et-al_paper.pdf"&gt;&lt;strong&gt;Read here the paper&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;/section&gt;
+
+
+&lt;iframe src="https://docs.google.com/gview?url=/talks/2019-inted/2019-inted-carannante-et-al_slides.pdf&amp;amp;embedded=true" width="100%" height="465"&gt;&lt;/iframe&gt;
+&lt;a href="../../talks/2019-inted/2019-inted-carannante-et-al_slides.pdf" class="badge badge-small badge-red"&gt;Download pdf&lt;/a&gt;
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2019-inted-valencia-mooc_learning_assessment.html</guid>
+      <pubDate>Tue, 24 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>QCPM for Conditional Quantiles Estimation of Health Indicators</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2019-cladag-cassino-qcpm-health.html</link>
+      <description> 
+
+
+
+&lt;section id="cladag-2019---12th-scientific-meeting-classification-and-data-analysis-group-cassino-september-11-13-2019." class="level3"&gt;
+&lt;h3 class="anchored" data-anchor-id="cladag-2019---12th-scientific-meeting-classification-and-data-analysis-group-cassino-september-11-13-2019."&gt;Cladag 2019 - 12th Scientific Meeting Classification and Data Analysis Group&lt;br&gt; Cassino, September 11 – 13, 2019.&lt;/h3&gt;
+&lt;p&gt;Quantile Composed-based Path Modeling complements the classical PLS Path Modeling. The latter is widely used to model relationships among latent variables and between the manifest variables and their corresponding latent variables. Since it essentially exploits classical least square regressions, PLS Path Modeling focuses on the effect the predictors exert on the conditional means of the different outcome variables involved in models. Quantile Composed-based Path Modeling extends the analysis to the whole conditional distributions of the outcomes. This paper proposes a procedure to estimate the conditional quantiles for the manifest variables of the outcome blocks. Starting from the information related to a grid of conditional quantiles, it is possible to define the most accurate model for each health indicator and the best predictive model for each Italian province. The proposed method is shown in action both on artificial and real data. The real data concerns the prediction of health indicators.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../files/seminars/2019-cladag-cassino/2019-cladag-cassino-qcpm-health_paper.pdf"&gt;&lt;strong&gt;Read here the paper&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;/section&gt;
+
+
+&lt;iframe src="https://docs.google.com/gview?url=/talks/2019-cladag-cassino/2019-cladag-cassino-qcpm-health_slides.pdf&amp;amp;embedded=true" width="100%" height="465"&gt;&lt;/iframe&gt;
+&lt;a href="../../talks/2019-cladag-cassino/2019-cladag-cassino-qcpm-health_slides.pdf" class="badge badge-small badge-red"&gt;Download pdf&lt;/a&gt;
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2019-cladag-cassino-qcpm-health.html</guid>
+      <pubDate>Tue, 10 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A new approach to preference mapping through quantile regression</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2019-cladag-cassino-qr-prefmap.html</link>
+      <description> 
+
+
+
+&lt;section id="cladag-2019---12th-scientific-meeting-classification-and-data-analysis-group-cassino-september-11-13-2019." class="level3"&gt;
+&lt;h3 class="anchored" data-anchor-id="cladag-2019---12th-scientific-meeting-classification-and-data-analysis-group-cassino-september-11-13-2019."&gt;Cladag 2019 - 12th Scientific Meeting Classification and Data Analysis Group&lt;br&gt; Cassino, September 11 – 13, 2019.&lt;/h3&gt;
+&lt;p&gt;The aim of the paper is to propose a new approach to preference mapping by exploiting quantile regression. The proposal consists into a multi-steps procedure combining principal component analysis, least squares and quantile regression. Results of the procedure on a case study show how the classical preference map can be enriched by information on the variability along the direction of the most preferred products. Such an additional information is obtained by the use of quantile regression.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../files/seminars/2019-cladag-cassino/2019-cladag-cassino-qr-prefmap_paper.pdf"&gt;&lt;strong&gt;Read here the paper&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;/section&gt;
+
+
+&lt;iframe src="https://docs.google.com/gview?url=/talks/2019-cladag-cassino/2019-cladag-cassino-qr-prefmap_slide.pdf&amp;amp;embedded=true" width="100%" height="465"&gt;&lt;/iframe&gt;
+&lt;a href="../../talks/2019-cladag-cassino/2019-cladag-cassino-qr-prefmap_slide.pdf" class="badge badge-small badge-red"&gt;Download pdf&lt;/a&gt;
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2019-cladag-cassino-qr-prefmap.html</guid>
+      <pubDate>Tue, 10 Sep 2019 22:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A quantile regression perspective on consumer heterogeneity</title>
+      <link>https://blog-neas.github.io/language-en/seminars/2019-ies-roma.html</link>
+      <description> 
+
+
+
+&lt;section id="ies-2019---statistical-methods-for-service-quality-evaluation-9th-international-conference-ies-2019---innovation-society-statistical-evaluation-systems-at-360-techniques-technologies-and-new-frontiers" class="level3"&gt;
+&lt;h3 class="anchored" data-anchor-id="ies-2019---statistical-methods-for-service-quality-evaluation-9th-international-conference-ies-2019---innovation-society-statistical-evaluation-systems-at-360-techniques-technologies-and-new-frontiers"&gt;IES 2019 - Statistical Methods for Service Quality Evaluation&lt;br&gt; 9th International Conference IES 2019 - Innovation &amp;amp; Society&lt;br&gt;Statistical evaluation systems at 360°: techniques, technologies and new frontiers&lt;/h3&gt;
+&lt;/section&gt;
+&lt;section id="abstract-english" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="abstract-english"&gt;Abstract (English)&lt;/h2&gt;
+&lt;p&gt;The main objective of the consumer analysis is to analyze the hetero- geneity of preferences with respect to a predefined set of products. In some cases, consumer preferences are also related to some specific drivers in order to obtain preference models to be used in planning marketing strategies. The aim of this work is to present a strategy that allows to estimate preference models taking into account the individual differences of consumers in the liking pattern. The proposed strategy consists in using quantile regression to obtain preference models for homogeneous groups of consumers with respect to the quantile that best represents them. The strat- egy will be tested on data deriving from a case study on consumer’s preferences for muscadine grape juices.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="abstract-italian" class="level2"&gt;
+&lt;h2 class="anchored" data-anchor-id="abstract-italian"&gt;Abstract (Italian)&lt;/h2&gt;
+&lt;p&gt;L’obiettivo principale dell’analisi delle preferenze dei consumatori è analizzare l’eterogeneità delle preferenze rispetto ad un insieme predefinito di prodotti. In alcuni casi, le preferenze sono anche messe in relazione ad alcuni driver specifici, al fine di ottenere modelli di preferenza da utilizzare nella piani- ficazione delle strategie di marketing. Lo scopo di questo lavoro è presentare una strategia di analisi che consenta di stimare modelli di preferenza che tengano conto anche delle differenze individuali dei consumatori. La strategia proposta consiste nell’utilizzare la regressione quantile per ottenere modelli per gruppi omogenei di consumatori rispetto al quantile che meglio li rappresenta. La proposta sara` testata su dati derivanti da un caso di studio sulle preferenze dei consumatori per i succhi di uva muscadine.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../../files/seminars/2019-ies-roma/2019_ies_roma-davino-et-al_paper.pdf"&gt;&lt;strong&gt;Read here the paper&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;/section&gt;
+
+
+&lt;iframe src="https://docs.google.com/gview?url=/talks/2019-ies-roma/2019_ies_roma-davino-et-al_slides.pdf&amp;amp;embedded=true" width="100%" height="465"&gt;&lt;/iframe&gt;
+&lt;a href="../../talks/2019-ies-roma/2019_ies_roma-davino-et-al_slides.pdf" class="badge badge-small badge-red"&gt;Download pdf&lt;/a&gt;
+
+ </description>
+      <guid>https://blog-neas.github.io/language-en/seminars/2019-ies-roma.html</guid>
+      <pubDate>Wed, 03 Jul 2019 22:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
