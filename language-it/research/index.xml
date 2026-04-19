@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Pubblicazioni di Lucio Palazzo</title>
+<link>https://blog-neas.github.io/language-it/research/</link>
+<atom:link href="https://blog-neas.github.io/language-it/research/index.xml" rel="self" type="application/rss+xml"/>
+<description>Articoli pubblicati del Professore Lucio Palazzo</description>
+<generator>quarto-1.8.25</generator>
+<lastBuildDate>Mon, 01 Nov 2021 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Quantile composite-based path modeling: algorithms, properties and applications</title>
+  <dc:creator>Pasquale Dolce, Cristina Davino, Domenico Vistocco</dc:creator>
+  <link>https://blog-neas.github.io/language-it/research/2021-11-02-adac-qcpm.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>Composite-based path modeling aims to study the relationships among a set of constructs, that is a representation of theoretical concepts. Such constructs are operationalized as composites (i.e.&nbsp;linear combinations of observed or manifest variables). The traditional partial least squares approach to composite-based path modeling focuses on the conditional means of the response distributions, being based on ordinary least squares regressions. Several are the cases where limiting to the mean could not reveal interesting effects at other locations of the outcome variables. Among these: when response variables are highly skewed, distributions have heavy tails and the analysis is concerned also about the tail part, heteroscedastic variances of the errors is present, distributions are characterized by outliers and other extreme data. In such cases, the quantile approach to path modeling is a valuable tool to complement the traditional approach, analyzing the entire distribution of outcome variables. Previous research has already shown the benefits of Quantile Composite-based Path Modeling but the methodological properties of the method have never been investigated. This paper offers a complete description of Quantile Composite-based Path Modeling, illustrating in details the method, the algorithms, the partial optimization criteria along with the machinery for validating and assessing the models. The asymptotic properties of the method are investigated through a simulation study. Moreover, an application on chronic kidney disease in diabetic patients is used to provide guidelines for the interpretation of results and to show the potentialities of the method to detect heterogeneity in the variable relationships.</p>
+
+
+
+ ]]></description>
+  <category>Articles</category>
+  <guid>https://blog-neas.github.io/language-it/research/2021-11-02-adac-qcpm.html</guid>
+  <pubDate>Mon, 01 Nov 2021 23:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>

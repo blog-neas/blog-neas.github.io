@@ -1,5 +1,19 @@
 [
   {
+    "listing": "/language-it/research/index.html",
+    "items": [
+      "/language-it/research/2021-11-02-adac-qcpm.html"
+    ]
+  },
+  {
+    "listing": "/language-it/neas/index.html",
+    "items": [
+      "/language-it/neas/help.html",
+      "/language-it/neas/despota/index.html",
+      "/language-it/neas/about-neas.html"
+    ]
+  },
+  {
     "listing": "/language-it/seminars/index.html",
     "items": [
       "/language-it/seminars/2021-scuola_specializzazione-roma.html",
@@ -32,61 +46,6 @@
       "/language-it/seminars/2017-asa-napoli-assessing_consumer_heterogeneity.html",
       "/language-it/seminars/2017-asa-napoli-concentration_metals_merluccius.html",
       "/language-it/seminars/2017-itacosm-bologna.html"
-    ]
-  },
-  {
-    "listing": "/language-it/neas/index.html",
-    "items": [
-      "/language-it/neas/help.html",
-      "/language-it/neas/despota/index.html",
-      "/language-it/neas/about-neas.html"
-    ]
-  },
-  {
-    "listing": "/language-it/publications/index.html",
-    "items": [
-      "/language-it/publications/2021-11-02-adac-qcpm.html",
-      "/language-it/publications/2021-08-31-asta-cbsem-sport.html",
-      "/language-it/publications/2021-04-28-sir-social-vulnerability.html",
-      "/language-it/publications/2021-01-13-bfj-olive-oil.html",
-      "/language-it/publications/2020-07-24-sir-cbpm-well-being.html",
-      "/language-it/publications/2020-07-19-adac-qr-heterogenity-multiblock.html",
-      "/language-it/publications/2020-06-01-sis-dyads-cumulative-models.html",
-      "/language-it/publications/2020-06-01-sis-qr-multicollinearity.html",
-      "/language-it/publications/2020-06-01-sis-teaching-statistics-aleas.html",
-      "/language-it/publications/2020-02-10-sihe-mooc-performance.html",
-      "/language-it/publications/2019-07-04-ies-qr-consumer-heterogeneity.html",
-      "/language-it/publications/2019-09-11-cladag-qcpm-health-indicators.html",
-      "/language-it/publications/2019-09-25-asa-mixture-models-depression-infertile-couples.html",
-      "/language-it/publications/2019-09-25-asa-qcpm-territorial-well-being.html",
-      "/language-it/publications/2019-09-25-asa-statistical-anxiety.html",
-      "/language-it/publications/2019-09-11-cladag-qr-preference-mapping.html",
-      "/language-it/publications/2019-09-11-inted-moocs-learning-assessment.html",
-      "/language-it/publications/2019-07-19-ste-exposure-ultrafine-particles.html",
-      "/language-it/publications/2018-10-24-asmod-cub-qr.html",
-      "/language-it/publications/2018-10-24-asmod-qr-preferences.html",
-      "/language-it/publications/2018-09-17-sii-qr-heterogeneity.html",
-      "/language-it/publications/2018-09-01-sa-driver-consumer-liking.html",
-      "/language-it/publications/2018-springer-despota.html",
-      "/language-it/publications/2018-springer-qr-svn-test.html",
-      "/language-it/publications/2017-04-10-irc-heritagebot.html",
-      "/language-it/publications/2017-04-10-ts-burnt-matchstick.html",
-      "/language-it/publications/2017-04-06-sust-made-in-italy.html",
-      "/language-it/publications/2016-06-08-sis-qr-prediction-intervals.html",
-      "/language-it/publications/2016-03-02-aisme-made-in-italy.html",
-      "/language-it/publications/2015-10-08-cladag-qr-heterogeneity.html",
-      "/language-it/publications/2013-09-09-ijsp-qu-test-qr.html",
-      "/language-it/publications/2015-07-08-joc-despota.html",
-      "/language-it/publications/2015-springer-qr-clustering-modeling.html",
-      "/language-it/publications/2014-ija-indagine-stupefacenti-cassino.html",
-      "/language-it/publications/2013-10-18-cladag-qr-unsupervised-classification.html",
-      "/language-it/publications/2011-springer-research-potential.html",
-      "/language-it/publications/2010-10-21-jas-mutual-funds-style.html",
-      "/language-it/publications/2008-09-19-asmbi-archetypes.html",
-      "/language-it/publications/2008-07-01-sa-qr-student-satisfaction.html",
-      "/language-it/publications/2008-icfai-jkm-entrepreneurial-talent.html",
-      "/language-it/publications/2007-07-01-statistica-qr-evaluation-university.html",
-      "/language-it/publications/2006-04-01-sa-qr-style.html"
     ]
   }
 ]

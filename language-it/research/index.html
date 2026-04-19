@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Lucio Cappelli, Fabrizio D’Ascenzo, Luisa Natale, Francesca Rossetti, Roberto Ruggieri, Domenico Vistocco">
 
-<title>Are Consumers Willing to Pay More for a “Made in” Product? An Empirical Investigation on “Made in Italy” – Lucio Palazzo</title>
+<title>Lucio Palazzo - Pubblicazioni – Lucio Palazzo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -42,6 +43,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-a59588e3f3f408c375fb820467f9ddb8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,6 +74,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Ricerca"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-project','listing-website','listing-lang','listing-date-format','listing-freeze','listing-format','listing-language','listing-sidebar','listing-author-title','listing-author','listing-date','listing-slug','listing-title','listing-categories','listing-details','listing-tags','listing-link','listing-doi','listing-resgate','listing-path','listing-outputHref','listing-date-modified','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-details"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Merriweather" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css">
 <!-- Google tag (gtag.js) -->
@@ -82,10 +116,29 @@ ul.task-list li input[type="checkbox"] {
 </script>
 <script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<meta property="og:title" content="Are Consumers Willing to Pay More for a “Made in” Product? An Empirical Investigation on “Made in Italy” – Lucio Palazzo">
+<link rel="alternate" type="application/rss+xml" title="Pubblicazioni di Lucio Palazzo" href="index.xml" data-external="1"><meta property="og:title" content="Lucio Palazzo - Pubblicazioni">
 <meta property="og:description" content="">
+<meta property="og:image" content="https://blog-neas.github.io/img/fpp3_cover.png">
 <meta property="og:site_name" content="Lucio Palazzo">
+<meta property="og:image:height" content="300">
+<meta property="og:image:width" content="205">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -112,6 +165,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Chi sono</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link active" href="../../language-it/research/index.html" aria-current="page"> 
+<span class="menu-text">Ricerca</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../../language-it/teaching/index.html"> 
 <span class="menu-text">Didattica</span></a>
   </li>  
@@ -133,80 +190,109 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">In questa pagina</h2>
+   
+  <ul>
+  <li><a href="#pubblicazioni" id="toc-pubblicazioni" class="nav-link active" data-scroll-target="#pubblicazioni">Pubblicazioni</a>
+  <ul class="collapse">
+  <li><a href="#libri" id="toc-libri" class="nav-link" data-scroll-target="#libri">Libri</a></li>
+  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
+  <li><a href="#articoli" id="toc-articoli" class="nav-link" data-scroll-target="#articoli">Articoli</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    <h5 class="quarto-listing-category-title">Type</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tutti <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QXJ0aWNsZXM=">Articles <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Are Consumers Willing to Pay More for a “Made in” Product? An Empirical Investigation on “Made in Italy”</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">Articles</div>
-  </div>
-  </div>
+<main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Authors</div>
-    <div class="quarto-title-meta-contents">
-            <p>Lucio Cappelli, Fabrizio D’Ascenzo, Luisa Natale, Francesca Rossetti, Roberto Ruggieri, Domenico Vistocco 
-      </p>
-          </div>
-  </div>
-  
-    <div>
-    <div class="quarto-title-meta-heading">Data di Pubblicazione</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">6 aprile 2017</p>
-    </div>
-  </div>
-  
-  <div>
-    <div class="quarto-title-meta-heading">Publication details</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">
-                <em>Sustainability</em>, 9(4), 556
-              </p>
-    </div>
-  </div>
-
-  <div>
-    <div class="quarto-title-meta-heading">Links</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date" style="color: #fff !important;">
-            <a href="https://doi.org/10.3390/su9040556" class="badge badge badge-blue">DOI</a>
-                                    <a href="https://www.mdpi.com/2071-1050/9/4/556/pdf" class="badge badge badge-red">pdf</a>
-                  <a href="https://www.mdpi.com/2071-1050/9/4/556/htm" class="badge badge badge-blue">Online</a>
-            
-      
-      
-      
-      <span data-doi="10.3390/su9040556" data-hide-no-mentions="true" class="altmetric-embed"></span>
-      
-      </p>
-    </div>
-
-  </div>
+<section id="pubblicazioni" class="level1">
+<h1>Pubblicazioni</h1>
+<p><a href="https://scholar.google.com/citations?user=q2NHdmoAAAAJ&amp;hl=en" class="badge badge-large">Google Scholar &nbsp; <i class="ai  ai-google-scholar"></i></a>&nbsp; <a href="https://orcid.org/0000-0001-7529-4689" class="badge badge-large">OrcID &nbsp; <i class="ai  ai-orcid"></i></a>&nbsp; <a href="https://www.scopus.com/authid/detail.uri?authorId=57217387428" class="badge badge-large">Scopus &nbsp; <i class="ai  ai-scopus"></i></a>&nbsp;</p>
+<section id="libri" class="level3">
+<h3 class="anchored" data-anchor-id="libri">Libri</h3>
+<p><br></p>
+<div class="imgrow">
+<div class="imgcolumn">
+<p><a href="https://otexts.com/fppit/index.html"><img src="../../img/fpp3_cover.png" height="200"></a></p>
 </div>
+<div class="imgcolumn">
+<p><a href="#"><img src="../../img/masp.png" height="200"></a></p>
+</div>
+</div>
+</section>
+<section id="software" class="level3">
+<h3 class="anchored" data-anchor-id="software">Software</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 88%">
+<col style="width: 6%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><a href=" https://github.com/blog-neas/INAr "><img src=" https://raw.githubusercontent.com/blog-neas/INAr/main/man/img/hexlogo.png " width="70px" style="vertical-align:middle"></a></td>
+<td style="text-align: left;">Generation, estimation and testing of INteger Autoregressive models</td>
+<td style="text-align: center;"><a href="https://github.com/blog-neas/INAr" class="badge badge-small badge-blue">Github</a> <a href="https://cloud.r-project.org/package=INAr" class="badge badge-small badge-gray">CRAN</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="articoli" class="level3">
+<h3 class="anchored" data-anchor-id="articoli">Articoli</h3>
+<section id="pubblicato-in-revisione-o-working-paper." class="level6">
+<h6 class="anchored" data-anchor-id="pubblicato-in-revisione-o-working-paper."><i class="fa-solid fa-file" aria-hidden="true"></i> pubblicato, <i class="fa-regular fa-file" aria-hidden="true"></i> in revisione o working paper.</h6>
 
 
 
-<p>&nbsp;</p>
-</header>
+</section>
+</section>
+</section>
 
-<p>The paper aims to explore consumer behavior towards “Made in” products in order to determine the associated quality and value-attributes related to the purchasing intention of consumers. In particular, the article presents the comments and results deriving from an empirical investigation on “Made in Italy”. The research questions addressed are: (1) Does recognition really exist in terms of qualitative characterization of “Made in Italy” products? And if yes; (2) Does willingness to pay a “premium price” for such products exist in quantitative terms? The study is characterized by two phases. From a theoretical standpoint, the main literature on the topic is presented through the identification and deepening of the scientific strand of reference, such as the Country of Origin, the Country Image and the Brand Image, placing them in a broader context on Willingness to Pay. From an experimental standpoint, the research group investigates the existence and the type of relationship between the perception of quality and the willingness to pay for “Made in Italy” products. The summarized main findings show (1) “Made in Italy” is well established as a conceptual category in the minds of consumers; and (2) there is a significant “premium price” recognized by consumers for “Made in Italy” in the three sectors analyzed (food, fashion and furnishings). The “premium price” is not homogeneously recognized for the various product sectors analyzed, although for all the sectors the most commonly encountered value is relative to 10–30%.</p>
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+<div class="listing-actions-group">
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filtro">
+    </div>
+</div>
+<ol class="list" reversed="">
+  
+    <li data-index="0" data-categories="QXJ0aWNsZXM=" data-listing-date-sort="1635807600000" data-listing-file-modified-sort="1776278077068" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="246">
+      <a href="../../language-it/research/2021-11-02-adac-qcpm.html">
+        <span class="listing-author">Pasquale Dolce, Cristina Davino, Domenico Vistocco</span>
+        (<span class="listing-date">2021</span>)
+        <span class="listing-title">Quantile composite-based path modeling: algorithms, properties and applications</span>.
+        
+          <span class="listing-details"><em>Advances in Data Analysis and Classification</em></span>.
+        
+      </a>
+      
+      <a href="https://doi.org/10.1007/s11634-021-00469-0" class="badge badge-small badge-blue">DOI</a>
+      
+      
+      
+      
+      
+      <a href="https://link.springer.com/content/pdf/10.1007/s11634-021-00469-0.pdf" class="badge badge-small badge-red">pdf</a>
+      
+      
+      
+      
+      
+      
+    </li>
+  
+</ol>
 
-
-
-</main> <!-- /main -->
+<div class="listing-no-matching d-none">Nessun risultato</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -611,7 +697,7 @@ ul.task-list li input[type="checkbox"] {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>2011-2026, <a href="https://unifind.unior.it/resource/person/125364">Lucio Palazzo</a></p>
+<p>2020-2026, <a href="https://unifind.unior.it/resource/person/125364">Lucio Palazzo</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
@@ -622,12 +708,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../subscribe.html">
 <p>Subscribe</p>
 </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://domenicovistocco/index.xml">
-      <i class="bi bi-rss" role="img">
-</i> 
-    </a>
   </li>  
     <li class="nav-item compact">
     <a class="nav-link" href="https://blog-neas.github.io/index.xml">
