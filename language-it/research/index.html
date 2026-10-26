@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lucio Palazzo - Pubblicazioni – Lucio Palazzo</title>
+<title>Lucio Palazzo - Ricerca – Lucio Palazzo</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -34,15 +40,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7d60fad984a4391ca7fd423b65835770.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-d7f4ccde47072386f53a2ccdb42679c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-a59588e3f3f408c375fb820467f9ddb8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-19a06e9e0ce26c172870ad6fc9214a26.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
@@ -77,20 +82,48 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-pubblicazioni .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-project','listing-website','listing-lang','listing-date-format','listing-freeze','listing-format','listing-language','listing-sidebar','listing-author-title','listing-author','listing-date','listing-slug','listing-title','listing-categories','listing-details','listing-tags','listing-link','listing-doi','listing-resgate','listing-path','listing-outputHref','listing-date-modified','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      valueNames: ['listing-project','listing-website','listing-engines','listing-lang','listing-date-format','listing-freeze','listing-resources','listing-format','listing-language','listing-sidebar','listing-author-title','listing-author','listing-date','listing-title','listing-details','listing-slug','listing-status','listing-kind','listing-categories','listing-tags','listing-isbn','listing-resgate','listing-path','listing-outputHref','listing-date-modified','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count','listing-online','listing-file','listing-doi','listing-issn',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author","listing-details"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-pubblicazioni'] = new List('listing-pubblicazioni', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-seminari .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-project','listing-website','listing-engines','listing-lang','listing-date-format','listing-freeze','listing-resources','listing-format','listing-language','listing-sidebar','listing-author-title','listing-date','listing-title','listing-author','listing-venue','listing-location','listing-kind','listing-type','listing-slug','listing-aliases','listing-path','listing-outputHref','listing-date-modified','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count','listing-event','listing-link','listing-mathjax','listing-youtube','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-venue","listing-type"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-seminari'] = new List('listing-seminari', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -134,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<link rel="alternate" type="application/rss+xml" title="Pubblicazioni di Lucio Palazzo" href="index.xml" data-external="1"><meta property="og:title" content="Lucio Palazzo - Pubblicazioni">
+<link rel="alternate" type="application/rss+xml" title="Ricerca" href="index.xml" data-external="1"><meta property="og:title" content="Lucio Palazzo - Ricerca">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://blog-neas.github.io/img/fpp3_cover.png">
 <meta property="og:site_name" content="Lucio Palazzo">
@@ -149,8 +182,6 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Lucio Palazzo</span>
     </a>
@@ -164,6 +195,10 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../../language-it/about/index.html"> 
 <span class="menu-text">Chi sono</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../language-it/research/index.html" aria-current="page"> 
+<span class="menu-text">Ricerca</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../language-it/teaching/index.html"> 
@@ -195,37 +230,38 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">In questa pagina</h2>
    
   <ul>
-  <li><a href="#pubblicazioni" id="toc-pubblicazioni" class="nav-link active" data-scroll-target="#pubblicazioni">Pubblicazioni</a>
-  <ul class="collapse">
-  <li><a href="#libri" id="toc-libri" class="nav-link" data-scroll-target="#libri">Libri</a></li>
+  <li><a href="#libri" id="toc-libri" class="nav-link active" data-scroll-target="#libri">Libri</a></li>
   <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
   <li><a href="#articoli" id="toc-articoli" class="nav-link" data-scroll-target="#articoli">Articoli</a></li>
-  </ul></li>
+  <li><a href="#dissertazioni" id="toc-dissertazioni" class="nav-link" data-scroll-target="#dissertazioni">Dissertazioni</a></li>
   </ul>
 </nav>
-    <h5 class="quarto-listing-category-title">Type</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tutti <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QXJ0aWNsZXM=">Articles <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categorie</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tutti <span class="quarto-category-count">(50)</span></div><div class="category" data-category="QXJ0aWNvbGk=">Articoli <span class="quarto-category-count">(10)</span></div><div class="category" data-category="QXR0aSUyMGRpJTIwY29udmVnbm8=">Atti di convegno <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Q29udHJpYnV0aSUyMGluJTIwTW9ub2dyYWZpYQ==">Contributi in Monografia <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Q29udmVnbmk=">Convegni <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RW5nbGlzaA==">English <span class="quarto-category-count">(15)</span></div><div class="category" data-category="SXRhbGlhbg==">Italian <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T25saW5l">Online <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2hvcnQlMjBQYXBlcg==">Short Paper <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<section id="pubblicazioni" class="level1">
-<h1>Pubblicazioni</h1>
-<p><a href="https://scholar.google.com/citations?user=q2NHdmoAAAAJ&amp;hl=en" class="badge badge-large">Google Scholar &nbsp; <i class="ai  ai-google-scholar"></i></a>&nbsp; <a href="https://orcid.org/0000-0001-7529-4689" class="badge badge-large">OrcID &nbsp; <i class="ai  ai-orcid"></i></a>&nbsp; <a href="https://www.scopus.com/authid/detail.uri?authorId=57217387428" class="badge badge-large">Scopus &nbsp; <i class="ai  ai-scopus"></i></a>&nbsp;</p>
-<section id="libri" class="level3">
-<h3 class="anchored" data-anchor-id="libri">Libri</h3>
-<p><br></p>
+<section id="web-links" class="level4">
+<h4 class="anchored" data-anchor-id="web-links">Web links</h4>
+<p><a href="https://scholar.google.com/citations?user=q2NHdmoAAAAJ&amp;hl=en" class="badge badge-large"><i class="ai  ai-google-scholar"></i> &nbsp; Google Scholar</a>&nbsp; <a href="https://orcid.org/0000-0001-7529-4689" class="badge badge-large"><i class="ai  ai-orcid"></i> &nbsp; OrcID</a>&nbsp; <a href="https://www.scopus.com/authid/detail.uri?authorId=57217387428" class="badge badge-large"><i class="ai  ai-scopus"></i> &nbsp; Scopus</a>&nbsp;</p>
+</section>
+<section id="libri" class="level2">
+<h2 class="anchored" data-anchor-id="libri">Libri</h2>
 <div class="imgrow">
 <div class="imgcolumn">
 <p><a href="https://otexts.com/fppit/index.html"><img src="../../img/fpp3_cover.png" height="200"></a></p>
 </div>
 <div class="imgcolumn">
-<p><a href="#"><img src="../../img/masp.png" height="200"></a></p>
+<p><a href="../book-statpy/"><img src="../../img/masp.png" height="200"></a></p>
+</div>
+<div class="imgcolumn">
+<p><a href="../book-ade/"><img src="../../img/ADEita.png" height="200"></a></p>
 </div>
 </div>
 </section>
-<section id="software" class="level3">
-<h3 class="anchored" data-anchor-id="software">Software</h3>
+<section id="software" class="level2">
+<h2 class="anchored" data-anchor-id="software">Software</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 4%">
@@ -241,43 +277,78 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="articoli" class="level3">
-<h3 class="anchored" data-anchor-id="articoli">Articoli</h3>
-<section id="pubblicato-in-revisione-o-working-paper." class="level6">
-<h6 class="anchored" data-anchor-id="pubblicato-in-revisione-o-working-paper."><i class="fa-solid fa-file" aria-hidden="true"></i> pubblicato, <i class="fa-regular fa-file" aria-hidden="true"></i> in revisione o working paper.</h6>
-
-
-
-</section>
-</section>
-</section>
-
-<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+<section id="articoli" class="level2">
+<h2 class="anchored" data-anchor-id="articoli">Articoli</h2>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2066612066696c652d6c696e6573203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120736f6c6964206e6577737061706572203e7d7d-pubblicato-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120726567756c61722066696c652d6c696e6573203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120726567756c6172206e6577737061706572203e7d7d-in-revisione-o-working-paper-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120726567756c61722066696c65203e7d7d-altro." class="level5">
+<h5 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2066612066696c652d6c696e6573203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120736f6c6964206e6577737061706572203e7d7d-pubblicato-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120726567756c61722066696c652d6c696e6573203e7d7d-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120726567756c6172206e6577737061706572203e7d7d-in-revisione-o-working-paper-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120726567756c61722066696c65203e7d7d-altro."><i class="fa-solid fa-file-lines" aria-hidden="true"></i> <i class="fa-solid fa-newspaper" aria-hidden="true"></i> pubblicato, <i class="fa-regular fa-file-lines" aria-hidden="true"></i> <i class="fa-regular fa-newspaper" aria-hidden="true"></i> in revisione o working paper, <i class="fa-regular fa-file" aria-hidden="true"></i> altro.</h5>
+<div id="listing-pubblicazioni" class="quarto-listing quarto-listing-container-custom">
 <div class="listing-actions-group">
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
       <input type="text" class="search form-control" placeholder="Filtro">
     </div>
 </div>
-<ol class="list" reversed="">
+<ul class="list fa-ul" reversed="">
   
-    <li data-index="0" data-categories="QXJ0aWNsZXM=" data-listing-date-sort="1635807600000" data-listing-file-modified-sort="1776278077068" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="246">
-      <a href="../../language-it/research/2021-11-02-adac-qcpm.html">
-        <span class="listing-author">Pasquale Dolce, Cristina Davino, Domenico Vistocco</span>
-        (<span class="listing-date">2021</span>)
-        <span class="listing-title">Quantile composite-based path modeling: algorithms, properties and applications</span>.
+    <li data-index="0" data-categories="QXJ0aWNvbGklMkNFbmdsaXNo" data-listing-date-sort="1658095200000" data-listing-file-modified-sort="1777154277626" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="115">
+      <span class="fa-li">
+
+      
         
-          <span class="listing-details"><em>Advances in Data Analysis and Classification</em></span>.
+        <i class="fa-solid fa-file-lines" title="Articoli,English" aria-label="Articoli,English"></i>
+        
+      
+      </span>
+      <a href="../../language-it/research/2022-07-18-mathematics.html">
+        <span class="listing-author">Lucio Palazzo, Riccardo Ievoli</span>
+        (<span class="listing-date">2022</span>).
+        <span class="listing-title">“A Semiparametric Approach to Test for the Presence of INAR: Simulations and Empirical Applications”</span>.
+        
+          <span class="listing-details"><em>Mathematics</em>. <b>10</b>(14)</span>.
+        
         
       </a>
       
-      <a href="https://doi.org/10.1007/s11634-021-00469-0" class="badge badge-small badge-blue">DOI</a>
+      <a href="https://doi.org/10.3390/math10142501" class="badge badge-blue">DOI</a>
       
       
       
       
       
-      <a href="https://link.springer.com/content/pdf/10.1007/s11634-021-00469-0.pdf" class="badge badge-small badge-red">pdf</a>
+      <a href="https://www.mdpi.com/2227-7390/10/14/2501" class="badge badge-blue"><i class="fa-solid fa-link" title="Online link" aria-label="Online link"></i></a>
+      
+      <a href="https://www.researchgate.net/" class="badge badge-green" title="ResearchGate" aria-label="ResearchGate">RG</a>
+      
+      
+      
+      
+      
+    </li>
+  
+    <li data-index="1" data-categories="QXJ0aWNvbGklMkNFbmdsaXNo" data-listing-date-sort="1652738400000" data-listing-file-modified-sort="1777154270448" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="140">
+      <span class="fa-li">
+
+      
+        
+        <i class="fa-solid fa-file-lines" title="Articoli,English" aria-label="Articoli,English"></i>
+        
+      
+      </span>
+      <a href="../../language-it/research/2021-12-01-determinants-siavs-ijas.html">
+        <span class="listing-author">Lucio Palazzo, Pietro Sabatino, Riccardo Ievoli</span>
+        (<span class="listing-date">2022</span>).
+        <span class="listing-title">“Searching for the determinants of new social enterprises: the case of Italian social start-ups”</span>.
+        
+          <span class="listing-details"><em>Italian Journal of Applied Statistics-Statistica Applicata</em>. Vol. 33 No. 3</span>.
+        
+        
+      </a>
+      
+      <a href="https://doi.org/10.26398/IJAS.0033-011" class="badge badge-blue">DOI</a>
+      
+      
+      
+      
       
       
       
@@ -286,10 +357,972 @@ ul.task-list li input[type="checkbox"] {
       
     </li>
   
-</ol>
+    <li data-index="2" data-categories="QXJ0aWNvbGklMkNFbmdsaXNo" data-listing-date-sort="1635721200000" data-listing-file-modified-sort="1777154282654" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="55">
+      <span class="fa-li">
+
+      
+        
+        <i class="fa-solid fa-file-lines" title="Articoli,English" aria-label="Articoli,English"></i>
+        
+      
+      </span>
+      <a href="../../language-it/research/2021-11-01-sis21-bosp.html">
+        <span class="listing-author">Riccardo Ievoli, Lucio Palazzo</span>
+        (<span class="listing-date">2021</span>).
+        <span class="listing-title">“Bootstrap-based score test for INAR effect”</span>.
+        
+          <span class="listing-details">In: <em>Book of Short Papers SIS2021</em>. Pisa, Italy. 21-25 June 2021. pp. 1581-1586, Pearson</span>.
+        
+        
+          <span class="listing-details">ISBN 978-88-919-2736-1</span>.
+        
+      </a>
+      
+      
+      
+      
+      
+      <a href="https://it.pearson.com//docenti/universita/partnership/sis.html" class="badge badge-blue"><i class="fa-solid fa-link" title="Online link" aria-label="Online link"></i></a>
+      
+      <a href="https://www.researchgate.net/" class="badge badge-green" title="ResearchGate" aria-label="ResearchGate">RG</a>
+      
+      
+      
+      
+      
+    </li>
+  
+    <li data-index="3" data-categories="Q29udHJpYnV0aSUyMGluJTIwTW9ub2dyYWZpYSUyQ0VuZ2xpc2g=" data-listing-date-sort="1632520800000" data-listing-file-modified-sort="1777154287986" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="198">
+      <span class="fa-li">
+
+      
+        
+        <i class="fa-solid fa-newspaper" title="Contributi" in="" monografia,english="" aria-label="Contributi"></i>
+        
+      
+      </span>
+      <a href="../../language-it/research/2021-09-25-pls-psv3.html">
+        <span class="listing-author">Lucio Palazzo, Francesco Santelli, Giancarlo Ragozini</span>
+        (<span class="listing-date">2021</span>).
+        <span class="listing-title">“Il futuro degli studenti: dal questionario all'analisi statistica dei dati testuali”</span>.
+        
+          <span class="listing-details">In: <em>PLS Virtual Summer School for Students PVS3</em>, eds. Caruso, Crispino, Galano, Iannace, Iesce, Lapegna, Ragozini, Riccio, &amp; Testa. pp.101-112, Giannini Editore</span>.
+        
+        
+          <span class="listing-details">ISBN 978-88-6906-195-0</span>.
+        
+      </a>
+      
+      
+      
+      
+      
+      <a href="http://www.pls.unina.it/home/pubblicazioni/" class="badge badge-blue"><i class="fa-solid fa-link" title="Online link" aria-label="Online link"></i></a>
+      
+      <a href="https://www.researchgate.net/" class="badge badge-green" title="ResearchGate" aria-label="ResearchGate">RG</a>
+      
+      
+      
+      
+      
+    </li>
+  
+    <li data-index="4" data-categories="QXJ0aWNvbGklMkNFbmdsaXNo" data-listing-date-sort="1631052000000" data-listing-file-modified-sort="1777154393274" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="141">
+      <span class="fa-li">
+
+      
+        
+        <i class="fa-solid fa-file-lines" title="Articoli,English" aria-label="Articoli,English"></i>
+        
+      
+      </span>
+      <a href="../../language-it/research/2021-09-08-southern-italy-jmis.html">
+        <span class="listing-author">Onofrio Romano, Antonella Coco, Lucio Palazzo, Pietro Sabatino</span>
+        (<span class="listing-date">2021</span>).
+        <span class="listing-title">“Southern Italian Peripheries at the Ballot Box. Continuity and Innovation in Electoral Behaviours in Three Southern Italian Cities during Post-Crisis Decade (2008-2019)”</span>.
+        
+          <span class="listing-details"><em>Journal of Modern Italian Studies</em>. pp. 1-33, Routledge</span>.
+        
+        
+      </a>
+      
+      <a href="https://doi.org/10.1080/1354571X.2021.1950341" class="badge badge-blue">DOI</a>
+      
+      
+      
+      
+      
+      <a href="https://doi.org/10.1080/1354571X.2021.1950341" class="badge badge-blue"><i class="fa-solid fa-link" title="Online link" aria-label="Online link"></i></a>
+      
+      <a href="https://www.researchgate.net/" class="badge badge-green" title="ResearchGate" aria-label="ResearchGate">RG</a>
+      
+      
+      
+      
+      
+    </li>
+  
+    <li data-index="5" data-categories="U2hvcnQlMjBQYXBlciUyQ0VuZ2xpc2g=" data-listing-date-sort="1625090400000" data-listing-file-modified-sort="1777154373371" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="67">
+      <span class="fa-li">
+
+      
+        
+        <i class="fa-solid fa-file-lines" title="Short" paper,english="" aria-label="Short"></i>
+        
+      
+      </span>
+      <a href="../../language-it/research/2021-03-01-asa21-bosp.html">
+        <span class="listing-author">Lucio Palazzo, Pietro Sabatino, Riccardo Ievoli</span>
+        (<span class="listing-date">2021</span>).
+        <span class="listing-title">“Determinants of social startups in Italy”</span>.
+        
+          <span class="listing-details">In: <em>ASA 2021 Statistics and Information Systems for Policy Evaluation</em>. Pisa, Italy. 5 March 2021. pp. 85-90, FUP</span>.
+        
+        
+      </a>
+      
+      <a href="https://doi.org/10.36253/978-88-5518-304-8" class="badge badge-blue">DOI</a>
+      
+      
+      
+      
+      
+      <a href="https://fupress.com/catalogo/asa-2021-statistics-and-information-systems-for-policy-evaluation/5967" class="badge badge-blue"><i class="fa-solid fa-link" title="Online link" aria-label="Online link"></i></a>
+      
+      <a href="https://www.researchgate.net/" class="badge badge-green" title="ResearchGate" aria-label="ResearchGate">RG</a>
+      
+      
+      
+      
+      
+    </li>
+  
+    <li data-index="6" data-categories="QXJ0aWNvbGklMkNFbmdsaXNo" data-listing-date-sort="1624312800000" data-listing-file-modified-sort="1777154386249" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="171">
+      <span class="fa-li">
+
+      
+        
+        <i class="fa-solid fa-file-lines" title="Articoli,English" aria-label="Articoli,English"></i>
+        
+      
+      </span>
+      <a href="../../language-it/research/2021-06-22-asta-footbayes.html">
+        <span class="listing-author">Riccardo Ievoli, Aldo Gardini, Lucio Palazzo</span>
+        (<span class="listing-date">2021</span>).
+        <span class="listing-title">“The role of passing network indicators in modeling football outcomes: an application using bayesian hierarchical models”</span>.
+        
+          <span class="listing-details"><em>AStA Advances in Statistical Analysis</em>. pp. 1-23, Springer</span>.
+        
+        
+      </a>
+      
+      <a href="https://doi.org/10.1007/s10182-021-00411-x" class="badge badge-blue">DOI</a>
+      
+      
+      
+      
+      
+      <a href="https://link.springer.com/article/10.1007%2Fs10182-021-00411-x" class="badge badge-blue"><i class="fa-solid fa-link" title="Online link" aria-label="Online link"></i></a>
+      
+      <a href="https://www.researchgate.net/" class="badge badge-green" title="ResearchGate" aria-label="ResearchGate">RG</a>
+      
+      
+      
+      
+      
+    </li>
+  
+    <li data-index="7" data-categories="QXJ0aWNvbGklMkNFbmdsaXNo" data-listing-date-sort="1616968800000" data-listing-file-modified-sort="1777154380766" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="231">
+      <span class="fa-li">
+
+      
+        
+        <i class="fa-solid fa-file-lines" title="Articoli,English" aria-label="Articoli,English"></i>
+        
+      
+      </span>
+      <a href="../../language-it/research/2021-03-29-passing-network-kbs.html">
+        <span class="listing-author">Riccardo Ievoli, Lucio Palazzo, Giancarlo Ragozini</span>
+        (<span class="listing-date">2021</span>).
+        <span class="listing-title">“On the use of passing network indicators to predict football outcomes”</span>.
+        
+          <span class="listing-details"><em>Knowledge-Based Systems</em>. <b>222</b>(106997)</span>.
+        
+        
+      </a>
+      
+      <a href="https://doi.org/10.1016/j.knosys.2021.106997" class="badge badge-blue">DOI</a>
+      
+      
+      
+      
+      
+      <a href="https://www.sciencedirect.com/science/article/pii/S0950705121002604" class="badge badge-blue"><i class="fa-solid fa-link" title="Online link" aria-label="Online link"></i></a>
+      
+      <a href="https://www.researchgate.net/" class="badge badge-green" title="ResearchGate" aria-label="ResearchGate">RG</a>
+      
+      
+      
+      
+      
+    </li>
+  
+    <li data-index="8" data-categories="U2hvcnQlMjBQYXBlciUyQ0VuZ2xpc2g=" data-listing-date-sort="1604185200000" data-listing-file-modified-sort="1777154366326" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="57">
+      <span class="fa-li">
+
+      
+        
+        <i class="fa-solid fa-file-lines" title="Short" paper,english="" aria-label="Short"></i>
+        
+      
+      </span>
+      <a href="../../language-it/research/2020-11-01-sis20-bosp.html">
+        <span class="listing-author">Lucio Palazzo, Riccardo Ievoli</span>
+        (<span class="listing-date">2020</span>).
+        <span class="listing-title">“Bootstrap test in Poisson-INAR models”</span>.
+        
+          <span class="listing-details">In: <em>Book of Short Papers SIS2020</em>. Pisa, Italy. 23-25 June 2020. pp. 1351-1356, Pearson</span>.
+        
+        
+          <span class="listing-details">ISBN 978-88-919-1077-6</span>.
+        
+      </a>
+      
+      
+      
+      
+      
+      <a href="https://www.researchgate.net/" class="badge badge-green" title="ResearchGate" aria-label="ResearchGate">RG</a>
+      
+      
+      
+      
+      
+    </li>
+  
+    <li data-index="9" data-categories="QXJ0aWNvbGklMkNJdGFsaWFu" data-listing-date-sort="1599256800000" data-listing-file-modified-sort="1777154351989" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="163">
+      <span class="fa-li">
+
+      
+        
+        <i class="fa-solid fa-file-lines" title="Articoli,Italian" aria-label="Articoli,Italian"></i>
+        
+      
+      </span>
+      <a href="../../language-it/research/2020-09-05-covid-eyesreg.html">
+        <span class="listing-author">Lucio Palazzo, Riccardo Ievoli</span>
+        (<span class="listing-date">2020</span>).
+        <span class="listing-title">“Le performance sanitarie regionali durante l'emergenza Covid-19: una comparazione tra serie storiche”</span>.
+        
+          <span class="listing-details"><em>EyesReg</em>. <b>10</b>(5): 8, MDPI</span>.
+        
+        
+      </a>
+      
+      
+      
+      
+      
+      <a href="http://www.eyesreg.it/2020/le-performance-sanitarie-regionali-durante-lemergenza-covid-19-una-comparazione-tra-serie-storiche/" class="badge badge-blue"><i class="fa-solid fa-link" title="Online link" aria-label="Online link"></i></a>
+      
+      <a href="https://www.researchgate.net/" class="badge badge-green" title="ResearchGate" aria-label="ResearchGate">RG</a>
+      
+      
+      
+      
+      
+    </li>
+  
+    <li data-index="10" data-categories="QXJ0aWNvbGklMkNFbmdsaXNo" data-listing-date-sort="1593381600000" data-listing-file-modified-sort="1777154338619" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="185">
+      <span class="fa-li">
+
+      
+        
+        <i class="fa-solid fa-file-lines" title="Articoli,English" aria-label="Articoli,English"></i>
+        
+      
+      </span>
+      <a href="../../language-it/research/2020-06-29-betting-tennis-risks.html">
+        <span class="listing-author">Vincenzo Candila, Lucio Palazzo</span>
+        (<span class="listing-date">2020</span>).
+        <span class="listing-title">“Neural Networks and Betting Strategies for Tennis”</span>.
+        
+          <span class="listing-details"><em>Risks</em>. <b>8</b>(3): 68, MDPI</span>.
+        
+        
+      </a>
+      
+      <a href="https://doi.org/10.3390/risks8030068" class="badge badge-blue">DOI</a>
+      
+      
+      
+      
+      
+      <a href="https://www.mdpi.com/2227-9091/8/3/68" class="badge badge-blue"><i class="fa-solid fa-link" title="Online link" aria-label="Online link"></i></a>
+      
+      <a href="https://www.researchgate.net/" class="badge badge-green" title="ResearchGate" aria-label="ResearchGate">RG</a>
+      
+      
+      
+      
+      
+    </li>
+  
+    <li data-index="11" data-categories="QXR0aSUyMGRpJTIwY29udmVnbm8lMkNFbmdsaXNo" data-listing-date-sort="1569880800000" data-listing-file-modified-sort="1777154328889" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="28">
+      <span class="fa-li">
+
+      
+        
+        <i class="fa-solid fa-newspaper" title="Atti" di="" convegno,english="" aria-label="Atti"></i>
+        
+      
+      </span>
+      <a href="../../language-it/research/2019-10-01-mahalanobis-cladag.html">
+        <span class="listing-author">Lucio Palazzo, Giovanni Camillo Porzio, Giuseppe Pandolfo</span>
+        (<span class="listing-date">2019</span>).
+        <span class="listing-title">“A Mahalanobis-like distance for cylindrical data”</span>.
+        
+          <span class="listing-details">In: <em>CLADAG 2019 Book of Short Papers, 12-th scientific meeting classification and data analysis</em>. Cassino, Italy. 11-13 September 2019. pp. 382-385, EUC</span>.
+        
+        
+          <span class="listing-details">ISBN 978-88-8317-108-6</span>.
+        
+      </a>
+      
+      
+      
+      
+      
+      <a href="https://www.iris.unina.it/handle/11588/760086" class="badge badge-blue"><i class="fa-solid fa-link" title="Online link" aria-label="Online link"></i></a>
+      
+      <a href="https://www.researchgate.net/" class="badge badge-green" title="ResearchGate" aria-label="ResearchGate">RG</a>
+      
+      
+      
+      
+      
+    </li>
+  
+    <li data-index="12" data-categories="QXJ0aWNvbGklMkNFbmdsaXNo" data-listing-date-sort="1569189600000" data-listing-file-modified-sort="1777154316969" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="37">
+      <span class="fa-li">
+
+      
+        
+        <i class="fa-solid fa-file-lines" title="Articoli,English" aria-label="Articoli,English"></i>
+        
+      
+      </span>
+      <a href="../../language-it/research/2019-09-23-boot-iv-gretl.html">
+        <span class="listing-author">Riccardo Ievoli, Lucio Palazzo</span>
+        (<span class="listing-date">2019</span>).
+        <span class="listing-title">“Bootstrap inference in Instrumental Variables with gretl”</span>.
+        
+          <span class="listing-details">In: <em>Proceedings of the International Conference on the GNU Regression, Econometrics and Time Series Library</em>. Naples, Italy. 13-14 June 2019. pp. 45-54, fedOA</span>.
+        
+        
+      </a>
+      
+      <a href="https://doi.org/10.6093/978-88-6887-057-7" class="badge badge-blue">DOI</a>
+      
+      
+      
+      
+      
+      <a href="http://www.fedoa.unina.it/id/eprint/12338" class="badge badge-blue"><i class="fa-solid fa-link" title="Online link" aria-label="Online link"></i></a>
+      
+      <a href="https://www.researchgate.net/" class="badge badge-green" title="ResearchGate" aria-label="ResearchGate">RG</a>
+      
+      
+      <a href="https://blog-neas.github.io/papers/http://www.fedoa.unina.it/id/eprint/12338" class="badge badge-red"><i class="fa-solid fa-file-pdf" title="PDF" aria-label="PDF"></i></a>
+      
+      
+      
+    </li>
+  
+    <li data-index="13" data-categories="QXR0aSUyMGRpJTIwY29udmVnbm8lMkNFbmdsaXNo" data-listing-date-sort="1569189600000" data-listing-file-modified-sort="1777154324066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="50">
+      <span class="fa-li">
+
+      
+        
+        <i class="fa-solid fa-newspaper" title="Atti" di="" convegno,english="" aria-label="Atti"></i>
+        
+      
+      </span>
+      <a href="../../language-it/research/2019-09-23-inar-gretl.html">
+        <span class="listing-author">Lucio Palazzo</span>
+        (<span class="listing-date">2019</span>).
+        <span class="listing-title">“Integer Autoregressive modeling: a new gretl routine”</span>.
+        
+          <span class="listing-details">In: <em>Proceedings of the International Conference on the GNU Regression, Econometrics and Time Series Library</em>. Naples, Italy. 13-14 June 2019. pp. 95-103, fedOA</span>.
+        
+        
+      </a>
+      
+      <a href="https://doi.org/10.6093/978-88-6887-057-7" class="badge badge-blue">DOI</a>
+      
+      
+      
+      
+      
+      <a href="http://www.fedoa.unina.it/id/eprint/12338" class="badge badge-blue"><i class="fa-solid fa-link" title="Online link" aria-label="Online link"></i></a>
+      
+      <a href="https://www.researchgate.net/" class="badge badge-green" title="ResearchGate" aria-label="ResearchGate">RG</a>
+      
+      
+      
+      
+      
+    </li>
+  
+    <li data-index="14" data-categories="QXJ0aWNvbGklMkNFbmdsaXNo" data-listing-date-sort="1538344800000" data-listing-file-modified-sort="1777154309685" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+      <span class="fa-li">
+
+      
+        
+        <i class="fa-solid fa-file-lines" title="Articoli,English" aria-label="Articoli,English"></i>
+        
+      
+      </span>
+      <a href="../../language-it/research/2018-10-01-istat18.html">
+        <span class="listing-author">Pasquale Cimmino, Francesco Santelli, Lucio Palazzo</span>
+        (<span class="listing-date">2018</span>).
+        <span class="listing-title">“Sviluppo della cultura statistica a scuola e all'università: buone pratiche dal territorio”</span>.
+        
+          <span class="listing-details">In: <em>Dall'incertezza alla decisione consapevole: un percorso da fare insieme. Atti della 13a Conferenza nazionale di statistica</em>. Rome, Italy. 4-6 July 2018. p. 627, ISTAT</span>.
+        
+        
+          <span class="listing-details">ISBN 978-88-458-2015-1</span>.
+        
+      </a>
+      
+      
+      
+      
+      
+      <a href="https://www.istat.it/it/archivio/250234" class="badge badge-blue"><i class="fa-solid fa-link" title="Online link" aria-label="Online link"></i></a>
+      
+      
+      
+      
+      
+      
+    </li>
+  
+    <li data-index="15" data-categories="Q29udHJpYnV0aSUyMGluJTIwTW9ub2dyYWZpYSUyQ0VuZ2xpc2g=" data-listing-date-sort="1476136800000" data-listing-file-modified-sort="1777154306606" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="153">
+      <span class="fa-li">
+
+      
+        
+        <i class="fa-solid fa-newspaper" title="Contributi" in="" monografia,english="" aria-label="Contributi"></i>
+        
+      
+      </span>
+      <a href="../../language-it/research/2016-10-11-orsuc-book.html">
+        <span class="listing-author">Lucio Palazzo, Domenico Boris Salvati</span>
+        (<span class="listing-date">2016</span>).
+        <span class="listing-title">“Corsi universitari campani e competenze professionali: un'analisi relazionale”</span>.
+        
+          <span class="listing-details">In <em>Il sistema universitario campano tra miti e realtà. Aspetti metodologici, analisi e risultati</em>, eds. Buono, Gallo, Ragozini, Reverchon &amp; Rostirolla. pp.73-87, Franco Angeli</span>.
+        
+        
+          <span class="listing-details">ISBN 978-88-917-4230-8</span>.
+        
+      </a>
+      
+      
+      
+      
+      
+      <a href="https://www.researchgate.net/" class="badge badge-green" title="ResearchGate" aria-label="ResearchGate">RG</a>
+      
+      
+      
+      
+      
+    </li>
+  
+</ul>
 
 <div class="listing-no-matching d-none">Nessun risultato</div>
-</div></main> <!-- /main -->
+</div>
+</section>
+</section>
+<section id="dissertazioni" class="level2">
+<h2 class="anchored" data-anchor-id="dissertazioni">Dissertazioni</h2>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c666120706572736f6e2d6368616c6b626f617264203e7d7d-convegno-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c6661206368616c6b626f6172642d75736572203e7d7d-seminario-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c66612073637265776472697665722d7772656e63683e7d7d-workshop-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c6661206d6963726f70686f6e652d6c696e6573203e7d7d-altro." class="level5">
+<h5 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c666120706572736f6e2d6368616c6b626f617264203e7d7d-convegno-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c6661206368616c6b626f6172642d75736572203e7d7d-seminario-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c66612073637265776472697665722d7772656e63683e7d7d-workshop-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c6661206d6963726f70686f6e652d6c696e6573203e7d7d-altro."><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> convegno, <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i> seminario, <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> workshop, <i class="fa-solid fa-microphone-lines" aria-hidden="true"></i> altro.</h5>
+<div id="listing-seminari" class="quarto-listing quarto-listing-container-custom">
+<div class="listing-actions-group">
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filtro">
+    </div>
+</div>
+
+  &nbsp;  <table class="table table-sm table-hover quarto-listing-table">
+  <thead>
+    <tr>
+      <th style="width: 3rem; text-align: center;"></th>
+      <th>Data</th>
+      <th>Titolo</th>
+      <th>Sede</th>
+    </tr>
+  </thead><!-- lascio spazio per risolvere bug di sparizione icone -->
+  <tbody class="list">
+  
+    <tr data-index="0" data-categories="Q29udmVnbmklMkNPbmxpbmU=" data-listing-date-sort="1634940000000" data-listing-file-modified-sort="1777152546394" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">23 ott 2021</span></td>
+      <td><a href="../../language-it/seminars/2021-scuola_specializzazione-roma.html" class="listing-title">Ansia da valutazione, procrastinazione, grinta e autoefficacia: quale rapporto?</a></td>
+      <td><span class="listing-venue">online</span></td>
+    </tr>
+  
+    <tr data-index="1" data-listing-date-sort="1631138400000" data-listing-file-modified-sort="1728851893000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="324">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">09 set 2021</span></td>
+      <td><a href="../../language-it/seminars/2021-scuola-pls.html" class="listing-title">La certezza assoluta ed altre finzioni. Leggerezza, inganni ed estetica del caso (Italian)</a></td>
+      <td><span class="listing-venue">online</span></td>
+    </tr>
+  
+    <tr data-index="2" data-listing-date-sort="1630879200000" data-listing-file-modified-sort="1728851942000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">06 set 2021</span></td>
+      <td><a href="../../language-it/seminars/2021-asa-webinar.html" class="listing-title">Effects of distance teaching on students and their families: the experience at Federico II University of Naples</a></td>
+      <td><span class="listing-venue">online</span></td>
+    </tr>
+  
+    <tr data-index="3" data-listing-date-sort="1625954400000" data-listing-file-modified-sort="1728851935000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="152">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">11 lug 2021</span></td>
+      <td><a href="../../language-it/seminars/2021-isi-world-statistics-congress.html" class="listing-title">Exploring the Effects of E-learning on Students and Families: the Case of the University of Naples</a></td>
+      <td><span class="listing-venue">online</span></td>
+    </tr>
+  
+    <tr data-index="4" data-listing-date-sort="1623967200000" data-listing-file-modified-sort="1728851871000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="181">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">18 giu 2021</span></td>
+      <td><a href="../../language-it/seminars/2021-sis-pisa.html" class="listing-title">Exploring Students’ Profile and Performance Before and After Covid-19 Lock-down</a></td>
+      <td><span class="listing-venue">Pisa, Italy</span></td>
+    </tr>
+  
+    <tr data-index="5" data-listing-date-sort="1622066400000" data-listing-file-modified-sort="1728851879000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="452">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">27 mag 2021</span></td>
+      <td><a href="../../language-it/seminars/2021-sieds.html" class="listing-title">The e-learning experience: a possible driver for increasing inequalities</a></td>
+      <td><span class="listing-venue">Palermo, Italy</span></td>
+    </tr>
+  
+    <tr data-index="6" data-listing-date-sort="1613689200000" data-listing-file-modified-sort="1728851949000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="346">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">19 feb 2021</span></td>
+      <td><a href="../../language-it/seminars/2021-asa-conference.html" class="listing-title">A Quantitative Study to Measure the Impact of E-Learning on Families</a></td>
+      <td><span class="listing-venue">Firenze, Italy</span></td>
+    </tr>
+  
+    <tr data-index="7" data-listing-date-sort="1601244000000" data-listing-file-modified-sort="1728851966000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="205">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">28 set 2020</span></td>
+      <td><a href="../../language-it/seminars/2020-psychobit.html" class="listing-title">ALEAS: a tutoring system for teaching and assessing statistical knowledge</a></td>
+      <td><span class="listing-venue">Naples, Italy</span></td>
+    </tr>
+  
+    <tr data-index="8" data-listing-date-sort="1591221600000" data-listing-file-modified-sort="1728847185000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">04 giu 2020</span></td>
+      <td><a href="../../language-it/seminars/2020-dises-quiz-moodle.html" class="listing-title">Quiz con Moodle. Tipologie di domande, impostazione e somministrazione di un test (Italian)</a></td>
+      <td><span class="listing-venue">online</span></td>
+    </tr>
+  
+    <tr data-index="9" data-listing-date-sort="1589234400000" data-listing-file-modified-sort="1728847219000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">12 mag 2020</span></td>
+      <td><a href="../../language-it/seminars/2020-youtube-unina-moodle-account.html" class="listing-title">Verifica attivazione account Moodle Unina (Italian)</a></td>
+      <td><span class="listing-venue">online</span></td>
+    </tr>
+  
+    <tr data-index="10" data-listing-date-sort="1583708400000" data-listing-file-modified-sort="1728847199000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">09 mar 2020</span></td>
+      <td><a href="../../language-it/seminars/2020-youtube-google-meet-part-1.html" class="listing-title">Google Meet tutorial - part 1 (Italian)</a></td>
+      <td><span class="listing-venue">online</span></td>
+    </tr>
+  
+    <tr data-index="11" data-listing-date-sort="1583708400000" data-listing-file-modified-sort="1728847208000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">09 mar 2020</span></td>
+      <td><a href="../../language-it/seminars/2020-youtube-google-meet-part-2.html" class="listing-title">Google Meet tutorial - part 2 (Italian)</a></td>
+      <td><span class="listing-venue">online</span></td>
+    </tr>
+  
+    <tr data-index="12" data-listing-date-sort="1574290800000" data-listing-file-modified-sort="1728847840000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">21 nov 2019</span></td>
+      <td><a href="../../language-it/seminars/2019-distorsioni-cognitive.html" class="listing-title">Ti piace vincere facile? Distorsioni cognitive legate al gioco d’azzardo (Italian)</a></td>
+      <td><span class="listing-venue">Meta (Napoli), Italy</span></td>
+    </tr>
+  
+    <tr data-index="13" data-listing-date-sort="1569362400000" data-listing-file-modified-sort="1728851619000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="277">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">25 set 2019</span></td>
+      <td><a href="../../language-it/seminars/2019-asa-brescia-mixture_model.html" class="listing-title">A mixture model with discrete variables for depression diagnosis in infertile couples</a></td>
+      <td><span class="listing-venue">Brescia, Italy</span></td>
+    </tr>
+  
+    <tr data-index="14" data-listing-date-sort="1569362400000" data-listing-file-modified-sort="1728851643000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="262">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">25 set 2019</span></td>
+      <td><a href="../../language-it/seminars/2019-asa-brescia-qcpm.html" class="listing-title">Quantile Composite-based path modelling to handle differences in territorial well-being</a></td>
+      <td><span class="listing-venue">Brescia, Italy</span></td>
+    </tr>
+  
+    <tr data-index="15" data-listing-date-sort="1569362400000" data-listing-file-modified-sort="1728848085000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="341">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">25 set 2019</span></td>
+      <td><a href="../../language-it/seminars/2019-asa-brescia-statistical_anxiety.html" class="listing-title">The effects of attitude toward Statistics and Math knowledge on Statistical anxiety: A path model approach</a></td>
+      <td><span class="listing-venue">Brescia, Italy</span></td>
+    </tr>
+  
+    <tr data-index="16" data-listing-date-sort="1569362400000" data-listing-file-modified-sort="1728851977000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="102">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">25 set 2019</span></td>
+      <td><a href="../../language-it/seminars/2019-inted-valencia-mooc_learning_assessment.html" class="listing-title">MOOC learning assessment: conceptualisation, operativisation and measurement</a></td>
+      <td><span class="listing-venue">Valencia, Spain</span></td>
+    </tr>
+  
+    <tr data-index="17" data-listing-date-sort="1568152800000" data-listing-file-modified-sort="1728851696000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="153">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">11 set 2019</span></td>
+      <td><a href="../../language-it/seminars/2019-cladag-cassino-qcpm-health.html" class="listing-title">QCPM for Conditional Quantiles Estimation of Health Indicators</a></td>
+      <td><span class="listing-venue">Cassino (Frosinone), Italy</span></td>
+    </tr>
+  
+    <tr data-index="18" data-listing-date-sort="1568152800000" data-listing-file-modified-sort="1728851752000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="80">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">11 set 2019</span></td>
+      <td><a href="../../language-it/seminars/2019-cladag-cassino-qr-prefmap.html" class="listing-title">A new approach to preference mapping through quantile regression</a></td>
+      <td><span class="listing-venue">Cassino (Frosinone), Italy</span></td>
+    </tr>
+  
+    <tr data-index="19" data-listing-date-sort="1562191200000" data-listing-file-modified-sort="1728852000000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="250">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">04 lug 2019</span></td>
+      <td><a href="../../language-it/seminars/2019-ies-roma.html" class="listing-title">A quantile regression perspective on consumer heterogeneity</a></td>
+      <td><span class="listing-venue">Roma, Italy</span></td>
+    </tr>
+  
+    <tr data-index="20" data-listing-date-sort="1553295600000" data-listing-file-modified-sort="1728848093000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">23 mar 2019</span></td>
+      <td><a href="../../language-it/seminars/2019-azzardo-penisola-sorrentina.html" class="listing-title">Giochiamo anche noi? Numeri del gioco d’azzardo in penisola sorrentina e nell’area stabiese (Italian)</a></td>
+      <td><span class="listing-venue">Sorrento, Italy</span></td>
+    </tr>
+  
+    <tr data-index="21" data-listing-date-sort="1552950000000" data-listing-file-modified-sort="1728847808000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="257">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">19 mar 2019</span></td>
+      <td><a href="../../language-it/seminars/2019-ecda-bayreuth-archetypes_prototypes.html" class="listing-title">Archetypes, Prototypes and Other Types: The Current State and Prospects for Future Research</a></td>
+      <td><span class="listing-venue">Bayreuth, Germany</span></td>
+    </tr>
+  
+    <tr data-index="22" data-listing-date-sort="1552950000000" data-listing-file-modified-sort="1728847815000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="105">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">19 mar 2019</span></td>
+      <td><a href="../../language-it/seminars/2019-ecda-bayreuth-qr_clustering_modeling.html" class="listing-title">Clustering and modeling data. A quantile regression approach</a></td>
+      <td><span class="listing-venue">Bayreuth, Germany</span></td>
+    </tr>
+  
+    <tr data-index="23" data-listing-date-sort="1540504800000" data-listing-file-modified-sort="1728847922000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="88">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">26 ott 2018</span></td>
+      <td><a href="../../language-it/seminars/2018-asmod-qr_cub.html" class="listing-title">Exploring synergy between CUB models and quantile regression: a comparative analysis through continuousized data</a></td>
+      <td><span class="listing-venue">Napoli, Italy</span></td>
+    </tr>
+  
+    <tr data-index="24" data-listing-date-sort="1540504800000" data-listing-file-modified-sort="1728847914000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="143">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">26 ott 2018</span></td>
+      <td><a href="../../language-it/seminars/2018-asmod-qr_preferences.html" class="listing-title">Modeling preferences: beyond the average effects</a></td>
+      <td><span class="listing-venue">Napoli, Italy</span></td>
+    </tr>
+  
+    <tr data-index="25" data-listing-date-sort="1536789600000" data-listing-file-modified-sort="1776889086731" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="351">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-screwdriver-wrench" title="Workshop" aria-label="Workshop"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">13 set 2018</span></td>
+      <td><a href="../../language-it/seminars/2018-asa-pescara-pim_qr.html" class="listing-title">On the use of non-parametric tests, probabilistic index models and quantile regression for comparing measures of locations. A simulation study</a></td>
+      <td><span class="listing-venue">Pescara, Italy</span></td>
+    </tr>
+  
+    <tr data-index="26" data-listing-date-sort="1536789600000" data-listing-file-modified-sort="1728851592000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="298">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">13 set 2018</span></td>
+      <td><a href="../../language-it/seminars/2018-asa-pescara-qr_preference_mapping.html" class="listing-title">Preference mapping using quantile regression</a></td>
+      <td><span class="listing-venue">Pescara, Italy</span></td>
+    </tr>
+  
+    <tr data-index="27" data-listing-date-sort="1506636000000" data-listing-file-modified-sort="1777157964106" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-person-chalkboard" title="Conference" aria-label="Conference"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">29 set 2017</span></td>
+      <td><a href="../../language-it/seminars/2017-09-29-EUSN17.html" class="listing-title">Using twitter data networks to investigate italian constitutional referendum campaign</a></td>
+      <td><span class="listing-venue">Napoli, Italy</span></td>
+    </tr>
+  
+    <tr data-index="28" data-listing-date-sort="1504821600000" data-listing-file-modified-sort="1776889076941" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="258">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-person-chalkboard" title="Conference" aria-label="Conference"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">08 set 2017</span></td>
+      <td><a href="../../language-it/seminars/2017-asa-napoli-assessing_consumer_heterogeneity.html" class="listing-title">Assessing heterogeneity in consumer analysis across product similarities and within consumer’s differences</a></td>
+      <td><span class="listing-venue">Napoli, Italy</span></td>
+    </tr>
+  
+    <tr data-index="29" data-listing-date-sort="1504735200000" data-listing-file-modified-sort="1728851515000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="258">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">07 set 2017</span></td>
+      <td><a href="../../language-it/seminars/2017-asa-napoli-concentration_metals_merluccius.html" class="listing-title">A chemometric approach to evaluate the concentration of polychlorinated biphenyls and heavy metals in M. merluccius from Mediterranean Sea</a></td>
+      <td><span class="listing-venue">Napoli, Italy</span></td>
+    </tr>
+  
+    <tr data-index="30" data-listing-date-sort="1497391200000" data-listing-file-modified-sort="1728851532000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="337">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-microphone-lines" title="Altro" aria-label="Altro"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">14 giu 2017</span></td>
+      <td><a href="../../language-it/seminars/2017-itacosm-bologna.html" class="listing-title">Prediction Intervals in Quantile Regression</a></td>
+      <td><span class="listing-venue">Bologna, Italy</span></td>
+    </tr>
+  
+    <tr data-index="31" data-listing-date-sort="1494885600000" data-listing-file-modified-sort="1777157109165" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-person-chalkboard" title="Conference" aria-label="Conference"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">16 mag 2017</span></td>
+      <td><a href="../../language-it/seminars/2017-05-16-YoungARS.html" class="listing-title">Hashtags analysis for the italian referendum campaign</a></td>
+      <td><span class="listing-venue">Napoli, Italy</span></td>
+    </tr>
+  
+    <tr data-index="32" data-listing-date-sort="1436392800000" data-listing-file-modified-sort="1777157117882" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-person-chalkboard" title="Conference" aria-label="Conference"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">09 lug 2015</span></td>
+      <td><a href="../../language-it/seminars/2015-07-09-ASSIRM15.html" class="listing-title">Comparing operative units in a large company through archetypes in a benchmarking perspective</a></td>
+      <td><span class="listing-venue">Napoli, Italy</span></td>
+    </tr>
+  
+    <tr data-index="33" data-listing-date-sort="1434924000000" data-listing-file-modified-sort="1777157019148" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="4">
+      <td>
+      <span class="listing-type">
+        
+          <i class="fa-solid fa-chalkboard-user" title="Seminar" aria-label="Seminar"></i>
+        
+      </span>
+      </td>
+      <td><span class="listing-date">22 giu 2015</span></td>
+      <td><a href="../../language-it/seminars/2015-06-22-orsucworkshop.html" class="listing-title">Strumenti per il Web Scraping per il monitoraggio delle competenze in uscita e degli sbocchi occupazionali</a></td>
+      <td><span class="listing-venue">Napoli, Italy</span></td>
+    </tr>
+  
+  </tbody>
+</table>
+<div class="listing-no-matching d-none">Nessun risultato</div>
+</div>
+
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

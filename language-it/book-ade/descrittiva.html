@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; Statistica descrittiva – Economic Data Analysis</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./grafici.html" rel="next">
+<link href="./temp_intro.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-6dfee3eeb05bef592e870c8fa874a3c3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nessun risultato",
+    "search-matching-documents-text": "documenti trovati",
+    "search-copy-link-title": "Copiare il link nella ricerca",
+    "search-hide-matches-text": "Nascondere i risultati aggiuntivi",
+    "search-more-match-text": "ci sono altri risultati in questo documento",
+    "search-more-matches-text": "ulteriori risultati in questo documento",
+    "search-clear-button-title": "Pulire",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancellare",
+    "search-submit-button-title": "Inviare",
+    "search-label": "Ricerca"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./descrittiva.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistica descrittiva</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Ricerca" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Economic Data Analysis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Ricerca"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefazione</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temp_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduzione</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./descrittiva.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistica descrittiva</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./grafici.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Rappresentazioni grafiche</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./seriestoriche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Le serie storiche</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./trasformazioni.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Trasformazioni di serie storiche</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./indici.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Indici temporali</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regressione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modelli di regressione</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./multivar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Analisi multivariata</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spatial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Modelli per dati spaziali</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temp_summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Case Studies</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Riferimenti Bibliografici</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Indice</h2>
+   
+  <ul>
+  <li><a href="#frequenze-e-distribuzioni" id="toc-frequenze-e-distribuzioni" class="nav-link active" data-scroll-target="#frequenze-e-distribuzioni"><span class="header-section-number">2.0.1</span> Frequenze e distribuzioni</a></li>
+  <li><a href="#valori-mancanti-assenza-di-informazione-non-valore-zero" id="toc-valori-mancanti-assenza-di-informazione-non-valore-zero" class="nav-link" data-scroll-target="#valori-mancanti-assenza-di-informazione-non-valore-zero"><span class="header-section-number">2.0.2</span> Valori mancanti: assenza di informazione, non valore zero</a></li>
+  <li><a href="#dove-si-concentra-la-distribuzione" id="toc-dove-si-concentra-la-distribuzione" class="nav-link" data-scroll-target="#dove-si-concentra-la-distribuzione"><span class="header-section-number">2.1</span> Dove si concentra la distribuzione</a>
+  <ul class="collapse">
+  <li><a href="#media-mediana-e-moda" id="toc-media-mediana-e-moda" class="nav-link" data-scroll-target="#media-mediana-e-moda"><span class="header-section-number">2.1.1</span> Media, mediana e moda</a></li>
+  <li><a href="#media-ponderata" id="toc-media-ponderata" class="nav-link" data-scroll-target="#media-ponderata"><span class="header-section-number">2.1.2</span> Media ponderata</a></li>
+  </ul></li>
+  <li><a href="#quanto-sono-dispersi-i-dati" id="toc-quanto-sono-dispersi-i-dati" class="nav-link" data-scroll-target="#quanto-sono-dispersi-i-dati"><span class="header-section-number">2.2</span> Quanto sono dispersi i dati</a>
+  <ul class="collapse">
+  <li><a href="#campo-di-variazione-quantili-e-intervallo-interquartile" id="toc-campo-di-variazione-quantili-e-intervallo-interquartile" class="nav-link" data-scroll-target="#campo-di-variazione-quantili-e-intervallo-interquartile"><span class="header-section-number">2.2.1</span> Campo di variazione, quantili e intervallo interquartile</a></li>
+  <li><a href="#varianza-e-deviazione-standard" id="toc-varianza-e-deviazione-standard" class="nav-link" data-scroll-target="#varianza-e-deviazione-standard"><span class="header-section-number">2.2.2</span> Varianza e deviazione standard</a></li>
+  </ul></li>
+  <li><a href="#forma-della-distribuzione-e-valori-anomali" id="toc-forma-della-distribuzione-e-valori-anomali" class="nav-link" data-scroll-target="#forma-della-distribuzione-e-valori-anomali"><span class="header-section-number">2.3</span> Forma della distribuzione e valori anomali</a>
+  <ul class="collapse">
+  <li><a href="#istogramma-e-boxplot" id="toc-istogramma-e-boxplot" class="nav-link" data-scroll-target="#istogramma-e-boxplot"><span class="header-section-number">2.3.1</span> Istogramma e boxplot</a></li>
+  </ul></li>
+  <li><a href="#confrontare-variabili-su-scale-diverse" id="toc-confrontare-variabili-su-scale-diverse" class="nav-link" data-scroll-target="#confrontare-variabili-su-scale-diverse"><span class="header-section-number">2.4</span> Confrontare variabili su scale diverse</a></li>
+  <li><a href="#associazione-tra-due-variabili" id="toc-associazione-tra-due-variabili" class="nav-link" data-scroll-target="#associazione-tra-due-variabili"><span class="header-section-number">2.5</span> Associazione tra due variabili</a>
+  <ul class="collapse">
+  <li><a href="#diagramma-di-dispersione-e-correlazione" id="toc-diagramma-di-dispersione-e-correlazione" class="nav-link" data-scroll-target="#diagramma-di-dispersione-e-correlazione"><span class="header-section-number">2.5.1</span> Diagramma di dispersione e correlazione</a></li>
+  <li><a href="#tabelle-doppie-e-percentuali-condizionate" id="toc-tabelle-doppie-e-percentuali-condizionate" class="nav-link" data-scroll-target="#tabelle-doppie-e-percentuali-condizionate"><span class="header-section-number">2.5.2</span> Tabelle doppie e percentuali condizionate</a></li>
+  </ul></li>
+  <li><a href="#rappresentare-correttamente-tempo-e-territorio" id="toc-rappresentare-correttamente-tempo-e-territorio" class="nav-link" data-scroll-target="#rappresentare-correttamente-tempo-e-territorio"><span class="header-section-number">2.6</span> Rappresentare correttamente tempo e territorio</a>
+  <ul class="collapse">
+  <li><a href="#leggere-criticamente-un-grafico" id="toc-leggere-criticamente-un-grafico" class="nav-link" data-scroll-target="#leggere-criticamente-un-grafico"><span class="header-section-number">2.6.1</span> Leggere criticamente un grafico</a></li>
+  </ul></li>
+  <li><a href="#una-procedura-di-analisi-descrittiva" id="toc-una-procedura-di-analisi-descrittiva" class="nav-link" data-scroll-target="#una-procedura-di-analisi-descrittiva"><span class="header-section-number">2.7</span> Una procedura di analisi descrittiva</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistica descrittiva</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Una tabella con migliaia di osservazioni non risponde, da sola, a domande come: qual è il reddito tipico di un territorio? Quanto differiscono i comuni tra loro? La disoccupazione è più elevata proprio dove il reddito è più basso? La <strong>statistica descrittiva</strong> raccoglie strumenti per ordinare, sintetizzare e rappresentare i dati, senza perdere di vista la domanda che ha motivato la raccolta.</p>
+<p>Questi strumenti costituiscono il primo passaggio di quasi ogni analisi economica. Permettono di individuare errori, valori anomali e differenze rilevanti prima di applicare modelli più complessi. Servono anche a comunicare i risultati in modo comprensibile. L’analisi descrittiva riassume le osservazioni disponibili; l’<strong>inferenza statistica</strong>, invece, usa un campione per formulare conclusioni più generali su una popolazione, tenendo conto dell’incertezza. Descrivere, inoltre, non significa spiegare: una regolarità osservata nei dati può suggerire nuove domande, ma non dimostra da sola un rapporto causale.</p>
+<section id="frequenze-e-distribuzioni" class="level3" data-number="2.0.1">
+<h3 data-number="2.0.1" class="anchored" data-anchor-id="frequenze-e-distribuzioni"><span class="header-section-number">2.0.1</span> Frequenze e distribuzioni</h3>
+<p>La <strong>distribuzione</strong> descrive quali valori assume una variabile e con quale frequenza. Per una variabile qualitativa, la frequenza assoluta <span class="math inline">\(n_j\)</span> è il numero di osservazioni appartenenti alla modalità <span class="math inline">\(j\)</span>. La frequenza relativa è</p>
+<p><span class="math display">\[
+f_j = \frac{n_j}{n},
+\]</span></p>
+<p>dove <span class="math inline">\(n\)</span> è il numero totale di osservazioni. La somma delle frequenze assolute è <span class="math inline">\(n\)</span>, mentre la somma delle frequenze relative è 1. Moltiplicando <span class="math inline">\(f_j\)</span> per 100 si ottiene la percentuale. Le frequenze relative consentono di confrontare gruppi di diversa numerosità: 200 disoccupati hanno un significato diverso in un comune di 1.000 residenti e in uno di 100.000.</p>
+<p>Quando le modalità sono ordinabili, si può calcolare anche la <strong>frequenza relativa cumulata</strong>:</p>
+<p><span class="math display">\[
+F_j = \sum_{h=1}^{j} f_h.
+\]</span></p>
+<p>Il simbolo <span class="math inline">\(F_j\)</span> indica la quota di osservazioni che assume una modalità non superiore alla modalità <span class="math inline">\(j\)</span>. Se, per esempio, <span class="math inline">\(F_j=0{,}70\)</span> in corrispondenza di un reddito di 25 mila euro, il 70% delle unità osservate ha un reddito non superiore a quella soglia. Non ha invece senso cumulare categorie nominali come provincia, religione o partito, perché il risultato dipenderebbe da un ordinamento arbitrario.</p>
+<p>Per una variabile quantitativa si possono elencare tutti i valori oppure raggrupparli in <strong>classi</strong>, cioè intervalli che non si sovrappongono. Il raggruppamento rende leggibile una grande quantità di dati, ma nasconde parte del dettaglio; intervalli scelti in modo diverso possono produrre impressioni visive diverse. Se la classe <span class="math inline">\(j\)</span> ha ampiezza <span class="math inline">\(a_j\)</span>, la sua densità di frequenza relativa è <span class="math inline">\(D_j=f_j/a_j\)</span>. Questa distinzione diventa essenziale quando le classi hanno ampiezze diverse: nell’istogramma è l’area del rettangolo, non la sola altezza, a dover essere proporzionale alla frequenza.</p>
+<p>Nel seguito useremo un campione ipotetico di dodici comuni. I dati sono <strong>simulati a scopo didattico</strong> e non descrivono territori reali. Il reddito è espresso in migliaia di euro per residente, la disoccupazione in percentuale e la popolazione in migliaia di residenti.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dati simulati: ogni riga rappresenta un comune</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>comuni <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">comune =</span> <span class="fu">c</span>(<span class="st">"Roma"</span>, <span class="st">"Napoli"</span>, <span class="st">"Milano"</span>, <span class="st">"Torino"</span>, <span class="st">"Bologna"</span>, <span class="st">"Firenze"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Palermo"</span>, <span class="st">"Genova"</span>, <span class="st">"Venezia"</span>, <span class="st">"Verona"</span>, <span class="st">"Cagliari"</span>, <span class="st">"L'Aquila"</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">area =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Area Metropolitana"</span>, <span class="st">"Città"</span>), <span class="at">each =</span> <span class="dv">6</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">reddito =</span> <span class="fu">c</span>(<span class="fl">18.2</span>, <span class="fl">19.5</span>, <span class="fl">20.1</span>, <span class="fl">21.0</span>, <span class="fl">21.4</span>, <span class="fl">22.0</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>              <span class="fl">22.6</span>, <span class="fl">23.1</span>, <span class="fl">23.8</span>, <span class="fl">24.5</span>, <span class="fl">25.2</span>, <span class="fl">39.0</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">disoccupazione =</span> <span class="fu">c</span>(<span class="fl">15.2</span>, <span class="fl">14.1</span>, <span class="fl">13.8</span>, <span class="fl">12.9</span>, <span class="fl">12.4</span>, <span class="fl">11.8</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                     <span class="fl">11.1</span>, <span class="fl">10.7</span>, <span class="fl">10.0</span>, <span class="fl">9.4</span>, <span class="fl">8.8</span>, <span class="fl">7.5</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">popolazione =</span> <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">25</span>, <span class="dv">14</span>, <span class="dv">32</span>, <span class="dv">21</span>, <span class="dv">29</span>, <span class="dv">17</span>, <span class="dv">23</span>, <span class="dv">26</span>, <span class="dv">19</span>, <span class="dv">31</span>, <span class="dv">15</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>comuni <span class="sc">|&gt;</span> knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Dati simulati per dodici comuni"</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Comune"</span>, <span class="st">"Area"</span>, <span class="st">"Reddito (migliaia di euro)"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Disoccupazione (%)"</span>, <span class="st">"Popolazione (migliaia)"</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Dati simulati per dodici comuni</caption>
+<colgroup>
+<col style="width: 9%">
+<col style="width: 19%">
+<col style="width: 27%">
+<col style="width: 19%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Comune</th>
+<th style="text-align: left;">Area</th>
+<th style="text-align: right;">Reddito (migliaia di euro)</th>
+<th style="text-align: right;">Disoccupazione (%)</th>
+<th style="text-align: right;">Popolazione (migliaia)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Roma</td>
+<td style="text-align: left;">Area Metropolitana</td>
+<td style="text-align: right;">18.2</td>
+<td style="text-align: right;">15.2</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Napoli</td>
+<td style="text-align: left;">Area Metropolitana</td>
+<td style="text-align: right;">19.5</td>
+<td style="text-align: right;">14.1</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Milano</td>
+<td style="text-align: left;">Area Metropolitana</td>
+<td style="text-align: right;">20.1</td>
+<td style="text-align: right;">13.8</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Torino</td>
+<td style="text-align: left;">Area Metropolitana</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">12.9</td>
+<td style="text-align: right;">32</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bologna</td>
+<td style="text-align: left;">Area Metropolitana</td>
+<td style="text-align: right;">21.4</td>
+<td style="text-align: right;">12.4</td>
+<td style="text-align: right;">21</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Firenze</td>
+<td style="text-align: left;">Area Metropolitana</td>
+<td style="text-align: right;">22.0</td>
+<td style="text-align: right;">11.8</td>
+<td style="text-align: right;">29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Palermo</td>
+<td style="text-align: left;">Città</td>
+<td style="text-align: right;">22.6</td>
+<td style="text-align: right;">11.1</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Genova</td>
+<td style="text-align: left;">Città</td>
+<td style="text-align: right;">23.1</td>
+<td style="text-align: right;">10.7</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Venezia</td>
+<td style="text-align: left;">Città</td>
+<td style="text-align: right;">23.8</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: right;">26</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Verona</td>
+<td style="text-align: left;">Città</td>
+<td style="text-align: right;">24.5</td>
+<td style="text-align: right;">9.4</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cagliari</td>
+<td style="text-align: left;">Città</td>
+<td style="text-align: right;">25.2</td>
+<td style="text-align: right;">8.8</td>
+<td style="text-align: right;">31</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">L’Aquila</td>
+<td style="text-align: left;">Città</td>
+<td style="text-align: right;">39.0</td>
+<td style="text-align: right;">7.5</td>
+<td style="text-align: right;">15</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In una cross-section l'ordine delle righe non contiene informazione.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Il seme rende riproducibile anche questo ordinamento casuale.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>comuni <span class="ot">&lt;-</span> comuni[<span class="fu">sample</span>(<span class="fu">seq_len</span>(<span class="fu">nrow</span>(comuni))), ]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">row.names</span>(comuni) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequenze assolute e percentuali per area</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>frequenze_area <span class="ot">&lt;-</span> <span class="fu">table</span>(comuni<span class="sc">$</span>area)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>percentuali_area <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(frequenze_area) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>frequenze_area</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Area Metropolitana              Città 
+                 6                  6 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(percentuali_area, <span class="dv">1</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Area Metropolitana              Città 
+                50                 50 </code></pre>
+</div>
+</div>
+<p>I due gruppi contengono sei comuni ciascuno e rappresentano quindi il 50% delle osservazioni. Questa percentuale riguarda i <strong>comuni</strong>, non i residenti: poiché le popolazioni comunali sono diverse, non possiamo concludere che metà dei residenti viva in ciascuna area. Il denominatore deve essere sempre coerente con la domanda.</p>
+</section>
+<section id="valori-mancanti-assenza-di-informazione-non-valore-zero" class="level3" data-number="2.0.2">
+<h3 data-number="2.0.2" class="anchored" data-anchor-id="valori-mancanti-assenza-di-informazione-non-valore-zero"><span class="header-section-number">2.0.2</span> Valori mancanti: assenza di informazione, non valore zero</h3>
+<p>Un valore può mancare perché un comune non ha trasmesso il dato, perché una domanda non era applicabile o perché si è verificato un errore. In R un valore mancante è normalmente indicato con <code>NA</code>. Sostituirlo automaticamente con zero è quasi sempre scorretto: “reddito non disponibile” non significa “reddito nullo”.</p>
+<p>Molte funzioni di R restituiscono <code>NA</code> quando il vettore contiene valori mancanti. L’argomento <code>na.rm = TRUE</code> permette di calcolare, per esempio, <code>mean(x, na.rm = TRUE)</code> sulle sole osservazioni disponibili. Questa scelta non risolve il problema: cambia il campione effettivamente analizzato. Se la probabilità che un dato manchi è collegata al fenomeno studiato, anche la sintesi calcolata sui casi completi può essere distorta. Occorre quindi riportare quanti valori mancano, motivare il criterio adottato e controllare il denominatore di ogni percentuale.</p>
+</section>
+<section id="dove-si-concentra-la-distribuzione" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="dove-si-concentra-la-distribuzione"><span class="header-section-number">2.1</span> Dove si concentra la distribuzione</h2>
+<p>Gli indici di posizione riassumono dove si collocano i dati. Nessun indice è “il centro” in ogni situazione: la scelta dipende dal tipo di variabile e dalla forma della distribuzione.</p>
+<section id="media-mediana-e-moda" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="media-mediana-e-moda"><span class="header-section-number">2.1.1</span> Media, mediana e moda</h3>
+<p>Per <span class="math inline">\(n\)</span> osservazioni quantitative <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span>, la <strong>media aritmetica</strong> è</p>
+<p><span class="math display">\[
+\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i.
+\]</span></p>
+<p>Il simbolo <span class="math inline">\(x_i\)</span> indica il valore osservato per l’unità <span class="math inline">\(i\)</span>, <span class="math inline">\(n\)</span> il numero di unità e <span class="math inline">\(\bar{x}\)</span> la media. La media utilizza tutte le osservazioni e può essere letta come il valore che ciascuna unità avrebbe se il totale fosse distribuito in parti uguali. Proprio perché usa tutti i valori, risente molto di osservazioni estreme.</p>
+<p>La <strong>mediana</strong> è invece il valore che, dopo avere ordinato i dati, lascia il 50% delle osservazioni al di sotto e il 50% al di sopra. Se <span class="math inline">\(n\)</span> è pari, è la media dei due valori centrali. È meno sensibile ai valori estremi ed è spesso più rappresentativa per redditi, patrimoni e prezzi immobiliari, le cui distribuzioni tendono a essere asimmetriche.</p>
+<p>La <strong>moda</strong> è il valore o la modalità più frequente. Può essere usata anche per variabili qualitative, ma può non esistere oppure essere multipla. Nel piccolo esempio ogni reddito compare una sola volta: indicare una moda non sarebbe informativo.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>indici_posizione <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">media =</span> <span class="fu">mean</span>(comuni<span class="sc">$</span>reddito),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">mediana =</span> <span class="fu">median</span>(comuni<span class="sc">$</span>reddito),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">minimo =</span> <span class="fu">min</span>(comuni<span class="sc">$</span>reddito),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">massimo =</span> <span class="fu">max</span>(comuni<span class="sc">$</span>reddito)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(indici_posizione, <span class="dv">2</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  media mediana  minimo massimo 
+  23.37   22.30   18.20   39.00 </code></pre>
+</div>
+</div>
+<p>Il reddito medio è 23,37 mila euro, mentre la mediana è 22,30 mila. La differenza è dovuta soprattutto al valore di 39 mila euro del comune L: essendo molto elevato rispetto agli altri, sposta la media verso l’alto. In questo caso la mediana descrive meglio il comune “centrale”, mentre la media resta utile per ricostruire il reddito complessivo per residente medio soltanto se si usano pesi adeguati.</p>
+</section>
+<section id="media-ponderata" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="media-ponderata"><span class="header-section-number">2.1.2</span> Media ponderata</h3>
+<p>Una media semplice attribuisce lo stesso peso a ogni riga. Se vogliamo stimare il reddito medio del <strong>residente</strong> e i comuni hanno popolazioni differenti, dobbiamo invece ponderare il reddito comunale per la popolazione:</p>
+<p><span class="math display">\[
+\bar{x}_w = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i},
+\]</span></p>
+<p>dove <span class="math inline">\(w_i\)</span> è il peso attribuito all’unità <span class="math inline">\(i\)</span>. Nel nostro esempio <span class="math inline">\(w_i\)</span> è la popolazione del comune <span class="math inline">\(i\)</span>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>reddito_medio_residente <span class="ot">&lt;-</span> <span class="fu">weighted.mean</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> comuni<span class="sc">$</span>reddito,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">w =</span> comuni<span class="sc">$</span>popolazione</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(reddito_medio_residente, <span class="dv">2</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 23.04</code></pre>
+</div>
+</div>
+<p>La media ponderata è 23,04 mila euro, inferiore alla media semplice di 23,37. Il comune con reddito più alto ha infatti una popolazione relativamente piccola. La media semplice risponde alla domanda “qual è il reddito medio dei comuni?”, dando a ogni comune lo stesso peso; la media ponderata risponde alla domanda “qual è il reddito medio dei residenti?”, sotto l’ipotesi semplificatrice che il reddito comunale riportato sia applicabile ai residenti del comune.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Un errore frequente: confondere unità e persone">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avviso</span>Un errore frequente: confondere unità e persone
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una media di valori comunali non coincide necessariamente con la media individuale. Il passaggio da dati aggregati a conclusioni sugli individui richiede pesi corretti e informazioni compatibili. Inoltre, una relazione osservata tra comuni non implica che la stessa relazione valga tra gli individui: questa conclusione indebita è nota come <strong>fallacia ecologica</strong>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="quanto-sono-dispersi-i-dati" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="quanto-sono-dispersi-i-dati"><span class="header-section-number">2.2</span> Quanto sono dispersi i dati</h2>
+<p>Due distribuzioni possono avere la stessa media ma essere molto diverse. Un reddito medio di 25 mila euro può derivare da valori tutti vicini a 25 oppure da una forte distanza tra territori ricchi e poveri. Gli indici di dispersione misurano questa eterogeneità.</p>
+<section id="campo-di-variazione-quantili-e-intervallo-interquartile" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="campo-di-variazione-quantili-e-intervallo-interquartile"><span class="header-section-number">2.2.1</span> Campo di variazione, quantili e intervallo interquartile</h3>
+<p>Il <strong>campo di variazione</strong> (<em>range</em>) è la differenza tra massimo e minimo. È immediato, ma dipende soltanto da due osservazioni e risente molto dei valori estremi.</p>
+<p>Un <strong>quantile</strong> di ordine <span class="math inline">\(p\)</span> è un valore che lascia una proporzione <span class="math inline">\(p\)</span> delle osservazioni al di sotto o in corrispondenza di esso. I tre quartili dividono i dati ordinati in quattro parti: il primo quartile <span class="math inline">\(Q_1\)</span> corrisponde al 25%, il secondo alla mediana e il terzo <span class="math inline">\(Q_3\)</span> al 75%. L’<strong>intervallo interquartile</strong> è</p>
+<p><span class="math display">\[
+IQR = Q_3 - Q_1.
+\]</span></p>
+<p>Esso misura l’ampiezza della metà centrale dei dati ed è poco influenzato dai valori estremi. Esistono diversi metodi di interpolazione per calcolare i quantili; con campioni piccoli software diversi possono quindi restituire risultati leggermente differenti.</p>
+</section>
+<section id="varianza-e-deviazione-standard" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="varianza-e-deviazione-standard"><span class="header-section-number">2.2.2</span> Varianza e deviazione standard</h3>
+<p>La deviazione di un’osservazione dalla media è <span class="math inline">\(x_i-\bar{x}\)</span>. Poiché le deviazioni positive e negative si compensano, le eleviamo al quadrato. La <strong>varianza campionaria</strong> è</p>
+<p><span class="math display">\[
+s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i-\bar{x})^2,
+\]</span></p>
+<p>dove <span class="math inline">\(s^2\)</span> indica la varianza e <span class="math inline">\(n-1\)</span> è il denominatore usato quando i dati sono considerati un campione. Se le unità osservate costituiscono invece l’intera popolazione di interesse, la varianza descrittiva si indica spesso con <span class="math inline">\(\sigma^2\)</span> e si divide per la numerosità <span class="math inline">\(N\)</span> della popolazione:</p>
+<p><span class="math display">\[
+\sigma^2 = \frac{1}{N}\sum_{i=1}^{N}(x_i-\mu)^2,
+\]</span></p>
+<p>dove <span class="math inline">\(\mu\)</span> è la media della popolazione. La distinzione fra <span class="math inline">\(n-1\)</span> e <span class="math inline">\(N\)</span> non è un dettaglio puramente formale: dipende dal ruolo attribuito ai dati. La funzione <code>var()</code> di R, usata più avanti, calcola la varianza campionaria con denominatore <span class="math inline">\(n-1\)</span>.</p>
+<p>La varianza è espressa nell’unità di misura al quadrato, quindi è poco intuitiva. La <strong>deviazione standard campionaria</strong> è la sua radice quadrata,</p>
+<p><span class="math display">\[
+s = \sqrt{s^2},
+\]</span></p>
+<p>e torna all’unità di misura originaria. Per la popolazione si usa analogamente <span class="math inline">\(\sigma=\sqrt{\sigma^2}\)</span>. Un valore elevato segnala che le osservazioni sono, nel complesso, lontane dalla media. Non significa che ogni osservazione disti esattamente <span class="math inline">\(s\)</span> dalla media.</p>
+<p>Quando si confronta la variabilità di grandezze positive con scale diverse, può essere utile il <strong>coefficiente di variazione</strong>:</p>
+<p><span class="math display">\[
+CV = \frac{s}{\bar{x}} \times 100.
+\]</span></p>
+<p>Il <span class="math inline">\(CV\)</span> esprime la deviazione standard come percentuale della media. Non è appropriato quando la media è nulla, prossima a zero o quando lo zero della scala è convenzionale, come per la temperatura in gradi Celsius.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>indici_dispersione <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">campo =</span> <span class="fu">diff</span>(<span class="fu">range</span>(comuni<span class="sc">$</span>reddito)),</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">IQR =</span> <span class="fu">IQR</span>(comuni<span class="sc">$</span>reddito),</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">varianza =</span> <span class="fu">var</span>(comuni<span class="sc">$</span>reddito),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">deviazione_standard =</span> <span class="fu">sd</span>(comuni<span class="sc">$</span>reddito),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">coefficiente_variazione =</span> <span class="fu">sd</span>(comuni<span class="sc">$</span>reddito) <span class="sc">/</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mean</span>(comuni<span class="sc">$</span>reddito) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(indici_dispersione, <span class="dv">2</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                  campo                     IQR                varianza 
+                  20.80                    3.20                   28.50 
+    deviazione_standard coefficiente_variazione 
+                   5.34                   22.85 </code></pre>
+</div>
+</div>
+<p>I redditi coprono un campo di 20,80 mila euro. L’IQR è però soltanto 3,20 mila euro: la metà centrale dei comuni è relativamente concentrata, mentre il campo è ampliato dal comune L. La deviazione standard è 5,34 mila euro, pari al 22,85% della media. Gli indici raccontano aspetti diversi e vanno letti congiuntamente, non scelti in base a quello che sostiene meglio una tesi.</p>
+</section>
+</section>
+<section id="forma-della-distribuzione-e-valori-anomali" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="forma-della-distribuzione-e-valori-anomali"><span class="header-section-number">2.3</span> Forma della distribuzione e valori anomali</h2>
+<p>Una distribuzione è <strong>simmetrica</strong> quando la parte a sinistra e quella a destra del centro hanno forma simile. È <strong>asimmetrica a destra</strong> quando pochi valori elevati formano una coda lunga verso destra, come spesso accade per redditi e patrimoni; in tal caso la media tende a superare la mediana. L’asimmetria a sinistra presenta la situazione opposta.</p>
+<p>Un <strong>valore anomalo</strong> (<em>outlier</em>) è un’osservazione insolitamente lontana dalle altre. Può derivare da un errore di inserimento, da una diversa unità di misura oppure da un caso reale e sostantivamente importante. Il boxplot usa spesso una regola operativa: segnala i valori inferiori a <span class="math inline">\(Q_1-1{,}5\,IQR\)</span> o superiori a <span class="math inline">\(Q_3+1{,}5\,IQR\)</span>.</p>
+<p>Questa regola è uno strumento diagnostico, non una definizione universale. Un comune molto ricco non è necessariamente un errore; eliminarlo automaticamente potrebbe cancellare proprio il fenomeno che vogliamo studiare. Prima di intervenire occorre controllare la fonte, la definizione della variabile e il contesto.</p>
+<section id="istogramma-e-boxplot" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="istogramma-e-boxplot"><span class="header-section-number">2.3.1</span> Istogramma e boxplot</h3>
+<p>L’<strong>istogramma</strong> divide l’asse dei valori in intervalli adiacenti ed è adatto a variabili quantitative. L’area di ciascun rettangolo rappresenta la frequenza della classe. Se tutte le classi hanno uguale ampiezza, anche le altezze sono proporzionali alle frequenze; con classi diseguali, invece, sull’asse verticale occorre riportare la densità. La forma del grafico dipende quindi dalla scelta degli intervalli. Un grafico a barre rappresenta invece categorie distinte: le barre sono separate, hanno uguale larghezza e soltanto la loro altezza esprime la frequenza.</p>
+<p>Il <strong>boxplot</strong> mostra la mediana, i quartili, l’IQR e gli eventuali valori segnalati come anomali. È compatto e utile per confrontare gruppi, ma non mostra bene distribuzioni con più addensamenti e, con pochissime osservazioni, va interpretato con cautela.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">1</span>))</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  comuni<span class="sc">$</span>reddito,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="dv">6</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"grey80"</span>,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">border =</span> <span class="st">"white"</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Istogramma"</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Reddito (migliaia di euro)"</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  comuni<span class="sc">$</span>reddito,</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"grey80"</span>,</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Boxplot"</span>,</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Reddito (migliaia di euro)"</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="descrittiva_files/figure-html/grafici-distribuzione-reddito-1.png" class="img-fluid figure-img" width="768"></p>
+<figcaption>Distribuzione dei redditi nei dodici comuni simulati: istogramma e boxplot.</figcaption>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>L’istogramma mostra che quasi tutti i comuni si concentrano tra 18 e 26 mila euro, mentre uno è molto più in alto. Il boxplot segnala il valore di 39 come anomalo secondo la regola di 1,5 IQR. I grafici non stabiliscono se il dato sia errato: indicano dove approfondire il controllo.</p>
+</section>
+</section>
+<section id="confrontare-variabili-su-scale-diverse" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="confrontare-variabili-su-scale-diverse"><span class="header-section-number">2.4</span> Confrontare variabili su scale diverse</h2>
+<p>Non è sensato confrontare direttamente una differenza di 5 mila euro di reddito con una differenza di 5 punti percentuali di disoccupazione. La <strong>standardizzazione</strong> colloca una variabile su una scala priva di unità di misura. Per l’osservazione <span class="math inline">\(i\)</span>, lo <em>z-score</em> è</p>
+<p><span class="math display">\[
+z_i = \frac{x_i-\bar{x}}{s},
+\]</span></p>
+<p>dove <span class="math inline">\(x_i\)</span> è il valore originale, <span class="math inline">\(\bar{x}\)</span> la media e <span class="math inline">\(s\)</span> la deviazione standard. Uno z-score positivo indica un valore sopra la media; uno negativo indica un valore sotto la media. Il valore assoluto esprime la distanza dalla media in deviazioni standard.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>comuni<span class="sc">$</span>z_reddito <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">scale</span>(comuni<span class="sc">$</span>reddito))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>valori_standardizzati <span class="ot">&lt;-</span> comuni[</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">match</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"F"</span>, <span class="st">"L"</span>), comuni<span class="sc">$</span>comune),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"comune"</span>, <span class="st">"reddito"</span>, <span class="st">"z_reddito"</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>valori_standardizzati<span class="sc">$</span>z_reddito <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  valori_standardizzati<span class="sc">$</span>z_reddito,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>valori_standardizzati</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     comune reddito z_reddito
+NA     &lt;NA&gt;      NA        NA
+NA.1   &lt;NA&gt;      NA        NA
+NA.2   &lt;NA&gt;      NA        NA</code></pre>
+</div>
+</div>
+<p>Il comune A ha uno z-score di circa -0,97: il suo reddito è quasi una deviazione standard sotto la media. Il comune L ha uno z-score di circa 2,93, quindi si trova quasi tre deviazioni standard sopra la media. Lo z-score descrive una posizione relativa, non una probabilità e non implica automaticamente che il dato sia impossibile.</p>
+<p>La standardizzazione è utile quando si costruiscono indicatori sintetici o si applicano metodi sensibili alla scala. Non rende però confrontabili concetti privi di un significato comune e non corregge asimmetrie, errori o qualità scadente dei dati.</p>
+</section>
+<section id="associazione-tra-due-variabili" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="associazione-tra-due-variabili"><span class="header-section-number">2.5</span> Associazione tra due variabili</h2>
+<p>Finora abbiamo descritto una variabile alla volta. Spesso la domanda riguarda invece il modo in cui due caratteristiche variano insieme: nei comuni con reddito più alto la disoccupazione tende a essere più bassa?</p>
+<p>Per due variabili quantitative <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, la <strong>covarianza campionaria</strong> è</p>
+<p><span class="math display">\[
+s_{xy} = \frac{1}{n-1}\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y}),
+\]</span></p>
+<p>dove <span class="math inline">\(x_i\)</span> e <span class="math inline">\(y_i\)</span> sono i valori delle due variabili per l’unità <span class="math inline">\(i\)</span>, mentre <span class="math inline">\(\bar{x}\)</span> e <span class="math inline">\(\bar{y}\)</span> sono le rispettive medie. Una covarianza positiva indica che valori sopra la media tendono a presentarsi insieme; una covarianza negativa indica che valori sopra la media di una variabile tendono ad accompagnarsi a valori sotto la media dell’altra. La sua grandezza dipende dalle unità di misura e non è quindi facile da confrontare.</p>
+<p>Il <strong>coefficiente di correlazione lineare di Pearson</strong> standardizza la covarianza:</p>
+<p><span class="math display">\[
+r_{xy} = \frac{s_{xy}}{s_xs_y},
+\]</span></p>
+<p>dove <span class="math inline">\(s_x\)</span> e <span class="math inline">\(s_y\)</span> sono le deviazioni standard di <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>. Il coefficiente varia tra -1 e 1. Il segno indica la direzione dell’associazione lineare; il valore assoluto ne indica l’intensità. Valori vicini a zero segnalano assenza di associazione <strong>lineare</strong>, ma non escludono una relazione non lineare.</p>
+<section id="diagramma-di-dispersione-e-correlazione" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="diagramma-di-dispersione-e-correlazione"><span class="header-section-number">2.5.1</span> Diagramma di dispersione e correlazione</h3>
+<p>Il <strong>diagramma di dispersione</strong> (<em>scatterplot</em>) rappresenta ogni unità con un punto. Deve essere esaminato prima di interpretare la correlazione, perché rende visibili forma, gruppi e osservazioni influenti che un singolo numero nasconde.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  comuni<span class="sc">$</span>reddito,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  comuni<span class="sc">$</span>disoccupazione,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"#2C7FB8"</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Reddito (migliaia di euro)"</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Disoccupazione (%)"</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  comuni<span class="sc">$</span>reddito,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  comuni<span class="sc">$</span>disoccupazione,</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> comuni<span class="sc">$</span>comune,</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">pos =</span> <span class="dv">3</span>,</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">cex =</span> <span class="fl">0.8</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="descrittiva_files/figure-html/scatterplot-reddito-disoccupazione-1.png" class="img-fluid figure-img" width="624"></p>
+<figcaption>Reddito e disoccupazione nei dodici comuni simulati.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>correlazione <span class="ot">&lt;-</span> <span class="fu">cor</span>(comuni<span class="sc">$</span>reddito, comuni<span class="sc">$</span>disoccupazione)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(correlazione, <span class="dv">2</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.82</code></pre>
+</div>
+</div>
+<p>La correlazione è -0,82: nel campione simulato, i comuni con reddito più alto tendono ad avere una disoccupazione più bassa e l’associazione lineare è forte. Non possiamo concludere che un aumento del reddito <strong>causi</strong> una riduzione della disoccupazione. Entrambe le variabili potrebbero dipendere, per esempio, dalla struttura produttiva, dalla composizione demografica o dal livello di istruzione. Inoltre, con sole dodici unità, ogni osservazione può incidere molto sul risultato.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Tre errori frequenti sulla correlazione">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avviso</span>Tre errori frequenti sulla correlazione
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Una correlazione elevata non dimostra un nesso causale.</li>
+<li>Una correlazione vicina a zero non esclude relazioni curve o differenze tra gruppi.</li>
+<li>Un valore anomalo può rafforzare, indebolire o persino invertire la correlazione; il grafico è indispensabile.</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="tabelle-doppie-e-percentuali-condizionate" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="tabelle-doppie-e-percentuali-condizionate"><span class="header-section-number">2.5.2</span> Tabelle doppie e percentuali condizionate</h3>
+<p>Per due variabili qualitative si usa una <strong>tabella di contingenza</strong>, o tabella doppia, che conta quante unità presentano ciascuna combinazione di modalità. Le frequenze all’interno della tabella formano la distribuzione congiunta; i totali di riga e di colonna sono le distribuzioni marginali.</p>
+<p>Per confrontare gruppi di diversa numerosità sono particolarmente utili i <strong>profili condizionati</strong>. Se <span class="math inline">\(n_{ij}\)</span> è il numero di unità nella cella che incrocia la modalità <span class="math inline">\(i\)</span> della variabile di riga e la modalità <span class="math inline">\(j\)</span> della variabile di colonna, e <span class="math inline">\(n_{i+}\)</span> è il totale della riga <span class="math inline">\(i\)</span>, la percentuale condizionata di riga è</p>
+<p><span class="math display">\[
+f_{j\mid i}=\frac{n_{ij}}{n_{i+}}.
+\]</span></p>
+<p>Il simbolo <span class="math inline">\(j\mid i\)</span> si legge “modalità <span class="math inline">\(j\)</span> dato il gruppo <span class="math inline">\(i\)</span>”. Il denominatore cambia da una riga all’altra: per questo tali percentuali rispondono alla domanda “come si distribuisce la variabile di colonna all’interno di ciascun gruppo?”.</p>
+<p>Nel campione simulato dividiamo i comuni in due classi di disoccupazione usando, soltanto a fini didattici, la soglia del 12%.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>comuni<span class="sc">$</span>classe_disoccupazione <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  comuni<span class="sc">$</span>disoccupazione <span class="sc">&gt;=</span> <span class="dv">12</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Almeno 12%"</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Meno del 12%"</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>tabella_area <span class="ot">&lt;-</span> <span class="fu">table</span>(</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Area =</span> comuni<span class="sc">$</span>area,</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Disoccupazione =</span> comuni<span class="sc">$</span>classe_disoccupazione</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>tabella_area</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    Disoccupazione
+Area                 Almeno 12% Meno del 12%
+  Area Metropolitana          5            1
+  Città                       0            6</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">prop.table</span>(tabella_area, <span class="at">margin =</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    Disoccupazione
+Area                 Almeno 12% Meno del 12%
+  Area Metropolitana       83.3         16.7
+  Città                     0.0        100.0</code></pre>
+</div>
+</div>
+<p>Cinque dei sei comuni del Centro, cioè l’83,3%, appartengono alla classe con disoccupazione almeno pari al 12%; nessuno dei sei comuni della Periferia vi appartiene. Il confronto usa percentuali di riga, quindi il denominatore è il numero di comuni in ciascuna area. Il risultato descrive questi dodici casi simulati: non dimostra che l’area determini la disoccupazione. Inoltre, una soglia diversa produrrebbe una tabella diversa e la trasformazione in due classi perde le differenze osservate all’interno di ciascuna classe.</p>
+</section>
+</section>
+<section id="rappresentare-correttamente-tempo-e-territorio" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="rappresentare-correttamente-tempo-e-territorio"><span class="header-section-number">2.6</span> Rappresentare correttamente tempo e territorio</h2>
+<p>La scelta del grafico dipende dalla struttura dei dati e dalla domanda:</p>
+<ul>
+<li>un grafico a barre confronta frequenze o valori tra categorie;</li>
+<li>un istogramma descrive la distribuzione di una variabile quantitativa;</li>
+<li>un boxplot confronta posizione e dispersione tra gruppi;</li>
+<li>uno scatterplot studia l’associazione tra due variabili quantitative;</li>
+<li>un grafico a linee segue una variabile ordinata nel tempo.</li>
+</ul>
+<p>In una serie storica i punti consecutivi sono collegati perché il loro ordine ha significato. Collegare con una linea comuni disposti alfabeticamente suggerirebbe invece una continuità inesistente. Una carta tematica può mostrare la distribuzione territoriale, ma aree più grandi attirano visivamente l’attenzione anche quando hanno poca popolazione; colori e classi devono quindi essere scelti e descritti con cura.</p>
+<p>Il grafico seguente usa una seconda serie simulata: il tasso di occupazione mensile cresce nel corso dell’anno, con alcune oscillazioni. L’obiettivo è mostrare la forma corretta di una rappresentazione temporale, non documentare un andamento reale.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>occupazione <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">mese =</span> <span class="fu">as.Date</span>(<span class="fu">sprintf</span>(<span class="st">"2025-%02d-01"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)),</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">tasso =</span> <span class="fu">c</span>(<span class="fl">57.8</span>, <span class="fl">58.0</span>, <span class="fl">58.1</span>, <span class="fl">58.0</span>, <span class="fl">58.4</span>, <span class="fl">58.7</span>,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>            <span class="fl">58.9</span>, <span class="fl">58.8</span>, <span class="fl">59.1</span>, <span class="fl">59.3</span>, <span class="fl">59.2</span>, <span class="fl">59.5</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  occupazione<span class="sc">$</span>mese,</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  occupazione<span class="sc">$</span>tasso,</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"o"</span>,</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"#2C7FB8"</span>,</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Mese"</span>,</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Tasso di occupazione (%)"</span>,</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">61</span>)</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="descrittiva_files/figure-html/grafico-serie-occupazione-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Tasso di occupazione mensile simulato.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Il tasso simulato passa dal 57,8% al 59,5%, un aumento di 1,7 <strong>punti percentuali</strong>. Non è corretto chiamarlo aumento dell’1,7%: la variazione relativa è circa il 2,9% rispetto al valore iniziale. Il capitolo sulle trasformazioni delle serie storiche approfondirà questa distinzione.</p>
+<section id="leggere-criticamente-un-grafico" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="leggere-criticamente-un-grafico"><span class="header-section-number">2.6.1</span> Leggere criticamente un grafico</h3>
+<p>Prima di accettare il messaggio visivo di un grafico è utile controllare:</p>
+<ol type="1">
+<li><strong>Fonte e popolazione di riferimento.</strong> Chi è incluso e in quale periodo?</li>
+<li><strong>Unità di misura e denominatore.</strong> Si mostrano euro, percentuali, punti percentuali o valori pro capite?</li>
+<li><strong>Scala degli assi.</strong> Un asse verticale troncato può amplificare piccole differenze; un asse troppo ampio può nasconderle.</li>
+<li><strong>Classi e colori.</strong> Negli istogrammi e nelle carte, soglie diverse possono cambiare l’impressione complessiva.</li>
+<li><strong>Valori mancanti.</strong> Un’area senza dati non equivale a un valore pari a zero.</li>
+<li><strong>Confrontabilità.</strong> Definizioni, prezzi, popolazioni e confini territoriali sono rimasti coerenti?</li>
+<li><strong>Incertezza.</strong> Se i valori sono stime campionarie, il grafico mostra l’incertezza associata?</li>
+</ol>
+<p>Nel grafico temporale precedente l’asse verticale è limitato tra 55 e 61 per rendere leggibili le variazioni. La scelta è dichiarata e i valori sono espressi chiaramente, ma una scala così ristretta accentua visivamente un cambiamento di soli 1,7 punti. Forma grafica e interpretazione numerica devono procedere insieme.</p>
+</section>
+</section>
+<section id="una-procedura-di-analisi-descrittiva" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="una-procedura-di-analisi-descrittiva"><span class="header-section-number">2.7</span> Una procedura di analisi descrittiva</h2>
+<p>Una buona analisi descrittiva non consiste nel produrre automaticamente tutti gli indici disponibili. Una sequenza ragionata è la seguente:</p>
+<ol type="1">
+<li>formulare la domanda e identificare unità di analisi, periodo e popolazione;</li>
+<li>controllare definizioni, unità di misura, duplicati e valori mancanti;</li>
+<li>distinguere variabili qualitative e quantitative e riconoscere la struttura dei dati;</li>
+<li>esaminare frequenze e grafici prima di affidarsi a una singola sintesi;</li>
+<li>scegliere indici di posizione e dispersione coerenti con la distribuzione;</li>
+<li>verificare valori anomali senza eliminarli automaticamente;</li>
+<li>studiare le associazioni con grafici e misure appropriate;</li>
+<li>comunicare sempre il denominatore e interpretare i risultati nel loro contesto.</li>
+</ol>
+<p>Nel nostro esempio, la media da sola avrebbe suggerito un reddito comunale tipico di 23,37 mila euro. Mediana, IQR e boxplot hanno mostrato una realtà più precisa: la metà centrale è concentrata attorno a 22,30 mila euro e un comune molto ricco influenza sensibilmente alcune sintesi. Lo scatterplot e la correlazione hanno poi evidenziato un’associazione negativa tra reddito e disoccupazione, che resta descrittiva e non causale. È questo il valore della statistica descrittiva: trasformare una tabella in un insieme controllabile di evidenze, mantenendo espliciti i limiti di ciò che i dati consentono di affermare.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiato!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiato!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./temp_intro.html" class="pagination-link" aria-label="Introduzione">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduzione</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./grafici.html" class="pagination-link" aria-label="Rappresentazioni grafiche">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Rappresentazioni grafiche</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

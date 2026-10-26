@@ -5,28 +5,395 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>Pubblicazioni di Lucio Palazzo</title>
+<title>Ricerca</title>
 <link>https://blog-neas.github.io/language-it/research/</link>
 <atom:link href="https://blog-neas.github.io/language-it/research/index.xml" rel="self" type="application/rss+xml"/>
-<description>Articoli pubblicati del Professore Lucio Palazzo</description>
-<generator>quarto-1.8.25</generator>
-<lastBuildDate>Mon, 01 Nov 2021 23:00:00 GMT</lastBuildDate>
+<description>Principali attività di ricerca del Professore Lucio Palazzo</description>
+<generator>quarto-1.10.18</generator>
+<lastBuildDate>Sun, 17 Jul 2022 22:00:00 GMT</lastBuildDate>
 <item>
-  <title>Quantile composite-based path modeling: algorithms, properties and applications</title>
-  <dc:creator>Pasquale Dolce, Cristina Davino, Domenico Vistocco</dc:creator>
-  <link>https://blog-neas.github.io/language-it/research/2021-11-02-adac-qcpm.html</link>
+  <title>A Semiparametric Approach to Test for the Presence of INAR: Simulations and Empirical Applications</title>
+  <dc:creator>Lucio Palazzo, Riccardo Ievoli</dc:creator>
+  <link>https://blog-neas.github.io/language-it/research/2022-07-18-mathematics.html</link>
   <description><![CDATA[ 
 
 
 
-<p>Composite-based path modeling aims to study the relationships among a set of constructs, that is a representation of theoretical concepts. Such constructs are operationalized as composites (i.e.&nbsp;linear combinations of observed or manifest variables). The traditional partial least squares approach to composite-based path modeling focuses on the conditional means of the response distributions, being based on ordinary least squares regressions. Several are the cases where limiting to the mean could not reveal interesting effects at other locations of the outcome variables. Among these: when response variables are highly skewed, distributions have heavy tails and the analysis is concerned also about the tail part, heteroscedastic variances of the errors is present, distributions are characterized by outliers and other extreme data. In such cases, the quantile approach to path modeling is a valuable tool to complement the traditional approach, analyzing the entire distribution of outcome variables. Previous research has already shown the benefits of Quantile Composite-based Path Modeling but the methodological properties of the method have never been investigated. This paper offers a complete description of Quantile Composite-based Path Modeling, illustrating in details the method, the algorithms, the partial optimization criteria along with the machinery for validating and assessing the models. The asymptotic properties of the method are investigated through a simulation study. Moreover, an application on chronic kidney disease in diabetic patients is used to provide guidelines for the interpretation of results and to show the potentialities of the method to detect heterogeneity in the variable relationships.</p>
+<p>The present paper explores the application of bootstrap methods in testing for serial dependence in observed driven Integer-AutoRegressive (models) considering Poisson arrivals (P-INAR). To this end, a new semiparametric and restricted bootstrap algorithm is developed to ameliorate the performance of the score-based test statistic, especially when the time series present small or moderately small lengths. The performance of the proposed bootstrap test, in terms of empirical size and power, is investigated through a simulation study even considering deviation from Poisson assumptions for innovations, i.e., overdispersion and underdispersion. Under non-Poisson innovations, the semiparametric bootstrap seems to “restore” inference, while the asymptotic test usually fails. Finally, the usefulness of this approach is shown via three empirical applications</p>
 
 
 
  ]]></description>
-  <category>Articles</category>
-  <guid>https://blog-neas.github.io/language-it/research/2021-11-02-adac-qcpm.html</guid>
-  <pubDate>Mon, 01 Nov 2021 23:00:00 GMT</pubDate>
+  <category>Articoli</category>
+  <category>English</category>
+  <guid>https://blog-neas.github.io/language-it/research/2022-07-18-mathematics.html</guid>
+  <pubDate>Sun, 17 Jul 2022 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Searching for the determinants of new social enterprises: the case of Italian social start-ups</title>
+  <dc:creator>Lucio Palazzo, Pietro Sabatino, Riccardo Ievoli</dc:creator>
+  <link>https://blog-neas.github.io/language-it/research/2021-12-01-determinants-siavs-ijas.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>Social start-ups constitute a subclass of the innovative entrepreneurship market and they are a relatively new topic in the literature from both the scientific and normative perspectives. In Italy, a start-up can be registered as social-oriented innovative startup (SIAVS), after demonstrating its ability to make social impacts and satisfy a set of normative requirements. This paper describes and models (at the territorial level) the presence of these innovative companies focused on social, cultural, and/or environmental needs. We combine data on the number of SIAVS and other start-ups in Italy with other socio economic quantities at the territorial level (NUTS 3 regions). Variables such as population density, metropolitan cities, number of certified incubators and percentage of non-profit organisations are identified as determinants of new social enterprises through the application of generalised linear models, while also considering the presence of zero inflation.</p>
+
+
+
+ ]]></description>
+  <category>Articoli</category>
+  <category>English</category>
+  <guid>https://blog-neas.github.io/language-it/research/2021-12-01-determinants-siavs-ijas.html</guid>
+  <pubDate>Mon, 16 May 2022 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Bootstrap-based score test for INAR effect</title>
+  <dc:creator>Riccardo Ievoli, Lucio Palazzo</dc:creator>
+  <link>https://blog-neas.github.io/language-it/research/2021-11-01-sis21-bosp.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>In questo lavoro si indagano le potenzialità del bootstrap per verificare la presenza di correlazione seriale in serie storiche a valori discreti con innovazioni Poisson. Il contributo innovativo riguarda l’implementazione di un metodo bootstrap allo scopo di migliorare le performance delle statistiche test basate sulla funzione score, specialmente in serie che presentano una numerosità limitata.</p>
+
+
+
+ ]]></description>
+  <category>Articoli</category>
+  <category>English</category>
+  <guid>https://blog-neas.github.io/language-it/research/2021-11-01-sis21-bosp.html</guid>
+  <pubDate>Sun, 31 Oct 2021 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Ansia da valutazione, procrastinazione, grinta e autoefficacia: quale rapporto?</title>
+  <link>https://blog-neas.github.io/language-it/seminars/2021-scuola_specializzazione-roma.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="scuola-di-specializzazione-in-metodologia-della-ricerca-università-pontificia-salesiana." class="level3">
+<h3 class="anchored" data-anchor-id="scuola-di-specializzazione-in-metodologia-della-ricerca-università-pontificia-salesiana.">Scuola di specializzazione in “Metodologia della ricerca”, Università Pontificia Salesiana.</h3>
+<p><a href="../../files/seminars/2021-scuola_specializzazione-roma/2021-scuola_specializzazione-roma_programma.pdf"><strong>You can read here the programme of the event</strong> (Italian)</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>Convegni</category>
+  <category>Online</category>
+  <guid>https://blog-neas.github.io/language-it/seminars/2021-scuola_specializzazione-roma.html</guid>
+  <pubDate>Fri, 22 Oct 2021 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Il futuro degli studenti: dal questionario all’analisi statistica dei dati testuali</title>
+  <dc:creator>Lucio Palazzo, Francesco Santelli, Giancarlo Ragozini</dc:creator>
+  <link>https://blog-neas.github.io/language-it/research/2021-09-25-pls-psv3.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>Il presente lavoro si incardina nell’ambito della Summer School “Piano Lauree Scientifiche” (PLS), ponendosi come obiettivo la presentazione e la discussione delle potenzialità dell’analisi di alcune tipologie dati complessi. In particolare, il focus è stato sull’analisi dei dati testuali, settore che ha visto negli ultimi anni un esponenziale sviluppo, anche a partire dalla diffusione e dalla rilevanza assunta dai social media e dai social networks. Discuteremo in questo lavoro l’introduzione al text mining, così come presentato in sede di seminario, e i principali risultati di un esperimento svolto durante tale incontro, in cui la partecipazione della platea di studenti è stata parte integrante dello studio. Verrà introdotto quindi il metodo di rilevazione con il quale è stato possibile ottenere le risposte dei singoli studenti, i principali risultati ottenuti e la discussione svolta sulla validità degli strumenti e sull’interpretazione dei risultati, questione questa tutt’altro che banale data la natura complessa del dato. L’obiettivo del lavoro è mostrare le implicazioni metodologiche e la potenzialità di analisi statistiche su dati testuali, tema diffusamente trattato nei corsi di Laurea della Federico II: Statistica per l’Impresa e la Società (triennale) e Scienze Statistiche per le Decisioni (magistrale) presso il Dipartimento di Scienze Politiche.</p>
+
+
+
+ ]]></description>
+  <category>Contributi in Monografia</category>
+  <category>English</category>
+  <guid>https://blog-neas.github.io/language-it/research/2021-09-25-pls-psv3.html</guid>
+  <pubDate>Fri, 24 Sep 2021 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>La certezza assoluta ed altre finzioni. Leggerezza, inganni ed estetica del caso (Italian)</title>
+  <link>https://blog-neas.github.io/language-it/seminars/2021-scuola-pls.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="pls-virtual-summer-school-for-students-psv3-italian-seconda-edizione-6-10-settembre-2021." class="level3">
+<h3 class="anchored" data-anchor-id="pls-virtual-summer-school-for-students-psv3-italian-seconda-edizione-6-10-settembre-2021.">PLS Virtual Summer School for Students PSV3 (Italian)<br> Seconda edizione, 6-10 settembre 2021.</h3>
+<p>La fallacia dello scommettitore è spesso legata ad un’idea che tutti noi abbiamo della casualità e che si basa su una serie di regole estetiche che secondo noi il caso dovrebbe rispettare per potersi definire tali. Un esempio emblematico al riguardo è la funzione “shuffle” (riproduzione casuali dei brani) che le prime versioni degli iPod di Apple introdussero sul mercato. Quando si selezionava questa opzione, poteva accadere (e spesso accadeva) che venissero riprodotte l’una dopo l’altra più canzoni dello stesso artista e/o album. La reazione dell’utente di fronte a questa ripetizione dipendeva dal particolare brano che veniva ripetuto. In alcuni casi, infatti, quando il risultava gradito, si tendeva ad attribuire una sorta di intelligenza al dispositivo, ipotizzando che lo stesso fosse in grado di “imparare” il gusto musicale del proprietario. Nei casi in cui invece il brano selezionato per la ripetizione non era tra quelli preferiti, non mancavano le critiche rivolte al costruttore. Proprio in seguito a tali critiche, la Apple modificò l’iniziale estrattore casuale dei brani sostituendolo con un estrattore “quasi casuale”, che selezionava casualmente ogni canzone ma solo tra quelle di un differente autore e album rispetto a quella ascoltata precedentemente. La frase di Steve Jobs al riguardo è emblematica: “«We’re making it (the shuffle) less random to make it feel more random», perchè ci permette di intuire che spesso è più facile adattare il caso alle nostre regole estetiche che convincerci di come funziona veramente.</p>
+<p>Lo stesso avviene per molti meccanismi distorsivi (bias cognitivi) legati al ragionamento umano in condizioni di incertezza, molti dei quali sono alla base delle falsi convizioni legate al gioco d’azzardo da parte degli scommettitori. Alcuni di questi meccanismi sono stati studiati e descritti da Amos Tversky e Daniel Kahneman nel filone della letteratura nota come economia comportamentale. Analoghi studi, con particolari applicazioni in campi assicurativo, furono sviluppati da Bruno de Finetti nel 1940, con la formalizzazione del teorema della rovina del giocatore.</p>
+<p><a href="../../files/seminars/2021-scuola-pls/abstract-vistocco-pls2021.pdf"><strong>PDF version of the abstract (Italian)</strong></a></p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://blog-neas.github.io/language-it/seminars/2021-scuola-pls.html</guid>
+  <pubDate>Wed, 08 Sep 2021 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Southern Italian Peripheries at the Ballot Box. Continuity and Innovation in Electoral Behaviours in Three Southern Italian Cities during Post-Crisis Decade (2008-2019)</title>
+  <dc:creator>Onofrio Romano, Antonella Coco, Lucio Palazzo, Pietro Sabatino</dc:creator>
+  <link>https://blog-neas.github.io/language-it/research/2021-09-08-southern-italy-jmis.html</link>
+  <description><![CDATA[ 
+
+
+
+<p><strong>Nota:</strong> L’articolo originale è in lingua inglese. Di seguito viene presentata una traduzione dell’abstract.</p>
+<p>L’articolo si propone di ricostruire la geografia sociale e politica di tre città metropolitane del Sud Italia - Bari, Napoli e Reggio Calabria - indagando al loro interno la frattura centro-periferia e, in particolare, se e in che modo la condizione di perifericità influenzi il comportamento elettorale. La ricerca si basa su un’analisi statistica multidimensionale, che prende in considerazione i dati Istat dell’indagine sulle città e sulle periferie nonché i risultati delle elezioni politiche ed europee del decennio successivo alla crisi economica (2008-2019). Lo studio mette in evidenza l’incremento del peso assunto, dopo la crisi del 2008, dalla perifericità sociale come variabile predittiva del comportamento elettorale: nelle aree urbane deprivate, i partiti di centro-sinistra si sono indeboliti a fronte di uno speculare successo politico del Movimento 5 Stelle (M5S).</p>
+
+
+
+ ]]></description>
+  <category>Articoli</category>
+  <category>English</category>
+  <guid>https://blog-neas.github.io/language-it/research/2021-09-08-southern-italy-jmis.html</guid>
+  <pubDate>Tue, 07 Sep 2021 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Effects of distance teaching on students and their families: the experience at Federico II University of Naples</title>
+  <link>https://blog-neas.github.io/language-it/seminars/2021-asa-webinar.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="webinar-dapertura-del-convegno-asa2021---associazione-per-la-statistica-applicata-luniversità-italiana-ai-tempi-del-covid-dalla-gestione-dellemergenza-unopportunità-di-crescita-nel-modo-di-fare-didattica" class="level3">
+<h3 class="anchored" data-anchor-id="webinar-dapertura-del-convegno-asa2021---associazione-per-la-statistica-applicata-luniversità-italiana-ai-tempi-del-covid-dalla-gestione-dellemergenza-unopportunità-di-crescita-nel-modo-di-fare-didattica">Webinar d’apertura del convegno ASA2021 - Associazione per la Statistica Applicata<br> L’Università italiana ai tempi del Covid: dalla gestione dell’emergenza un’opportunità di crescita nel modo di fare didattica?</h3>
+<p><a href="../../files/seminars/2021-asa-webinar/2021-asa-webinar_programme.pdf"><strong>You can read here the programme of the event</strong></a></p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://blog-neas.github.io/language-it/seminars/2021-asa-webinar.html</guid>
+  <pubDate>Sun, 05 Sep 2021 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Exploring the Effects of E-learning on Students and Families: the Case of the University of Naples</title>
+  <link>https://blog-neas.github.io/language-it/seminars/2021-isi-world-statistics-congress.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="rd-isi-world-statistics-congress-2021-11-16-july-2021-session-ips-non-live-123---statistical-methods-for-assessing-the-effectiveness-of-e-learning-during-the-covid-19-era." class="level3">
+<h3 class="anchored" data-anchor-id="rd-isi-world-statistics-congress-2021-11-16-july-2021-session-ips-non-live-123---statistical-methods-for-assessing-the-effectiveness-of-e-learning-during-the-covid-19-era.">63rd ISI World Statistics Congress 2021, 11-16 July 2021<br> Session: IPS Non-Live 123 - Statistical methods for assessing the effectiveness of e-learning during the COVID-19 era.</h3>
+<p>Universities around the world moved the teaching activities online to face with Covid-19 emergency. Even if such a strategy has made it possible to continue offering teaching activities, the switch to online teaching is expected to exacerbate existing educational inequalities and penalize more vulnerable students. Indeed, since less advantaged students have difficulty accessing relevant learning digital resources, family social and economic conditions could impact the e-learning experience. It goes without saying that less advantaged students could experience more likely experiment problems for proper equipment and a comfortable learning environment. This paper aims to analyze the impact of distance learning activities on students’ families regarding the arrangement of the learning environment and the costs to set it up. The study exploits data collected at the University of Naples Federico II. The same data offer the opportunity to reflect on students’ performance due to the closure of the universities.</p>
+<p><a href="../../files/seminars/2021-isi/2021-isi-vistocco-davino-palumbo_paper.pdf"><strong>You can read here the paper</strong></a></p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://blog-neas.github.io/language-it/seminars/2021-isi-world-statistics-congress.html</guid>
+  <pubDate>Sat, 10 Jul 2021 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Determinants of social startups in Italy</title>
+  <dc:creator>Lucio Palazzo, Pietro Sabatino, Riccardo Ievoli</dc:creator>
+  <link>https://blog-neas.github.io/language-it/research/2021-03-01-asa21-bosp.html</link>
+  <description><![CDATA[ 
+
+
+
+<p><strong>Nota:</strong> L’articolo originale è in lingua inglese. Di seguito viene presentata una traduzione dell’abstract.</p>
+<p>Lo scopo di questo articolo è quello di indagare i fattori rilevanti che influenzano la presenza di startup sociali in Italia a livello provinciale. La variabile di risultato è il numero di startup sociali attive nelle province italiane mentre il set di variabili esplicative è composto da indicatori economici e demografici a livello provinciale.</p>
+
+
+
+ ]]></description>
+  <category>Short Paper</category>
+  <category>English</category>
+  <guid>https://blog-neas.github.io/language-it/research/2021-03-01-asa21-bosp.html</guid>
+  <pubDate>Wed, 30 Jun 2021 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>The role of passing network indicators in modeling football outcomes: an application using bayesian hierarchical models</title>
+  <dc:creator>Riccardo Ievoli, Aldo Gardini, Lucio Palazzo</dc:creator>
+  <link>https://blog-neas.github.io/language-it/research/2021-06-22-asta-footbayes.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>Passes are undoubtedly the more frequent events in football and other team sports. Passing networks and their structural features can be useful to evaluate the style of play in terms of passing behavior, analyzing and quantifying interactions among players. The present paper aims to show how information retrieved from passing networks can have a relevant impact on predicting the match outcome. In particular, we focus on modeling both the scored goals by two competing teams and the goal diference between them. With this purpose, we ft these outcomes using Bayesian hierarchical models, including both in-match and network-based covariates to cover many aspects of the ofensive actions on the pitch. Furthermore, we review and compare diferent approaches to include covariates in modeling football outcomes. The presented methodology is applied to a real dataset containing information on 125 matches of the 2016–2017 UEFA Champions League, involving 32 among the best European teams. From our results, shots on target, corners, and such passing network indicators are the main determinants of the considered football outcomes.</p>
+
+
+
+ ]]></description>
+  <category>Articoli</category>
+  <category>English</category>
+  <guid>https://blog-neas.github.io/language-it/research/2021-06-22-asta-footbayes.html</guid>
+  <pubDate>Mon, 21 Jun 2021 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Exploring Students’ Profile and Performance Before and After Covid-19 Lock-down</title>
+  <link>https://blog-neas.github.io/language-it/seminars/2021-sis-pisa.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="riunione-scientifica-sis-2021---società-italiana-di-statistica-satellite-event-covid-19-the-urgent-call-for-a-unified-statistical-and-demographic-challenge." class="level3">
+<h3 class="anchored" data-anchor-id="riunione-scientifica-sis-2021---società-italiana-di-statistica-satellite-event-covid-19-the-urgent-call-for-a-unified-statistical-and-demographic-challenge.">Riunione Scientifica SIS 2021 - Società italiana di statistica<br> Satellite event: Covid-19: the urgent call for a unified statistical and demographic challenge.</h3>
+</section>
+<section id="abstract-english" class="level2">
+<h2 class="anchored" data-anchor-id="abstract-english">Abstract (English)</h2>
+<p>Universities around the world have responded to the emergency arising from the Covid-19 pandemic by moving teaching activities online. Nowadays it is important to study on the effects of this sudden change on students’life. This paper proposes some reflections on the effects that the closure of universities has had on the performance and characteristics of university students. The proposed empirical analysis is based on data from the University of Naples Federico II in Italy.</p>
+</section>
+<section id="abstract-italian" class="level2">
+<h2 class="anchored" data-anchor-id="abstract-italian">Abstract (Italian)</h2>
+<p>Le Università di tutto il mondo hanno risposto all’emergenza derivante dalla pandemia da Covid-19 con il trasferimento online delle attività didattiche. In questo periodo in cui la pandemia ancora perdura ma anche in prospettiva di una totale ripresa, è importante riflettere sugli effetti di questo cambio repentino che ha investo gli studenti di ogni ordine e grado. Questo lavoro propone alcune riflessioni sugli effetti che la chiusura delle strutture universitarie ha avuto sulla performance e sulle caratteristiche degli studenti universitari. L’analisi empirica proposta è basata sui dati relativi all’Università di Napoli Federico II.</p>
+<p>You can read <a href="../../files/seminars/2021-sis-pisa/2021-sis-pisa_programme.pdf"><strong>here the programme of the event</strong></a> and <a href="../../files/seminars/2021-sis-pisa/2021-sis-pisa_paper.pdf"><strong>here the paper</strong></a></p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://blog-neas.github.io/language-it/seminars/2021-sis-pisa.html</guid>
+  <pubDate>Thu, 17 Jun 2021 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>The e-learning experience: a possible driver for increasing inequalities</title>
+  <link>https://blog-neas.github.io/language-it/seminars/2021-sieds.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="lvii-riunione-scientifica-sieds---società-italiana-di-economia-demografia-e-statistica-session-composite-indicators." class="level3">
+<h3 class="anchored" data-anchor-id="lvii-riunione-scientifica-sieds---società-italiana-di-economia-demografia-e-statistica-session-composite-indicators.">LVII Riunione Scientifica SIEDS - Società italiana di economia demografia e statistica<br> Session: Composite indicators.</h3>
+<p>The covid-19 pandemic has disrupted people’s lives and forced governments to impose great sacrifices on their citizens. One of the areas where the pandemic has imposed the greatest sacrifices is certainly education. To avoid the complete suspension of educational activities, it was necessary to adopt a completely different type of teaching than that traditionally used. Schools and Universities around the world have responded to the crisis by moving teaching activities online. While the enormous effort made to quickly make the transition to these new ways of teaching was certainly appreciated, the transition certainly had a major impact on the lives of students and teachers and their families.</p>
+<p>The aim of this paper is to evaluate the impact of e-learning on the different types of students, in terms of preparation, characteristics and social background. The challenge is to explore if the switch from on-site to online learning caused by the emergence is exacerbating existing educational inequalities penalising more vulnerable students. The risk is that the social and economic conditions of families have a major influence on the e-learning experience because less advantaged students are less likely to have access to relevant learning digital resources (e.g.&nbsp;laptop/computer, broadband internet connection) and less likely to have a suitable home learning environment (e.g.&nbsp;a quiet place to study or their own desk).</p>
+<p>The study is based on the analysis of data collected at the University of Naples Federico II in June 2020. More than 19,000 students took part in a survey, carried out to monitor distance learning activities and perceptions. The paper exploits a factorial method to obtain a composite indicator measuring the family impact of distance learning. Then, the family impact is analysed, trying to understand if it takes different forms and intensity depending on the students’characteristics, the availability of computer equipment and the type of teaching used. Finally, quantile regression allows to differentiate the study of effects for different levels of family impact. Some considerations on the preferred teaching method for the future and on the effects that the closure of universities has had on the performance of students are also enclosed.</p>
+<p>The results, although in many cases expected, allow to quantify, and visualising heterogeneity in the conditions and characteristics of students. For example, the study quantifies the difference in the family impact among students who predominantly experienced a quiet e-learning experience without changing family habits (they already had all the equipment available for their exclusive use) and students who were forced to share both the workstation and the device with family members engaged in smart working or other learning activities. Moreover, quantile regression detects the different effects of socio-demographics and IT equipment in case of low, medium, or high family impact.</p>
+<p>[<strong>PDF version of the abstract</strong>]/files/seminars/2021-sieds/2021-sieds-davino_vistocco-abstract.pdf)</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://blog-neas.github.io/language-it/seminars/2021-sieds.html</guid>
+  <pubDate>Wed, 26 May 2021 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>On the use of passing network indicators to predict football outcomes</title>
+  <dc:creator>Riccardo Ievoli, Lucio Palazzo, Giancarlo Ragozini</dc:creator>
+  <link>https://blog-neas.github.io/language-it/research/2021-03-29-passing-network-kbs.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>Summary statistics for football matches, such as ball possession and percentage of completed passes, are not always satisfyingly informative about team strategies seen on the pitch. Passing networks and their structural features can be used to evaluate the style of play in terms of passing behavior, analyzing and quantifying interactions among players. The aim of the present paper is to show how information retrieved from passing networks can have a significant impact on the match outcome. At a descriptive level, we provide useful graphic visualizations to compare teams and their individual level of connection. Therefore, we directly compute and discuss network properties, such as centralization, clustering and cliques, from a football perspective. Then, we model the probability of winning the game through four competitive machine learning models including network-based indicators as explanatory variables with a set of in-field variables. The real dataset for application includes 96 matches in the Group Stage of the 2016-2017 UEFA Champions League, involving the 32 best European teams. This approach shows that some network-based variables, such as diameter and betweenness centralization, can be related to the level of offensive actions and finalizations for a team. Furthermore, we show that such variables help improve all considered models in terms of explanatory power, compared to those presenting only in-field regressors. Among the presented models, binomial logistic regression shows the best results according to a set of performance indicators.</p>
+
+
+
+ ]]></description>
+  <category>Articoli</category>
+  <category>English</category>
+  <guid>https://blog-neas.github.io/language-it/research/2021-03-29-passing-network-kbs.html</guid>
+  <pubDate>Sun, 28 Mar 2021 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>A Quantitative Study to Measure the Impact of E-Learning on Families</title>
+  <link>https://blog-neas.github.io/language-it/seminars/2021-asa-conference.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="pre-conference-on-evaluation-of-educational-systems-of-asa---applied-statistics-associations." class="level3">
+<h3 class="anchored" data-anchor-id="pre-conference-on-evaluation-of-educational-systems-of-asa---applied-statistics-associations.">Pre-conference on “Evaluation of Educational Systems” of ASA - Applied Statistics Associations.</h3>
+<p>The Covid-19 emergency has forced universities around the world to transfer teaching activities online. Even if online teaching allowed to carry out the planned teaching activities, it is necessary, in retrospect, to evaluate the impact of this teaching method on the different types of students, in terms of preparation, characteristics and social background. The switch from offline to online learning caused by Covid-19 is expected to exacerbate existing educational inequalities penalising more vulnerable students. The social and economic conditions of families have a major influence on the e-learning experience because less advantaged students are less likely to have access to relevant learning digital resources (e.g.&nbsp;laptop/computer, broadband internet connection) and less likely to have a suitable home learning environment (e.g.&nbsp;a quiet place to study or their own desk) (Di Pietro et al., 2020). Furthermore, according to the 2020 European Commission’s annual report on the levels of digitalisation achieved by the various member states, Italy ranks 25th among the 28 EU Member States.</p>
+<p>The aim of this paper is to analyse whether and how the distance learning activities impacted on the students’ families both in terms of the organisation of spaces and daily rhythms and from an economic point of view, having required additional expenses. The study is based on the analysis of data collected at the University of Naples Federico II in June 2020. More than 19,000 students took part in a survey, carried out to monitor distance learning activities and perceptions. The paper is organised into two sections. In the first, a factorial method is exploited to obtain a composite indicator measuring the family impact of distance learning. Then, we try to explain if the family impact takes different forms and intensity depending on the students’ characteristics, the availability of computer equipment and the type of teaching used. Finally, quantile regression allow to differentiate the study of effects for different levels of family impact. Some considerations on the distance learning experience in terms of family impact and the evaluation on the preferred teaching method for the future are also enclosed.</p>
+<p><a href="../../files/seminars/2021-asa-firenze/2021-asa-firenze_paper.pdf"><strong>You can read here the paper</strong></a></p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://blog-neas.github.io/language-it/seminars/2021-asa-conference.html</guid>
+  <pubDate>Thu, 18 Feb 2021 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Bootstrap test in Poisson-INAR models</title>
+  <dc:creator>Lucio Palazzo, Riccardo Ievoli</dc:creator>
+  <link>https://blog-neas.github.io/language-it/research/2020-11-01-sis20-bosp.html</link>
+  <description><![CDATA[ 
+
+
+
+<p><strong>Nota:</strong> L’articolo originale è in lingua inglese. Di seguito viene presentata una traduzione dell’abstract.</p>
+<p>In questo lavoro si sono indagate le potenzialità di tecniche bootstrap per la verifica di ipotesi sul coefficiente autoregressivo dei modelli INAR, nel caso innovazioni omoschedastiche distribuite come delle v.c. Poisson. Le performance di quattro metodi sono state valutate attraverso uno studio di simulazione.</p>
+
+
+
+ ]]></description>
+  <category>Short Paper</category>
+  <category>English</category>
+  <guid>https://blog-neas.github.io/language-it/research/2020-11-01-sis20-bosp.html</guid>
+  <pubDate>Sat, 31 Oct 2020 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>ALEAS: a tutoring system for teaching and assessing statistical knowledge</title>
+  <link>https://blog-neas.github.io/language-it/seminars/2020-psychobit.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="psychobit-2020---second-symposium-on-psychology-based-technologies-conference-webpage" class="level3">
+<h3 class="anchored" data-anchor-id="psychobit-2020---second-symposium-on-psychology-based-technologies-conference-webpage">PSYCHOBIT 2020 - Second Symposium on Psychology-Based Technologies<br> <a href="https://www.psychobit.org/second-edition/">Conference webpage</a></h3>
+<p>Over the years, several studies have shown the relevance of one-to-one compared to one-to-many tutoring, shedding light on the need for technology-based platforms to assist traditional learning methodologies. Therefore, in recent years, tutoring systems that collect and analyse responses during the user interaction for an automated assessment and profiling were developed as a new standard to improve the learning outcome. In this framework, the tutoring system Adaptive LEArning system for Statistics (ALEAS) is aimed at providing an adaptive assessment of undergraduate students’ statistical abilities enrolled in social and human sciences courses. ALEAS is developed in the contest of the ERASMUS+ Project (KA+ 2018-1-IT02-KA203-048519). The article describes the ALEAS workflow; in particular, it focuses on the students’ categorisation according to their abilities. The student follows a learning process defined according to the Knowledge Space Theory, and she/he is classified at the end of each learning unit. The proposed classification method is based on the multidimensional latent class item response theory, where the dimensions are defined according to the Dublin learning dimensions. In this work, results from a simulation study support our approach’s effectiveness and encourage its future use with students.</p>
+<ul>
+<li><a href="../../files/seminars/2020-psychobit/2020-psychobit-davino_et_al-paper.pdf"><strong>You can read here the paper</strong></a> <!-- - [**Here is conference online version of the paper**](http://ceur-ws.org/Vol-2730/paper36.pdf) --></li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://blog-neas.github.io/language-it/seminars/2020-psychobit.html</guid>
+  <pubDate>Sun, 27 Sep 2020 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Le performance sanitarie regionali durante l’emergenza Covid-19: una comparazione tra serie storiche</title>
+  <dc:creator>Lucio Palazzo, Riccardo Ievoli</dc:creator>
+  <link>https://blog-neas.github.io/language-it/research/2020-09-05-covid-eyesreg.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>Lo scopo del presente lavoro è quello di indagare come e in che modo si siano manifestati gli squilibri sanitari a livello territoriale, andando ad identificare caratteristiche comuni in termini di incidenza del virus. Tale analisi viene effettuata attraverso un confronto tra le distanze DTW (<em>Dynamic Time Warping</em>) delle serie storiche relative ai ricoveri in terapia intensiva e negli altri reparti ospedalieri per le 19 regioni italiane e le due province autonome di Trento e Bolzano. Le serie considerate rappresentano, a livello regionale, una diretta espressione non solo della diffusione del virus, ma anche dell’impatto della malattia stessa sul sistema sanitario. Le analisi condotte in questo lavoro evidenziano affinità e divergenze tra le regioni italiane in relazione all’incidenza sanitaria della prima ondata della pandemia COVID-19. In base ai risultati ottenuti attraverso un confronto delle unità di indagine, si può notare un’Italia caratterizzata da più cluster regionali, non tutti identificabili unicamente dalla prossimità geografica e dove la pandemia ha impattato in maniera piuttosto differente.</p>
+
+
+
+ ]]></description>
+  <category>Articoli</category>
+  <category>Italian</category>
+  <guid>https://blog-neas.github.io/language-it/research/2020-09-05-covid-eyesreg.html</guid>
+  <pubDate>Fri, 04 Sep 2020 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Neural Networks and Betting Strategies for Tennis</title>
+  <dc:creator>Vincenzo Candila, Lucio Palazzo</dc:creator>
+  <link>https://blog-neas.github.io/language-it/research/2020-06-29-betting-tennis-risks.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>Recently, the interest of the academic literature on sports statistics has increased enormously. In such a framework, two of the most significant challenges are developing a model able to beat the existing approaches and, within a betting market framework, guarantee superior returns than the set of competing specifications considered. This contribution attempts to achieve both these results, in the context of male tennis. In tennis, several approaches to predict the winner are available, among which the regression-based, point-based and paired comparison of the competitors’ abilities play a significant role. Contrary to the existing approaches, this contribution employs artificial neural networks (ANNs) to forecast the probability of winning in tennis matches, starting from all the variables used in a large selection of the previous methods. From an out-of-sample perspective, the implemented ANN model outperforms four out of five competing models, independently of the considered period. For what concerns the betting perspective, we propose four different strategies. The resulting returns on investment obtained from the ANN appear to be more broad and robust than those obtained from the best competing model, irrespective of the betting strategy adopted.</p>
+
+
+
+ ]]></description>
+  <category>Articoli</category>
+  <category>English</category>
+  <guid>https://blog-neas.github.io/language-it/research/2020-06-29-betting-tennis-risks.html</guid>
+  <pubDate>Sun, 28 Jun 2020 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Quiz con Moodle. Tipologie di domande, impostazione e somministrazione di un test (Italian)</title>
+  <link>https://blog-neas.github.io/language-it/seminars/2020-dises-quiz-moodle.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="tutorial-on-the-use-of-moodle-italian" class="level3">
+
+
+
+</section>
+
+ ]]></description>
+  <guid>https://blog-neas.github.io/language-it/seminars/2020-dises-quiz-moodle.html</guid>
+  <pubDate>Wed, 03 Jun 2020 22:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

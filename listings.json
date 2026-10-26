@@ -2,20 +2,22 @@
   {
     "listing": "/language-it/research/index.html",
     "items": [
-      "/language-it/research/2021-11-02-adac-qcpm.html"
-    ]
-  },
-  {
-    "listing": "/language-it/neas/index.html",
-    "items": [
-      "/language-it/neas/help.html",
-      "/language-it/neas/despota/index.html",
-      "/language-it/neas/about-neas.html"
-    ]
-  },
-  {
-    "listing": "/language-it/seminars/index.html",
-    "items": [
+      "/language-it/research/2022-07-18-mathematics.html",
+      "/language-it/research/2021-12-01-determinants-siavs-ijas.html",
+      "/language-it/research/2021-11-01-sis21-bosp.html",
+      "/language-it/research/2021-09-25-pls-psv3.html",
+      "/language-it/research/2021-09-08-southern-italy-jmis.html",
+      "/language-it/research/2021-03-01-asa21-bosp.html",
+      "/language-it/research/2021-06-22-asta-footbayes.html",
+      "/language-it/research/2021-03-29-passing-network-kbs.html",
+      "/language-it/research/2020-11-01-sis20-bosp.html",
+      "/language-it/research/2020-09-05-covid-eyesreg.html",
+      "/language-it/research/2020-06-29-betting-tennis-risks.html",
+      "/language-it/research/2019-10-01-mahalanobis-cladag.html",
+      "/language-it/research/2019-09-23-boot-iv-gretl.html",
+      "/language-it/research/2019-09-23-inar-gretl.html",
+      "/language-it/research/2018-10-01-istat18.html",
+      "/language-it/research/2016-10-11-orsuc-book.html",
       "/language-it/seminars/2021-scuola_specializzazione-roma.html",
       "/language-it/seminars/2021-scuola-pls.html",
       "/language-it/seminars/2021-asa-webinar.html",
@@ -43,9 +45,21 @@
       "/language-it/seminars/2018-asmod-qr_preferences.html",
       "/language-it/seminars/2018-asa-pescara-pim_qr.html",
       "/language-it/seminars/2018-asa-pescara-qr_preference_mapping.html",
+      "/language-it/seminars/2017-09-29-EUSN17.html",
       "/language-it/seminars/2017-asa-napoli-assessing_consumer_heterogeneity.html",
       "/language-it/seminars/2017-asa-napoli-concentration_metals_merluccius.html",
-      "/language-it/seminars/2017-itacosm-bologna.html"
+      "/language-it/seminars/2017-itacosm-bologna.html",
+      "/language-it/seminars/2017-05-16-YoungARS.html",
+      "/language-it/seminars/2015-07-09-ASSIRM15.html",
+      "/language-it/seminars/2015-06-22-orsucworkshop.html"
+    ]
+  },
+  {
+    "listing": "/language-it/neas/index.html",
+    "items": [
+      "/language-it/neas/help.html",
+      "/language-it/neas/despota/index.html",
+      "/language-it/neas/about-neas.html"
     ]
   }
 ]

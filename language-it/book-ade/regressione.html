@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7&nbsp; Modelli di regressione – Economic Data Analysis</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./multivar.html" rel="next">
+<link href="./indici.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-6dfee3eeb05bef592e870c8fa874a3c3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nessun risultato",
+    "search-matching-documents-text": "documenti trovati",
+    "search-copy-link-title": "Copiare il link nella ricerca",
+    "search-hide-matches-text": "Nascondere i risultati aggiuntivi",
+    "search-more-match-text": "ci sono altri risultati in questo documento",
+    "search-more-matches-text": "ulteriori risultati in questo documento",
+    "search-clear-button-title": "Pulire",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancellare",
+    "search-submit-button-title": "Inviare",
+    "search-label": "Ricerca"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./regressione.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modelli di regressione</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Ricerca" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Economic Data Analysis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Ricerca"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefazione</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temp_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduzione</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./descrittiva.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistica descrittiva</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./grafici.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Rappresentazioni grafiche</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./seriestoriche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Le serie storiche</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./trasformazioni.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Trasformazioni di serie storiche</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./indici.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Indici temporali</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regressione.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modelli di regressione</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./multivar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Analisi multivariata</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spatial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Modelli per dati spaziali</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temp_summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Case Studies</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Riferimenti Bibliografici</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Indice</h2>
+   
+  <ul>
+  <li><a href="#dallo-scatterplot-a-un-modello" id="toc-dallo-scatterplot-a-un-modello" class="nav-link active" data-scroll-target="#dallo-scatterplot-a-un-modello"><span class="header-section-number">7.1</span> Dallo scatterplot a un modello</a></li>
+  <li><a href="#la-regressione-lineare-semplice" id="toc-la-regressione-lineare-semplice" class="nav-link" data-scroll-target="#la-regressione-lineare-semplice"><span class="header-section-number">7.2</span> La regressione lineare semplice</a>
+  <ul class="collapse">
+  <li><a href="#stima-con-i-minimi-quadrati" id="toc-stima-con-i-minimi-quadrati" class="nav-link" data-scroll-target="#stima-con-i-minimi-quadrati"><span class="header-section-number">7.2.1</span> Stima con i minimi quadrati</a></li>
+  </ul></li>
+  <li><a href="#adattamento-e-incertezza" id="toc-adattamento-e-incertezza" class="nav-link" data-scroll-target="#adattamento-e-incertezza"><span class="header-section-number">7.3</span> Adattamento e incertezza</a>
+  <ul class="collapse">
+  <li><a href="#il-coefficiente-di-determinazione" id="toc-il-coefficiente-di-determinazione" class="nav-link" data-scroll-target="#il-coefficiente-di-determinazione"><span class="header-section-number">7.3.1</span> Il coefficiente di determinazione</a></li>
+  <li><a href="#intervalli-e-test" id="toc-intervalli-e-test" class="nav-link" data-scroll-target="#intervalli-e-test"><span class="header-section-number">7.3.2</span> Intervalli e test</a></li>
+  </ul></li>
+  <li><a href="#regressione-lineare-multipla" id="toc-regressione-lineare-multipla" class="nav-link" data-scroll-target="#regressione-lineare-multipla"><span class="header-section-number">7.4</span> Regressione lineare multipla</a>
+  <ul class="collapse">
+  <li><a href="#variabili-qualitative-e-categoria-di-riferimento" id="toc-variabili-qualitative-e-categoria-di-riferimento" class="nav-link" data-scroll-target="#variabili-qualitative-e-categoria-di-riferimento"><span class="header-section-number">7.4.1</span> Variabili qualitative e categoria di riferimento</a></li>
+  <li><a href="#quando-le-pendenze-differiscono-tra-gruppi" id="toc-quando-le-pendenze-differiscono-tra-gruppi" class="nav-link" data-scroll-target="#quando-le-pendenze-differiscono-tra-gruppi"><span class="header-section-number">7.4.2</span> Quando le pendenze differiscono tra gruppi</a></li>
+  </ul></li>
+  <li><a href="#prevedere-con-la-regressione" id="toc-prevedere-con-la-regressione" class="nav-link" data-scroll-target="#prevedere-con-la-regressione"><span class="header-section-number">7.5</span> Prevedere con la regressione</a></li>
+  <li><a href="#trasformazioni-e-interpretazione-dei-coefficienti" id="toc-trasformazioni-e-interpretazione-dei-coefficienti" class="nav-link" data-scroll-target="#trasformazioni-e-interpretazione-dei-coefficienti"><span class="header-section-number">7.6</span> Trasformazioni e interpretazione dei coefficienti</a></li>
+  <li><a href="#ipotesi-e-diagnostica-essenziale" id="toc-ipotesi-e-diagnostica-essenziale" class="nav-link" data-scroll-target="#ipotesi-e-diagnostica-essenziale"><span class="header-section-number">7.7</span> Ipotesi e diagnostica essenziale</a></li>
+  <li><a href="#selezione-delle-variabili-e-sovradattamento" id="toc-selezione-delle-variabili-e-sovradattamento" class="nav-link" data-scroll-target="#selezione-delle-variabili-e-sovradattamento"><span class="header-section-number">7.8</span> Selezione delle variabili e sovradattamento</a></li>
+  <li><a href="#associazione-previsione-e-causalità" id="toc-associazione-previsione-e-causalità" class="nav-link" data-scroll-target="#associazione-previsione-e-causalità"><span class="header-section-number">7.9</span> Associazione, previsione e causalità</a></li>
+  <li><a href="#quando-il-modello-lineare-richiede-unestensione" id="toc-quando-il-modello-lineare-richiede-unestensione" class="nav-link" data-scroll-target="#quando-il-modello-lineare-richiede-unestensione"><span class="header-section-number">7.10</span> Quando il modello lineare richiede un’estensione</a></li>
+  <li><a href="#una-procedura-per-lanalisi-di-regressione" id="toc-una-procedura-per-lanalisi-di-regressione" class="nav-link" data-scroll-target="#una-procedura-per-lanalisi-di-regressione"><span class="header-section-number">7.11</span> Una procedura per l’analisi di regressione</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modelli di regressione</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Nei comuni con una quota più elevata di laureati il tasso di disoccupazione tende a essere più basso? Quanto cambia questa associazione quando confrontiamo comuni della stessa area territoriale? Possiamo prevedere il tasso di disoccupazione di un comune non ancora osservato? Queste domande sembrano simili, ma riguardano descrizione, previsione e spiegazione causale: tre obiettivi che non devono essere confusi.</p>
+<p>La <strong>regressione</strong> descrive come il valore medio di una variabile cambia al variare di una o più caratteristiche osservate. È uno degli strumenti più usati nell’analisi economica e sociale perché permette di quantificare associazioni, confrontare gruppi, formulare previsioni e rappresentare esplicitamente l’incertezza.</p>
+<p>Un modello è però una semplificazione. Il suo risultato dipende dalla qualità dei dati, dalle variabili incluse, dalla forma funzionale e dalle ipotesi adottate. Una regressione calcolata correttamente non rende automaticamente causale l’associazione stimata.</p>
+<section id="dallo-scatterplot-a-un-modello" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="dallo-scatterplot-a-un-modello"><span class="header-section-number">7.1</span> Dallo scatterplot a un modello</h2>
+<p>Il capitolo sulla <a href="./descrittiva.html">statistica descrittiva</a> ha introdotto scatterplot e correlazione. La correlazione riassume direzione e intensità di un’associazione lineare tra due variabili, ma tratta le variabili in modo simmetrico. La regressione assegna invece ruoli diversi:</p>
+<ul>
+<li>la <strong>variabile dipendente</strong> o risposta, indicata con <span class="math inline">\(Y\)</span>, è il fenomeno che vogliamo descrivere o prevedere;</li>
+<li>la <strong>variabile esplicativa</strong>, regressore o predittore, indicata con <span class="math inline">\(X\)</span>, è la caratteristica usata per studiare come varia la risposta.</li>
+</ul>
+<p>La scelta di questi ruoli deriva dalla domanda di ricerca, non dal software. Chiamare <span class="math inline">\(X\)</span> “variabile indipendente” non garantisce che sia statisticamente indipendente da altre variabili o dal termine di errore.</p>
+<p>Costruiamo un campione simulato di 120 comuni. Per ogni comune osserviamo l’area territoriale, la percentuale di residenti adulti laureati e il tasso di disoccupazione. I dati non rappresentano comuni reali. Usiamo un seme per rendere la simulazione riproducibile.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2030</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>numero_comuni <span class="ot">&lt;-</span> <span class="dv">120</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>area <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"Nord"</span>, <span class="st">"Centro"</span>, <span class="st">"Sud"</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> numero_comuni,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.35</span>, <span class="fl">0.25</span>, <span class="fl">0.40</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Nord"</span>, <span class="st">"Centro"</span>, <span class="st">"Sud"</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>media_laureati_area <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">Nord =</span> <span class="dv">28</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">Centro =</span> <span class="dv">25</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">Sud =</span> <span class="dv">20</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>laureati <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rnorm</span>(</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    numero_comuni,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> media_laureati_area[<span class="fu">as.character</span>(area)],</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fl">3.5</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>disoccupazione <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="dv">16</span> <span class="sc">-</span> <span class="fl">0.30</span> <span class="sc">*</span> laureati <span class="sc">+</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ifelse</span>(area <span class="sc">==</span> <span class="st">"Centro"</span>, <span class="fl">1.5</span>, <span class="fu">ifelse</span>(area <span class="sc">==</span> <span class="st">"Sud"</span>, <span class="dv">4</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rnorm</span>(numero_comuni, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="fl">1.5</span>),</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>comuni_reg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  area,</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  laureati,</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  disoccupazione</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>medie_per_area <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cbind</span>(laureati, disoccupazione) <span class="sc">~</span> area,</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> comuni_reg,</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="at">FUN =</span> mean</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>medie_per_area<span class="sc">$</span>laureati <span class="ot">&lt;-</span> <span class="fu">round</span>(medie_per_area<span class="sc">$</span>laureati, <span class="dv">2</span>)</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>medie_per_area<span class="sc">$</span>disoccupazione <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  medie_per_area<span class="sc">$</span>disoccupazione,</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>medie_per_area</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    area laureati disoccupazione
+1   Nord    28.52           7.18
+2 Centro    23.91          10.59
+3    Sud    20.29          13.95</code></pre>
+</div>
+</div>
+<p>Nel campione simulato i comuni del Nord hanno in media il 28,52% di laureati e una disoccupazione del 7,18%; quelli del Sud hanno rispettivamente il 20,29% e il 13,95%. Queste differenze sono state incorporate nella simulazione e non sono stime di divari territoriali reali.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>colori_area_reg <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Nord =</span> <span class="st">"#1B9E77"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Centro =</span> <span class="st">"#7570B3"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Sud =</span> <span class="st">"#D95F02"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  comuni_reg<span class="sc">$</span>laureati,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  comuni_reg<span class="sc">$</span>disoccupazione,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> colori_area_reg[comuni_reg<span class="sc">$</span>area],</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Adulti laureati (%)"</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Tasso di disoccupazione (%)"</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"topright"</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">names</span>(colori_area_reg),</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> colori_area_reg,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">bty =</span> <span class="st">"n"</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="regressione_files/figure-html/scatter-regressione-laureati-disoccupazione-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Laureati e disoccupazione nei 120 comuni simulati, distinti per area.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Lo scatterplot mostra un’associazione negativa: nei dati simulati, quote più alte di laureati tendono ad accompagnarsi a tassi di disoccupazione più bassi. I colori rivelano però anche una struttura territoriale. Una sola retta potrebbe confondere il confronto tra comuni con le differenze medie tra aree.</p>
+</section>
+<section id="la-regressione-lineare-semplice" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="la-regressione-lineare-semplice"><span class="header-section-number">7.2</span> La regressione lineare semplice</h2>
+<p>Per l’unità <span class="math inline">\(i\)</span>, il modello di regressione lineare semplice è</p>
+<p><span class="math display">\[
+Y_i=\beta_0+\beta_1X_i+\varepsilon_i,
+\]</span></p>
+<p>dove:</p>
+<ul>
+<li><span class="math inline">\(Y_i\)</span> è la variabile dipendente per l’unità <span class="math inline">\(i\)</span>;</li>
+<li><span class="math inline">\(X_i\)</span> è il valore della variabile esplicativa;</li>
+<li><span class="math inline">\(\beta_0\)</span> è l’intercetta;</li>
+<li><span class="math inline">\(\beta_1\)</span> è la pendenza;</li>
+<li><span class="math inline">\(\varepsilon_i\)</span> è il termine di errore, che raccoglie la parte di <span class="math inline">\(Y_i\)</span> non rappresentata dalla relazione lineare;</li>
+<li><span class="math inline">\(i=1,\ldots,n\)</span> identifica le <span class="math inline">\(n\)</span> unità osservate.</li>
+</ul>
+<p>Se il termine di errore ha media condizionata nulla, cioè <span class="math inline">\(E(\varepsilon_i\mid X_i)=0\)</span>, allora</p>
+<p><span class="math display">\[
+E(Y_i\mid X_i)=\beta_0+\beta_1X_i.
+\]</span></p>
+<p>Il simbolo <span class="math inline">\(E(Y_i\mid X_i)\)</span> indica il valore medio di <span class="math inline">\(Y\)</span> tra unità con lo stesso valore di <span class="math inline">\(X\)</span>. La retta descrive quindi una <strong>media condizionata</strong>, non il valore esatto di ogni unità.</p>
+<p>La pendenza <span class="math inline">\(\beta_1\)</span> indica di quanto varia in media <span class="math inline">\(Y\)</span> quando <span class="math inline">\(X\)</span> aumenta di un’unità. L’intercetta <span class="math inline">\(\beta_0\)</span> è il valore medio previsto di <span class="math inline">\(Y\)</span> quando <span class="math inline">\(X=0\)</span>. Questa interpretazione può essere priva di interesse se zero è impossibile o lontano dai dati osservati.</p>
+<section id="stima-con-i-minimi-quadrati" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="stima-con-i-minimi-quadrati"><span class="header-section-number">7.2.1</span> Stima con i minimi quadrati</h3>
+<p>I parametri <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span> descrivono la popolazione e sono ignoti. Nel campione li stimiamo con <span class="math inline">\(\widehat\beta_0\)</span> e <span class="math inline">\(\widehat\beta_1\)</span>. Per ogni osservazione otteniamo un valore adattato</p>
+<p><span class="math display">\[
+\widehat y_i=\widehat\beta_0+\widehat\beta_1x_i
+\]</span></p>
+<p>e un <strong>residuo</strong></p>
+<p><span class="math display">\[
+e_i=y_i-\widehat y_i.
+\]</span></p>
+<p>Il residuo è la distanza verticale tra il valore osservato e la retta stimata. Non coincide con il termine teorico <span class="math inline">\(\varepsilon_i\)</span>: il primo è calcolabile dopo la stima, il secondo non è direttamente osservabile.</p>
+<p>Il metodo dei <strong>minimi quadrati ordinari</strong> sceglie i coefficienti che rendono minima la somma dei residui al quadrato:</p>
+<p><span class="math display">\[
+\sum_{i=1}^{n}\left(y_i-b_0-b_1x_i\right)^2.
+\]</span></p>
+<p>I simboli <span class="math inline">\(b_0\)</span> e <span class="math inline">\(b_1\)</span> rappresentano qui valori possibili tra i quali il metodo cerca il minimo. Elevare al quadrato impedisce che residui positivi e negativi si annullino e penalizza maggiormente gli scarti grandi. Proprio per questo, osservazioni estreme possono influenzare molto la retta.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>modello_semplice <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  disoccupazione <span class="sc">~</span> laureati,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> comuni_reg</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>tabella_coefficienti <span class="ot">&lt;-</span> <span class="cf">function</span>(modello) {</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  coefficienti <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">summary</span>(modello))</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">termine =</span> <span class="fu">rownames</span>(coefficienti),</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">stima =</span> <span class="fu">round</span>(coefficienti[, <span class="st">"Estimate"</span>], <span class="dv">3</span>),</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">errore_standard =</span> <span class="fu">round</span>(coefficienti[, <span class="st">"Std. Error"</span>], <span class="dv">3</span>),</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_value =</span> <span class="fu">format.pval</span>(</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>      coefficienti[, <span class="st">"Pr(&gt;|t|)"</span>],</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">3</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">eps =</span> <span class="fl">0.001</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">row.names =</span> <span class="cn">NULL</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="fu">tabella_coefficienti</span>(modello_semplice)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      termine  stima errore_standard p_value
+1 (Intercept) 23.937           0.889  &lt;0.001
+2    laureati -0.548           0.036  &lt;0.001</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">R2 =</span> <span class="fu">round</span>(<span class="fu">summary</span>(modello_semplice)<span class="sc">$</span>r.squared, <span class="dv">3</span>),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">R2_corretto =</span> <span class="fu">round</span>(<span class="fu">summary</span>(modello_semplice)<span class="sc">$</span>adj.r.squared, <span class="dv">3</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     R2 R2_corretto
+1 0.663        0.66</code></pre>
+</div>
+</div>
+<p>La retta stimata è</p>
+<p><span class="math display">\[
+\widehat{disoccupazione}=23{,}94-0{,}548\,laureati.
+\]</span></p>
+<p>Nel campione, un punto percentuale in più nella quota di laureati è associato in media a circa 0,55 punti percentuali in meno nel tasso di disoccupazione. Il coefficiente riguarda <strong>punti percentuali</strong>, non una diminuzione dello 0,55%.</p>
+<p>L’intercetta 23,94 corrisponde alla previsione quando la quota di laureati è zero. Poiché il campione non contiene comuni vicini a zero, è soprattutto un parametro necessario a posizionare la retta e non un risultato da interpretare sostantivamente.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  comuni_reg<span class="sc">$</span>laureati,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  comuni_reg<span class="sc">$</span>disoccupazione,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"grey55"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Adulti laureati (%)"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Tasso di disoccupazione (%)"</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(modello_semplice, <span class="at">col =</span> <span class="st">"#2C7FB8"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="regressione_files/figure-html/retta-regressione-semplice-comuni-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Retta di regressione semplice per i comuni simulati.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>La retta riassume la tendenza complessiva, ma non mostra che una parte dell’associazione coincide con differenze territoriali. Per affrontare questo problema occorrono più regressori.</p>
+</section>
+</section>
+<section id="adattamento-e-incertezza" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="adattamento-e-incertezza"><span class="header-section-number">7.3</span> Adattamento e incertezza</h2>
+<p>Una stima puntuale non è una certezza. Un campione diverso produrrebbe coefficienti diversi. L’<strong>errore standard</strong> misura quanto la stima tenderebbe a variare tra campioni ripetuti sotto le ipotesi del modello. Un errore standard piccolo indica una stima relativamente precisa, non necessariamente importante sul piano sostantivo.</p>
+<section id="il-coefficiente-di-determinazione" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="il-coefficiente-di-determinazione"><span class="header-section-number">7.3.1</span> Il coefficiente di determinazione</h3>
+<p>L’indice <span class="math inline">\(R^2\)</span> confronta i residui della regressione con gli scarti dalla media:</p>
+<p><span class="math display">\[
+R^2=1-
+\frac{\sum_{i=1}^{n}(y_i-\widehat y_i)^2}
+{\sum_{i=1}^{n}(y_i-\overline y)^2},
+\]</span></p>
+<p>dove <span class="math inline">\(\overline y\)</span> è la media campionaria della risposta. Con un’intercetta, <span class="math inline">\(R^2\)</span> è compreso tra 0 e 1 e rappresenta la quota della variabilità campionaria di <span class="math inline">\(Y\)</span> associata ai valori adattati dal modello.</p>
+<p>Per il modello semplice, <span class="math inline">\(R^2\)</span> è 0,663: circa il 66,3% della variabilità della disoccupazione nel campione simulato è rappresentato dalla relazione lineare con la quota di laureati. Non significa che l’istruzione “causi il 66,3%” della disoccupazione, né che il modello preveda correttamente altri territori o periodi.</p>
+<p>Non esiste una soglia universale che renda un <span class="math inline">\(R^2\)</span> buono. Nei fenomeni sociali una parte ampia della variabilità individuale può essere intrinsecamente difficile da prevedere; un valore elevato può invece derivare da trend comuni, sovradattamento o regressioni spurie.</p>
+</section>
+<section id="intervalli-e-test" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="intervalli-e-test"><span class="header-section-number">7.3.2</span> Intervalli e test</h3>
+<p>Un intervallo di confidenza al 95% fornisce un insieme di valori compatibili con i dati e le ipotesi del modello. Il <em>p-value</em> per il test <span class="math inline">\(H_0:\beta_j=0\)</span> misura quanto i dati sarebbero incompatibili con un coefficiente nullo, se l’ipotesi nulla e le altre assunzioni fossero valide.</p>
+<p>Un piccolo <em>p-value</em> non misura la grandezza dell’associazione, non indica la probabilità che l’ipotesi nulla sia vera e non dimostra causalità. Per interpretare un risultato occorre riportare almeno stima, unità di misura, intervallo di confidenza e rilevanza sostantiva.</p>
+</section>
+</section>
+<section id="regressione-lineare-multipla" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="regressione-lineare-multipla"><span class="header-section-number">7.4</span> Regressione lineare multipla</h2>
+<p>I fenomeni economici dipendono raramente da una sola caratteristica. Con <span class="math inline">\(p\)</span> regressori, il modello lineare multiplo è</p>
+<p><span class="math display">\[
+Y_i=\beta_0+\beta_1X_{i1}+\beta_2X_{i2}+\cdots+
+\beta_pX_{ip}+\varepsilon_i,
+\]</span></p>
+<p>dove <span class="math inline">\(X_{ij}\)</span> è il valore del regressore <span class="math inline">\(j\)</span> per l’unità <span class="math inline">\(i\)</span> e <span class="math inline">\(\beta_j\)</span> è il relativo coefficiente. Ogni <span class="math inline">\(\beta_j\)</span> descrive la variazione media di <span class="math inline">\(Y\)</span> associata a un aumento unitario di <span class="math inline">\(X_j\)</span>, <strong>a parità degli altri regressori inclusi nel modello</strong>.</p>
+<p>Questa espressione significa che confrontiamo unità simili rispetto alle altre variabili osservate. Non significa che tutte le altre caratteristiche, comprese quelle non misurate, siano realmente costanti.</p>
+<section id="variabili-qualitative-e-categoria-di-riferimento" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="variabili-qualitative-e-categoria-di-riferimento"><span class="header-section-number">7.4.1</span> Variabili qualitative e categoria di riferimento</h3>
+<p>L’area territoriale è qualitativa. R la rappresenta mediante variabili indicatrici, dette anche <strong>dummy</strong>, che valgono 1 quando l’unità appartiene a una categoria e 0 altrimenti. Con tre aree e un’intercetta servono due dummy; la categoria esclusa diventa il riferimento.</p>
+<p>Poiché abbiamo ordinato i livelli come Nord, Centro e Sud, il Nord è la categoria di riferimento. Il modello è</p>
+<p><span class="math display">\[
+Y_i=\beta_0+\beta_1X_i+
+\beta_2D_{Centro,i}+\beta_3D_{Sud,i}+\varepsilon_i,
+\]</span></p>
+<p>dove <span class="math inline">\(D_{Centro,i}\)</span> vale 1 per i comuni del Centro e <span class="math inline">\(D_{Sud,i}\)</span> vale 1 per quelli del Sud. I coefficienti <span class="math inline">\(\beta_2\)</span> e <span class="math inline">\(\beta_3\)</span> confrontano ciascuna area con il Nord a parità di <span class="math inline">\(X\)</span>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>modello_multiplo <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  disoccupazione <span class="sc">~</span> laureati <span class="sc">+</span> area,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> comuni_reg</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tabella_coefficienti</span>(modello_multiplo)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      termine  stima errore_standard p_value
+1 (Intercept) 15.663           1.084  &lt;0.001
+2    laureati -0.297           0.037  &lt;0.001
+3  areaCentro  2.038           0.436  &lt;0.001
+4     areaSud  4.320           0.442  &lt;0.001</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">R2 =</span> <span class="fu">round</span>(<span class="fu">summary</span>(modello_multiplo)<span class="sc">$</span>r.squared, <span class="dv">3</span>),</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">R2_corretto =</span> <span class="fu">round</span>(<span class="fu">summary</span>(modello_multiplo)<span class="sc">$</span>adj.r.squared, <span class="dv">3</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     R2 R2_corretto
+1 0.816       0.811</code></pre>
+</div>
+</div>
+<p>Nel modello multiplo, il coefficiente dei laureati è -0,297. Tra comuni della stessa area, un punto percentuale in più di laureati è associato in media a circa 0,30 punti percentuali in meno di disoccupazione. La stima è meno negativa di quella semplice, pari a -0,548: una parte dell’associazione iniziale rifletteva la diversa composizione territoriale.</p>
+<p>A parità della quota di laureati, il Centro presenta in media 2,04 punti percentuali di disoccupazione in più rispetto al Nord e il Sud 4,32 punti in più. Questi coefficienti descrivono i dati simulati. L’area può riassumere molte caratteristiche non osservate e non deve essere interpretata come una causa autonoma.</p>
+<p>L’<span class="math inline">\(R^2\)</span> del modello multiplo è 0,816 e quello corretto è 0,811. L’<strong><span class="math inline">\(R^2\)</span> corretto</strong> penalizza, in parte, l’aggiunta di regressori che migliorano poco l’adattamento. Anche questo indicatore non garantisce validità fuori campione o corretta specificazione.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(modello_multiplo, <span class="at">level =</span> <span class="fl">0.95</span>), <span class="dv">3</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             2.5 % 97.5 %
+(Intercept) 13.516 17.811
+laureati    -0.371 -0.224
+areaCentro   1.174  2.902
+areaSud      3.444  5.196</code></pre>
+</div>
+</div>
+<p>L’intervallo al 95% per il coefficiente dei laureati va circa da -0,371 a -0,224 punti percentuali. Sotto le ipotesi del modello, i dati sono quindi compatibili con un’associazione negativa di questa ampiezza. L’intervallo non trasforma l’associazione in un effetto causale.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="La trappola delle dummy">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avviso</span>La trappola delle dummy
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Con un’intercetta e <span class="math inline">\(K\)</span> categorie si includono <span class="math inline">\(K-1\)</span> dummy. Inserirle tutte crea collinearità perfetta: per ogni osservazione la loro somma è sempre 1, esattamente come la colonna dell’intercetta. Occorre omettere una categoria di riferimento oppure rimuovere consapevolmente l’intercetta e cambiare l’interpretazione del modello.</p>
+</div>
+</div>
+</section>
+<section id="quando-le-pendenze-differiscono-tra-gruppi" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="quando-le-pendenze-differiscono-tra-gruppi"><span class="header-section-number">7.4.2</span> Quando le pendenze differiscono tra gruppi</h3>
+<p>Il modello appena stimato consente intercette diverse ma impone la stessa pendenza in tutte le aree. Se la relazione tra istruzione e disoccupazione può cambiare territorialmente, si introduce un’<strong>interazione</strong> tra variabile quantitativa e area. Per due gruppi, una forma semplice è</p>
+<p><span class="math display">\[
+Y_i=\beta_0+\beta_1X_i+\beta_2D_i+\beta_3X_iD_i+\varepsilon_i.
+\]</span></p>
+<p>Il coefficiente <span class="math inline">\(\beta_3\)</span> misura la differenza tra le pendenze dei due gruppi. Un’interazione va motivata dalla domanda e interpretata insieme ai termini principali; non è un espediente per cercare significatività.</p>
+</section>
+</section>
+<section id="prevedere-con-la-regressione" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="prevedere-con-la-regressione"><span class="header-section-number">7.5</span> Prevedere con la regressione</h2>
+<p>Per valori specifici dei regressori, il modello produce una previsione puntuale. Consideriamo un comune del Sud con il 25% di laureati.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>nuovo_comune <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">laureati =</span> <span class="dv">25</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">area =</span> <span class="fu">factor</span>(<span class="st">"Sud"</span>, <span class="at">levels =</span> <span class="fu">levels</span>(comuni_reg<span class="sc">$</span>area))</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>intervallo_media <span class="ot">&lt;-</span> <span class="fu">predict</span>(</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  modello_multiplo,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">newdata =</span> nuovo_comune,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">interval =</span> <span class="st">"confidence"</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">level =</span> <span class="fl">0.95</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>intervallo_individuale <span class="ot">&lt;-</span> <span class="fu">predict</span>(</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  modello_multiplo,</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">newdata =</span> nuovo_comune,</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">interval =</span> <span class="st">"prediction"</span>,</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">level =</span> <span class="fl">0.95</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(intervallo_media, <span class="dv">2</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    fit   lwr   upr
+1 12.55 11.99 13.11</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(intervallo_individuale, <span class="dv">2</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    fit  lwr   upr
+1 12.55 9.39 15.71</code></pre>
+</div>
+</div>
+<p>La previsione puntuale è un tasso di disoccupazione del 12,55%. L’intervallo al 95% per la <strong>media</strong> dei comuni con quelle caratteristiche va da 11,99% a 13,11%. L’intervallo di previsione per un <strong>singolo comune</strong> è più ampio, da 9,39% a 15,71%, perché include sia l’incertezza sulla retta sia l’eterogeneità tra comuni.</p>
+<p>Una previsione è particolarmente fragile quando richiede <strong>estrapolazione</strong>, cioè valori dei regressori lontani dall’intervallo osservato. La retta può essere adeguata nel campione ma irrealistica fuori da esso. Per valutare la capacità predittiva occorre inoltre usare dati non impiegati nella stima o una procedura di validazione appropriata.</p>
+</section>
+<section id="trasformazioni-e-interpretazione-dei-coefficienti" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="trasformazioni-e-interpretazione-dei-coefficienti"><span class="header-section-number">7.6</span> Trasformazioni e interpretazione dei coefficienti</h2>
+<p>Le trasformazioni introdotte nel capitolo precedente possono rappresentare relazioni proporzionali o stabilizzare la variabilità. Con variabili positive, le interpretazioni più comuni sono:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Modello</th>
+<th>Interpretazione approssimata di <span class="math inline">\(\beta_1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(Y=\beta_0+\beta_1X+\varepsilon\)</span></td>
+<td>una unità in più di <span class="math inline">\(X\)</span> è associata a <span class="math inline">\(\beta_1\)</span> unità in più di <span class="math inline">\(Y\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\log(Y)=\beta_0+\beta_1X+\varepsilon\)</span></td>
+<td>una unità in più di <span class="math inline">\(X\)</span> è associata a circa <span class="math inline">\(100\beta_1\)</span>% di variazione in <span class="math inline">\(Y\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Y=\beta_0+\beta_1\log(X)+\varepsilon\)</span></td>
+<td>un aumento dell’1% di <span class="math inline">\(X\)</span> è associato a circa <span class="math inline">\(\beta_1/100\)</span> unità di variazione in <span class="math inline">\(Y\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\log(Y)=\beta_0+\beta_1\log(X)+\varepsilon\)</span></td>
+<td>un aumento dell’1% di <span class="math inline">\(X\)</span> è associato a circa <span class="math inline">\(\beta_1\)</span>% di variazione in <span class="math inline">\(Y\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Nel modello log-log, <span class="math inline">\(\beta_1\)</span> è un’<strong>elasticità</strong>. Le approssimazioni sono più accurate per variazioni piccole; per un modello log-livello la variazione percentuale esatta associata a un aumento unitario di <span class="math inline">\(X\)</span> è <span class="math inline">\(100[\exp(\beta_1)-1]\)</span>. Il logaritmo richiede valori strettamente positivi e non va applicato automaticamente.</p>
+</section>
+<section id="ipotesi-e-diagnostica-essenziale" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="ipotesi-e-diagnostica-essenziale"><span class="header-section-number">7.7</span> Ipotesi e diagnostica essenziale</h2>
+<p>Le ipotesi non sono formalità necessarie soltanto per “far funzionare R”. Collegano il modello alla domanda e determinano quali conclusioni siano affidabili.</p>
+<ol type="1">
+<li><strong>Forma della media condizionata.</strong> La parte sistematica deve rappresentare adeguatamente la relazione. Curve o interazioni ignorate producono residui strutturati.</li>
+<li><strong>Media condizionata nulla dell’errore.</strong> L’ipotesi <span class="math inline">\(E(\varepsilon_i\mid X_i)=0\)</span> esclude legami sistematici tra regressori e fattori omessi. È cruciale per interpretare correttamente i coefficienti.</li>
+<li><strong>Assenza di collinearità perfetta.</strong> Nessun regressore deve essere una combinazione esatta degli altri. Una collinearità forte, anche non perfetta, rende difficile separare i coefficienti e aumenta gli errori standard.</li>
+<li><strong>Varianza costante.</strong> L’omoschedasticità richiede <span class="math inline">\(Var(\varepsilon_i\mid X_i)=\sigma^2\)</span>. Se la dispersione cambia, i coefficienti OLS possono rimanere utili sotto altre ipotesi, ma gli errori standard usuali possono essere inaffidabili.</li>
+<li><strong>Indipendenza o struttura della dipendenza correttamente trattata.</strong> Comuni vicini, individui della stessa famiglia e osservazioni successive nel tempo possono avere errori correlati.</li>
+<li><strong>Normalità degli errori.</strong> Non è necessaria per calcolare la retta OLS. È utile per test e intervalli esatti nei piccoli campioni; con campioni grandi entrano in gioco approssimazioni, purché le altre condizioni siano plausibili.</li>
+</ol>
+<p>I residui permettono di cercare violazioni visibili, ma non possono dimostrare che tutte le ipotesi siano vere.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>residui_multiplo <span class="ot">&lt;-</span> <span class="fu">residuals</span>(modello_multiplo)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>valori_adattati <span class="ot">&lt;-</span> <span class="fu">fitted</span>(modello_multiplo)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">1</span>))</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  valori_adattati,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  residui_multiplo,</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"grey45"</span>,</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Valori adattati"</span>,</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Residui"</span>,</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Residui e adattati"</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"#2C7FB8"</span>)</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lowess</span>(valori_adattati, residui_multiplo),</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"#D95F02"</span>,</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> <span class="dv">2</span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>  residui_multiplo,</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"grey45"</span>,</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Quantili normali"</span></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(residui_multiplo, <span class="at">col =</span> <span class="st">"#2C7FB8"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="regressione_files/figure-html/diagnostica-regressione-multipla-1.png" class="img-fluid figure-img" width="768"></p>
+<figcaption>Diagnostica essenziale del modello multiplo: residui rispetto ai valori adattati e grafico quantile-quantile.</figcaption>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Nel grafico residui-adattati i punti oscillano attorno a zero senza una curva o un ventaglio evidenti. Nel grafico quantile-quantile sono abbastanza vicini alla retta, con scostamenti moderati alle estremità. Per questi dati simulati non emergono problemi forti, ma la diagnostica non sostituisce la conoscenza del processo che ha generato i dati.</p>
+<p>Occorre controllare anche osservazioni influenti. Un punto con valori insoliti dei regressori ha elevata <strong>leva</strong>; se modifica sensibilmente le stime quando viene incluso, è influente. Un residuo piccolo non esclude alta influenza. Prima di rimuovere un’osservazione bisogna verificare se sia un errore o un caso reale rilevante.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Correggere l'inferenza non corregge il modello">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avviso</span>Correggere l’inferenza non corregge il modello
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Errori standard robusti o raggruppati possono rendere l’inferenza più adeguata in presenza di eteroschedasticità o dipendenza entro gruppi. Non correggono però una relazione non lineare, una variabile omessa, un errore di misura o una strategia causale inadeguata.</p>
+</div>
+</div>
+</section>
+<section id="selezione-delle-variabili-e-sovradattamento" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="selezione-delle-variabili-e-sovradattamento"><span class="header-section-number">7.8</span> Selezione delle variabili e sovradattamento</h2>
+<p>Aggiungere regressori riduce sempre, o lascia invariata, la somma dei residui al quadrato nel campione. Questo non significa che ogni modello più grande sia migliore. Troppe variabili possono produrre <strong>sovradattamento</strong>: il modello impara oscillazioni specifiche del campione e prevede male nuovi dati.</p>
+<p>La scelta dei regressori dovrebbe partire da domanda, teoria, disegno della raccolta e conoscenza istituzionale. Eliminare automaticamente tutte le variabili con <em>p-value</em> elevato e ripetere la procedura rende i <em>p-value</em> finali difficili da interpretare e può escludere importanti variabili di controllo. Inoltre, due regressori correlati possono avere singoli <em>p-value</em> elevati pur contenendo informazione congiunta.</p>
+<p>Per un obiettivo descrittivo o causale conta la corretta specificazione sostantiva. Per la previsione contano soprattutto prestazioni fuori campione, confrontate con modelli di riferimento. <span class="math inline">\(R^2\)</span> corretto, criteri informativi e validazione possono aiutare, ma nessun indicatore sostituisce il ragionamento sulla domanda.</p>
+</section>
+<section id="associazione-previsione-e-causalità" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="associazione-previsione-e-causalità"><span class="header-section-number">7.9</span> Associazione, previsione e causalità</h2>
+<p>È utile distinguere esplicitamente tre usi della regressione:</p>
+<ul>
+<li><strong>associazione:</strong> quantificare come <span class="math inline">\(Y\)</span> varia con <span class="math inline">\(X\)</span> nel campione o nella popolazione di interesse;</li>
+<li><strong>previsione:</strong> ottenere valori accurati di <span class="math inline">\(Y\)</span> per nuove osservazioni;</li>
+<li><strong>causalità:</strong> stimare come cambierebbe <span class="math inline">\(Y\)</span> se intervenissimo su <span class="math inline">\(X\)</span>, mantenendo appropriato il confronto controfattuale.</li>
+</ul>
+<p>Un buon modello predittivo può usare variabili che non causano l’esito. Un modello con coefficienti facilmente interpretabili può prevedere poco. Una regressione osservazionale con molti controlli non identifica automaticamente un effetto causale.</p>
+<p>Le minacce principali all’interpretazione causale comprendono variabili omesse, causalità inversa, selezione nel campione ed errori di misura. Per sostenere una conclusione causale serve un disegno credibile, come randomizzazione o una strategia quasi-sperimentale con ipotesi difendibili. La regressione è lo strumento di stima, non il disegno di identificazione.</p>
+</section>
+<section id="quando-il-modello-lineare-richiede-unestensione" class="level2" data-number="7.10">
+<h2 data-number="7.10" class="anchored" data-anchor-id="quando-il-modello-lineare-richiede-unestensione"><span class="header-section-number">7.10</span> Quando il modello lineare richiede un’estensione</h2>
+<p>La natura dei dati può richiedere strumenti differenti.</p>
+<ul>
+<li>Se la risposta è binaria, come partecipazione o astensione, una regressione logistica può modellare probabilità comprese tra 0 e 1. Il modello Logit richiede una trattazione specifica e non viene sviluppato qui.</li>
+<li>Se le osservazioni sono temporali, trend comuni possono produrre regressioni spurie e i residui possono essere autocorrelati. Occorre esaminare stazionarietà, trasformazioni e struttura temporale, come discusso nel capitolo sulle <a href="./seriestoriche.html">serie storiche</a> <span class="citation" data-cites="hyndman2014forecasting">(<a href="references.html#ref-hyndman2014forecasting" role="doc-biblioref">Hyndman e Athanasopoulos 2014</a>)</span>.</li>
+<li>Se le unità sono territoriali, gli errori possono essere spazialmente dipendenti. I metodi appropriati saranno introdotti nel capitolo sui dati spaziali.</li>
+<li>Se la variabilità cambia nel tempo, possono servire modelli specifici. I modelli GARCH, citati nella scaletta originaria, sono avanzati e non necessari per l’obiettivo introduttivo di questo capitolo.</li>
+</ul>
+<p>Cambiare metodo non significa “rimuovere” un’ipotesi senza conseguenze. Ogni estensione sostituisce alcune ipotesi con altre e richiede una nuova interpretazione.</p>
+</section>
+<section id="una-procedura-per-lanalisi-di-regressione" class="level2" data-number="7.11">
+<h2 data-number="7.11" class="anchored" data-anchor-id="una-procedura-per-lanalisi-di-regressione"><span class="header-section-number">7.11</span> Una procedura per l’analisi di regressione</h2>
+<ol type="1">
+<li><strong>Formulare la domanda.</strong> Stabilire se l’obiettivo è descrittivo, predittivo o causale.</li>
+<li><strong>Definire unità e variabili.</strong> Documentare risposta, regressori, popolazione, periodo, unità di misura e valori mancanti.</li>
+<li><strong>Esplorare i dati.</strong> Usare grafici, distribuzioni e correlazioni per riconoscere forma, gruppi e valori influenti.</li>
+<li><strong>Specificare un modello motivato.</strong> Scegliere regressori, trasformazioni, dummy e interazioni sulla base della domanda.</li>
+<li><strong>Stimare e interpretare.</strong> Tradurre coefficienti e intervalli nelle unità sostantive corrette.</li>
+<li><strong>Esaminare i residui.</strong> Cercare non linearità, varianza non costante, dipendenza e osservazioni influenti.</li>
+<li><strong>Valutare l’obiettivo.</strong> Per la previsione usare dati non impiegati nella stima; per la causalità discutere il disegno di identificazione.</li>
+<li><strong>Comunicare limiti e incertezza.</strong> Evitare conclusioni più forti di quelle consentite dai dati e dalle ipotesi.</li>
+</ol>
+<p>Una regressione utile non è quella con il maggior numero di asterischi. È quella che collega in modo trasparente una domanda, una struttura dei dati, un insieme di ipotesi e un’interpretazione sostantiva verificabile.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-hyndman2014forecasting" class="csl-entry" role="listitem">
+Hyndman, Rob J., e George Athanasopoulos. 2014. <em>Forecasting: Principles and Practice</em>. OTexts. <a href="http://otexts.com/fpp/">http://otexts.com/fpp/</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiato!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiato!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./indici.html" class="pagination-link" aria-label="Indici temporali">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Indici temporali</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./multivar.html" class="pagination-link" aria-label="Analisi multivariata">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Analisi multivariata</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

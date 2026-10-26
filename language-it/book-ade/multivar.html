@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; Analisi multivariata – Economic Data Analysis</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./spatial.html" rel="next">
+<link href="./regressione.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-6dfee3eeb05bef592e870c8fa874a3c3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nessun risultato",
+    "search-matching-documents-text": "documenti trovati",
+    "search-copy-link-title": "Copiare il link nella ricerca",
+    "search-hide-matches-text": "Nascondere i risultati aggiuntivi",
+    "search-more-match-text": "ci sono altri risultati in questo documento",
+    "search-more-matches-text": "ulteriori risultati in questo documento",
+    "search-clear-button-title": "Pulire",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancellare",
+    "search-submit-button-title": "Inviare",
+    "search-label": "Ricerca"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./multivar.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Analisi multivariata</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Ricerca" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Economic Data Analysis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Ricerca"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefazione</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temp_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduzione</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./descrittiva.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistica descrittiva</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./grafici.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Rappresentazioni grafiche</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./seriestoriche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Le serie storiche</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./trasformazioni.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Trasformazioni di serie storiche</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./indici.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Indici temporali</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regressione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modelli di regressione</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./multivar.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Analisi multivariata</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spatial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Modelli per dati spaziali</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temp_summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Case Studies</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Riferimenti Bibliografici</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Indice</h2>
+   
+  <ul>
+  <li><a href="#dalle-variabili-alla-struttura-multivariata" id="toc-dalle-variabili-alla-struttura-multivariata" class="nav-link active" data-scroll-target="#dalle-variabili-alla-struttura-multivariata"><span class="header-section-number">8.1</span> Dalle variabili alla struttura multivariata</a>
+  <ul class="collapse">
+  <li><a href="#un-esempio-territoriale-simulato" id="toc-un-esempio-territoriale-simulato" class="nav-link" data-scroll-target="#un-esempio-territoriale-simulato"><span class="header-section-number">8.1.1</span> Un esempio territoriale simulato</a></li>
+  </ul></li>
+  <li><a href="#correlazioni-e-ridondanza-informativa" id="toc-correlazioni-e-ridondanza-informativa" class="nav-link" data-scroll-target="#correlazioni-e-ridondanza-informativa"><span class="header-section-number">8.2</span> Correlazioni e ridondanza informativa</a></li>
+  <li><a href="#perché-standardizzare" id="toc-perché-standardizzare" class="nav-link" data-scroll-target="#perché-standardizzare"><span class="header-section-number">8.3</span> Perché standardizzare</a></li>
+  <li><a href="#lintuizione-dellacp" id="toc-lintuizione-dellacp" class="nav-link" data-scroll-target="#lintuizione-dellacp"><span class="header-section-number">8.4</span> L’intuizione dell’ACP</a></li>
+  <li><a href="#calcolare-lacp-con-r" id="toc-calcolare-lacp-con-r" class="nav-link" data-scroll-target="#calcolare-lacp-con-r"><span class="header-section-number">8.5</span> Calcolare l’ACP con R</a></li>
+  <li><a href="#quanta-informazione-conserva-ogni-componente" id="toc-quanta-informazione-conserva-ogni-componente" class="nav-link" data-scroll-target="#quanta-informazione-conserva-ogni-componente"><span class="header-section-number">8.6</span> Quanta informazione conserva ogni componente</a></li>
+  <li><a href="#leggere-i-loadings" id="toc-leggere-i-loadings" class="nav-link" data-scroll-target="#leggere-i-loadings"><span class="header-section-number">8.7</span> Leggere i loadings</a></li>
+  <li><a href="#leggere-gli-scores" id="toc-leggere-gli-scores" class="nav-link" data-scroll-target="#leggere-gli-scores"><span class="header-section-number">8.8</span> Leggere gli scores</a></li>
+  <li><a href="#costruire-un-indicatore-sintetico" id="toc-costruire-un-indicatore-sintetico" class="nav-link" data-scroll-target="#costruire-un-indicatore-sintetico"><span class="header-section-number">8.9</span> Costruire un indicatore sintetico</a></li>
+  <li><a href="#quante-componenti-conservare" id="toc-quante-componenti-conservare" class="nav-link" data-scroll-target="#quante-componenti-conservare"><span class="header-section-number">8.10</span> Quante componenti conservare</a></li>
+  <li><a href="#valori-mancanti-outlier-e-qualità-dei-dati" id="toc-valori-mancanti-outlier-e-qualità-dei-dati" class="nav-link" data-scroll-target="#valori-mancanti-outlier-e-qualità-dei-dati"><span class="header-section-number">8.11</span> Valori mancanti, outlier e qualità dei dati</a></li>
+  <li><a href="#analisi-delle-corrispondenze-multiple" id="toc-analisi-delle-corrispondenze-multiple" class="nav-link" data-scroll-target="#analisi-delle-corrispondenze-multiple"><span class="header-section-number">8.12</span> Analisi delle corrispondenze multiple</a></li>
+  <li><a href="#errori-interpretativi-frequenti" id="toc-errori-interpretativi-frequenti" class="nav-link" data-scroll-target="#errori-interpretativi-frequenti"><span class="header-section-number">8.13</span> Errori interpretativi frequenti</a></li>
+  <li><a href="#una-procedura-per-lanalisi-multivariata" id="toc-una-procedura-per-lanalisi-multivariata" class="nav-link" data-scroll-target="#una-procedura-per-lanalisi-multivariata"><span class="header-section-number">8.14</span> Una procedura per l’analisi multivariata</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Analisi multivariata</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Un territorio non può essere descritto adeguatamente da un solo numero. Reddito, occupazione, istruzione, povertà, accesso ai servizi e struttura demografica misurano aspetti diversi, ma spesso collegati. Osservare una variabile alla volta può far perdere la struttura complessiva; sommarle senza criterio può invece produrre un indicatore privo di significato.</p>
+<p>L’<strong>analisi multivariata</strong> studia simultaneamente più variabili osservate sulle stesse unità. In questo capitolo ci concentreremo sull’<strong>analisi in componenti principali</strong> (ACP, o PCA dall’inglese <em>principal component analysis</em>), uno strumento descrittivo per sintetizzare variabili quantitative correlate. Introdurremo inoltre l’analisi delle corrispondenze multiple per variabili qualitative.</p>
+<p>Questi metodi aiutano a:</p>
+<ul>
+<li>riconoscere gruppi di indicatori che si muovono insieme;</li>
+<li>ridurre molte variabili a poche dimensioni sintetiche;</li>
+<li>rappresentare unità e variabili in grafici più leggibili;</li>
+<li>costruire indicatori sintetici trasparenti, discutendone i limiti.</li>
+</ul>
+<p>L’ACP non distingue una variabile dipendente da variabili esplicative. Diversamente dalla <a href="./regressione.html">regressione</a>, non cerca di prevedere un esito specifico e non identifica relazioni causali. Cerca una rappresentazione compatta della variabilità presente nei dati.</p>
+<section id="dalle-variabili-alla-struttura-multivariata" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="dalle-variabili-alla-struttura-multivariata"><span class="header-section-number">8.1</span> Dalle variabili alla struttura multivariata</h2>
+<p>Supponiamo di osservare <span class="math inline">\(n\)</span> territori e <span class="math inline">\(p\)</span> indicatori quantitativi. I dati possono essere organizzati in una tabella con <span class="math inline">\(n\)</span> righe e <span class="math inline">\(p\)</span> colonne. Indichiamo con <span class="math inline">\(x_{ij}\)</span> il valore dell’indicatore <span class="math inline">\(j\)</span> nel territorio <span class="math inline">\(i\)</span>.</p>
+<p>Prima di sintetizzare occorre chiarire:</p>
+<ul>
+<li>che cosa rappresenta ogni riga e ogni colonna;</li>
+<li>unità di misura, periodo e fonte degli indicatori;</li>
+<li>direzione sostantiva di ciascuna variabile;</li>
+<li>presenza di valori mancanti, errori o osservazioni influenti;</li>
+<li>popolazione alla quale si vogliono estendere le conclusioni.</li>
+</ul>
+<p>L’ACP richiede variabili quantitative. Inserire codici numerici arbitrari per categorie, come Nord = 1, Centro = 2 e Sud = 3, imporrebbe distanze che non hanno significato.</p>
+<section id="un-esempio-territoriale-simulato" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="un-esempio-territoriale-simulato"><span class="header-section-number">8.1.1</span> Un esempio territoriale simulato</h3>
+<p>Costruiamo dati per 40 territori fittizi. Gli indicatori sono reddito medio in migliaia di euro, tasso di occupazione, quota di laureati, copertura della banda larga, disoccupazione, povertà e quota di residenti anziani. I valori sono simulati, non provengono da fonti ufficiali e non descrivono territori reali.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2040</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>numero_territori <span class="ot">&lt;-</span> <span class="dv">40</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>territorio <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"T%02d"</span>, <span class="fu">seq_len</span>(numero_territori))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>sviluppo_latente <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(numero_territori)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>invecchiamento_latente <span class="ot">&lt;-</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.2</span> <span class="sc">*</span> sviluppo_latente <span class="sc">+</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.2</span><span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="fu">rnorm</span>(numero_territori)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>indicatori_territoriali <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">reddito =</span> <span class="dv">24</span> <span class="sc">+</span> <span class="fl">3.5</span> <span class="sc">*</span> sviluppo_latente <span class="sc">+</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rnorm</span>(numero_territori, <span class="dv">0</span>, <span class="fl">0.8</span>),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">occupazione =</span> <span class="dv">61</span> <span class="sc">+</span> <span class="fl">4.5</span> <span class="sc">*</span> sviluppo_latente <span class="sc">-</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    invecchiamento_latente <span class="sc">+</span> <span class="fu">rnorm</span>(numero_territori, <span class="dv">0</span>, <span class="fl">1.5</span>),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">laureati =</span> <span class="dv">23</span> <span class="sc">+</span> <span class="dv">4</span> <span class="sc">*</span> sviluppo_latente <span class="sc">-</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.5</span> <span class="sc">*</span> invecchiamento_latente <span class="sc">+</span> <span class="fu">rnorm</span>(numero_territori, <span class="dv">0</span>, <span class="fl">1.8</span>),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">banda_larga =</span> <span class="dv">78</span> <span class="sc">+</span> <span class="dv">7</span> <span class="sc">*</span> sviluppo_latente <span class="sc">-</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.5</span> <span class="sc">*</span> invecchiamento_latente <span class="sc">+</span> <span class="fu">rnorm</span>(numero_territori, <span class="dv">0</span>, <span class="dv">3</span>),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">disoccupazione =</span> <span class="dv">11</span> <span class="sc">-</span> <span class="fl">3.2</span> <span class="sc">*</span> sviluppo_latente <span class="sc">+</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    invecchiamento_latente <span class="sc">+</span> <span class="fu">rnorm</span>(numero_territori, <span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">poverta =</span> <span class="dv">15</span> <span class="sc">-</span> <span class="fl">3.5</span> <span class="sc">*</span> sviluppo_latente <span class="sc">+</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.7</span> <span class="sc">*</span> invecchiamento_latente <span class="sc">+</span> <span class="fu">rnorm</span>(numero_territori, <span class="dv">0</span>, <span class="fl">1.2</span>),</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">anziani =</span> <span class="dv">23</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> invecchiamento_latente <span class="sc">+</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rnorm</span>(numero_territori, <span class="dv">0</span>, <span class="fl">0.8</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>dati_territori <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  territorio,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  indicatori_territoriali</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>anteprima_territori <span class="ot">&lt;-</span> <span class="fu">head</span>(dati_territori)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>anteprima_territori[<span class="sc">-</span><span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">round</span>(anteprima_territori[<span class="sc">-</span><span class="dv">1</span>], <span class="dv">1</span>)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>anteprima_territori</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  territorio reddito occupazione laureati banda_larga disoccupazione poverta
+1        T01    20.6        58.3     18.2        71.7           14.1    18.0
+2        T02    26.4        63.5     26.8        79.5           11.8    13.4
+3        T03    27.6        66.1     26.8        85.6            7.8    12.3
+4        T04    23.7        55.1     22.0        75.9           13.7    17.6
+5        T05    26.5        62.1     24.0        77.6           10.1    15.3
+6        T06    25.1        61.8     22.5        78.0           12.0    16.0
+  anziani
+1    19.0
+2    24.1
+3    20.5
+4    29.2
+5    22.3
+6    23.2</code></pre>
+</div>
+</div>
+<p>Il codice usa due dimensioni non osservate per generare correlazioni: una legata allo sviluppo e una alla struttura demografica. Questa costruzione rende l’esempio interpretabile, ma l’ACP non conosce tali dimensioni e utilizza soltanto i sette indicatori osservati.</p>
+</section>
+</section>
+<section id="correlazioni-e-ridondanza-informativa" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="correlazioni-e-ridondanza-informativa"><span class="header-section-number">8.2</span> Correlazioni e ridondanza informativa</h2>
+<p>L’ACP è utile quando più indicatori contengono informazione in parte sovrapposta. Nel capitolo descrittivo abbiamo definito la <a href="./descrittiva.html">correlazione</a> come misura dell’associazione lineare tra due variabili. La matrice di correlazione raccoglie tutti i confronti a coppie.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>matrice_correlazioni <span class="ot">&lt;-</span> <span class="fu">cor</span>(indicatori_territoriali)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(matrice_correlazioni, <span class="dv">2</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               reddito occupazione laureati banda_larga disoccupazione poverta
+reddito           1.00        0.91     0.90        0.92          -0.88   -0.92
+occupazione       0.91        1.00     0.88        0.91          -0.93   -0.93
+laureati          0.90        0.88     1.00        0.88          -0.84   -0.87
+banda_larga       0.92        0.91     0.88        1.00          -0.90   -0.91
+disoccupazione   -0.88       -0.93    -0.84       -0.90           1.00    0.93
+poverta          -0.92       -0.93    -0.87       -0.91           0.93    1.00
+anziani           0.26       -0.03     0.18        0.13           0.11    0.00
+               anziani
+reddito           0.26
+occupazione      -0.03
+laureati          0.18
+banda_larga       0.13
+disoccupazione    0.11
+poverta           0.00
+anziani           1.00</code></pre>
+</div>
+</div>
+<p>Reddito, occupazione, laureati e banda larga hanno correlazioni positive elevate. Disoccupazione e povertà sono associate negativamente ai primi quattro indicatori e positivamente tra loro. La quota di anziani presenta invece legami più deboli con questo gruppo. Ci aspettiamo quindi una dimensione dominante legata alle condizioni socioeconomiche e una seconda dimensione più demografica.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="La correlazione non rende intercambiabili gli indicatori">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avviso</span>La correlazione non rende intercambiabili gli indicatori
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Due variabili fortemente correlate possono avere significati politici differenti. Reddito e occupazione non diventano lo stesso fenomeno solo perché si muovono insieme. La riduzione dimensionale sintetizza l’informazione statistica, non elimina la necessità di interpretare le singole misure.</p>
+</div>
+</div>
+</section>
+<section id="perché-standardizzare" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="perché-standardizzare"><span class="header-section-number">8.3</span> Perché standardizzare</h2>
+<p>Gli indicatori hanno unità e dispersioni diverse. Senza correzioni, una variabile misurata su una scala numericamente ampia può dominare l’ACP anche se non è sostantivamente più importante.</p>
+<p>Per ogni indicatore <span class="math inline">\(j\)</span> standardizziamo il valore del territorio <span class="math inline">\(i\)</span>:</p>
+<p><span class="math display">\[
+z_{ij}=\frac{x_{ij}-\bar{x}_j}{s_j},
+\]</span></p>
+<p>dove <span class="math inline">\(\bar{x}_j\)</span> è la media campionaria e <span class="math inline">\(s_j\)</span> la deviazione standard dell’indicatore <span class="math inline">\(j\)</span>. Ogni variabile standardizzata ha media zero e deviazione standard uno. L’operazione è stata introdotta nel capitolo sulla <a href="./descrittiva.html">statistica descrittiva</a>.</p>
+<p>Applicare l’ACP alle variabili standardizzate equivale a lavorare sulla matrice di correlazione. Se tutte le variabili sono espresse nella stessa unità e le differenze di varianza hanno un significato sostantivo, si può usare la matrice di covarianza. La scelta deve essere dichiarata.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Standardizzare non risolve ogni problema">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avviso</span>Standardizzare non risolve ogni problema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La standardizzazione non corregge valori errati, asimmetrie estreme o indicatori concettualmente inappropriati. Inoltre, assegna inizialmente a ogni variabile la stessa varianza: questa è già una scelta di ponderazione, non un’operazione neutrale.</p>
+</div>
+</div>
+</section>
+<section id="lintuizione-dellacp" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="lintuizione-dellacp"><span class="header-section-number">8.4</span> L’intuizione dell’ACP</h2>
+<p>Immaginiamo una nuvola di punti descritta da molte coordinate. L’ACP cerca la direzione lungo la quale i punti sono più dispersi. Questa è la prima componente principale. Cerca poi una seconda direzione, perpendicolare alla prima, che conservi quanta più variabilità possibile tra quella rimasta. La procedura continua fino a ottenere al massimo <span class="math inline">\(p\)</span> componenti.</p>
+<p>La componente <span class="math inline">\(k\)</span> per il territorio <span class="math inline">\(i\)</span> è una combinazione lineare delle variabili standardizzate:</p>
+<p><span class="math display">\[
+C_{ik}=a_{1k}z_{i1}+a_{2k}z_{i2}+\cdots+a_{pk}z_{ip},
+\]</span></p>
+<p>dove:</p>
+<ul>
+<li><span class="math inline">\(C_{ik}\)</span> è il punteggio, o <strong>score</strong>, del territorio <span class="math inline">\(i\)</span> sulla componente <span class="math inline">\(k\)</span>;</li>
+<li><span class="math inline">\(z_{ij}\)</span> è il valore standardizzato dell’indicatore <span class="math inline">\(j\)</span>;</li>
+<li><span class="math inline">\(a_{jk}\)</span> è il peso, spesso chiamato <strong>loading</strong>, dell’indicatore <span class="math inline">\(j\)</span> sulla componente <span class="math inline">\(k\)</span>;</li>
+<li><span class="math inline">\(p\)</span> è il numero di indicatori.</li>
+</ul>
+<p>I pesi sono scelti in modo che la prima componente abbia la massima varianza possibile, con la condizione <span class="math inline">\(\sum_{j=1}^{p}a_{jk}^2=1\)</span>. Le componenti successive massimizzano la varianza residua e sono tra loro non correlate. L’ACP non sceglie i pesi per massimizzare una relazione causale o la previsione di un esito.</p>
+</section>
+<section id="calcolare-lacp-con-r" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="calcolare-lacp-con-r"><span class="header-section-number">8.5</span> Calcolare l’ACP con R</h2>
+<p>La funzione <code>prcomp()</code> è inclusa in R. Impostiamo <code>center = TRUE</code> e <code>scale. = TRUE</code> per centrare e standardizzare gli indicatori. La funzione usa una decomposizione numericamente stabile e restituisce, tra gli altri elementi, deviazioni standard delle componenti, pesi e scores.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>acp_territori <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  indicatori_territoriali,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">center =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">scale. =</span> <span class="cn">TRUE</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Orientiamo i segni per facilitare la lettura sostantiva.</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (acp_territori<span class="sc">$</span>rotation[<span class="st">"reddito"</span>, <span class="dv">1</span>] <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  acp_territori<span class="sc">$</span>rotation[, <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="sc">-</span>acp_territori<span class="sc">$</span>rotation[, <span class="dv">1</span>]</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  acp_territori<span class="sc">$</span>x[, <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="sc">-</span>acp_territori<span class="sc">$</span>x[, <span class="dv">1</span>]</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (acp_territori<span class="sc">$</span>rotation[<span class="st">"anziani"</span>, <span class="dv">2</span>] <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  acp_territori<span class="sc">$</span>rotation[, <span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="sc">-</span>acp_territori<span class="sc">$</span>rotation[, <span class="dv">2</span>]</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  acp_territori<span class="sc">$</span>x[, <span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="sc">-</span>acp_territori<span class="sc">$</span>x[, <span class="dv">2</span>]</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Il cambio di segno non modifica distanze, varianze o qualità della soluzione. In un’ACP il segno di ogni componente è arbitrario: moltiplicare contemporaneamente pesi e scores per -1 descrive lo stesso asse. Qui scegliamo che la prima componente aumenti con il reddito e la seconda con la quota di anziani, così le frasi interpretative rimangono stabili.</p>
+</section>
+<section id="quanta-informazione-conserva-ogni-componente" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="quanta-informazione-conserva-ogni-componente"><span class="header-section-number">8.6</span> Quanta informazione conserva ogni componente</h2>
+<p>Indichiamo con <span class="math inline">\(\lambda_k\)</span> la varianza della componente <span class="math inline">\(k\)</span>. La quota di varianza spiegata è</p>
+<p><span class="math display">\[
+v_k=\frac{\lambda_k}{\sum_{j=1}^{p}\lambda_j},
+\]</span></p>
+<p>dove <span class="math inline">\(v_k\)</span> è compreso tra 0 e 1. Moltiplicandolo per 100 otteniamo la percentuale di varianza spiegata. Con dati standardizzati, la varianza totale è pari al numero <span class="math inline">\(p\)</span> di variabili.</p>
+<p>In <code>prcomp()</code>, l’elemento <code>sdev</code> contiene le deviazioni standard delle componenti; elevandole al quadrato otteniamo le varianze <span class="math inline">\(\lambda_k\)</span>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>varianza_componenti <span class="ot">&lt;-</span> acp_territori<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>quota_varianza <span class="ot">&lt;-</span> varianza_componenti <span class="sc">/</span> <span class="fu">sum</span>(varianza_componenti)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>tabella_varianza <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">componente =</span> <span class="fu">paste0</span>(<span class="st">"CP"</span>, <span class="fu">seq_along</span>(quota_varianza)),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">varianza_percentuale =</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> quota_varianza, <span class="dv">1</span>),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">cumulata_percentuale =</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> <span class="fu">cumsum</span>(quota_varianza), <span class="dv">1</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>tabella_varianza</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  componente varianza_percentuale cumulata_percentuale
+1        CP1                 78.8                 78.8
+2        CP2                 15.7                 94.4
+3        CP3                  1.9                 96.4
+4        CP4                  1.3                 97.6
+5        CP5                  1.0                 98.6
+6        CP6                  0.8                 99.4
+7        CP7                  0.6                100.0</code></pre>
+</div>
+</div>
+<p>La prima componente spiega il 78,8% della variabilità complessiva e la seconda il 15,7%. Insieme conservano il 94,4% della varianza dei sette indicatori standardizzati. Le componenti successive aggiungono ciascuna una quota molto piccola in questi dati simulati.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">1</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">100</span> <span class="sc">*</span> quota_varianza,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">names.arg =</span> <span class="fu">seq_along</span>(quota_varianza),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"#2C7FB8"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Componente"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Varianza spiegata (%)"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Contributo di ogni componente"</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">seq_along</span>(quota_varianza),</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="dv">100</span> <span class="sc">*</span> <span class="fu">cumsum</span>(quota_varianza),</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"b"</span>,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"#D95F02"</span>,</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>),</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Numero di componenti"</span>,</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Varianza cumulata (%)"</span>,</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Informazione cumulata"</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">90</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"grey50"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="multivar_files/figure-html/grafico-varianza-acp-territori-1.png" class="img-fluid figure-img" width="768"></p>
+<figcaption>Varianza spiegata e varianza cumulata dalle componenti principali.</figcaption>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Il grafico di sinistra è chiamato spesso <strong>scree plot</strong>. Il gomito dopo la seconda componente suggerisce che due dimensioni offrano una sintesi efficace. La soglia del 90% nel grafico cumulato è soltanto un riferimento visivo: il numero di componenti va scelto considerando obiettivo, interpretabilità e stabilità, non applicando meccanicamente una percentuale.</p>
+</section>
+<section id="leggere-i-loadings" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="leggere-i-loadings"><span class="header-section-number">8.7</span> Leggere i loadings</h2>
+<p>I loadings indicano come gli indicatori contribuiscono alla direzione di ciascuna componente. Valori grandi in valore assoluto segnalano un contributo importante; segni uguali indicano che le variabili entrano nella stessa direzione, segni opposti che entrano in direzioni opposte.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>loadings_principali <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  acp_territori<span class="sc">$</span>rotation[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>],</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>loadings_principali</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                  PC1    PC2
+reddito         0.411  0.166
+occupazione     0.411 -0.116
+laureati        0.399  0.111
+banda_larga     0.409  0.038
+disoccupazione -0.406  0.196
+poverta        -0.411  0.091
+anziani         0.039  0.948</code></pre>
+</div>
+</div>
+<p>Nella prima componente, reddito, occupazione, laureati e banda larga hanno pesi positivi vicini a 0,4; disoccupazione e povertà hanno pesi negativi di ampiezza simile. La componente contrappone quindi condizioni economiche favorevoli e disagio socioeconomico. La quota di anziani pesa poco sulla prima componente.</p>
+<p>La seconda componente è dominata dalla quota di anziani, con loading 0,948. Può essere letta come una dimensione demografica distinta. Le altre variabili vi contribuiscono molto meno.</p>
+<p>Il nome di una componente non è prodotto dall’algoritmo. È un’interpretazione proposta dall’analista sulla base dei loadings e del significato degli indicatori. Chiamare la prima componente “sviluppo” non dimostra l’esistenza di un unico concetto oggettivo di sviluppo.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Pesi, loadings e correlazioni">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Pesi, loadings e correlazioni
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In <code>prcomp()</code>, la matrice <code>rotation</code> contiene i coefficienti usati per costruire le componenti. Questi vengono spesso chiamati loadings. Non coincidono necessariamente con le correlazioni tra variabili e componenti; per variabili standardizzate, tali correlazioni dipendono anche dalla deviazione standard della componente.</p>
+</div>
+</div>
+</section>
+<section id="leggere-gli-scores" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="leggere-gli-scores"><span class="header-section-number">8.8</span> Leggere gli scores</h2>
+<p>Gli scores collocano ogni territorio lungo gli assi sintetici. Uno score positivo sulla prima componente indica valori relativamente alti per gli indicatori con loading positivo e relativamente bassi per quelli con loading negativo. Lo zero rappresenta una posizione vicina al profilo medio standardizzato.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>scores_territori <span class="ot">&lt;-</span> acp_territori<span class="sc">$</span>x[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>da_etichettare <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">c</span>(</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">order</span>(<span class="fu">abs</span>(scores_territori[, <span class="dv">1</span>]), <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>],</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">order</span>(<span class="fu">abs</span>(scores_territori[, <span class="dv">2</span>]), <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  scores_territori,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"grey45"</span>,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlim =</span> <span class="fu">range</span>(scores_territori[, <span class="dv">1</span>]) <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>),</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">range</span>(scores_territori[, <span class="dv">2</span>]) <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>),</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"CP1: condizioni socioeconomiche (78,8%)"</span>,</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"CP2: struttura demografica (15,7%)"</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">v =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"grey70"</span>)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  scores_territori[da_etichettare, ],</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> territorio[da_etichettare],</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">pos =</span> <span class="dv">3</span>,</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">cex =</span> <span class="fl">0.8</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="multivar_files/figure-html/grafico-scores-acp-territori-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Scores dei territori simulati sulle prime due componenti principali.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>T16 e T07 hanno scores elevati sulla prima componente e combinano valori relativamente favorevoli degli indicatori socioeconomici simulati. T11 e T40 si trovano all’estremo opposto. T32 e T04 hanno scores alti soprattutto sulla seconda componente, quindi si distinguono più per la struttura demografica che per la prima dimensione.</p>
+<p>La vicinanza tra due punti indica profili simili rispetto alle componenti rappresentate, non identità su tutti gli indicatori. Inoltre, il grafico conserva il 94,4% e non il 100% della variabilità: una parte delle differenze resta fuori dal piano.</p>
+</section>
+<section id="costruire-un-indicatore-sintetico" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="costruire-un-indicatore-sintetico"><span class="header-section-number">8.9</span> Costruire un indicatore sintetico</h2>
+<p>Lo score della prima componente può essere usato come indicatore sintetico se la componente ha un significato coerente con l’obiettivo. Per renderlo più leggibile, trasformiamo lo score in una scala con media 100 e deviazione standard 10:</p>
+<p><span class="math display">\[
+S_i=100+10\frac{C_{i1}}{s_C},
+\]</span></p>
+<p>dove <span class="math inline">\(C_{i1}\)</span> è lo score del territorio <span class="math inline">\(i\)</span> sulla prima componente e <span class="math inline">\(s_C\)</span> è la deviazione standard campionaria degli scores della prima componente. Poiché gli scores hanno media zero, l’indice <span class="math inline">\(S_i\)</span> ha media 100.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>indice_socioeconomico <span class="ot">&lt;-</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="dv">100</span> <span class="sc">+</span> <span class="dv">10</span> <span class="sc">*</span> scores_territori[, <span class="dv">1</span>] <span class="sc">/</span> <span class="fu">sd</span>(scores_territori[, <span class="dv">1</span>])</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>graduatoria_indice <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  territorio,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">score_CP1 =</span> <span class="fu">round</span>(scores_territori[, <span class="dv">1</span>], <span class="dv">2</span>),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">indice =</span> <span class="fu">round</span>(indice_socioeconomico, <span class="dv">1</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>graduatoria_indice <span class="ot">&lt;-</span> graduatoria_indice[</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">order</span>(graduatoria_indice<span class="sc">$</span>indice),</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(graduatoria_indice, <span class="dv">3</span>),</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>(graduatoria_indice, <span class="dv">3</span>)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   territorio score_CP1 indice
+11        T11     -5.09   78.3
+40        T40     -4.83   79.4
+27        T27     -3.85   83.6
+10        T10      3.26  113.9
+7         T07      4.17  117.8
+16        T16      5.47  123.3</code></pre>
+</div>
+</div>
+<p>T11 e T40 hanno gli indici più bassi, rispettivamente 78,3 e 79,4; T07 e T16 i più alti, 117,8 e 123,3. Un valore di 120 non significa “20% di sviluppo in più”. Significa che il territorio si trova due deviazioni standard sopra la media dell’indicatore costruito in questo campione.</p>
+<p>La graduatoria è descrittiva e dipende da variabili, periodo, standardizzazione e unità incluse. Aggiungere altri territori può cambiare medie, deviazioni standard, loadings, scores e posizioni. L’indice non misura incertezza campionaria e non dimostra che una politica abbia causato le differenze osservate.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Un indicatore data-driven non è privo di valori">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avviso</span>Un indicatore data-driven non è privo di valori
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>L’ACP sceglie i pesi per rappresentare la varianza, non l’importanza sociale. Indicatori molto variabili o ridondanti possono dominare la prima componente. La scelta di includere reddito, banda larga o povertà rimane una decisione teorica e politica che deve essere documentata.</p>
+</div>
+</div>
+</section>
+<section id="quante-componenti-conservare" class="level2" data-number="8.10">
+<h2 data-number="8.10" class="anchored" data-anchor-id="quante-componenti-conservare"><span class="header-section-number">8.10</span> Quante componenti conservare</h2>
+<p>Non esiste una regola unica. Sono utili almeno quattro criteri:</p>
+<ol type="1">
+<li><strong>Varianza spiegata:</strong> le componenti conservate dovrebbero rappresentare una quota adeguata dell’informazione per l’obiettivo.</li>
+<li><strong>Scree plot:</strong> un gomito può indicare dove le componenti successive aggiungono poco.</li>
+<li><strong>Interpretabilità:</strong> una componente deve avere loadings leggibili e un significato sostantivo difendibile.</li>
+<li><strong>Stabilità:</strong> risultati che cambiano molto eliminando poche unità o aggiornando il periodo sono fragili.</li>
+</ol>
+<p>Conservare una sola componente è attraente per creare una graduatoria, ma può cancellare dimensioni rilevanti. Nel nostro esempio la seconda componente separa la struttura demografica dalle condizioni socioeconomiche. Ridurla a rumore priverebbe l’analisi di un’informazione sostantiva.</p>
+</section>
+<section id="valori-mancanti-outlier-e-qualità-dei-dati" class="level2" data-number="8.11">
+<h2 data-number="8.11" class="anchored" data-anchor-id="valori-mancanti-outlier-e-qualità-dei-dati"><span class="header-section-number">8.11</span> Valori mancanti, outlier e qualità dei dati</h2>
+<p><code>prcomp()</code> non accetta valori mancanti nella matrice utilizzata. Eliminare tutte le righe incomplete può cambiare la popolazione analizzata; sostituire i dati mancanti con la media riduce artificialmente la variabilità. La strategia deve dipendere dal meccanismo di mancanza e deve essere documentata.</p>
+<p>L’ACP basata su medie, varianze e correlazioni è sensibile agli outlier. Un territorio estremo può modificare la direzione delle componenti e apparire poi molto distante proprio perché ha contribuito a definirle. È necessario esaminare distribuzioni e metadati prima dell’analisi, senza cancellare automaticamente casi sostantivamente importanti.</p>
+<p>Variabili quasi duplicate possono inoltre ricevere peso complessivo elevato. Inserire tre misure molto simili del reddito e una sola misura dell’istruzione attribuisce implicitamente maggiore importanza alla dimensione economica. La selezione degli indicatori precede il calcolo.</p>
+</section>
+<section id="analisi-delle-corrispondenze-multiple" class="level2" data-number="8.12">
+<h2 data-number="8.12" class="anchored" data-anchor-id="analisi-delle-corrispondenze-multiple"><span class="header-section-number">8.12</span> Analisi delle corrispondenze multiple</h2>
+<p>L’ACP è adatta a variabili quantitative. Se vogliamo studiare congiuntamente variabili qualitative, come condizione occupazionale, titolo di studio, tipo di abitazione e accesso digitale, possiamo usare l’<strong>analisi delle corrispondenze multiple</strong> (ACM).</p>
+<p>L’ACM trasforma ogni modalità in una colonna indicatrice: per esempio, la variabile condizione occupazionale genera colonne come occupato, disoccupato e inattivo. Ogni unità ha valore 1 nella modalità osservata e 0 nelle altre. A partire da questa matrice, il metodo costruisce assi che sintetizzano le associazioni tra profili di modalità.</p>
+<p>I risultati principali sono:</p>
+<ul>
+<li>le <strong>coordinate delle modalità</strong>, che indicano dove ciascuna categoria si colloca sugli assi;</li>
+<li>gli <strong>scores delle unità</strong>, che riassumono il loro profilo di risposte;</li>
+<li>l’<strong>inerzia</strong>, una misura della dispersione rappresentata da ciascun asse;</li>
+<li>i <strong>contributi</strong>, che aiutano a riconoscere quali modalità definiscono maggiormente un asse.</li>
+</ul>
+<p>Modalità vicine possono caratterizzare profili simili; modalità lontane dall’origine contribuiscono spesso a distinguere le unità. Questa lettura richiede cautela: la distanza va interpretata nel contesto del metodo e delle qualità di rappresentazione, non come correlazione ordinaria.</p>
+<p>Le modalità rare possono apparire molto lontane e dominare un asse pur riguardando poche osservazioni. Prima dell’ACM occorre controllare frequenze, categorie quasi vuote e modalità definite in modo ambiguo. Loadings dell’ACP e coordinate o contributi dell’ACM non sono oggetti perfettamente equivalenti, anche se entrambi aiutano a interpretare le dimensioni.</p>
+<p>Non aggiungiamo un esempio R perché il progetto non usa ancora un pacchetto per l’ACM e una sua introduzione responsabile richiederebbe anche diagnostica e grafici specifici. Il punto essenziale è scegliere il metodo in base al tipo di variabili, non convertire arbitrariamente categorie in numeri.</p>
+</section>
+<section id="errori-interpretativi-frequenti" class="level2" data-number="8.13">
+<h2 data-number="8.13" class="anchored" data-anchor-id="errori-interpretativi-frequenti"><span class="header-section-number">8.13</span> Errori interpretativi frequenti</h2>
+<ol type="1">
+<li><strong>Interpretare la prima componente come verità sostantiva.</strong> È la direzione di massima varianza, non necessariamente la dimensione politicamente più importante.</li>
+<li><strong>Dimenticare la standardizzazione.</strong> Con scale diverse, l’ACP sulla covarianza può essere dominata dalle unità di misura.</li>
+<li><strong>Leggere il segno come assoluto.</strong> Il segno di una componente può essere invertito senza cambiare la soluzione.</li>
+<li><strong>Confondere loadings e scores.</strong> I primi descrivono il ruolo delle variabili; i secondi collocano le unità.</li>
+<li><strong>Trattare la varianza spiegata come qualità causale.</strong> Una componente che spiega molta varianza non identifica cause o effetti.</li>
+<li><strong>Trasformare un indice in una graduatoria definitiva.</strong> Piccole differenze possono essere instabili e non misurano automaticamente differenze di benessere.</li>
+<li><strong>Ignorare indicatori esclusi e dati mancanti.</strong> La sintesi riguarda soltanto l’informazione effettivamente inserita nell’analisi.</li>
+</ol>
+</section>
+<section id="una-procedura-per-lanalisi-multivariata" class="level2" data-number="8.14">
+<h2 data-number="8.14" class="anchored" data-anchor-id="una-procedura-per-lanalisi-multivariata"><span class="header-section-number">8.14</span> Una procedura per l’analisi multivariata</h2>
+<ol type="1">
+<li><strong>Definire la domanda e le unità.</strong> Chiarire che cosa si vuole sintetizzare e su quale popolazione.</li>
+<li><strong>Selezionare indicatori motivati.</strong> Evitare duplicazioni e documentare direzione, fonte, periodo e unità.</li>
+<li><strong>Controllare i dati.</strong> Esaminare distribuzioni, valori mancanti, outlier e correlazioni.</li>
+<li><strong>Scegliere il metodo.</strong> Usare ACP per variabili quantitative e ACM per profili qualitativi; i dati misti richiedono metodi specifici.</li>
+<li><strong>Decidere la scala.</strong> Motivare l’uso di covarianze o correlazioni e ogni trasformazione preliminare.</li>
+<li><strong>Valutare le dimensioni.</strong> Combinare varianza spiegata, scree plot, interpretabilità e stabilità.</li>
+<li><strong>Leggere loadings e scores insieme.</strong> Assegnare nomi alle componenti soltanto dopo avere esaminato i contributi.</li>
+<li><strong>Comunicare i limiti.</strong> Affiancare all’indicatore sintetico le variabili originarie e dichiarare che la sintesi non implica causalità.</li>
+</ol>
+<p>La riduzione dimensionale è utile quando rende visibile una struttura complessa senza nasconderne le scelte. Un buon indicatore sintetico non è soltanto facile da ordinare: deve essere riproducibile, interpretabile e accompagnato dalle sue componenti.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiato!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiato!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./regressione.html" class="pagination-link" aria-label="Modelli di regressione">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modelli di regressione</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./spatial.html" class="pagination-link" aria-label="Modelli per dati spaziali">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Modelli per dati spaziali</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

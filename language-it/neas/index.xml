@@ -9,7 +9,7 @@
 <link>https://blog-neas.github.io/language-it/neas/</link>
 <atom:link href="https://blog-neas.github.io/language-it/neas/index.xml" rel="self" type="application/rss+xml"/>
 <description>Blog posts by Professor Lucio Palazzo</description>
-<generator>quarto-1.8.25</generator>
+<generator>quarto-1.10.18</generator>
 <lastBuildDate>Fri, 31 Dec 2021 23:00:00 GMT</lastBuildDate>
 <item>
   <title>Help</title>
